@@ -1,14 +1,14 @@
 [
     {
       "name": "SUV Cars",
-      "image": "/assets/imgs/Categories/categories/SUV.webp"
+      "image": "/assets/imgs/categories/categories/SUV.webp"
     },
     {
       "name": "Sport Cars",
-      "image": "/assets/imgs/Categories/categories/Sport.webp"
+      "image": "/assets/imgs/categories/categories/Sport.webp"
     },{
         "name": "Sedan Cars",
-        "image": "/assets/imgs/Categories/categories/sedan.webp"
+        "image": "/assets/imgs/categories/categories/sedan.webp"
       },
       {
         "name": "Hatchback Cars",
@@ -19,6 +19,6 @@
       },
       {
         "name": "Convertible Cars",
-        "image": "/assets/imgs/Categories/categories/conv.webp"
+        "image": "/assets/imgs/categories/categories/conv.webp"
       }
   ]

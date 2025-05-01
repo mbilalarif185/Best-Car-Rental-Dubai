@@ -42,29 +42,28 @@ export default function Footer1() {
 						<div className="col-md-2 col-xs-6 footer-3">
 							<h6 className="text-linear-3">Company</h6>
 							<ul className="menu-footer">
-								<li><Link href="#">About Us</Link></li>
+								<li><Link href="/about-us">About Us</Link></li>
 								<li><Link href="#">Our Awards</Link></li>
-								<li><Link href="#">Agencies</Link></li>
+								
 								<li><Link href="#">Copyright Notices</Link></li>
 								<li><Link href="#">Terms of Use</Link></li>
 								<li><Link href="#">Privacy Notice</Link></li>
-								<li><Link href="#">Lost &amp; Found</Link></li>
+								<li><Link href="#">Policy &amp; Notice</Link></li>
 							</ul>
 						</div>
 						<div className="col-md-2 col-xs-6 footer-2">
 							<h6 className="text-linear-3">Our Services</h6>
 							<ul className="menu-footer">
-								<li><Link href="#">Car Rental Services</Link></li>
-								<li><Link href="#">Vehicle Leasing Options</Link></li>
-								<li><Link href="#">Long-Term Car Rentals</Link></li>
+								<li><Link href="#">Airport Transfer</Link></li>
+								<li><Link href="#">Chauffeur Services</Link></li>
+								<li><Link href="#">Business Car Rental</Link></li>
 								<li><Link href="#">Car Sales and Trade-Ins</Link></li>
-								<li><Link href="#">Luxury Car Rentals</Link></li>
-								<li><Link href="#">Rent-to-Own Programs</Link></li>
-								<li><Link href="#">Fleet Management Solutions</Link></li>
+								<li><Link href="#">Car Rental With Driver</Link></li>
+								<li><Link href="#">Wedding Car Rental</Link></li>
 							</ul>
 						</div>
 						<div className="col-md-2 col-xs-6 footer-4">
-							<h6 className="text-linear-3">Our Partners</h6>
+							<h6 className="text-linear-3">Best Cars</h6>
 							<ul className="menu-footer">
 								<li><Link href="#">Affiliates</Link></li>
 								<li><Link href="#">Travel Agents</Link></li>
