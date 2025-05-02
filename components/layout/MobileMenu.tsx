@@ -108,7 +108,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 											</Link>
 										</li>
 										<li>
-											<Link  href="/cars-list-1">Our Fleet
+											<Link  href="/luxury-fleet">Our Fleet
 											</Link>
 											
 										</li>

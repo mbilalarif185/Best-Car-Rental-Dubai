@@ -92,7 +92,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 											</Link>
 										</li>
 										<li>
-											<Link className="color-white" href="/cars-list-1">Our Fleet
+											<Link className="color-white" href="/luxury-fleet">Our Fleet
 											</Link>
 											
 										</li>
