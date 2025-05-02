@@ -7,7 +7,7 @@ import { swiperGroup3 } from '@/util/swiperOptions';
 import 'swiper/css'; // Swiper styles
 
 interface CarsListingProps {
-  cars: Car[]; // Define the `cars` prop type
+  cars: Car[]; 
 }
 
 export default function CarsListing1({ cars }: CarsListingProps) {
@@ -45,7 +45,7 @@ export default function CarsListing1({ cars }: CarsListingProps) {
                   <div className="card-journey-small background-card hover-up">
                     <div className="card-image">
                       <div className="card-image-bg" style={{ backgroundImage: `url(${car.image})` }}></div>
-                      <Link href="/cars-details-1">
+                      <Link href={`/cars/${car.slug}`}>
                         <img
                           src={car.image}
                           alt={`${car.name} For Rent in Dubai`}
@@ -81,7 +81,7 @@ export default function CarsListing1({ cars }: CarsListingProps) {
                             <h6 className="heading-6 neutral-1000">AED {car.price}</h6>
                           </div>
                           <div className="card-button">
-                            <Link className="btn btn-gray" href="/cars-details-1">Book Now</Link>
+                            <Link className="btn btn-gray" href={`/cars/${car.slug}`}>Book Now</Link>
                           </div>
                         </div>
                       </div>

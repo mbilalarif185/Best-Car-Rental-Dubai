@@ -31,4 +31,5 @@ export interface Car {
   fuel: string;
   seats: number;
   location: string;
+  slug:string;
 }

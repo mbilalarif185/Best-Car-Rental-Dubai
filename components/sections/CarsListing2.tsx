@@ -210,7 +210,7 @@ interface CarsListing2Props {
 			  <div className="col-lg-3 col-md-6 wow fadeIn" key={index} data-wow-delay={`0.${index + 1}s`}>
 				<div className="card-journey-small background-card hover-up">
 				  <div className="card-image">
-					<Link href='#'>
+					<Link href={`/cars/${car.slug}`}>
 					  <img src={car.image} alt={`Rent ${car.name} in ${car.location}`} />
 					</Link>
 				  </div>
@@ -243,7 +243,7 @@ interface CarsListing2Props {
 						  <h6 className="text-lg-bold neutral-1000"> AED {car.price}</h6>
 						</div>
 						<div className="card-button">
-						  <Link className="btn btn-gray" href="{}">Book Now</Link>
+						  <Link className="btn btn-gray" href={`/cars/${car.slug}`}>Book Now</Link>
 						</div>
 					  </div>
 					</div>

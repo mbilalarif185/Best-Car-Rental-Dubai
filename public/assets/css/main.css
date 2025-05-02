@@ -287,7 +287,9 @@ li.hr span {
 	margin: 20px 0;
 	display: block;
 }
-
+.luxuryimage{
+	height: 229px;
+}
 /*--- Common Classes---------------------*/
 ::-moz-placeholder {
 	color: var(--bs-neutral-600);

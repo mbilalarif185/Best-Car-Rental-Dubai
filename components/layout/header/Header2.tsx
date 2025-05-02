@@ -85,7 +85,7 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, handle
 											</Link>
 										</li>
 										<li>
-											<Link  href="/cars-list-1">Our Fleet
+											<Link  href="/luxury-fleet">Our Fleet
 											</Link>
 										</li>
 										<li>
