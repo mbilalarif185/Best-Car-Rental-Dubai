@@ -9,7 +9,7 @@ type CarDetailProps = {
   car: Car
 }
 
-export default function CarsDetail({ car }: CarDetailProps) {
+export default function CarDetail({ car }: CarDetailProps) {
 	const [isAccordion, setIsAccordion] = useState(null)
 
 	const handleAccordion = (key: any) => {
@@ -353,7 +353,7 @@ export default function CarsDetail({ car }: CarDetailProps) {
 											<p className="text-xl-bold neutral-1000">Rent This Vehicle</p>
 										</div>
                                         
-                                        {/* <form onSubmit={handleSubmit}> */}
+                                        <form onSubmit={handleSubmit}>
                                                 <div className="content-booking-form">
                                                    
                                                     <div className="item-line-booking border-bottom-0">
@@ -478,7 +478,7 @@ export default function CarsDetail({ car }: CarDetailProps) {
                                                     </button>
                                                     </div>
                                                 </div>
-                                        {/* </form> */}
+                                        </form>
 
 									</div>
                                     
