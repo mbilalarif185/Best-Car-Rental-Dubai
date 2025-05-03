@@ -1957,6 +1957,11 @@ next@14.2.15:
     "@next/swc-win32-ia32-msvc" "14.2.15"
     "@next/swc-win32-x64-msvc" "14.2.15"
 
+nodemailer@^6.10.1:
+  version "6.10.1"
+  resolved "https://registry.npmjs.org/nodemailer/-/nodemailer-6.10.1.tgz"
+  integrity sha512-Z+iLaBGVaSjbIzQ4pX6XV41HrooLsQ10ZWPUehGmuantvzWoDVBnmsdUcOIDM1t+yPor5pDhVlDESgOMEGxhHA==
+
 object-assign@^4.1.1:
   version "4.1.1"
   resolved "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz"
