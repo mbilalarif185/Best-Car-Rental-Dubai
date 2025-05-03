@@ -18,7 +18,7 @@ export default function CarReview1() {
 						</div>
 						<div className="col-md-3 mb-30 wow fadeInUp">
 							<div className="d-flex justify-content-center justify-content-md-end">
-								<Link className="btn btn-primary" href="/cars-list-1">
+								<Link className="btn btn-primary" href="/luxury-fleet">
 									View More
 									<svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M8 15L15 8L8 1M15 8L1 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

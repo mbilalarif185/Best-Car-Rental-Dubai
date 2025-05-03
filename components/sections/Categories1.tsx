@@ -23,7 +23,7 @@ export default function Categories1({ categories }: Props) {
           </div>
           <div className="col-md-4">
             <div className="d-flex justify-content-md-end mt-md-0 mt-4">
-              <Link className="btn btn-primary wow fadeInUp" href="/cars-list-1">
+              <Link className="btn btn-primary wow fadeInUp" href="/luxury-fleet">
                 Book Now
                 <svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M8 15L15 8L8 1M15 8L1 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

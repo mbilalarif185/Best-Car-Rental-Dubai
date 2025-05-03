@@ -197,8 +197,12 @@
             "rating": 4.8,
             "reviews": 455,
             "location": "Dubai - United Arab Emirates",
-            "image": "https://legendarycarrental.ae/wp-content/uploads/2025/02/McLaren-720S-for-rent-in-dubai.webp",
-            "image2": "https://legendarycarrental.ae/wp-content/uploads/2025/02/McLaren-720S-Convertible-dubai.webp",
+            "image": "/assets/imgs/Cars/Mclaren 720s/McLaren-720s-in-dubai-for-rent.webp",
+            "image2": "/assets/imgs/Cars/Mclaren 720s/interior-of-McLaren-720s.webp",
+            "image3": "/assets/imgs/Cars/Mclaren 720s/McLaren-720s-for-rent.webp",
+            "image4": "/assets/imgs/Cars/Mclaren 720s/McLaren-720s-interior.webp",
+            "image5": "/assets/imgs/Cars/Mclaren 720s/McLaren-720s.webp",
+            "image8": "/assets/imgs/Cars/Audi RS Q8/rent audi rsq8.webp",
             "slug": "rent-mclaren-720s-in-dubai"
         },
         
