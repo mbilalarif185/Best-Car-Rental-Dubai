@@ -353,7 +353,7 @@ export default function CarsDetail({ car }: CarDetailProps) {
 											<p className="text-xl-bold neutral-1000">Rent This Vehicle</p>
 										</div>
                                         
-                                        <form onSubmit={handleSubmit}>
+                                        {/* <form onSubmit={handleSubmit}> */}
                                                 <div className="content-booking-form">
                                                    
                                                     <div className="item-line-booking border-bottom-0">
@@ -478,7 +478,7 @@ export default function CarsDetail({ car }: CarDetailProps) {
                                                     </button>
                                                     </div>
                                                 </div>
-                                        </form>
+                                        {/* </form> */}
 
 									</div>
                                     
