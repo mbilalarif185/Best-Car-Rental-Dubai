@@ -41,18 +41,18 @@ export default function Categories1({ categories }: Props) {
                   data-wow-delay={cat.delay || `${0.1 * ((index % 4) + 1)}s`}
                 >
                   <div className="card-image">
-                    <Link className="card-title" href="/cars-list-1">
+                    <Link className="card-title" href="/luxury-fleet">
                       <img src={cat.image} alt={cat.name} />
                     </Link>
                   </div>
                   <div className="card-info">
-                    <Link className="card-title" href="/cars-list-1">{cat.name}</Link>
+                    <Link className="card-title" href="/luxury-fleet">{cat.name}</Link>
                     <div className="card-meta">
                       <div className="meta-links">
-                        <Link href="/cars-list-1">{cat.count} Vehicles</Link>
+                        <Link href="/luxury-fleet">{cat.count} Vehicles</Link>
                       </div>
                       <div className="card-button">
-                        <Link href="/cars-list-1">
+                        <Link href="/luxury-fleet">
                           <svg width={10} height={10} viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.00011 9.08347L9.08347 5.00011L5.00011 0.916748M9.08347 5.00011L0.916748 5.00011" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>

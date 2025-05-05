@@ -224,7 +224,7 @@ interface CarsListing2Props {
 					  </div>
 					</div>
 					<div className="card-title">
-					  <Link className="text-lg-bold neutral-1000 text-nowrap" href='{car.link}'>
+					  <Link className="text-lg-bold neutral-1000 text-nowrap" href={`/cars/${car.slug}`}>
 						{car.name}
 					  </Link>
 					</div>

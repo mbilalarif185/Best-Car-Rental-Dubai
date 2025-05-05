@@ -63,7 +63,7 @@ export default function CarsListing1({ cars }: CarsListingProps) {
                         </div>
                       </div>
                       <div className="card-title">
-                        <Link className="heading-6 neutral-1000" href="/cars-details-1">{car.name}</Link>
+                        <Link className="heading-6 neutral-1000" href={`/cars/${car.slug}`}>{car.name}</Link>
                       </div>
                       <div className="card-program">
                         <div className="card-location">

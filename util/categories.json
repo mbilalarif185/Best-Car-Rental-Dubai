@@ -1,24 +1,24 @@
 [
     {
-      "name": "SUV Cars",
+      "name": "SUV ",
       "image": "/assets/imgs/categories/categories/SUV.webp"
     },
     {
-      "name": "Sport Cars",
+      "name": "Sport ",
       "image": "/assets/imgs/categories/categories/Sport.webp"
     },{
-        "name": "Sedan Cars",
+        "name": "Sedan ",
         "image": "/assets/imgs/categories/categories/sedan.webp"
       },
       {
-        "name": "Hatchback Cars",
+        "name": "Hatchback",
         "image": "/assets/imgs/Legendary Cars/Lamborghini-STO-luxury-car-rental-dubai.webp"
       },{
-        "name": "Coupe Cars",
+        "name": "Coupe",
         "image": "/assets/imgs/Legendary Cars/Lamborghini-STO-luxury-car-rental-dubai.webp"
       },
       {
-        "name": "Convertible Cars",
+        "name": "Convertible",
         "image": "/assets/imgs/categories/categories/conv.webp"
       }
   ]

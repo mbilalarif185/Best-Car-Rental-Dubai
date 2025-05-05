@@ -37,7 +37,7 @@ export default async function Home() {
 				<Cta2 />
 				<CarsListing2 cars={specialCars} />
 				<Cta1 />
-				<Services1 />
+				{/* <Services1 /> */}
 				<Banners />
 				<Testimonials />
 				<CarReview1 />
