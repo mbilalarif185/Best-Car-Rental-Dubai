@@ -252,14 +252,14 @@ export default function CarsGrid() {
                     </div> */}
                     <div className="box-collapse scrollFilter mb-15">
                     <iframe
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.618166772418!2d55.23615531501264!3d25.121154183944334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f17!3m3!1m2!1s0x3e5f6bfe8d289efb%3A0xf24c5208d3b3b8b!2sLEGENDARY%20CAR%20RENTAL%20LLC!5e0!3m2!1sen!2sae!4v1714246800000!5m2!1sen!2sae"
-  width="230px"
-  height="260px"
-  style={{ border: 0 }}
-  allowFullScreen
-  loading="lazy"
-  referrerPolicy="no-referrer-when-downgrade"
-  title="Legendary Car Rental LLC Dubai"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.618166772418!2d55.23615531501264!3d25.121154183944334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f17!3m3!1m2!1s0x3e5f6bfe8d289efb%3A0xf24c5208d3b3b8b!2sLEGENDARY%20CAR%20RENTAL%20LLC!5e0!3m2!1sen!2sae!4v1714246800000!5m2!1sen!2sae"
+                    width="230px"
+                    height="260px"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Legendary Car Rental LLC Dubai"
 />
 
 </div>

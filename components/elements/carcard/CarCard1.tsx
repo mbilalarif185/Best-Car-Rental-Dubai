@@ -10,7 +10,13 @@ export default function CarCard1({ car }: any) {
 			<div className="card-journey-small background-card hover-up">
 					<div className="card-image">
 						<Link href={`/cars/${car.slug}`}>
-							<img src={`${car.image}`} alt="Carento" />
+							<img src={`${car.image}`}
+							  alt={`${car.name} - Rent Luxury Car in Dubai`}
+							  title={`Rent ${car.name} in Dubai`}
+							   loading="lazy"
+                          		decoding="async"
+							
+							/>
 						</Link>
 					</div>
 					<div className="card-info p-4 pt-30">
@@ -20,7 +26,7 @@ export default function CarCard1({ car }: any) {
 								<span className="rating text-xs-medium rounded-pill">{car.rating} <span className="text-xs-medium neutral-500">({car.reviews} Reviews)</span></span>
 							</div>
 						</div>
-						<div className="card-title"><Link className="text-lg-bold neutral-1000 text-nowrap" href="/cars-details-1">{car.name}</Link></div>
+						<div className="card-title"><Link className="text-lg-bold neutral-1000 text-nowrap" href={`/cars/${car.slug}`}>{car.name}</Link></div>
 						<div className="card-program">
 							<div className="card-location">
 								<p className="text-location text-sm-medium neutral-500">{car.location}</p>

@@ -10,21 +10,21 @@ export default function Cta3() {
 					<div className="container">
 						<div className="row align-items-center">
 							<div className="col-lg-5 pe-lg-5">
-								<span className="btn btn-signin bg-white text-dark mb-4 wow fadeInDown">About Our Luxury Car Rental Dubai</span>
-								<h4 className="mb-4 pe-lg-5 neutral-1000 wow fadeInUp">Affordable Luxury Car Rental Dubai</h4>
+								<h3 className="btn btn-signin bg-white text-dark mb-4 wow fadeInDown">About Our Luxury Car Rental Dubai</h3>
+								<h2 className="custom-heading mb-4 pe-lg-5 neutral-1000 wow fadeInUp ">Legendary Car Rental: The Premier Car Hire Service in Dubai - UAE
+								</h2>
 								<p className="text-lg-medium neutral-500 mb-4 wow fadeInUp">
-								We recognize that when you rent a luxury vehicle at our luxury car rental service in Dubai, 
-								you are renting an experience, not just a ride. We have been providing the best luxury car rentals in Dubai since 2016,
-								 leading the way for those in Dubai who want to enjoy the elegance,
-								 power, and luxury that our new luxury cars offer.
+								At Legendary Car Rental, we upgrade your travel experience with our exotic selection of luxury cars for rent in Dubai. Whether you're in Dubai for business, leisure, or a special occasion, our exclusive fleet of high-end vehicles promises a memorable experience. Legendary is the best luxury car rental company in Dubai, offering you luxury cars for rent at affordable prices. Dubai is all about glamor and luxury. 
+
 									
 								</p>
 								<div className="row">
 									<div className="col">
 										<ul className="list-ticks-green">
-											<li className="neutral-1000">Economical Rates<br/></li>
-											<li className="neutral-1000">Round-the-clock Pickup & Return</li>
-											<li className="neutral-1000">Various Drop Off Locations</li>
+											<li className="neutral-1000">Fastest Delivery Across Dubai<br/></li>
+											<li className="neutral-1000">Highly Maintained Rental Cars</li>
+											<li className="neutral-1000">From Sports to Family Car Rentals
+											</li>
 										</ul>
 									</div>
 								</div>
@@ -39,15 +39,17 @@ export default function Cta3() {
 								<div className="box-image-payment-2">
 									<div className="row align-items-center">
 										<div className="col-sm-4 mb-30">
-											<img className="bdrd8 w-100 wow fadeIn" data-wow-delay="0.1s" src="/assets/imgs/cta/cta-3/img-1.png" alt="Carento" />
+											<img className="bdrd8 w-100 wow fadeIn" data-wow-delay="0.1s" src="/assets/imgs/cta/cta-3/rent luxury car.webp" alt="Carento"
+											loading="lazy"
+											decoding="async" />
 										</div>
 										<div className="col-sm-4 mb-30">
-											<img className="bdrd8 w-100 mb-15 wow fadeIn" data-wow-delay="0.2s" src="/assets/imgs/cta/cta-3/img-2.png" alt="Carento" />
-											<img className="bdrd8 w-100 wow fadeIn" data-wow-delay="0.3s" src="/assets/imgs/cta/cta-3/img-3.png" alt="Carento" />
+											<img className="bdrd8 w-100 mb-15 wow fadeIn" data-wow-delay="0.2s" src="/assets/imgs/cta/cta-3/best cars in dubai.webp" alt="Carento" />
+											<img className="bdrd8 w-100 wow fadeIn" data-wow-delay="0.3s" src="/assets/imgs/cta/cta-3/affordable cars for rent in dubai.webp" alt="Carento" />
 										</div>
 										<div className="col-sm-4 mb-30">
-											<img className="bdrd8 w-100 mb-15 wow fadeIn" data-wow-delay="0.4s" src="/assets/imgs/cta/cta-3/img-4.png" alt="Carento" />
-											<img className="bdrd8 w-100 wow fadeIn" data-wow-delay="0.5s" src="/assets/imgs/cta/cta-3/img-5.png" alt="Carento" />
+											<img className="bdrd8 w-100 mb-15 wow fadeIn" data-wow-delay="0.4s" src="/assets/imgs/cta/cta-3/luxury supercars for rent in dubai.webp" alt="Carento" />
+											<img className="bdrd8 w-100 wow fadeIn" data-wow-delay="0.5s" src="/assets/imgs/cta/cta-3/luxury cars for rent in dubai.webp" alt="Carento" />
 										</div>
 									</div>
 								</div>

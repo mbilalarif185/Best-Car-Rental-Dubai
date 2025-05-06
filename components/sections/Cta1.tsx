@@ -12,6 +12,7 @@ export default function Cta1() {
 		if (document.getElementById(scriptId)) return
 		const script = document.createElement('script')
 		script.type = 'application/ld+json'
+		script.id = scriptId
 		script.innerHTML = JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "VideoObject",

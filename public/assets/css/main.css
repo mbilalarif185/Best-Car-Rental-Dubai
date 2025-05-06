@@ -1,6 +1,6 @@
 /***
  Theme Name: Legendary Car Rental Dubai 
- Description: Car rental HTML template
+ Description: Rent Luxury Cars
  Version: 1.0
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.htm
@@ -40,6 +40,7 @@ TABLE CONTENT
 @import url(../css/plugins/bootstrap-datepicker3.css);
 @import url(../css/plugins/slick.css);
 @import url(../css/plugins/odometer.css);
+
 
 :root {
 	--urbanist: "Urbanist", sans-serif;
@@ -287,6 +288,11 @@ li.hr span {
 	margin: 20px 0;
 	display: block;
 }
+.custom-heading {
+	font-size: 39px;
+	line-height: 48px;
+	
+  }
 .luxuryimage{
 	height: 229px;
 }
@@ -8954,7 +8960,7 @@ a.icon-socials:hover svg path {
 	text-align: center;
 }
 .box-list-brand-car .item-brand {
-	height: 140px; /* fixed height for the box */
+	height: 110px; /* fixed height for the box */
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -8962,8 +8968,8 @@ a.icon-socials:hover svg path {
 }
 .box-list-brand-car .item-brand img {
 	
-	max-height: 90px;
-	max-width: 90px;
+	max-height: 70px;
+	max-width: 70px;
 	object-fit: contain;
 }
 

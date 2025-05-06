@@ -124,7 +124,7 @@
         {
             "name": "Lamborghini Huracan Evo Spyder",
             "brand": "Lamborghini ",
-            "type": "Convertible ",
+            "type": "Convertible",
             "price": 3400,
             "doors": 2,
             "gear": "Auto",
@@ -208,7 +208,7 @@
               "name": "Mercedes AMG GTR",
               "slug": "rent-mercedes-amg-gtr-in-dubai",
               "brand": "Mercedes ",
-              "type": "Sport ",
+              "type": "Coupe ",
               "price": 1700,
               "doors": 2,
               "gear": "Auto",
@@ -218,10 +218,10 @@
               "rating": 5.0,
               "reviews": 496,
               "location": "Dubai - United Arab Emirates",
-              "image": "https://legendarycarrental.ae/wp-content/uploads/2025/02/Mercedes-AMG-GTR-in-dubai-for-rent.webp",
-              "image2": "https://legendarycarrental.ae/wp-content/uploads/2025/02/Mercedes-AMG-GTR-for-rent-in-dubai.webp",
-              "image3": "https://legendarycarrental.ae/wp-content/uploads/2025/02/Mercedes-AMG-GTR-interior.webp",
-              "image4": "https://legendarycarrental.ae/wp-content/uploads/2025/02/interior-of-Mercedes-AMG-GTR.webp"
+              "image": "/assets/imgs/Cars/Mercedes AMG GTR/Mercedes-AMG-GTR-in-dubai-for-rent.webp",
+              "image2": "/assets/imgs/Cars/Mercedes AMG GTR/interior-of-Mercedes-AMG-GTR.webp",
+              "image3": "/assets/imgs/Cars/Mercedes AMG GTR/Mercedes-AMG-GTR-interior.webp",
+              "image4": "/assets/imgs/Cars/Mercedes AMG GTR/Mercedes-AMG-GTR-for-rent-in-dubai.webp"
             },
             {
               "name": "Mercedes Benz C300",
@@ -510,7 +510,7 @@
                 },{
                   "name": "Lamborghini Huracan Evo 2024",
                   "brand": "Lamborghini ",
-                  "type": "Convertible ",
+                  "type": "Convertible",
                   "price": 3300,
                   "doors": 2,
                   "gear": "Auto",
