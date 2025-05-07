@@ -8,16 +8,36 @@ export default function Cta2() {
 			<section className="box-cta-2 background-body overflow-hidden">
 				<div className=" bg-shape top-50 start-50 translate-middle" >
 
-					<img  src="/assets/imgs/cta/cta-2/Luxury Car Rental Dubai.webp" alt="Luxury Car Rental Dubai"
+					<img  src="/assets/imgs/cta/cta-2/Luxury Car Rental Dubai.webp" alt="Luxury Car Rental in Dubai with Rolls Royce and Ferrari"
+					title="luxury car hire dubai"
 					loading='lazy'
 					decoding='async' />
 				</div>
 				<div className="container position-relative z-1">
 					<div className="row ">
 						<div className="col-lg-5 pe-lg-5 ">
-							<h3 className="text-white wow fadeInDown">Want to Book Luxury Car?</h3>
-							<p className="text-lg-medium text-white wow fadeInUp">Match with up to 4 lenders to get the lowest
-								rate available with no markups, no fees, and no obligations.</p>
+							<h3 className="text-white wow fadeInDown mt-4 mb-4">Book Your Luxury Car Rental in Dubai Today</h3>
+							<p className="text-lg-medium text-white wow fadeInUp">
+							Our rental for luxury cars has something for everyone from Rolls Royce to Ferrari and self-drive to Chauffeur services. 
+							We boost your journey with sports car rental, superior car rental, SUV rental, and exotic cars for rent. 
+							Our highly maintained fleet of luxury cars make your travel comfortable and memorable. 
+							So, for the next tour, rent luxury cars in Dubai from us and make unforgettable memories. With us you can: 
+
+							</p>
+							<div className="row mt-4">
+							<div className="col-md-6">
+								<ul className="list-ticks-green">
+								<li className="text-lg-medium text-white fs-6 lh-sm">Rent a car for Business Trip</li>
+								<li className="text-lg-medium text-white fs-6 lh-sm">Hire Chauffeur Service in Dubai</li>
+								</ul>
+							</div>
+							<div className="col-md-6">
+								<ul className="list-ticks-green">
+								<li className="text-lg-medium text-white fs-6 lh-sm">Rent cars for Dubai Airport</li>
+								<li className="text-lg-medium text-white fs-6 lh-sm">Book cars for special events</li>
+								</ul>
+							</div>
+								</div>
 						</div>
 						
 						<div className="col-lg-6 offset-lg-1">
@@ -74,7 +94,9 @@ export default function Cta2() {
 										viewBox="0 0 17 16"
 										fill="none"
 										xmlns="http://www.w3.org/2000/svg"
-										>
+										aria-hidden="true">
+											<title>superior car rental dubai</title>
+											<desc>Rent a Car from Best Car Rental Dubai</desc>
 										<path
 											d="M8.5 15L15.5 8L8.5 1M15.5 8L1.5 8"
 											stroke="currentColor"
@@ -143,14 +165,16 @@ export default function Cta2() {
 									<img src="/assets/imgs/page/homepage5/author.png" alt="Luxury Car Rental Clients"
 									loading='lazy'
 									decoding='async' />
-									<img src="/assets/imgs/page/homepage5/author2.png" alt="Luxury Car Rental Clients"
+									<img src="/assets/imgs/page/homepage5/author2.png" alt="Luxury Car Rental Family"
 									loading='lazy'
 									decoding='async' />
 									<img src="/assets/imgs/page/homepage5/author3.png" alt="Clients of Luxury Car Rental"
 									loading='lazy'
 									decoding='async' />
 									<span className="item-author">
-										<svg width={18} height={18} viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<svg width={18} height={18} viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+										<title>Vip car rental</title>
+											<desc>Rent a Car from vip car rental Dubai</desc>
 											<rect x="0.5" y="7.448" width={17} height="2.31818" fill="black" />
 											<rect x="7.84082" y="17.1072" width={17} height="2.31818" transform="rotate(-90 7.84082 17.1072)" fill="black" />
 										</svg>
@@ -158,7 +182,7 @@ export default function Cta2() {
 								</div>
 								<div className="authors-partner-right">
 									<p className="text-sm neutral-1000">1684 people used <strong>Legendary Car Rental Dubai
-										 </strong>in the last
+										 </strong>  in the last
 										<strong>24 hours</strong></p>
 								</div>
 							</div>

@@ -18,7 +18,7 @@ import Banners from "@/components/sections/Banners";
 import dynamic from "next/dynamic";
 const Testimonials = dynamic(() => import("@/components/sections/Testimonials"), { ssr: false });
 import CarReview1 from "@/components/sections/CarReview1";
-// import Services1 from "@/components/sections/Services1"
+import Services1 from "@/components/sections/Services1"
 import Blog1 from "@/components/sections/Blog1";
 
 export const metadata = {
@@ -102,7 +102,7 @@ export default async function Home() {
       <Cta2 />
       <CarsListing2 cars={specialCars} />
       <Cta1 />
-	  {/* <Services1 /> */}
+	    <Services1 />
       <Banners />
       <Testimonials />
       <CarReview1 />

@@ -6,7 +6,6 @@ import ModalVideo from 'react-modal-video'
 export default function Cta1() {
 	const [isOpen, setOpen] = useState(false)
 
-	// Inject VideoObject schema for SEO
 	useEffect(() => {
 		const scriptId = "video-object-schema"
 		if (document.getElementById(scriptId)) return
@@ -21,7 +20,7 @@ export default function Cta1() {
 			"thumbnailUrl": "/assets/imgs/Legendary Cars/Mercedes-G63-for-rent.webp",
 			"uploadDate": "2024-12-01",
 			"contentUrl": "https://youtu.be/sl6Jtrx3FFQ?si=6CmFQwgj_sXMLpa-",
-			"embedUrl": "  https://youtu.be/sl6Jtrx3FFQ?si=6CmFQwgj_sXMLpa-"
+			"embedUrl":   "https://youtu.be/sl6Jtrx3FFQ?si=6CmFQwgj_sXMLpa-"
 		})
 		document.head.appendChild(script)
 	}, [])
@@ -31,9 +30,9 @@ export default function Cta1() {
 			<section className="box-cta-1 background-100 py-96">
 				<div className="container">
 					<div className="row align-items-center">
-						<div className="col-lg-6 pe-lg-5 wow fadeInUp">
-							<div className="card-video">
-								<div className="card-image">
+						<div className="col-lg-6 pe-lg-5 wow fadeInUp mt-12 ">
+							<div className="card-video ">
+								<div className="card-image ">
 									<button
 										className="btn btn-play popup-youtube"
 										onClick={() => setOpen(true)}
@@ -41,7 +40,7 @@ export default function Cta1() {
 									/>
 
 									<img src="/assets/imgs/Legendary Cars/Mercedes-G63-for-rent.webp" alt="Luxury Car Rental Dubai"
-									title=""
+									title="rent a car dubai"
 									loading="lazy"
 									decoding="async" />
 								</div>
@@ -49,23 +48,29 @@ export default function Cta1() {
 						</div>
 						<div className="col-lg-6 mt-lg-0 mt-4">
 							<span className="btn btn-signin bg-white text-dark mb-4 wow fadeInUp">Luxury Car Rental Dubai</span>
-							<h4 className="mb-4 neutral-1000 wow fadeInUp">Receive a Competitive Offer Sell Your Car to Us Today.</h4>
+							<h3 className="mb-4 neutral-1000 wow fadeInUp">Skip the Search for “ Luxury Car Rental Near Me” & Choose Legendary</h3>
 							<p className="text-lg-medium neutral-500 mb-4 wow fadeInUp">
-								We are committed to delivering exceptional service, competitive pricing, and a diverse selection of options for our customers.
+								Give your hunt for luxury car rental in Dubai an end, because Legendary offers you versatile options. 
+								As Dubai is a city of luxury and sophistication, you need something that complements your pride. 
+								Transportation matters whether you go to a wedding or want to make a grand appearance. 
+								Looking into these factors, Legendary Car Rental ensures you find the right option. 
+								Here are some significant reasons that make us distinctive from our competitors:
+
 							</p>
 							<div className="row">
 								<div className="col-md-6">
-									<ul className="list-ticks-green">
-										<li className="neutral-1000 wow fadeInUp" data-wow-delay="0.1s">Expert Certified Mechanics</li>
-										<li className="neutral-1000 wow fadeInUp" data-wow-delay="0.2s">Get Reasonable Price</li>
-										<li className="neutral-1000 wow fadeInUp" data-wow-delay="0.3s">Genuine Spares Parts</li>
+									<ul className="list-ticks-green wow fadeInUp">
+										<li className="neutral-1000 wow fadeInUp" >Maintained Luxury Rental Cars</li>
+										<li className="neutral-1000 wow fadeInUp" >100+ Cars for Rent Across Dubai</li>
+										<li className="neutral-1000 wow fadeInUp" >Flexible Car Rental Plans</li>
 									</ul>
 								</div>
 								<div className="col-md-6">
 									<ul className="list-ticks-green wow fadeInUp">
-										<li className="neutral-1000 wow fadeInUp" data-wow-delay="0.1s">First Class Services</li>
-										<li className="neutral-1000 wow fadeInUp" data-wow-delay="0.2s">24/7 road assistance</li>
-										<li className="neutral-1000 wow fadeInUp" data-wow-delay="0.3s">Free Pick-Up &amp; Drop-Offs</li>
+										<li className="neutral-1000 wow fadeInUp" >Competitive Rental Prices									</li>
+										<li className="neutral-1000 wow fadeInUp" >First-Class Customer Service
+										</li>
+										<li className="neutral-1000 wow fadeInUp">Free Pick-Up &amp; Drop-Off </li>
 									</ul>
 								</div>
 							</div>
