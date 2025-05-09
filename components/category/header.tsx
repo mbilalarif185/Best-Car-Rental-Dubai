@@ -24,7 +24,7 @@ const Header: React.FC<HeaderProps> = ({
         item.name.trim().toLowerCase(),
         {
           title: item.name,
-          subtitle: item.subtitle,
+         
           bannerImage: item["banner-image"], 
           Image1:item.image,
         },
@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({
       const config = categorySlug ? categoryData[categorySlug] : null;
  
     const finalTitle = title || config?.title || "Explore Our Cars";
-    const finalSubtitle = subtitle || config?.subtitle || "Browse our premium collection";
+    
     const finalImageUrl = imageUrl || config?.bannerImage || config?.Image1 || "/assets/imgs/page-header/banner.png";
   
   
