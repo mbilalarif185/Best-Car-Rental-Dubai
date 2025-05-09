@@ -23,13 +23,13 @@ export default function HeroSection() {
           <span className="text-sm-bold bg-2 px-4 py-3 rounded-12">
             Find cars for sale and for rent near you
           </span>
-          <h1 className="text-white mt-4">Find Your Perfect Car</h1>
+          <h1 className="text-white mt-4">Find Perfect Luxury Car in Dubai</h1>
           <p className="text-white text-lg-medium">
-            Search and find your best car rental easily
+            Search and find your best luxury cars  easily
           </p>
         </div>
 
-        <nav
+        {/* <nav
           aria-label="breadcrumb"
           className="background-body position-absolute z-1 top-100 start-50 translate-middle px-3 py-2 rounded-12 border d-flex gap-3 d-none d-md-flex"
         >
@@ -48,7 +48,7 @@ export default function HeroSection() {
           <Link href="/cars" title="Cars Listing" className="neutral-1000 text-md-bold">
             Cars
           </Link>
-        </nav>
+        </nav> */}
       </div>
     </header>
   );

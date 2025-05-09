@@ -7,6 +7,7 @@ const Header=()=>{
 							<div className="bg-overlay rounded-12 overflow-hidden">
 								<img className="w-100 h-100 img-banner" src="/assets/imgs/page-header/banner.png" alt="Carento" />
 							</div>
+							
 							<div className="container position-absolute z-1 top-50 start-50 translate-middle">
 								<h2 className="text-white">About Us</h2>
 								<span className="text-white text-xl-medium">Get the latest news, updates and tips</span>
@@ -16,7 +17,7 @@ const Header=()=>{
 								<span>
 									<img src="/assets/imgs/template/icons/arrow-right.svg" alt="Carento" />
 								</span>
-								<Link href="#" className="neutral-1000 text-md-bold">About Us</Link>
+								<span className="neutral-1000 text-md-bold">About Us</span>
 							</div>
 						</div>
 					</div>

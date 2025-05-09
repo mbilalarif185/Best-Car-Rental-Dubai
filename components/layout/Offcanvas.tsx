@@ -8,8 +8,8 @@ export default function Offcanvas({ isOffcanvas, handleOffcanvas }: any) {
 					<div className="sidebar-canvas-head">
 						<div className="sidebar-canvas-logo">
 							<Link className="d-flex" href="/">
-								<img className="light-mode" alt="Carento" src="/assets/imgs/template/logo.png" />
-								<img className="dark-mode" alt="Carento" src="/assets/imgs/template/logo.png" />
+								<img className="light-mode" alt="Best Car Rental Dubai" src="/assets/imgs/template/logo.png" />
+								<img className="dark-mode" alt="Luxury Cars for Rent in Dubai" src="/assets/imgs/template/logo.png" />
 							</Link>
 						</div>
 						<div className="sidebar-canvas-lang">
@@ -33,7 +33,7 @@ export default function Offcanvas({ isOffcanvas, handleOffcanvas }: any) {
 									</ul>
 								</div>
 							</div> */}
-							<a className="close-canvas" onClick={handleOffcanvas}> <img alt="Carento" src="/assets/imgs/template/icons/close.png" /></a>
+							<a className="close-canvas" onClick={handleOffcanvas}> <img alt="Rent Luxury Car in Dubai" src="/assets/imgs/template/icons/close.png" /></a>
 						</div>
 					</div>
 					<div className="sidebar-canvas-content">

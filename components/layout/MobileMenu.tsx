@@ -14,7 +14,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 			<div className={`mobile-header-active mobile-header-wrapper-style perfect-scrollbar button-bg-2 ${isMobileMenu ? 'sidebar-visible' : ''}`}>
 				<PerfectScrollbar className="mobile-header-wrapper-inner">
 					<div className="mobile-header-logo">
-						<Link className="d-flex" href="/"><img className="light-mode" alt="Carento" src="/assets/imgs/template/logo.png" /><img className="dark-mode" alt="Carento" src="/assets/imgs/template/logo.png" /></Link>
+						<Link className="d-flex" href="/"><img className="light-mode" alt="Luxury Car Rental Dubai" src="/assets/imgs/template/logo.png" /><img className="dark-mode" alt="Carento" src="/assets/imgs/template/logo.png" /></Link>
 						<div className="burger-icon burger-icon-white" onClick={handleMobileMenu} />
 					</div>
 					<div className="mobile-header-content-area">
@@ -107,11 +107,22 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 											<Link  href="/about-us">About Us
 											</Link>
 										</li>
-										<li>
-											<Link  href="/luxury-fleet">Our Fleet
+										<li className={`has-children ${isAccordion === 6 ? "active" : ""}`}>
+											<span className="menu-expand" onClick={() => handleAccordion(6)}>
+												<i className="arrow-small-down"></i>
+											</span>
+											<Link href="/luxury-fleet">Our Fleet
 											</Link>
-											
+											<ul className="sub-menu" style={{ display: `${isAccordion == 6 ? "block" : "none"}` }}>
+											<li><Link href="/luxury-fleet/suv">SUV</Link></li>
+												<li><Link href="/luxury-fleet/sedan">Sedan</Link></li>
+												<li><Link href="/luxury-fleet/sport">Sport</Link></li>
+												<li><Link href="/luxury-fleet/coupe">Coupe</Link></li>
+												<li><Link href="/luxury-fleet/convertible">Convertible</Link></li>
+												<li><Link href="/luxury-fleet/Hatchback">Hatchback</Link></li>
+											</ul>
 										</li>
+										
 										<li>
 											<Link  href="/services"> Services
 											</Link>

@@ -105,7 +105,7 @@ export default function CarsListing1({ cars }: CarsListingProps) {
 
                         <div className="endtime">
                           <div className="card-price" itemProp="offers" itemScope itemType="https://schema.org/Offer">
-                            {/* <p className="text-md-medium neutral-500 me-2">From</p> */}
+                          
                             <h6 className="heading-6 neutral-1000">
                               <span itemProp="priceCurrency" content="AED">AED</span>{" "}
                               <span itemProp="price">{car.price}</span>

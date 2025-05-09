@@ -1,24 +1,45 @@
 [
-    {
+   {
       "name": "SUV ",
-      "image": "/assets/imgs/categories/categories/SUV.webp"
+      "image": "/assets/imgs/categories/categories/SUV.webp",
+      "banner-image":"/assets/imgs/hero/hero-1/Rent Luxury SUV in Dubai.webp",
+      "slug":"suv",
+      "heading":"Book a Car with Luxury SUV Rental Dubai",
+     "description": "Discover our range of luxury car rentals in Dubai and choose your favorite SUV! We've got many excellent choices, from five-seaters to super fancy seven-seaters. If you love affordable SUV rental deals and top-notch service, Legendary Car Rental is your place. Just book and feel the excitement on the streets of Dubai with our fantastic range of luxury SUVs. Classic or fancy, we've got your back with our vast fleet — from Audi and Mercedes to elegant BMWs. Whether you're planning a weekend escape or a big family trip, we offer luxury cars for rent in Dubai. You can use our super luxurious SUVs for every occasion! Don't miss out — book your SUV rental in Dubai and turn your ride into a legendary adventure!"
+
     },
     {
       "name": "Sport ",
-      "image": "/assets/imgs/categories/categories/Sport.webp"
+      "image": "/assets/imgs/categories/categories/Sport.webp",
+      "slug":"sport",
+      "heading":"Sports Car Rental Dubai for Luxury Rides",
+      "description":"Are you ready for an incredible adventure on Dubai's exquisite roads? Well, our sports car rental in Dubai is here to make it happen! Just rent a supercar like Lamborghini STO, McLaren 720S, Mercedes AMG GTS, Ferrari, or others from us. These luxury sports cars for rent are not just cool to look at; they're built to give you a thrilling riding experience in Dubai. Renting a sports car with a legendary car rental isn't just about driving, our team ensures you explore Dubai in luxury. Our sports car rental helps you to have a chill drive across scenic landscapes with highly maintained fleet and affordable rental prices. Therefore, wherever you go, our sports cars will make your journey epic and unforgettable."
     },{
         "name": "Sedan ",
-        "image": "/assets/imgs/categories/categories/sedan.webp"
+        "image": "/assets/imgs/categories/categories/sedan.webp",
+        "slug":"sedan",
+        "heading":"Rent a Sedan Car in Dubai for a Luxury Experience",
+        "description":"Legendary Car Rental makes renting a sedan car in Dubai easier with its largest fleet of sedan cars for rent. Our sedan car rental in Dubai makes your journey better with a luxury ride. That’s why we have a number of luxury sedan cars from high-end brands including BMW, Audi, Mercedes, and others. Moreover, our car rental fleet is up-to-date, stylish, and safe, offering an unmatchable experience! Whether you want a luxury car rental with a driver to drive you around or you're ready to hit the road yourself, we've got your back. So, Rent a sedan car in Dubai from legendary and start your journey right away. "
       },
       {
         "name": "Hatchback",
-        "image": "/assets/imgs/Legendary Cars/Lamborghini-STO-luxury-car-rental-dubai.webp"
-      },{
+        "image": "/assets/imgs/Legendary Cars/Lamborghini-STO-luxury-car-rental-dubai.webp",
+        "slug":"Hatchback",
+        "heading":"Luxury Hatchback Rental Dubai",
+        "description":"Enjoy an awesome and affordable experience with legendary hatchback cars for rent in Dubai. If you're making your way to Dubai Beach for a scenic escape, a family trip, or pulling into the city for business, our hatchback car rentals make things easy! We have hatchback cars that are low-cost and provide great savings on your fuel. Don't forget the fun of zipping through the streets of Dubai and finding parking easily, which are two of the perks of our hatchback car rental fleet. Often, hatchback cars act as a go-to for low-key outings, vacations, and family days. Our large hatchback rental fleet has a lot to offer; Mercedes, Mini Cooper S, Mini Countryman, our fleet is impressive! So if you're looking for an amazing and low-cost ride in Dubai, you should consider a Hatchback rental from Legendary!"
+      },
+      {
         "name": "Coupe ",
-        "image": "/assets/imgs/Cars/Mercedes AMG GTR/Mercedes-AMG-GTR-in-dubai-for-rent.webp"
+        "image": "/assets/imgs/Cars/Mercedes AMG GTR/Mercedes-AMG-GTR-in-dubai-for-rent.webp",
+        "slug":"Coupe",
+        "heading":"The Premium Coupe Rental in Dubai",
+        "description":"Dubai is the place for beautiful views, entertainment, and unlimited luxury, and the suitable give you the best.  Dubai hosts millions of tourists every year and give you the life-time memorable experience. But for tourists like you, visiting this amazing landscape in a chauffeur would not be appropriate. With this said, we give you the most luxurious fleet of coupe rental in Dubai. Want to travel on the spacious roads of Dubai? OR relax when you arrive at your destination when you see the buildings poke back up from the sky; just rent a luxury car and get comfortable rides in style. Coupe cars are the best solution if you want the comfort of travel but yet want to be noticed on the road—sleek design, power performance, heavy race and luxury interior makes you get the most out."
       },
       {
         "name": "Convertible",
-        "image": "/assets/imgs/categories/categories/conv.webp"
+        "image": "/assets/imgs/categories/categories/conv.webp",
+        "slug":"Convertible",
+        "heading":"Convertible Car Rental in Dubai",
+        "description":"Have a unique driving experience with our convertible car rental in Dubai. Whether you're a visitor or a local, we make sure you have a super fun time driving our premium rental cars. Our convertible cars for rent offer performance and luxury, making your drive an experience like no other. At Legendary Car Rental, we offer various convertible rental cars from famous brands.Whether it's a special event or a casual outing, our convertible car rental has the perfect ride for you. From Lamborghini to Porsche, our cars mix luxury with super cool performance."
       }
   ]

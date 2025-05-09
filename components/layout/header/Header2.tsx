@@ -84,9 +84,18 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, handle
 											<Link  href="/about-us">About Us
 											</Link>
 										</li>
-										<li>
+										<li className="has-children ">
 											<Link  href="/luxury-fleet">Our Fleet
 											</Link>
+											<ul className="sub-menu">
+												<li><Link href="/luxury-fleet/suv">SUV</Link></li>
+												<li><Link href="/luxury-fleet/sedan">Sedan</Link></li>
+												<li><Link href="/luxury-fleet/sport">Sport</Link></li>
+												<li><Link href="/luxury-fleet/coupe">Coupe</Link></li>
+												<li><Link href="/luxury-fleet/convertible">Convertible</Link></li>
+												<li><Link href="/luxury-fleet/Hatchback">Hatchback</Link></li>
+											</ul>
+											
 										</li>
 										<li>
 											<Link href="/services">Services
