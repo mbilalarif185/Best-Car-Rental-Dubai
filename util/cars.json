@@ -366,7 +366,7 @@
             {
               "name": "Land Rover Defender",
               "slug": "rent-land-rover-defender-in-dubai",
-              "brand": "Range Rover ",
+              "brand": "Land Rover ",
               "type": "SUV ",
               "price": 900,
               "doors": 4,
@@ -387,7 +387,7 @@
             {
               "name": "Range Rover Evoque",
               "slug": "rent-range-rover-evoque-in-dubai",
-              "brand": "Range Rover ",
+              "brand": "Land Rover ",
               "type": "SUV ",
               "price": 1100,
               "doors": 4,
@@ -409,7 +409,7 @@
                 {
                   "name": "Range Rover Sport",
                   "slug": "rent-range-rover-sport-in-dubai",
-                  "brand": "Range Rover ",
+                  "brand": "Land Rover ",
                   "type": "SUV ",
                   "price": 1200,
                   "doors": 4,
@@ -429,7 +429,7 @@
                 {
                   "name": "Range Rover SVR",
                   "slug": "rent-range-rover-svr-in-dubai",
-                  "brand": "Range Rover ",
+                  "brand": "Land Rover ",
                   "type": "SUV ",
                   "price": 1200,
                   "doors": 4,
@@ -448,7 +448,7 @@
                 {
                   "name": "Range Rover Velar",
                   "slug": "rent-range-rover-velar-in-dubai",
-                  "brand": "Range Rover",
+                  "brand": "Land Rover",
                   "type": "SUV ",
                   "price": 650,
                   "doors": 4,
@@ -468,7 +468,7 @@
                 {
                   "name": "Range Rover Vogue",
                   "slug": "rent-range-rover-vogue-in-dubai",
-                  "brand": "Range Rover ",
+                  "brand": "Land Rover ",
                   "type": "SUV ",
                   "price": 800,
                   "doors": 4,

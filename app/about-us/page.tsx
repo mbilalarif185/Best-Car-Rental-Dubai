@@ -1,10 +1,12 @@
 import Layout from "@/components/layout/Layout";
-import Header from "@/components/about_sections/header";
-import Second from "@/components/about_sections/second";
-import Third from "@/components/about_sections/third";
-import Cta8 from "@/components/sections/cta8";
-import Cta9 from "@/components/sections/cta9";
-import Faq from "@/components/sections/faq";
+import dynamic from 'next/dynamic';
+
+const Header = dynamic(() => import('@/components/about_sections/header'));
+const Second = dynamic(() => import('@/components/about_sections/second'));
+const Third = dynamic(() => import('@/components/about_sections/third'));
+const Cta8 = dynamic(() => import('@/components/sections/cta8'));
+const Cta9 = dynamic(() => import('@/components/sections/cta9'));
+const Faq = dynamic(() => import('@/components/sections/faq'));
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -35,7 +37,11 @@ export default function AboutUs() {
   return (
     <Layout footerStyle={1}>
       <main>
-        <Header />
+        <Header
+        title="About Us"
+        subtitle="Get the latest news, updates and tips"
+        currentPage="About Us"
+        backgroundImage="/assets/imgs/page-header/banner.webp" />
         <Second />
         <Cta8 />
         <Third />

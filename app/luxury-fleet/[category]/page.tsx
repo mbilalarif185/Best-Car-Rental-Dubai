@@ -21,6 +21,8 @@ export default function CategoryPage({ params }: Props) {
       <Layout footerStyle={1}>
         <Header
           breadcrumbLabel={formattedTitle}
+          secondbreadcrumb="Luxury Fleet"
+          secondbreadcrumburl="/luxury-fleet"
           breadcrumbUrl={`/luxury-fleet/${categorySlug}`}
           categorySlug={categorySlug}
         />

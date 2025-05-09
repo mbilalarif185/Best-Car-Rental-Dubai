@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
+import Image from "next/image"
 import PerfectScrollbar from 'react-perfect-scrollbar'
 
 export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
@@ -122,7 +123,164 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 												<li><Link href="/luxury-fleet/Hatchback">Hatchback</Link></li>
 											</ul>
 										</li>
-										
+										{/* <li className={`has-children ${isAccordion === 7 ? "active" : ""}`} >
+											<span className="menu-expand" onClick={() => handleAccordion(7)}>
+												<i className="arrow-small-down"></i>
+											</span>
+											<Link  href="/luxury-brands">Brands</Link>
+											<div className="mega-menu"
+											>
+
+												<div className="mega-menu-inner mega-menu-inner-small px-4 py-3">
+												<div className="row row-cols-2 row-cols-md-3">
+													
+													{[
+														{
+														"name": "BMW ",
+														"image": "/assets/imgs/brands/BMW Rental Dubai.webp",
+														"slug": "bmw-for-rent-in_dubai"
+														},
+														{
+														"name": "Audi ",
+														"image": "/assets/imgs/brands/Audi for Rent in Dubai.webp",
+														"slug":"rent-audi-in-dubai"
+														},{
+															"name": "Lamborghini ",
+															"image": "/assets/imgs/brands/Rent Lamborghini in Dubai.webp",
+															"slug":"rent-lamborghini-in-dubai"
+															
+															},
+														{
+															"name": "McLaren",
+															"image": "/assets/imgs/brands/MacLaren-car-rental.webp",
+															"slug":"mcLaren-for-rent-in-dubai"
+															},
+														{
+															"name": "Mercedes ",
+															"image": "/assets/imgs/brands/Rent Mercedes in Dubai.webp",
+															"slug":"rent-mercedes-in-dubai"
+															},
+														{
+															"name": "Nissan",
+															"image": "/assets/imgs/brands/Nissan-car-rental-in-dubai.webp",
+															"slug":"nissan-car-rental-in-dubai"
+															},
+															{
+															"name": "Porsche",
+															"image": "/assets/imgs/brands/porsche-car-rental-in-dubai.webp",
+															"slug":"porsche-car-rental-in-dubai"
+															},
+															
+															{
+																"name": "Land Rover",
+																"image": "/assets/imgs/brands/Land-rover-car-rental-in-dubai.webp",
+																"slug":"land-rover-car-rental-in-dubai"
+															},
+															{
+																"name": "Rolls Royce",
+																"image": "/assets/imgs/brands/Rolls-Royce-car-rental-in-dubai.webp",
+																"slug":"rolls-royce-car-rental-in-dubai"
+																},
+
+													].map((brand) => (
+													<div className="col text-center mt-4 mb-4 sub-menu" style={{ display: `${isAccordion == 7 ? "block" : "none"}` }} key={brand.slug} >
+														<Link href={`/luxury-brands/${brand.slug}`}>
+														
+														<Image 
+															src={brand.image}
+															alt={brand.name}
+															width={350}
+															height={100}
+															priority={true}
+														/>
+														<span className="text-md ">{brand.name}</span>
+													
+														</Link>
+													</div>
+													))}
+												</div>
+												</div>
+											</div>
+										</li> */}
+										<li className={`has-children ${isAccordion === 7 ? "active" : ""}`}>
+  <span className="menu-expand" onClick={() => handleAccordion(7)}>
+    <i className="arrow-small-down"></i>
+  </span>
+  <Link href="/luxury-brands">Brands</Link>
+
+  {isAccordion === 7 && (
+    <div className="mega-menu">
+      <div className="mega-menu-inner mega-menu-inner-small px-4 py-3">
+        <div className="row row-cols-2 row-cols-md-3">
+          {[
+            {
+              name: "BMW",
+              image: "/assets/imgs/brands/BMW Rental Dubai.webp",
+              slug: "bmw-for-rent-in_dubai",
+            },
+            {
+              name: "Audi",
+              image: "/assets/imgs/brands/Audi for Rent in Dubai.webp",
+              slug: "rent-audi-in-dubai",
+            },
+            {
+              name: "Lamborghini",
+              image: "/assets/imgs/brands/Rent Lamborghini in Dubai.webp",
+              slug: "rent-lamborghini-in-dubai",
+            },
+            {
+              name: "McLaren",
+              image: "/assets/imgs/brands/MacLaren-car-rental.webp",
+              slug: "mcLaren-for-rent-in-dubai",
+            },
+            {
+              name: "Mercedes",
+              image: "/assets/imgs/brands/Rent Mercedes in Dubai.webp",
+              slug: "rent-mercedes-in-dubai",
+            },
+            {
+              name: "Nissan",
+              image: "/assets/imgs/brands/Nissan-car-rental-in-dubai.webp",
+              slug: "nissan-car-rental-in-dubai",
+            },
+            {
+              name: "Porsche",
+              image: "/assets/imgs/brands/porsche-car-rental-in-dubai.webp",
+              slug: "porsche-car-rental-in-dubai",
+            },
+            {
+              name: "Land Rover",
+              image: "/assets/imgs/brands/Land-rover-car-rental-in-dubai.webp",
+              slug: "land-rover-car-rental-in-dubai",
+            },
+            {
+              name: "Rolls Royce",
+              image: "/assets/imgs/brands/Rolls-Royce-car-rental-in-dubai.webp",
+              slug: "rolls-royce-car-rental-in-dubai",
+            },
+          ].map((brand) => (
+            <div
+              className="col text-center mt-4 mb-4 sub-menu"
+              key={brand.slug}
+            >
+              <Link href={`/luxury-brands/${brand.slug}`} className="d-block">
+                <Image
+                  src={brand.image}
+                  alt={brand.name}
+                  width={250}
+                  height={100}
+                  priority
+                />
+                <span className="text-md">{brand.name}</span>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )}
+</li>
+
 										<li>
 											<Link  href="/services"> Services
 											</Link>

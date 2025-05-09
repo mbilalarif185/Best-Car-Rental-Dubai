@@ -1,5 +1,6 @@
 'use client'
 import dynamic from 'next/dynamic'
+import Image from 'next/image'
 const ThemeSwitch = dynamic(() => import('@/components/elements/ThemeSwitch'), {
 	ssr: false,
 })
@@ -104,6 +105,82 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 											</ul>
 											
 										</li>
+										<li className="mega-li-small has-children arrow-white">
+												<Link className="color-white" href="/luxury-brands">Brands</Link>
+												<div className="mega-menu"
+												>
+
+													<div className="mega-menu-inner mega-menu-inner-small px-4 py-3">
+													<div className="row row-cols-2 row-cols-md-4">
+														
+														{[
+															{
+															"name": "BMW ",
+															"image": "/assets/imgs/brands/BMW Rental Dubai.webp",
+															"slug": "bmw-for-rent-in_dubai"
+															},
+															{
+															"name": "Audi ",
+															"image": "/assets/imgs/brands/Audi for Rent in Dubai.webp",
+															"slug":"rent-audi-in-dubai"
+															},{
+																"name": "Lamborghini ",
+																"image": "/assets/imgs/brands/Rent Lamborghini in Dubai.webp",
+																"slug":"rent-lamborghini-in-dubai"
+																
+																},
+															{
+																"name": "McLaren",
+																"image": "/assets/imgs/brands/MacLaren-car-rental.webp",
+																"slug":"mcLaren-for-rent-in-dubai"
+																},
+															{
+																"name": "Mercedes ",
+																"image": "/assets/imgs/brands/Rent Mercedes in Dubai.webp",
+																"slug":"rent-mercedes-in-dubai"
+																},
+															{
+																"name": "Nissan",
+																"image": "/assets/imgs/brands/Nissan-car-rental-in-dubai.webp",
+																"slug":"nissan-car-rental-in-dubai"
+																},
+																{
+																"name": "Porsche",
+																"image": "/assets/imgs/brands/porsche-car-rental-in-dubai.webp",
+																"slug":"porsche-car-rental-in-dubai"
+																},
+																
+																{
+																	"name": "Land Rover",
+																	"image": "/assets/imgs/brands/Land-rover-car-rental-in-dubai.webp",
+																	"slug":"land-rover-car-rental-in-dubai"
+																},
+																{
+																	"name": "Rolls Royce",
+																	"image": "/assets/imgs/brands/Rolls-Royce-car-rental-in-dubai.webp",
+																	"slug":"rolls-royce-car-rental-in-dubai"
+																	},
+
+														].map((brand) => (
+														<div className="col text-center" key={brand.slug}>
+															<Link href={`/luxury-brands/${brand.slug}`} className="d-block">
+															
+															<Image
+																src={brand.image}
+																alt={brand.name}
+																width={350}
+																height={100}
+																priority={true}
+															/>
+															<span className="text-md">{brand.name}</span>
+														
+															</Link>
+														</div>
+														))}
+													</div>
+													</div>
+												</div>
+										</li>
 										<li>
 											<Link className="color-white" href="/services"> Services
 											</Link>
@@ -114,6 +191,8 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 											<li>
 											<Link className="color-white" href="/contact">Contact Us</Link>
 											</li>
+											
+
 										{/* <li className="mega-li-small has-children arrow-white">
 											<Link className="color-white" href="#">Vehicles</Link>
 											<div className="mega-menu">
