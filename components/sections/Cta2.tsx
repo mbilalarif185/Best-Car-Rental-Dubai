@@ -27,14 +27,14 @@ export default function Cta2() {
 							<div className="row mt-4">
 							<div className="col-md-6">
 								<ul className="list-ticks-green">
-								<li className="text-lg-medium text-white fs-6 lh-sm">Rent a car for Business Trip</li>
-								<li className="text-lg-medium text-white fs-6 lh-sm">Hire Chauffeur Service in Dubai</li>
+								<li className="pe-0 text-white fs-6 lh-sm ">Rent a car for Business Trip</li>
+								<li className="pe-0 text-white fs-6 lh-sm">Hire Chauffeur Service in Dubai</li>
 								</ul>
 							</div>
 							<div className="col-md-6">
 								<ul className="list-ticks-green">
-								<li className="text-lg-medium text-white fs-6 lh-sm">Rent cars for Dubai Airport</li>
-								<li className="text-lg-medium text-white fs-6 lh-sm">Book cars for special events</li>
+								<li className="pe-0 text-white fs-6 lh-sm">Rent cars for Dubai Airport</li>
+								<li className="pe-0 text-white fs-6 lh-sm">Book cars for special events</li>
 								</ul>
 							</div>
 								</div>

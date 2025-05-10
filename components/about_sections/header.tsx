@@ -19,13 +19,15 @@ const Header = ({ title, subtitle, currentPage, backgroundImage }: HeaderProps) 
 							alt={title}
 							width={833}
 							height={280}
-							priority={true}
+							priority
+							
+							
 						
 						/>
 					</div>
 
 					<div className="container position-absolute z-1 top-50 start-50 translate-middle ">
-						<h2 className="text-white">{title}</h2>
+						<h1 className="text-white">{title}</h1>
 						{subtitle && <span className="text-white text-xl-medium">{subtitle}</span>}
 					</div>
 

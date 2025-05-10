@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 
 const Cta8 = dynamic(() => import("@/components/sections/cta8"), { ssr: false });
 const Third = dynamic(() => import("@/components/about_sections/third"), { ssr: false });
-// app/luxury-brands/page.tsx
+
 
 export const metadata = {
 	title: "Luxury Car Brands in Dubai | Luxury Car Rentals",

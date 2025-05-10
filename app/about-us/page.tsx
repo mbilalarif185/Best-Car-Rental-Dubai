@@ -39,7 +39,7 @@ export default function AboutUs() {
       <main>
         <Header
         title="About Us"
-        subtitle="Get the latest news, updates and tips"
+        subtitle="Your Premium Car Rental Provider in Dubai"
         currentPage="About Us"
         backgroundImage="/assets/imgs/page-header/banner.webp" />
         <Second />

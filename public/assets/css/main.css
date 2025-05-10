@@ -301,14 +301,7 @@ li.hr span {
 	font-size: 44px;
 	line-height: 58px;
   }
-  .custom-mega-menu {
-  min-width: 4000px !important;
-  max-height: 1000px !important;
-  left: 0;  /* or adjust positioning if needed */
-  right: auto;
-  z-index: 999;
   
-}
 
   .header-right {
 	display: flex;
@@ -5893,7 +5886,7 @@ label {
 	border-radius: 8px;
 	padding: 20px 25px 20px 25px;
 	box-shadow: 0px 6px 22px 0px rgba(0, 0, 0, 0.09);
-	background-color: var(--bs-neutral-0);
+	background-color: #c8a329ae;
 	position: relative;
 	background-repeat: no-repeat;
 	background-position: bottom right;

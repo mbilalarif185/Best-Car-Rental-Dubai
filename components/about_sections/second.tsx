@@ -1,3 +1,4 @@
+
 const Second=()=>{
    
     return(
@@ -5,15 +6,17 @@ const Second=()=>{
 						<div className="container">
 							<div className="row pb-50">
 								<div className="col-lg-4">
-									<h3 className="neutral-1000">
+									<h2 className="neutral-1000 custom-h2">
 										The Best  
 										<span className="text-primary"> Car Rental </span>
 										Company in Dubai
-									</h3>
+									</h2>
 								</div>
 								<div className="col-lg-7 offset-lg-1">
-									<p className="text-lg-medium neutral-500">Welcome to Luxury Car Rental Dubai, your reliable car rental partner. Since inception we have made it our mission to provide our customers with a hassle free and reliable car rental service. Whether you are taking a business trip, a family vacation, or simply need a vehicle for everyday use, we offer many vehicles to suit your needs.
+									<p className="text-lg-medium neutral-500">
+										Legendary Car Rental is one of the leading car rentals in Dubai. We are honoured to serve thousands of customers for the last 9 years. With a huge fleet of luxury cars for rent in Dubai, we make sure you get the right vehicle that complements your style. Besides, our competitive rates and highly maintained fleet of 100 + vehicles are sure to grab your attention. Whether you want to rent a car for a day, month or week, our best car rental in Dubai makes it flexible. 
 										<br></br>
+										Business or tourism, our top-quality cars will make your trip unforgettable. No matter if you are into comfort, style, or roaring rides, Legendary gives you a way to explore everything with a luxury car rental fleet. 
 									</p>
 								</div>
 							</div>
@@ -42,7 +45,7 @@ const Second=()=>{
 								<div className="col-lg-4 col-12">
 									<div className="d-flex flex-column gap-4 align-self-stretch h-100">
 										<div className="box-tag background-brand-2 p-5 d-flex rounded-12">
-											<span className="text-dark fs-96 me-3">09</span>
+											<span className="text-dark fs-96 me-3">10</span>
 											<h4>
 												Years in <br />
 												Business
@@ -76,9 +79,14 @@ const Second=()=>{
 												</defs>
 											</svg>
 										</div>
-										<div className="card-info">
-											<h6 className="text-xl-bold neutral-1000 text-start">Pick a Location</h6>
-											<p className="text-md-medium neutral-500">Choose the perfect destination to start your journey effortlessly.</p>
+										<div className="card-info custom-heading">
+											<h3 className="text-xl-bold neutral-1000 text-start">Wide Range of Luxury Cars</h3>
+											<p className="text-md-medium neutral-500">
+												Our luxury car rental in Dubai has a large selection of the latest models from top brands like Ferrari, 
+												Lamborghini, and Rolls-Royce. 
+												Whatever your preference is, you can find the perfect luxury car for rent with us.
+
+											</p>
 										</div>
 									</div>
 								</div>
@@ -92,10 +100,13 @@ const Second=()=>{
 												<path d="M57.9991 33.044L51.5569 12.9425C51.1016 11.5087 49.5516 10.7144 48.1275 11.1794L7.44969 24.3834H6.60688C5.10531 24.3834 3.875 25.604 3.875 27.1153V48.2243C3.875 49.7259 5.09563 50.9562 6.60688 50.9562H50.5784C52.08 50.9562 53.3103 49.7356 53.3103 48.2243V37.3744C53.3781 37.3744 53.4459 37.3647 53.5138 37.3453L56.2262 36.4734C57.66 36.0181 58.4447 34.4778 57.9894 33.044H57.9991ZM51.3728 48.2243C51.3728 48.6603 51.0144 49.0187 50.5784 49.0187H6.60688C6.17094 49.0187 5.8125 48.6603 5.8125 48.2243V27.1153C5.8125 26.6793 6.17094 26.3209 6.60688 26.3209H26.7181C26.7181 26.3209 26.7278 26.3209 26.7375 26.3209H26.7472H30.1959C30.1959 26.3209 30.2056 26.3209 30.2153 26.3209C30.225 26.3209 30.225 26.3209 30.2347 26.3209H50.5784C51.0144 26.3209 51.3728 26.6793 51.3728 27.1153V48.2243ZM55.645 34.6328L53.3103 35.3787V27.1153C53.3103 25.9043 52.5159 24.8872 51.4213 24.5287L49.2706 17.4569C49.0478 16.7594 48.5731 16.1975 47.9241 15.8584C47.275 15.529 46.5387 15.4612 45.8413 15.684L42.7994 16.6625C42.2859 16.8272 42.005 17.3697 42.1697 17.8831C42.3344 18.3965 42.8769 18.6678 43.3903 18.5128L46.4322 17.5344C46.6356 17.4665 46.8488 17.4859 47.0328 17.5828C47.2169 17.6797 47.3622 17.8444 47.4203 18.0284L49.3481 24.3737H35.1656C34.1969 22.9981 32.3369 22.3006 30.3316 22.5234L30.1087 21.8356C29.9441 21.3319 29.4016 21.0509 28.8881 21.2059C28.3747 21.3706 28.0938 21.9131 28.2584 22.4265L28.4425 22.9981C27.6384 23.3275 26.9216 23.7925 26.3403 24.3737H13.7175L48.7087 13.02C48.9122 12.9522 49.1253 12.9715 49.3094 13.0684C49.4934 13.1653 49.6387 13.33 49.6969 13.5334L56.1391 33.635C56.2747 34.0515 56.0422 34.4972 55.6256 34.6328H55.645Z" fill="#101010" />
 											</svg>
 										</div>
-										<div className="card-info">
-											<h6 className="text-xl-bold neutral-1000 text-start">Fair & Transparent Rates</h6>
-											<p className="text-md-medium neutral-500">Book luxury cars from Legendary Car Rental Dubai with straightforward rental costs — no hidden charges included in the price.</p>
-										</div>
+										<div className="card-info custom-heading">
+											<h3 className="text-xl-bold neutral-1000 text-start">Top-Notch Customer Service</h3>
+											<p className="text-md-medium neutral-500">
+											Our rental team is available 24/7 for your assistance to make sure you have a great travelling experience. 
+											From your first inquiry to returning the car, we help you every step of the way. Don’t hesitate to contact us. 
+											</p>
+											</div>
 									</div>
 								</div>
 								<div className="col-lg-3 col-sm-6">
@@ -106,10 +117,15 @@ const Second=()=>{
 												<path d="M58.7759 26.5359H35.9445C35.2801 25.9159 34.5821 25.6028 33.7153 25.402C32.9617 25.2277 31.8364 25.1738 30.6175 25.8913C30.3576 25.7897 30.0946 25.7058 29.8289 25.6537C28.9538 25.4835 28.0713 25.5862 27.2799 25.9519V16.3945C27.2799 13.5483 25.0234 11.2839 22.1771 11.2839H7.32236C4.47606 11.2839 2.10791 13.5483 2.10791 16.3946V31.2493C2.10791 34.0956 4.47606 36.4559 7.32236 36.4559H18.2504C18.1092 36.7039 17.9839 37.0798 17.8853 37.4462C17.4767 38.9623 17.4095 41.3697 19.4103 44.2943C21.3587 47.1428 24.1722 49.0259 27.3335 49.6101C30.0883 50.1191 32.9493 49.6153 34.9861 48.2219C35.3931 47.9435 35.8793 47.6159 36.3995 47.2439H48.2359C48.9206 47.2439 49.4759 46.6887 49.4759 46.0039C49.4759 45.3192 48.9206 44.7639 48.2359 44.7639H39.1224C39.5536 44.2679 39.9602 43.728 40.316 43.139C40.6589 42.5717 40.9817 41.9119 41.2294 41.1679H51.9559C52.6406 41.1679 53.1959 40.6127 53.1959 39.9279C53.1959 39.2432 52.6406 38.6879 51.9559 38.6879H41.6893C41.7056 38.3159 41.6991 37.9439 41.6712 37.5719H39.2653C39.7119 42.0359 35.7556 44.7788 33.6285 46.2338C30.7757 48.1851 24.9375 48.1161 21.3949 42.9369C19.9501 40.8251 19.876 39.1383 20.2459 37.9207L22.343 40.9829C22.718 41.5315 23.4662 41.6696 24.0139 41.2949C24.5617 40.9201 24.7027 40.1712 24.3277 39.6229L15.4451 26.622C15.3842 26.5387 13.8425 24.5072 15.4607 23.4006C16.409 22.7517 17.1446 22.6169 18.469 24.5532L22.9207 31.0606C23.021 30.4603 23.3315 29.9113 23.9418 29.494C24.6197 29.0301 25.303 28.8606 25.9727 28.9899C26.372 29.0667 26.7202 29.2404 27.019 29.4586C27.1667 29.0724 27.4665 28.6646 28.0204 28.2859C28.4237 28.0102 28.8892 27.9136 29.3662 28.0065C29.9417 28.1193 30.4844 28.4894 30.9626 28.9536C31.0887 28.5982 31.3293 28.2898 31.6807 28.0494C32.1792 27.7087 32.6663 27.6274 33.1721 27.7442C33.8266 27.896 34.3231 28.1481 35.0064 29.0161H58.7759C59.4606 29.0161 60.0159 28.4608 60.0159 27.7761C60.0159 27.0913 59.4606 26.5359 58.7759 26.5359ZM23.1637 27.158L20.4532 23.1955C18.5596 20.4276 16.4232 19.8287 14.1032 21.4156C13.1551 22.0641 12.5581 22.9783 12.376 24.0588C12.0773 25.8317 13.0301 27.4174 13.4833 28.0393L17.5174 33.9759H7.32236C5.84353 33.9759 4.58791 32.7281 4.58791 31.2493V16.3946C4.58791 14.9158 5.84353 13.7639 7.32236 13.7639H22.1771C23.6559 13.7639 24.7999 14.9158 24.7999 16.3946V26.6017C24.2445 26.6892 23.6954 26.8747 23.1637 27.158Z" fill="#101010" />
 											</svg>
 										</div>
-										<div className="card-info">
-											<h6 className="text-xl-bold neutral-1000 text-start">Easy to Book</h6>
-											<p className="text-md-medium neutral-500">Enjoy flexible luxury car rental options in Dubai, with short-term, long-term, and weekend specials tailored to your needs</p>
-										</div>
+										<div className="card-info custom-heading">
+											<h3 className="text-xl-bold neutral-1000 text-start">Affordable Price Rates</h3>
+											<p className="text-md-medium neutral-500">
+											We offer the best prices for renting luxury cars in Dubai. 
+											Enjoy amazing rates, deals and discounts without sacrificing quality or service. 
+											Besides, our pricing is transparent; we don’t have any hidden charges. 
+
+											</p>
+											</div>
 									</div>
 								</div>
 								<div className="col-lg-3 col-sm-6">
@@ -126,10 +142,16 @@ const Second=()=>{
 												</defs>
 											</svg>
 										</div>
-										<div className="card-info">
-											<h6 className="text-xl-bold neutral-1000 text-start">Day & Night Customer Service</h6>
-											<p className="text-md-medium neutral-500">Enjoy 24/7 assistance from our dedicated support team, ensuring a smooth and premium luxury car rental experience in Dubai.</p>
-										</div>
+										<div className="card-info custom-heading">
+											<h3 className="text-xl-bold neutral-1000 text-start">Flexible Rental Options</h3>
+											<p className="text-md-medium neutral-500">
+												
+											Being the leading car rental company in Dubai, we have a comprehensive selection of luxury cars for daily,
+											 weekly, and monthly hires. Besides, if you need chauffeur service in Dubai, airport transfer, 
+											 or wedding car rental, we cover you. 
+
+											</p>
+											</div>
 									</div>
 								</div>
 							</div>
