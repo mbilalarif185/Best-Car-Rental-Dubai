@@ -148,7 +148,7 @@ export default function CarsGrid() {
           </div> {/* <-- Correct closing div for box-content-main */}
         </div>
 
-        {/* Brands Marquee */}
+        {/* Brands Marquee
         <div className="background-100 pt-55 pb-55">
           <div className="container">
             <Marquee direction="left" pauseOnHover className="carouselTicker carouselTicker-left box-list-brand-car justify-content-center">
@@ -188,7 +188,7 @@ export default function CarsGrid() {
               </ul>
             </Marquee>
           </div>
-        </div>
+        </div> */}
 
       </section>
     </>

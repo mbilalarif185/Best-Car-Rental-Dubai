@@ -2,24 +2,24 @@
 import { getCategoryData } from "@/lib/categoryUtils";
 import { getFeaturedCars } from "@/lib/getFeaturedCars";
 import { getspecial } from "@/lib/getspecial";
-
+import dynamic from "next/dynamic";
 import Layout from "@/components/layout/Layout";
 import Hero1 from "@/components/sections/Hero1";
 import Search1 from "@/components/sections/Search1";
-import Brand1 from "@/components/sections/Brand1";
-import CarsListing1 from "@/components/sections/CarsListing1";
-import Cta3 from "@/components/sections/Cta3";
-import Categories1 from "@/components/sections/Categories1";
-import WhyUs1 from "@/components/sections/WhyUs1";
-import Cta2 from "@/components/sections/Cta2";
-import CarsListing2 from "@/components/sections/CarsListing2";
-import Cta1 from "@/components/sections/Cta1";
-import Banners from "@/components/sections/Banners";
-import dynamic from "next/dynamic";
+const Brand1 = dynamic(() => import("@/components/sections/Brand1"));
+const CarsListing1 = dynamic(() => import("@/components/sections/CarsListing1"));
+const Cta3 = dynamic(() => import("@/components/sections/Cta3"));
+const Categories1 = dynamic(() => import("@/components/sections/Categories1"));
+const WhyUs1 = dynamic(() => import("@/components/sections/WhyUs1"));
+const Cta2 = dynamic(() => import("@/components/sections/Cta2"));
+const CarsListing2 = dynamic(() => import("@/components/sections/CarsListing2"));
+const Cta1 = dynamic(() => import("@/components/sections/Cta1"));
+const Services1 = dynamic(() => import("@/components/sections/Services1"));
+const Banners = dynamic(() => import("@/components/sections/Banners"));
 const Testimonials = dynamic(() => import("@/components/sections/Testimonials"), { ssr: false });
-import CarReview1 from "@/components/sections/CarReview1";
-import Services1 from "@/components/sections/Services1"
-import Blog1 from "@/components/sections/Blog1";
+const CarReview1 = dynamic(() => import("@/components/sections/CarReview1"));
+const Check = dynamic(() => import("@/components/sections/check"));
+const Blog1 = dynamic(() => import("@/components/sections/Blog1"));
 
 export const metadata = {
   title: "Best Luxury Car Rental in Dubai | Rent Sports, SUVs & Exotic Cars",
@@ -106,7 +106,9 @@ export default async function Home() {
       <Banners />
       <Testimonials />
       <CarReview1 />
+      <Check/>
       <Blog1 />
+      
     </Layout>
   );
 }

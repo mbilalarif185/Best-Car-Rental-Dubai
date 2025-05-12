@@ -274,6 +274,21 @@ input:focus::-moz-placeholder {
 	transition: 0.4s;
 }
 
+.scrollable-container {
+  max-height: 300px; /* You can adjust this value */
+  overflow-y: auto;
+  padding-right: 1rem; /* Optional: prevents content being hidden by scrollbar */
+}
+.custom-ul{
+  list-style-type: disc; /* or square, circle */
+  padding-left: 1.5rem; /* ensures space for bullet */
+
+}
+.custom-ol{
+	 list-style-type: decimal;
+  margin-left: 20px;
+}
+
 a {
 	color: var(--bs-neutral-1000);
 }
@@ -5886,7 +5901,7 @@ label {
 	border-radius: 8px;
 	padding: 20px 25px 20px 25px;
 	box-shadow: 0px 6px 22px 0px rgba(0, 0, 0, 0.09);
-	background-color: #c8a329ae;
+	background-color: #ffffff;
 	position: relative;
 	background-repeat: no-repeat;
 	background-position: bottom right;

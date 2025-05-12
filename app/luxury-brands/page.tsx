@@ -1,8 +1,7 @@
 import Layout from "@/components/layout/Layout"
 import Header from '@/components/about_sections/header';
-import Brand from "@/components/brands/brands"
 import dynamic from "next/dynamic";
-
+const Brand =dynamic(()=>import("@/components/brands/brands"))
 const Cta8 = dynamic(() => import("@/components/sections/cta8"), { ssr: false });
 const Third = dynamic(() => import("@/components/about_sections/third"), { ssr: false });
 

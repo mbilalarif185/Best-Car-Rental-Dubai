@@ -17,7 +17,7 @@ export default function CarReview1() {
 
   return (
     <>
-      <section className="section-box box-picked background-body">
+      <section className="section-box box-picked background-body py-96">
         <div className="container">
           <div className="row align-items-end">
             <div className="col-md-9 mb-30 wow fadeInUp">

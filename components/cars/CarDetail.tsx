@@ -49,7 +49,6 @@ export default function CarDetail({ car }: CarDetailProps) {
 	return (
 		<>
 
-			<Layout footerStyle={1}>
 				<div>
 					<section className="box-section box-breadcrumb background-body">
 						<div className="container">
@@ -539,7 +538,7 @@ export default function CarDetail({ car }: CarDetailProps) {
 					
 				</div>
 
-			</Layout>
+			
 		</>
 	)
 }

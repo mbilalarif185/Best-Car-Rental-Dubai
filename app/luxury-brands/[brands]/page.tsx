@@ -1,11 +1,11 @@
 import cars from '@/util/cars.json';
 import brands from '@/util/brands.json';
 import { Car } from '@/types/type';
-import CarsListing4 from '@/components/sections/CarsListing4';
 import Layout from "@/components/layout/Layout";
 import Header from '@/components/category/header';
 import { notFound } from 'next/navigation';
-
+import dynamic from "next/dynamic";
+const CarsListing4 =dynamic(()=>import("@/components/sections/CarsListing4"))
 interface Props {
   params: {
     brands: string;

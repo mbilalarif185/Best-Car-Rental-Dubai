@@ -1,6 +1,7 @@
 import cars from '@/util/cars.json';
 import { Car } from '@/types/type';
-import CarsListing4 from '@/components/sections/CarsListing4';
+import dynamic from "next/dynamic";
+const CarsListing4 =dynamic(()=>import("@/components/sections/CarsListing4"))
 import Layout from "@/components/layout/Layout";
 import Header from '@/components/category/header';
 import Notfound from '@/components/category/notfound';

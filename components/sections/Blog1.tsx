@@ -11,9 +11,13 @@ export default function Blog1() {
 				<div className="container">
 					<div className="row align-items-end">
 						<div className="col-md-9 mb-30 wow fadeInUp">
-							<h3 className="title-svg neutral-1000 mb-15">Upcoming Cars &amp; Events</h3>
-							<p className="text-lg-medium text-bold neutral-500">Stay ahead with the latest car releases and
-								upcoming events</p>
+							<h2 className="title-svg neutral-1000 mb-15 custom-heading">Latest Insights and Events for Renting a Car in Dubai</h2>
+							<p className="text-lg-medium text-bold neutral-500">
+								Explore the latest updates about luxury cars in Dubai and coming events. 
+								Whether you are looking for an option for self-drive car rental, monthly rental, or chauffeur service,
+								 we offer insights about everything. 
+
+							</p>
 						</div>
 						<div className="col-md-3 position-relative mb-30 wow fadeInUp">
 							<div className="box-button-slider box-button-slider-team justify-content-end">

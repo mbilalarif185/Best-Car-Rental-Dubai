@@ -1,72 +1,74 @@
 import Image from "next/image";
 import Link from "next/link";
 import Marquee from 'react-fast-marquee';
-const brands = [
-	{
-	  name: "Lamborghini",
-	  filename: "Rent Lamborghini in Dubai",
-	  alt: "Rent Lamborghini in Dubai",
-	  title: "Lamborghini Car Rental Dubai"
-	},
-	{
-	  name: "Bentley",
-	  filename: "Bentley for rent in Dubai",
-	  alt: "Rent Bentley in Dubai",
-	  title: "Bentley Car Rental Dubai"
-	},
-	{
-	  name: "Audi",
-	  filename: "Audi for Rent in Dubai",
-	  alt: "Rent Audi in Dubai",
-	  title: "Audi Car Rental Dubai"
-	},
-	{
-	  name: "BMW",
-	  filename: "BMW Rental Dubai",
-	  alt: "Rent BMW in Dubai",
-	  title: "BMW Car Rental Dubai"
-	},
-	{
-	  name: "Ferrari",
-	  filename: "Rent Ferrari in Dubai",
-	  alt: "Rent Ferrari in Dubai",
-	  title: "Ferrari Car Rental Dubai"
-	},
-	{
-	  name: "Mercedes",
-	  filename: "Rent Mercedes in Dubai",
-	  alt: "Rent Mercedes in Dubai",
-	  title: "Mercedes Car Rental Dubai"
-	},
-	{
-	  name: "Nissan",
-	  filename: "Nissan-car-rental-in-dubai",
-	  alt: "Rent Nissan in Dubai",
-	  title: "Nissan Car Rental Dubai"
-	},
-	{
-	  name: "Land Rover",
-	  filename: "Land-rover-car-rental-in-dubai",
-	  alt: "Rent Land Rover in Dubai",
-	  title: "Land Rover Car Rental Dubai"
-	},
-	{
-	  name: "MacLaren",
-	  filename: "MacLaren-car-rental",
-	  alt: "Rent MacLaren in Dubai",
-	  title: "MacLaren Car Rental Dubai"
-	},
-	{
-	  name: "Rolls Royce",
-	  filename: "Rolls-Royce-car-rental-in-dubai",
-	  alt: "Rent Rolls Royce in Dubai",
-	  title: "Rolls Royce Car Rental Dubai"
-	}
-  ];
+import brands from "@/util/brands.json";
+
+// const brands = [
+// 	{
+// 	  name: "Lamborghini",
+// 	  filename: "Rent Lamborghini in Dubai",
+// 	  alt: "Rent Lamborghini in Dubai",
+// 	  title: "Lamborghini Car Rental Dubai"
+// 	},
+// 	{
+// 	  name: "Bentley",
+// 	  filename: "Bentley for rent in Dubai",
+// 	  alt: "Rent Bentley in Dubai",
+// 	  title: "Bentley Car Rental Dubai"
+// 	},
+// 	{
+// 	  name: "Audi",
+// 	  filename: "Audi for Rent in Dubai",
+// 	  alt: "Rent Audi in Dubai",
+// 	  title: "Audi Car Rental Dubai"
+// 	},
+// 	{
+// 	  name: "BMW",
+// 	  filename: "BMW Rental Dubai",
+// 	  alt: "Rent BMW in Dubai",
+// 	  title: "BMW Car Rental Dubai"
+// 	},
+// 	{
+// 	  name: "Ferrari",
+// 	  filename: "Rent Ferrari in Dubai",
+// 	  alt: "Rent Ferrari in Dubai",
+// 	  title: "Ferrari Car Rental Dubai"
+// 	},
+// 	{
+// 	  name: "Mercedes",
+// 	  filename: "Rent Mercedes in Dubai",
+// 	  alt: "Rent Mercedes in Dubai",
+// 	  title: "Mercedes Car Rental Dubai"
+// 	},
+// 	{
+// 	  name: "Nissan",
+// 	  filename: "Nissan-car-rental-in-dubai",
+// 	  alt: "Rent Nissan in Dubai",
+// 	  title: "Nissan Car Rental Dubai"
+// 	},
+// 	{
+// 	  name: "Land Rover",
+// 	  filename: "Land-rover-car-rental-in-dubai",
+// 	  alt: "Rent Land Rover in Dubai",
+// 	  title: "Land Rover Car Rental Dubai"
+// 	},
+// 	{
+// 	  name: "MacLaren",
+// 	  filename: "MacLaren-car-rental",
+// 	  alt: "Rent MacLaren in Dubai",
+// 	  title: "MacLaren Car Rental Dubai"
+// 	},
+// 	{
+// 	  name: "Rolls Royce",
+// 	  filename: "Rolls-Royce-car-rental-in-dubai",
+// 	  alt: "Rent Rolls Royce in Dubai",
+// 	  title: "Rolls Royce Car Rental Dubai"
+// 	}
+//   ];
   
   {/* Render the brand items using the array */}
   <Marquee direction="left" pauseOnHover={true} className="carouselTicker carouselTicker-left box-list-brand-car justify-content-center wow fadeIn">
-	<ul className="carouselTicker__list">
+	{/* <ul className="carouselTicker__list">
 	  {brands.map(brand => (
 		<li className="carouselTicker__item" key={brand.name}>
 		  <Link href="/luxury-fleet" className="item-brand">
@@ -91,9 +93,11 @@ const brands = [
 		  </Link>
 		</li>
 	  ))}
-	</ul>
+	</ul> */}
+
   </Marquee>
   
+
 export default function Brand1() {
   return (
     <>
@@ -114,7 +118,7 @@ export default function Brand1() {
             </div>
 
 			<Marquee direction="left" pauseOnHover={true} className="carouselTicker carouselTicker-left box-list-brand-car justify-content-center wow fadeIn">
-				<ul className="carouselTicker__list">
+				{/* <ul className="carouselTicker__list">
 					{brands.map(brand => (
 					<li className="carouselTicker__item" key={brand.name}>
 						<Link 
@@ -145,7 +149,34 @@ export default function Brand1() {
 						</Link>
 					</li>
 					))}
+				</ul> */}
+				<ul className="carouselTicker__list">
+					{brands.map((brand) => (
+						<li className="carouselTicker__item" key={brand.name}>
+						<Link href={`/luxury-brands/${brand.slug}`} className="item-brand" aria-label={`View ${brand.name} Car Rental in Dubai`}>
+							<Image 
+							className="light-mode" 
+							src={brand.image} 
+							alt={`Rent ${brand.name} in Dubai`} 
+							title={`${brand.name} Car Rental Dubai`} 
+							width={300} 
+							height={200} 
+							decoding="async"
+							/>
+							<Image 
+							className="dark-mode" 
+							src={brand.image} 
+							alt={`Rent ${brand.name} in Dubai`} 
+							title={`${brand.name} Car Rental Dubai`} 
+							width={300} 
+							height={200} 
+							decoding="async"
+							/>
+						</Link>
+						</li>
+					))}
 				</ul>
+
 			</Marquee>
           </div>
         </div>

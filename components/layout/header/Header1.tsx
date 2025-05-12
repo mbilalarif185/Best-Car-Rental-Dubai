@@ -168,7 +168,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 															<Image
 																src={brand.image}
 																alt={brand.name}
-																width={350}
+																width={750}
 																height={100}
 																priority={true}
 															/>
