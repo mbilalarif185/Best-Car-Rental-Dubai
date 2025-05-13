@@ -15,7 +15,7 @@ type Props = {
 };
 
 const WhatsAppButton = ({
-  phoneNumber = '923001234567',
+  phoneNumber = '+971545514155',
   iconUrl = '/whatsapp-icon.webp',
   bottom = 30,
   right = 30,

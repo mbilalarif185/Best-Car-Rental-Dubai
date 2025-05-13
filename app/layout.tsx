@@ -34,7 +34,7 @@ export default function RootLayout({
       </head>
 			<body className={`${urbanist.variable}`}>{children}
 				<WhatsAppButton
-			phoneNumber="923001234567"
+			phoneNumber="+971545514155"
 			iconUrl="/whatsapp-icon.webp"
 			bottom={90}
 			right={20}
