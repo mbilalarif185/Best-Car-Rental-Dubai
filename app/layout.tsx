@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { Urbanist } from "next/font/google"
 import "@/node_modules/react-modal-video/css/modal-video.css"
 import "/public/assets/css/main.css"
+import Head from "next/head";
+
 
 const urbanist = Urbanist({
 	weight: ['300', '400', '500', '600', '700', '800', '900'],
@@ -25,7 +27,10 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			
+			<head>
+        <meta name="google-site-verification" content="eIB_T-TdBSukKqmpqtNjHrscPQx2ukT5Gpn5Vyr7T0c" />
+        {/* This ensures it appears in the real HTML source */}
+      </head>
 			<body className={`${urbanist.variable}`}>{children}</body>
 		</html>
 	)
