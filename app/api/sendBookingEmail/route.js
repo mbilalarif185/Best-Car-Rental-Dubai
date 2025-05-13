@@ -1,0 +1,68 @@
+import nodemailer from 'nodemailer';
+
+export async function POST(req) {
+  try {
+     
+    const body = await req.json();
+    console.log('Request body:', body); 
+    const {
+      name,
+      email,
+      contact,
+      pickupDate,
+      dropoffDate,
+      pickupLocation,
+      dropoffLocation,
+    } = body;
+
+    // const transporter = nodemailer.createTransport({
+    //   host: 'bestcarrentaldubai.ae',
+    //   port: 465,
+    //   secure: true, 
+    //   auth: {
+    //     user: 'info@bestcarrentaldubai.ae', // replace with your actual email
+    //     pass: 'legendary@786',       // or app password if required
+    //   },
+    // });
+        const transporter = nodemailer.createTransport({
+        host: 'bestcarrentaldubai.ae',
+        port: 465,
+        secure: true, // true for port 465
+        auth: {
+            user: 'info@bestcarrentaldubai.ae',
+            pass: 'legendary@786',
+        },
+        tls: {
+            rejectUnauthorized: false, // ⛔ Allow self-signed certificate
+        },
+        });
+
+    const mailOptions = {
+      from: '"Booking Request" <info@bestcarrentaldubai.ae>',
+      to: 'bilal.cressoft@gmail.com', // where the form should send the booking info
+      subject: 'New Booking Received',
+      html: `
+        <h2>Booking Information</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Contact:</strong> ${contact}</p>
+        <p><strong>Pick-Up Date:</strong> ${pickupDate}</p>
+        <p><strong>Drop-Off Date:</strong> ${dropoffDate}</p>
+        <p><strong>Pick-Up Location:</strong> ${pickupLocation}</p>
+        <p><strong>Drop-Off Location:</strong> ${dropoffLocation}</p>
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    return new Response(JSON.stringify({ message: 'Email sent successfully' }), {
+      status: 200,
+       headers: { 'Content-Type': 'application/json' },
+    });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    return new Response(JSON.stringify({ error: 'Failed to send email' }), {
+      status: 500,
+    });
+  }
+}

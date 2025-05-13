@@ -38,14 +38,36 @@ export default function CarDetail({ car }: CarDetailProps) {
       
       
       
+		const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+
+		try {
+			const res = await fetch('/api/sendBookingEmail', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(formData),
+			});
+
+			const result = await res.json();
+
+			if (res.ok) {
+			alert('Booking submitted successfully!');
+			// Optionally clear the form:
+			// setFormData(initialFormData);
+			} else {
+			alert('Failed to send booking. Please try again.');
+			console.error(result.error);
+			}
+		} catch (error) {
+			console.error('Submission error:', error);
+			alert('Something went wrong while sending the booking.');
+		}
+		};
+
+
       
-      
-    
-      const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // Submit logic here (e.g., API call)
-        console.log('Form submitted:', formData);
-      };
 	return (
 		<>
 
@@ -398,7 +420,7 @@ export default function CarDetail({ car }: CarDetailProps) {
                                                         placeholder="Enter Your Contact No"
                                                         className="form-control"
                                                         required
-                                                        pattern="^[0-9+\s()-]{7,15}$"
+                                                        pattern="^[0-9+\s()\-]{7,15}$"
                                                         value={formData.contact}
                                                         onChange={handleChange}
                                                         />
