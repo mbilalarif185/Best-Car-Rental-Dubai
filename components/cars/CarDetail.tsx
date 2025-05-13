@@ -37,7 +37,8 @@ export default function CarDetail({ car }: CarDetailProps) {
       };
       
       
-      
+      const [message, setMessage] = useState('');
+		const [status, setStatus] = useState<'success' | 'error' | ''>('');
 		const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
@@ -53,16 +54,15 @@ export default function CarDetail({ car }: CarDetailProps) {
 			const result = await res.json();
 
 			if (res.ok) {
-			alert('Booking submitted successfully!');
-			// Optionally clear the form:
-			// setFormData(initialFormData);
+			 setStatus('success');
+      		setMessage('Your booking request has been submitted.');
 			} else {
-			alert('Failed to send booking. Please try again.');
-			console.error(result.error);
+			 setStatus('error');
+     		 setMessage('Failed to send booking. Please try again.');
 			}
 		} catch (error) {
-			console.error('Submission error:', error);
-			alert('Something went wrong while sending the booking.');
+			 setStatus('error');
+    			setMessage('Something went wrong. Try again later.');
 		}
 		};
 
@@ -499,7 +499,13 @@ export default function CarDetail({ car }: CarDetailProps) {
                                                     </button>
                                                     </div>
                                                 </div>
-                                        </form>
+												{message && (
+											<div className={status === 'success' ? 'form-message-success' : 'form-message-error'}>
+											
+												{message}
+											</div>
+											)}
+                                        </form>	
 
 									</div>
                                     

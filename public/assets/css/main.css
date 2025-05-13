@@ -320,7 +320,21 @@ li.hr span {
 	font-size: 58px;
 	line-height: 76px;
   }
-  
+  /* Success message style */
+.form-message-success {
+  margin-top: 10px;
+  margin-right: 10px;
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* Error message style */
+.form-message-error {
+  margin-top: 10px;
+  color: #dc3545;
+  font-weight: bold;
+}
+
 
   .header-right {
 	display: flex;
