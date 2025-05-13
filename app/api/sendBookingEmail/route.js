@@ -39,7 +39,7 @@ export async function POST(req) {
 
     const mailOptions = {
       from: '"Booking Request" <info@bestcarrentaldubai.ae>',
-      to: 'bilal.cressoft@gmail.com', // where the form should send the booking info
+      to: 'lcruae6@gmail.com', // where the form should send the booking info
       subject: 'New Booking Received',
       html: `
         <h2>Booking Information</h2>
