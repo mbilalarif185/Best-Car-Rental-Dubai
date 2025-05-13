@@ -31,7 +31,7 @@ export default function Footer1() {
 								<div className="box-info-contact mt-0">
 									<p className="text-md neutral-400 icon-address">Plot 25, street 4, Al Quoz Industrial Area 4, Dubai, UAE</p>
 									<p className="text-md neutral-400 icon-worktime">Hours: 9:30 - 21:00, Mon - Sun</p>
-									<p className="text-md neutral-400 icon-email">info@legendarycarrental.ae</p>
+									<p className="text-md neutral-400 icon-email">info@bestcarrentaldubai.ae</p>
 								</div>
 								<div className="box-need-help">
 									<p className="need-help text-md-medium mb-5">Need help? Call us</p>

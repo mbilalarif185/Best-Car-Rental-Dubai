@@ -115,6 +115,7 @@ export default async function Home() {
       <Check/>
       <Blog1 />
       
+      
     </Layout>
   );
 }

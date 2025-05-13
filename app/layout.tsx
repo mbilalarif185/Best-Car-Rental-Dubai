@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Urbanist } from "next/font/google"
 import "@/node_modules/react-modal-video/css/modal-video.css"
 import "/public/assets/css/main.css"
+import WhatsAppButton from '@/components/whatsapp/WhatsAppButton';
 import Head from "next/head";
 
 
@@ -31,7 +32,17 @@ export default function RootLayout({
         <meta name="google-site-verification" content="eIB_T-TdBSukKqmpqtNjHrscPQx2ukT5Gpn5Vyr7T0c" />
         {/* This ensures it appears in the real HTML source */}
       </head>
-			<body className={`${urbanist.variable}`}>{children}</body>
+			<body className={`${urbanist.variable}`}>{children}
+				<WhatsAppButton
+			phoneNumber="923001234567"
+			iconUrl="/whatsapp-icon.webp"
+			bottom={90}
+			right={20}
+			openInNewTab={true}
+			animation="zoom"
+      />
+			</body>
+			
 		</html>
 	)
 }
