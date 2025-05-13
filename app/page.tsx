@@ -2,6 +2,7 @@
 import { getCategoryData } from "@/lib/categoryUtils";
 import { getFeaturedCars } from "@/lib/getFeaturedCars";
 import { getspecial } from "@/lib/getspecial";
+import Head from 'next/head';
 import dynamic from "next/dynamic";
 import Layout from "@/components/layout/Layout";
 import Hero1 from "@/components/sections/Hero1";
@@ -86,7 +87,12 @@ export default async function Home() {
 
   return (
     <Layout headerStyle={1} footerStyle={1}>
-      
+      <Head>
+        <meta
+          name="google-site-verification"
+          content="eIB_T-TdBSukKqmpqtNjHrscPQx2ukT5Gpn5Vyr7T0c"
+        />
+      </Head>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
