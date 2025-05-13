@@ -15,11 +15,11 @@ const Cta10 = dynamic(() => import('@/components/sections/cta10'), {
 import { Metadata } from 'next'; 
 
 export const metadata: Metadata = {
-  title: "Luxury Car Rental Services in Dubai | Best Deals 2025",
-  description: "Discover the best luxury car rental services in Dubai. Book today and save up to 15% on your next ride before April 2025!",
+  title: "Rent a Car Dubai Services - Legendary Car Rental ",
+  description: "Want luxury rides? Get our exclusive rent a Car Dubai Services for daily, weekly, or monthly. Book now for achauffeur services, weddings, airport transfer, & events. ",
   openGraph: {
-    title: "Luxury Car Rental Services in Dubai | Best Deals 2025",
-    description: "Discover the best luxury car rental services in Dubai. Book today and save up to 15% on your next ride before April 2025!",
+    title: "Rent a Car Dubai Services - Legendary Car Rental ",
+    description: "Want luxury rides? Get our exclusive rent a Car Dubai Services for daily, weekly, or monthly. Book now for achauffeur services, weddings, airport transfer, & events. ",
     url: "https://bestcarrentaldubai.ae/services",
     type: "website",
     images: [
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Luxury Car Rental Services in Dubai | Best Deals 2025",
-    description: "Book luxury cars in Dubai easily and save big! Top deals for 2025 trips.",
+    title: "Rent a Car Dubai Services - Legendary Car Rental ",
+    description: "Want luxury rides? Get our exclusive rent a Car Dubai Services for daily, weekly, or monthly. Book now for achauffeur services, weddings, airport transfer, & events. ",
     images: ["/assets/imgs/cta/cta-10/img-1.png"]
   }
 };

@@ -316,6 +316,10 @@ li.hr span {
 	font-size: 44px;
 	line-height: 58px;
   }
+  .custom-h1 {
+	font-size: 58px;
+	line-height: 76px;
+  }
   
 
   .header-right {
@@ -12713,7 +12717,7 @@ a.icon-socials:hover svg path {
 	}
 
 	.block-testimonials .testimonials-left::before {
-		display: none;
+		/* display: none; */
 	}
 
 	.popup-firstload .popup-container .popup-content {

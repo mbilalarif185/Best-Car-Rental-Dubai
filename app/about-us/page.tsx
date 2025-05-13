@@ -10,16 +10,16 @@ const Faq = dynamic(() => import('@/components/sections/faq'));
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "About Us | Luxury Car Rental Dubai",
-  description: "Learn about Legendary Car Rental Dubai, the top luxury car rental service in Dubai. Premium cars, top service, best prices.",
+  title: "About Legendary - Best Car Rental in Dubai ",
+  description: "Legendary is the best car rental in Dubai with its huge fleet of cars for rent at best prices. Rent now for a week, month, or day. Free Delivery & 24/7 service. ",
   openGraph: {
-    title: "About Us | Legendary Car Rental Dubai",
-    description: "Learn about Legendary Car Rental Dubai, the top luxury car rental service in Dubai. Premium cars, top service, best prices.",
-    url: "https://legendary.ae/about-us",
+    title: "About Legendary - Best Car Rental in Dubai ",
+    description: "Legendary is the best car rental in Dubai with its huge fleet of cars for rent at best prices. Rent now for a week, month, or day. Free Delivery & 24/7 service. ",
+    url: "https://bestcarrentaldubai.ae/",
     siteName: "Legendary Car Rental Dubai",
     images: [
       {
-        url: "https://legendary.ae/assets/imgs/og-about-us.jpg", 
+        url: "https://bestcarrentaldubai.ae/assets/img/Legendary Cars/Lamborghini-STO-luxury-car-rental-dubai.webp", 
         width: 1200,
         height: 630,
         alt: "Luxury Car Rental Dubai"
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   alternates: {
-    canonical: "https://legendary.ae/about-us", // ✅ Fixed domain
+    canonical: "https://bestcarrentaldubai.ae/about-us", // ✅ Fixed domain
   }
 };
 

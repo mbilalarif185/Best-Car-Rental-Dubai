@@ -8,7 +8,7 @@ export default function Cta8() {
 							<div className="container">
 								<div className="row align-items-center">
 									<div className="col-lg-5">
-										<Link className="btn btn-signin bg-2 text-dark mb-4" href="#">Our Vision</Link>
+										<Link className="btn btn-signin bg-2 text-dark mb-4" href="/luxury-fleet">Our Vision</Link>
 										<h3 className="custom-heading mb-4 neutral-1000">To Become Dubai’s Top  <br />Luxury Car Rental </h3>
 										<p className="text-lg-medium neutral-500 mb-4">
                                         Our vision is to become a leading car rental company in Dubai, 
@@ -34,7 +34,7 @@ export default function Cta8() {
 												</div>
 											
 										</div>
-										<Link className="btn btn-primary mt-2" href="#">
+										<Link className="btn btn-primary mt-2" href="/contact">
 											Get Started Now
 											<svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M8 15L15 8L8 1M15 8L1 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

@@ -58,7 +58,7 @@ export default function Banners() {
 									<p className="banner-text text-md-regular py-3 wow fadeInUp">
 										Experience comfort and prestige with our top-tier   
 									<br />luxury car rentals.
-									Perfect for business,<br/> travel, or family.
+										Perfect for business,<br/> travel, or family.
 									</p>
 									<div className="banner-button pb-70 pt-3">
 										<Link className="btn btn-primary bg-white wow fadeInUp " href="/luxury-fleet">

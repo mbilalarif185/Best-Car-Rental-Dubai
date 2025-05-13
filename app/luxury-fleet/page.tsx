@@ -8,15 +8,15 @@ const CarsGrid=dynamic(()=>import("@/components/fleet/CarsGrid"))
 const Brand_dynamic = dynamic(() => import("@/components/sections/Brand_dynamic"));
 
 export const metadata = {
-  title: "Luxury Cars for Rent in Dubai | Fleet - YourBrand",
-  description: "Explore our premium fleet of luxury cars available for rent in Dubai. Competitive rates. Exceptional service. Book now!",
+  title: "Luxury Cars for Rent - Dubai Fleet",
+  description: "Explore our fleet of luxury cars for rent in Dubai. Our car rental company offers you exotic cars from SUVs to Sports and Convertibles. Choose and Hire Now!",
   openGraph: {
-    title: "Luxury Cars for Rent in Dubai | Fleet - YourBrand",
-    description: "Explore our premium fleet of luxury cars available for rent in Dubai.",
-    url: "https://bestcarrentaldubai.ae/fleet",
+    title: "Luxury Cars for Rent - Dubai Fleet",
+    description: "Luxury Cars for Rent - Dubai Fleet",
+    url: "https://bestcarrentaldubai.ae/luxury-fleet",
     images: [
       {
-        url: "https://bestcarrentaldubai.ae/assets/imgs/Legendary Cars/luuxry-fleet",
+        url: "https://bestcarrentaldubai.ae/assets/imgs/Legendary Cars/Lamborghini-Urus-in-dubai.webp",
         width: 1200,
         height: 630,
         alt: "Luxury Cars in Dubai",

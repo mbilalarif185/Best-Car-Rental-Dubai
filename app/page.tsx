@@ -16,7 +16,7 @@ const CarsListing2 = dynamic(() => import("@/components/sections/CarsListing2"))
 const Cta1 = dynamic(() => import("@/components/sections/Cta1"));
 const Services1 = dynamic(() => import("@/components/sections/Services1"));
 const Banners = dynamic(() => import("@/components/sections/Banners"));
-const Testimonials = dynamic(() => import("@/components/sections/Testimonials"), { ssr: false });
+const Testimonials = dynamic(() => import("@/components/sections/Testimonials"));
 const CarReview1 = dynamic(() => import("@/components/sections/CarReview1"));
 const Check = dynamic(() => import("@/components/sections/check"));
 const Blog1 = dynamic(() => import("@/components/sections/Blog1"));
@@ -32,8 +32,8 @@ export const metadata = {
     canonical: "https://bestcarrentaldubai.ae/",
   },
   openGraph: {
-    title: "Best Luxury Car Rental in Dubai",
-    description: "Explore our premium fleet of sports, luxury, and exotic cars in Dubai.",
+    title: "Luxury Car Rental Dubai - Rent Sports and Exotic Cars",
+    description: "Explore our luxury car rental Dubai and rent exotic cars from high-end brands including Rolls Royce, Audi, Porsche, and others at lowest prices. Hire Now!",
     url: "https://bestcarrentaldubai.ae/",
     siteName: "Legendary Car Rental Dubai",
     images: [
@@ -61,7 +61,7 @@ const schemaMarkup = {
   "logo": "https://bestcarrentaldubai.ae/logo.png",
   "image": "https://bestcarrentaldubai.ae/assets/imgs/hero/hero-1/check.webp",
   "description":
-    "Rent luxury and exotic cars in Dubai. Choose from Lamborghini, Rolls Royce, Ferrari, and more. Fast booking and 24/7 support.",
+    "Explore our luxury car rental Dubai and rent exotic cars from high-end brands including Rolls Royce, Audi, Porsche, and others at lowest prices. Hire Now!",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Dubai",
