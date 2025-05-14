@@ -201,7 +201,7 @@ export default function Blog1() {
 								<SwiperSlide className="swiper-slide pt-2" key={blog.id}>
 									<div className="card-news background-card hover-up">
 									<div className="card-image">
-										<Link href={blog.slug}>
+										<Link href="/blog-grid">
 										<img src={blog.image} alt={blog.title} />
 										</Link>
 									</div>
@@ -218,7 +218,7 @@ export default function Blog1() {
 										<span className="post-comment neutral-1000">{blog.comments}</span>
 										</div>
 										<div className="card-title">
-										<Link className="text-xl-bold neutral-1000" href={blog.slug}>
+										<Link className="text-xl-bold neutral-1000" href="/blog-grid">
 											{blog.title}
 										</Link>
 										</div>
@@ -229,7 +229,7 @@ export default function Blog1() {
 											<p className="text-sm-bold neutral-1000">{blog.author}</p>
 											</div>
 											<div className="card-button">
-											<Link className="btn btn-gray" href={blog.slug}>
+											<Link className="btn btn-gray" href="/blog-grid">
 												Keep Reading
 											</Link>
 											</div>

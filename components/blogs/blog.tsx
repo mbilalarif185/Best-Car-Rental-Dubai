@@ -183,7 +183,7 @@ export default function Blogs() {
                   <span className="post-comment neutral-1000">{blog.comments}</span>
                 </div>
                 <div className="card-title">
-                  <Link href={blog.slug} className="text-xl-bold neutral-1000">{blog.title}</Link>
+                  <Link href="/about-us" className="text-xl-bold neutral-1000">{blog.title}</Link>
                 </div>
                 <div className="card-program">
                   <div className="endtime">
@@ -192,7 +192,7 @@ export default function Blogs() {
                       <p className="text-sm-bold neutral-1000">{blog.author}</p>
                     </div>
                     <div className="card-button">
-                      <Link href={blog.slug} className="btn btn-gray">Keep Reading</Link>
+                      <Link href="/about-us" className="btn btn-gray">Keep Reading</Link>
                     </div>
                   </div>
                 </div>
