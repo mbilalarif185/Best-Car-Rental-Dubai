@@ -285,49 +285,6 @@ input:focus::-moz-placeholder {
 
 }
 
-/* Cressoft WHatsappp */
-.floatingButton {
-  position: fixed;
-  z-index: 9999;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-/* Animations */
-.bounce:hover {
-  animation: bounce 1s infinite;
-}
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.zoom:hover {
-  transform: scale(1.2);
-}
-
-.rotate:hover {
-  transform: rotate(15deg);
-}
-
-.pulse:hover {
-  animation: pulse 1s infinite;
-}
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-
-.shake:hover {
-  animation: shake 0.5s;
-}
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
-}
-/* End of WHatsapp */
 .custom-ol{
 	 list-style-type: decimal;
   margin-left: 20px;
@@ -9172,7 +9129,7 @@ a.icon-socials:hover svg path {
 }
 
 .item-banner-slide-review {
-	background-image: url(../imgs/blog/blog-grid/img-1.png);
+	/* background-image: url(../imgs/blog/blog-grid/img-1.png); */
 	min-height: 504px;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -9192,11 +9149,11 @@ a.icon-socials:hover svg path {
 }
 
 .item-banner-slide-review.banner2 {
-	background-image: url(../imgs/blog/blog-grid/img-2.png);
+	/* background-image: url(../imgs/blog/blog-grid/img-2.png); */
 }
 
 .item-banner-slide-review.banner-3 {
-	background-image: url(../imgs/blog/blog-grid/img-1-1.png);
+	/* background-image: url(../imgs/blog/blog-grid/img-1-1.png); */
 }
 
 .custom-container {

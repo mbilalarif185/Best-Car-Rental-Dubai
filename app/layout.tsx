@@ -36,7 +36,7 @@ export default function RootLayout({
 				<WhatsAppButton
 			phoneNumber="+971545514155"
 			iconUrl="/whatsapp-icon.webp"
-			bottom={90}
+			bottom={40}
 			right={20}
 			openInNewTab={true}
 			animation="zoom"

@@ -5,8 +5,19 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation } from "swiper/modules"
 import { useRef } from "react"
 import Image from "next/image"
+import { useState } from "react";
+
 
 export default function Blogs() {
+   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  // Get unique categories from the blogs
+  const categories = Array.from(new Set(latestBlogs.map(blog => blog.category)));
+
+  // Filter blogs by selected category
+  const filteredBlogs = selectedCategory
+    ? latestBlogs.filter((blog) => blog.category === selectedCategory)
+    : latestBlogs;
   const prevRef = useRef<HTMLDivElement | null>(null)
   const nextRef = useRef<HTMLDivElement | null>(null)
 
@@ -53,7 +64,7 @@ export default function Blogs() {
 			  
               className="swiper-container swiper-group-1"
             >
-              {swiperBlogs.map((item) => (
+              {/* {swiperBlogs.map((item) => (
                 <SwiperSlide key={item.id}>
                   <div className={`item-banner-slide-review d-flex align-items-center rounded-12 ${item.bannerClass}`}>
                     <div className="ps-md-5 ps-2 position-relative z-1">
@@ -72,7 +83,50 @@ export default function Blogs() {
                     </div>
                   </div>
                 </SwiperSlide>
+              ))} */}
+              {swiperBlogs.map((item) => (
+                <SwiperSlide key={item.id}>
+                  <div className="item-banner-slide-review position-relative d-flex align-items-center rounded-12 overflow-hidden">
+                    {/* Optimized background image */}
+                    <Image
+                      src={item.authorAvatar}
+                      alt={item.title}
+                      fill
+                      className="object-cover z-0"
+                      
+                      priority={true}
+                    />
+
+                    {/* Gradient Overlay */}
+                    <div className="gradient-overlay"></div>
+
+                    {/* Content on top of image */}
+                    <div className="ps-md-5 ps-2 position-relative z-1">
+                      <span className="text-primary text-md-bold">{item.category}</span>
+                      <h3 className="mt-20 mb-20 color-white">{item.title}</h3>
+                      <div className="card-meta-user">
+                        <div className="box-author-small">
+                          <Image
+                            src={item.authorAvatar}
+                            width={40}
+                            height={40}
+                            alt={item.author}
+                            className="rounded-circle"
+                          />
+                          <p className="text-sm-bold">{item.author}</p>
+                        </div>
+                        <div className="date-post">
+                          <p className="text-sm-medium">{item.date}</p>
+                        </div>
+                      </div>
+                      <p className="text-lg-medium color-white mt-3">{item.description}</p>
+                    </div>
+                  </div>
+                </SwiperSlide>
               ))}
+
+
+
             </Swiper>
 
             {/* Swiper Buttons */}
@@ -94,47 +148,58 @@ export default function Blogs() {
 
           {/* Categories */}
           <div className="d-flex flex-wrap align-items-center justify-content-center gap-3 pt-55 pb-60">
-            <span className="text-md-bold neutral-1000">CATEGORY:</span>
-            {['Industry News', 'Rental Advice', 'Road Trips', 'Car Review', 'Travel Tips', 'Customer Stories'].map((category) => (
-              <Link key={category} href="#" className="btn btn-white px-3 py-2">{category}</Link>
-            ))}
-          </div>
+        <span className="text-md-bold neutral-1000">CATEGORY:</span>
+        <button
+          className={`btn btn-white px-3 py-2 ${selectedCategory === null ? 'active' : ''}`}
+          onClick={() => setSelectedCategory(null)}
+        >
+          All
+        </button>
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => setSelectedCategory(category)}
+            className={`btn btn-white px-3 py-2 ${selectedCategory === category ? 'active' : ''}`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
 
           {/* Latest News */}
           <h3 className="text-center mb-65 neutral-1000">Latest News</h3>
           <div className="row">
-            {latestBlogs.map((blog) => (
-              <div key={blog.id} className="col-lg-4 col-md-6 col-12">
-                <div className="card-news background-card hover-up mb-4">
-                  <div className="card-image">
-                    <Image src={blog.image} alt={blog.title} width={600} height={400} className="w-100 rounded-12" />
-                  </div>
-                  <div className="card-info">
-                    <label className="bg-2 rounded-12 position-absolute top-0 end-0 translate-middle-y px-3 py-2 me-4 text-sm-bold">{blog.category}</label>
-                    <div className="card-meta">
-                      <span className="post-date neutral-1000">{blog.date}</span>
-                      <span className="post-time neutral-1000">{blog.readTime}</span>
-                      <span className="post-comment neutral-1000">{blog.comments}</span>
+        {filteredBlogs.map((blog) => (
+          <div key={blog.id} className="col-lg-4 col-md-6 col-12">
+            <div className="card-news background-card hover-up mb-4">
+              <div className="card-image">
+                <Image src={blog.image} alt={blog.title} width={600} height={400} className="w-100 rounded-12" />
+              </div>
+              <div className="card-info">
+                <label className="bg-2 rounded-12 position-absolute top-0 end-0 translate-middle-y px-3 py-2 me-4 text-sm-bold">{blog.category}</label>
+                <div className="card-meta">
+                  <span className="post-date neutral-1000">{blog.date}</span>
+                  <span className="post-time neutral-1000">{blog.readTime}</span>
+                  <span className="post-comment neutral-1000">{blog.comments}</span>
+                </div>
+                <div className="card-title">
+                  <Link href={blog.slug} className="text-xl-bold neutral-1000">{blog.title}</Link>
+                </div>
+                <div className="card-program">
+                  <div className="endtime">
+                    <div className="card-author">
+                      <Image src={blog.authorAvatar} alt={blog.author} width={40} height={40} className="rounded-circle border border-primary" />
+                      <p className="text-sm-bold neutral-1000">{blog.author}</p>
                     </div>
-                    <div className="card-title">
-                      <Link href={blog.slug} className="text-xl-bold neutral-1000">{blog.title}</Link>
-                    </div>
-                    <div className="card-program">
-                      <div className="endtime">
-                        <div className="card-author">
-                          <Image src={blog.authorAvatar} alt={blog.author} width={40} height={40} className="rounded-circle border border-primary" />
-                          <p className="text-sm-bold neutral-1000">{blog.author}</p>
-                        </div>
-                        <div className="card-button">
-                          <Link href={blog.slug} className="btn btn-gray">Keep Reading</Link>
-                        </div>
-                      </div>
+                    <div className="card-button">
+                      <Link href={blog.slug} className="btn btn-gray">Keep Reading</Link>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+              </div>
+              </div>
+              ))}
 
           {/* Pagination */}
           <div className="d-flex justify-content-center">
@@ -174,6 +239,7 @@ export default function Blogs() {
  						</div>
         
 		</div>
+    </div>
       </section>
   )
 }

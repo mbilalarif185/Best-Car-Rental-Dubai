@@ -5,6 +5,7 @@ import Image from "next/image"
 type Category = {
   name: string
   image: string
+  bannerimage:string
   count: number
   slug:string
   delay?: string
@@ -51,8 +52,11 @@ export default function Categories1({ categories }: Props) {
                 >
                   <div className="card-image">
                     <Link href={`/luxury-fleet/${cat.slug}`} className="card-title">
-                      <img src={cat.image} alt={cat.name} />
-                      </Link>
+                     <img src={cat.bannerimage} 
+                      alt={`Rent a ${cat.name} in Dubai`}
+                      loading="lazy"
+                      decoding="async" />
+                    </Link>
                   </div>
                   <div className="card-info">
                     <Link className="card-title" href={`/luxury-fleet/${cat.slug}`}>{cat.name}</Link>

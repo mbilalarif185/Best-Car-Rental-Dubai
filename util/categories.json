@@ -2,7 +2,7 @@
    {
       "name": "SUV ",
       "image": "/assets/imgs/Legendary Cars/luxury-Suv.webp",
-      "banner-image":"/assets/imgs/Legendary Cars/luxury-Suv.webp",
+      "bannerimage":"/assets/imgs/categories/categories/suv-rental-in-dubai.webp",
       "slug":"suv",
       "title":"SUV Rental Dubai - Affordable 4x4 Car Hire, New Models",
       "meta_desc":"Discover range of luxury cars for hire at our SUV rental Dubai and enjoy best prices from AED 299/day. Choose from 5-seater to 7-seater cars and Book Now!",
@@ -13,6 +13,7 @@
     {
       "name": "Sport ",
       "image": "/assets/imgs/Legendary Cars/sports.webp",
+      "bannerimage":"/assets/imgs/categories/categories/sports-car-rental-dubai.webp",
       "slug":"sport",
       "title":"Sports Car Rental in Dubai | Rent Luxury & Supercars",
       "meta_desc":"Rent top-models of luxury sports and supercars at best prices with free delivery. Our sports car rental in Dubai offers more than 100 luxury cars. Hire Now!",
@@ -21,6 +22,7 @@
     },{
         "name": "Sedan ",
         "image": "/assets/imgs/Legendary Cars/sedan.webp",
+      "bannerimage":"/assets/imgs/categories/categories/sedan-car-rental-dubai.webp",
         "slug":"sedan",
         "title":"Rent a Sedan Car in Dubai - Premium Car Rental UAE",
       "meta_desc":"Rent top-models of luxury sports and supercars at best prices with free delivery. Our sports car rental in Dubai offers more than 100 luxury cars. Hire Now!",
@@ -31,6 +33,7 @@
       {
         "name": "Hatchback",
         "image": "/assets/imgs/Legendary Cars/hatchback-rent-in-dubai.webp",
+      "bannerimage":"/assets/imgs/categories/categories/hatchback-rental-dubai.webp",
         "slug":"Hatchback",
         "title":"Hatchback Car Rental in Dubai - Rent Cars at Legendary",
       "meta_desc":" Book luxury hatchback car rental in Dubai, UAE at best prices starting from AED 380/week. Explore the latest models and brands to enjoy comfortable rides. Rent Now!",
@@ -41,6 +44,7 @@
       {
         "name": "Coupe ",
         "image": "/assets/imgs/Legendary Cars/coupe-rental-in-dubai.webp",
+      "bannerimage":"/assets/imgs/categories/categories/rent-coupe-in-dubai.webp",
         "slug":"Coupe",
         "title":"Coupe Rental in Dubai - Hire a Coupe Car at Legendary",
       "meta_desc":"Rent luxury coupe cars onlines from our top coupe rental in Dubai. Legendary offers you a wide range of cars for hire at best deals. Free Delivery. Best Prices!",
@@ -51,6 +55,7 @@
       {
         "name": "Convertible",
         "image": "/assets/imgs/Legendary Cars/luxury-convertible.webp",
+      "bannerimage":"/assets/imgs/categories/categories/rent-convertible-in-dubai.webp",
         "slug":"Convertible",
         "meta_desc":"Best Convertible Car Rental in Dubai - Rent At Best Price",
         "title":"Hire cars such as Ferrari, Lamborghini, Porsche, and Rolls Royce at best prices from AED 650/day. Our Convertible car rental in Dubai offers 24/7 booking service.",
