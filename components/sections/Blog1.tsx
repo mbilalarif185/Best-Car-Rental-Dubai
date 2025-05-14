@@ -2,6 +2,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link"
 import { swiperGroup3 } from '@/util/swiperOptions'
+import { latestBlogs } from "@/data/blogs/bloggrid";
 
 export default function Blog1() {
 	return (
@@ -34,7 +35,7 @@ export default function Blog1() {
 							</div>
 						</div>
 					</div>
-					<div className="box-list-news wow fadeInUp mt-5">
+					{/* <div className="box-list-news wow fadeInUp mt-5">
 						<div className="box-swiper">
 							<Swiper {...swiperGroup3} className="swiper-container swiper-group-3">
 								<div className="swiper-wrapper">
@@ -191,7 +192,57 @@ export default function Blog1() {
 								</div>
 							</Swiper>
 						</div>
-					</div>
+					</div> */}
+					  <div className="box-list-news wow fadeInUp mt-5">
+						<div className="box-swiper">
+							<Swiper {...swiperGroup3} className="swiper-container swiper-group-3">
+							<div className="swiper-wrapper">
+								{latestBlogs.map((blog) => (
+								<SwiperSlide className="swiper-slide pt-2" key={blog.id}>
+									<div className="card-news background-card hover-up">
+									<div className="card-image">
+										<Link href={blog.slug}>
+										<img src={blog.image} alt={blog.title} />
+										</Link>
+									</div>
+									<div className="card-info">
+										<Link
+										className="bg-2 rounded-12 position-absolute top-0 end-0 translate-middle-y px-3 py-2 me-4 text-sm-bold"
+										href="/blog-grid"
+										>
+										{blog.category}
+										</Link>
+										<div className="card-meta">
+										<span className="post-date neutral-1000">{blog.date}</span>
+										<span className="post-time neutral-1000">{blog.readTime}</span>
+										<span className="post-comment neutral-1000">{blog.comments}</span>
+										</div>
+										<div className="card-title">
+										<Link className="text-xl-bold neutral-1000" href={blog.slug}>
+											{blog.title}
+										</Link>
+										</div>
+										<div className="card-program">
+										<div className="endtime">
+											<div className="card-author">
+											<img src={blog.authorAvatar} alt={blog.author} className="rounded-circle"/>
+											<p className="text-sm-bold neutral-1000">{blog.author}</p>
+											</div>
+											<div className="card-button">
+											<Link className="btn btn-gray" href={blog.slug}>
+												Keep Reading
+											</Link>
+											</div>
+										</div>
+										</div>
+									</div>
+									</div>
+								</SwiperSlide>
+								))}
+							</div>
+							</Swiper>
+						</div>
+   					 </div>
 				</div>
 			</section>
 		</>
