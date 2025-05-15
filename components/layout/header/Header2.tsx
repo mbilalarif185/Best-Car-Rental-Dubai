@@ -50,13 +50,12 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, handle
 							</Dropdown>
 							<Dropdown className="d-none d-xl-inline-block box-dropdown-cart align-middle head-currency">
 								<Dropdown.Toggle  as="span" className="text-14-medium icon-list icon-cart">
-									<span className="text-14-medium arrow-down">USD</span>
+									<span className="text-14-medium arrow-down">AED</span>
 									</Dropdown.Toggle>
 								<Dropdown.Menu style={{visibility: 'visible'}} className="dropdown-cart">
 									<ul>
-										<li><Link className="text-sm-medium" href="#">USD</Link></li>
-										<li><Link className="text-sm-medium" href="#">EUR</Link></li>
-										
+										<li>AED</li>
+										<li>USD</li>
 									</ul>
 								</Dropdown.Menu>
 							</Dropdown>

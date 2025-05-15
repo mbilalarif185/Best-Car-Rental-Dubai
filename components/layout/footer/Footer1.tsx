@@ -44,22 +44,22 @@ export default function Footer1() {
 							<ul className="menu-footer">
 								<li><Link href="/about-us">About Us</Link></li>
 								
+								<li><Link href="/services">Services</Link></li>
+								<li><Link href="/privacy-policy">Privacy Policy</Link></li>
+								<li><Link href="/term-of-use">Terms of Use</Link></li>
 								
-								<li><Link href="#">Copyright Notices</Link></li>
-								<li><Link href="#">Terms of Use</Link></li>
-								<li><Link href="#">Privacy Notice</Link></li>
-								<li><Link href="#">Policy &amp; Notice</Link></li>
+								<li><Link href="/sitemap.xml">SiteMap</Link></li>
 							</ul>
 						</div>
 						<div className="col-md-2 col-xs-6 footer-2">
-							<h6 className="text-linear-3">Our Services</h6>
+							<h6 className="text-linear-3">Our Brands</h6>
 							<ul className="menu-footer">
-								<li><Link href="#">Airport Transfer</Link></li>
-								<li><Link href="#">Chauffeur Services</Link></li>
-								<li><Link href="#">Business Car Rental</Link></li>
+								<li><Link href="/luxury-brands/rent-lamborghini-in-dubai">Lamborghini</Link></li>
+								<li><Link href="/luxury-brands/rent-mercedes-in-dubai">Mercedes</Link></li>
+								<li><Link href="/luxury-brands/rent-audi-in-dubai">Audi</Link></li>
 								
-								<li><Link href="#">Car Rental With Driver</Link></li>
-								<li><Link href="#">Wedding Car Rental</Link></li>
+								<li><Link href="/luxury-brands/bmw-for-rent-in_dubai">BMW</Link></li>
+								<li><Link href="/luxury-brands/rolls-royce-car-rental-in-dubai">Rolls Royce</Link></li>
 							</ul>
 						</div>
 						<div className="col-md-2 col-xs-6 footer-4">
@@ -75,13 +75,13 @@ export default function Footer1() {
 							</ul>
 						</div>
 						<div className="col-md-3 col-xs-6 footer-5">
-							<h6 className="text-linear-3">Locations</h6>
+							<h6 className="text-linear-3">Our Fleet</h6>
 							<ul className="menu-footer">
-								<li><Link href="#">Rent a Car in JVC </Link></li>
-								<li><Link href="#">Rent a Car in Bur Dubai</Link></li>
-								<li><Link href="#">Rent a Car in Dubai Marina</Link></li>
-								<li><Link href="#">Rent a Car in Palm jumeirah</Link></li>
-								<li><Link href="#">Rent a Car in Deira</Link></li>
+								<li><Link href="/luxury-fleet/suv">Rent a SUV in Dubai </Link></li>
+								<li><Link href="/luxury-fleet/sedan">Sedan For Rent in Dubai</Link></li>
+								<li><Link href="/luxury-fleet/sport">Sports Car Rental Dubai</Link></li>
+								<li><Link href="/luxury-fleet/coupe">Rent a Coupe in Dubai</Link></li>
+								<li><Link href="/luxury-fleet/convertible">Rent a Convertible in Dubai</Link></li>
 								
 							</ul>
 						</div>
@@ -89,7 +89,7 @@ export default function Footer1() {
 					<div className="footer-bottom mt-50">
 						<div className="row align-items-center justify-content-center">
 							<div className="col-md-6 text-md-start text-center mb-20">
-								<p className="text-sm color-white">© {new Date().getFullYear()} Legendary Car Rental. All rights reserved. Developed by <a className="link_color" href="https:cressoft.net" target="_blank" rel="noopener noreferrer" >Cressoft</a></p>
+								<p className="text-sm color-white">© {new Date().getFullYear()} Legendary Car Rental. All rights reserved. Developed by <a className="link_color" href="https://cressoft.net/" target="_blank" rel="noopener noreferrer" >Cressoft</a></p>
 							</div>
 							<div className="col-md-6 text-md-end text-center mb-20">
 								<div className="d-flex align-items-center justify-content-center justify-content-md-end">
@@ -105,11 +105,11 @@ export default function Footer1() {
 												<path d="M18.7563 13.4915C18.7563 16.5248 16.9479 18.3332 13.9146 18.3332H12.9229C12.4646 18.3332 12.0896 17.9582 12.0896 17.4998V12.6915C12.0896 12.4665 12.2729 12.2748 12.4979 12.2748L13.9646 12.2498C14.0813 12.2415 14.1813 12.1582 14.2063 12.0415L14.4979 10.4498C14.5229 10.2998 14.4063 10.1582 14.2479 10.1582L12.4729 10.1832C12.2396 10.1832 12.0563 9.99985 12.0479 9.77485L12.0146 7.73317C12.0146 7.59984 12.1229 7.48318 12.2646 7.48318L14.2646 7.44984C14.4063 7.44984 14.5146 7.34152 14.5146 7.19985L14.4813 5.19983C14.4813 5.05816 14.3729 4.94984 14.2313 4.94984L11.9813 4.98318C10.5979 5.00818 9.49794 6.1415 9.52294 7.52484L9.5646 9.8165C9.57293 10.0498 9.38961 10.2332 9.15628 10.2415L8.15627 10.2582C8.0146 10.2582 7.90628 10.3665 7.90628 10.5082L7.93127 12.0915C7.93127 12.2332 8.0396 12.3415 8.18126 12.3415L9.18127 12.3248C9.41461 12.3248 9.59792 12.5082 9.60626 12.7332L9.68125 17.4832C9.68959 17.9498 9.31459 18.3332 8.84792 18.3332H6.93126C3.89793 18.3332 2.0896 16.5248 2.0896 13.4832V6.50817C2.0896 3.47484 3.89793 1.6665 6.93126 1.6665H13.9146C16.9479 1.6665 18.7563 3.47484 18.7563 6.50817V13.4915Z" fill="white" />
 											</svg>
 										</Link>
-										<Link className="icon-socials icon-twitter" href="#">
+										{/* <Link className="icon-socials icon-twitter" href="#">
 											<svg xmlns="http://www.w3.org/2000/svg" width={21} height={20} viewBox="0 0 21 20" fill="none">
 												<path d="M12.2847 8.46864L19.5701 0H17.8437L11.5178 7.3532L6.46535 0H0.637939L8.27824 11.1193L0.637939 20H2.36443L9.04472 12.2348L14.3805 20H20.2079L12.2843 8.46864H12.2847ZM9.92005 11.2173L9.14593 10.1101L2.98651 1.29967H5.63831L10.609 8.40994L11.3831 9.51718L17.8445 18.7594H15.1927L9.92005 11.2177V11.2173Z" fill="white" />
 											</svg>
-										</Link>
+										</Link> */}
 										<Link className="icon-socials icon-be" href="https://www.youtube.com/channel/UCSb2xm5ugRZDaV6weTHBn1g">
 											<svg width={21} height={15} viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M8.82393 10.736L13.9225 7.78881L8.82393 4.84165V10.736ZM20.1803 3.04389C20.308 3.50561 20.3964 4.12451 20.4554 4.91042C20.5242 5.69633 20.5536 6.37418 20.5536 6.96361L20.6126 7.78881C20.6126 9.94024 20.4554 11.5219 20.1803 12.5337C19.9347 13.4179 19.3649 13.9877 18.4808 14.2333C18.0191 14.361 17.1742 14.4494 15.8775 14.5083C14.6004 14.5771 13.4313 14.6066 12.3507 14.6066L10.7887 14.6655C6.67251 14.6655 4.10848 14.5083 3.09662 14.2333C2.21247 13.9877 1.64269 13.4179 1.39709 12.5337C1.26938 12.072 1.18097 11.4531 1.12203 10.6672C1.05326 9.8813 1.02379 9.20345 1.02379 8.61402L0.964844 7.78881C0.964844 5.63739 1.12203 4.05575 1.39709 3.04389C1.64269 2.15974 2.21247 1.58996 3.09662 1.34436C3.55834 1.21665 4.4032 1.12823 5.69995 1.06929C6.97705 1.00052 8.14609 0.971052 9.22671 0.971052L10.7887 0.912109C14.9049 0.912109 17.4689 1.06929 18.4808 1.34436C19.3649 1.58996 19.9347 2.15974 20.1803 3.04389Z" fill="true" />
