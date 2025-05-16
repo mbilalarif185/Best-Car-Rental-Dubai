@@ -1,6 +1,6 @@
 
 import Layout from "@/components/layout/Layout"
-import Privacypolicy from "@/components/useful/privacy-policy"
+import TermsCondition from "@/components/useful/terms-condition"
 export default function Term() {
 
 	return (
@@ -8,8 +8,9 @@ export default function Term() {
 
 			<Layout footerStyle={1}>
 				<main>
-				<Privacypolicy/>
+				<TermsCondition/>
 				</main>
+
 			</Layout>
 		</>
 	)

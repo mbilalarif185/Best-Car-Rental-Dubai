@@ -28,10 +28,10 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<head>
+			<Head>
         <meta name="google-site-verification" content="eIB_T-TdBSukKqmpqtNjHrscPQx2ukT5Gpn5Vyr7T0c" />
         {/* This ensures it appears in the real HTML source */}
-      </head>
+      </Head>
 			<body className={`${urbanist.variable}`}>{children}
 				<WhatsAppButton
 			phoneNumber="+971545514155"

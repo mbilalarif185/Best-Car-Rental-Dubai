@@ -40,11 +40,11 @@ export default function Footer1() {
 							</div>
 						</div>
 						<div className="col-md-2 col-xs-6 footer-3">
-							<h6 className="text-linear-3">Company</h6>
+							<h6 className="text-linear-3">Useful Links</h6>
 							<ul className="menu-footer">
 								<li><Link href="/about-us">About Us</Link></li>
 								
-								<li><Link href="/services">Services</Link></li>
+								<li><Link href="/rental-terms">Rental Terms</Link></li>
 								<li><Link href="/privacy-policy">Privacy Policy</Link></li>
 								<li><Link href="/term-of-use">Terms of Use</Link></li>
 								
@@ -89,7 +89,7 @@ export default function Footer1() {
 					<div className="footer-bottom mt-50">
 						<div className="row align-items-center justify-content-center">
 							<div className="col-md-6 text-md-start text-center mb-20">
-								<p className="text-sm color-white">© {new Date().getFullYear()} Legendary Car Rental. All rights reserved. Developed by <a className="link_color" href="https://cressoft.net/" target="_blank" rel="noopener noreferrer" >Cressoft</a></p>
+								<p className="text-sm color-white">© {new Date().getFullYear()} Best Car Rental. All rights reserved. Developed by <a className="link_color" href="https://cressoft.net/" target="_blank" rel="noopener noreferrer" >Cressoft</a></p>
 							</div>
 							<div className="col-md-6 text-md-end text-center mb-20">
 								<div className="d-flex align-items-center justify-content-center justify-content-md-end">

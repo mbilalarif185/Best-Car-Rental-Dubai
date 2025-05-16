@@ -14,9 +14,9 @@ const Second=()=>{
 								</div>
 								<div className="col-lg-7 offset-lg-1">
 									<p className="text-lg-medium neutral-500">
-										Legendary Car Rental is one of the leading car rentals in Dubai. We are honoured to serve thousands of customers for the last 9 years. With a huge fleet of luxury cars for rent in Dubai, we make sure you get the right vehicle that complements your style. Besides, our competitive rates and highly maintained fleet of 100 + vehicles are sure to grab your attention. Whether you want to rent a car for a day, month or week, our best car rental in Dubai makes it flexible. 
+										Best Car Rental is one of the leading car rentals in Dubai. We are honoured to serve thousands of customers for the last 9 years. With a huge fleet of luxury cars for rent in Dubai, we make sure you get the right vehicle that complements your style. Besides, our competitive rates and highly maintained fleet of 100 + vehicles are sure to grab your attention. Whether you want to rent a car for a day, month or week, our best car rental in Dubai makes it flexible. 
 										<br></br>
-										Business or tourism, our top-quality cars will make your trip unforgettable. No matter if you are into comfort, style, or roaring rides, Legendary gives you a way to explore everything with a luxury car rental fleet. 
+										Business or tourism, our top-quality cars will make your trip unforgettable. No matter if you are into comfort, style, or roaring rides, Best Car Rental gives you a way to explore everything with a luxury car rental fleet. 
 									</p>
 								</div>
 							</div>

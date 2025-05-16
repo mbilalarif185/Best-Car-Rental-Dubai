@@ -10,14 +10,14 @@ export default function Check({cls}:any) {
        Book Your Favorite Car with Luxury Car Rental Dubai
       </h2>
       <p className="text-xl-medium neutral-500">
-       Legendary Car Rental has world-known brands in its inventory, 
+       Best Car Rental has world-known brands in its inventory, 
 	   from luxury Lamborghini, Ferrari, Rolls Royce, Porsche, McLaren, BMW, Land Rover, and many others.
 	    We ensure that our cars for rent in Dubai are worth the money. 
 		You will surely hit the road and accelerate an exhilarating riding experience like never before.
-        Moreover, at Legendary Car Rental, you can also get chauffeur services. 
+        Moreover, at Best Car Rental, you can also get chauffeur services. 
 		Besides, the pick-and-drop services make it easier to book luxury cars at any time or place.
 		 Our luxury car rental in Dubai allows you to rent cars for a day, week, and even a month; however,
-		  it all depends on your requirements. So, for the next tour, explore Legendary and have the best car rental deals in hand.
+		  it all depends on your requirements. So, for the next tour, explore Best and have the best car rental deals in hand.
 
       </p>
     </div>
@@ -57,7 +57,7 @@ export default function Check({cls}:any) {
 
       </h3>
       <p className="text-xl-medium neutral-500">
-     In Dubai, you will find many car rental options. However, at Legendary Car Rental, we provide you with affordable rental prices.
+     In Dubai, you will find many car rental options. However, at Best Car Rental, we provide you with affordable rental prices.
 	  Therefore, our price range ranges from the most inexpensive to the most luxurious and powerful options. 
 	   It ranges from AED 500 to AED 6000 and more. However, the prices keep fluctuating due to several factors, including:
 			<br/><strong>Brand and Model</strong><br/>
@@ -69,7 +69,7 @@ export default function Check({cls}:any) {
 			<br/><strong>Duration</strong><br/>
 			The rental duration also impacts the rental price of your luxury car. If you are renting daily, the rental price will be high. However, if we compare it to monthly and weekly options, they are more cost-effective than daily rental. Therefore, we will give you options for our luxury car rental in Dubai. Whether for a day, week, or month, if you are concerned about prices, don't be. Our deals and discounts are enough to satisfy your luxury preferences.
 			<br/><strong>Service You opt for</strong><br/>
-			You can choose from many services at our luxury car rental in Dubai. We offer chauffeur service, pick-up and delivery, insurance plans, and additional mileage. With the addition of each extra facility, you will see hype in the price. So, consider these options carefully while renting a luxury car in Dubai. You are sure to hit the road in affordability with Legendary!
+			You can choose from many services at our luxury car rental in Dubai. We offer chauffeur service, pick-up and delivery, insurance plans, and additional mileage. With the addition of each extra facility, you will see hype in the price. So, consider these options carefully while renting a luxury car in Dubai. You are sure to hit the road in affordability with Best!
 
 
       </p>
@@ -101,14 +101,14 @@ export default function Check({cls}:any) {
     <strong>Avoid the Hassle:</strong> Why go for Uber and taxis when you can have your luxury vehicle to make an impression? With our luxury car rental in Dubai, you can explore the city according to your preferences. There is no need to wait for public transport; you can stop and enjoy the view as you like. Moreover, it’s all on you if you want a heart-rushing speed!
   </li>
   <li>
-    <strong>Explore and Enjoy:</strong> Driving luxury brands like Lamborghini, Rolls Royce, and Ferrari is everyone's dream. We at Legendary Car Rental turn them into reality. You can explore the shimmering sand of Palm Jazeera, Skyscrapers like Burj Khalifa, and witness the sun setting at the dunes.
+    <strong>Explore and Enjoy:</strong> Driving luxury brands like Lamborghini, Rolls Royce, and Ferrari is everyone's dream. We at Best Car Rental turn them into reality. You can explore the shimmering sand of Palm Jazeera, Skyscrapers like Burj Khalifa, and witness the sun setting at the dunes.
   </li>
 		</ul>
 
     </div>
 	 <div >
       <h3 className="mb-4 mt-2 neutral-1000 custom-heading">
-     How do you rent a luxury car in Dubai with Legendary?
+     How do you rent a luxury car in Dubai with Best?
       </h3>
       <p className="text-xl-medium neutral-500">
      Our luxury car rental in Dubai helps you roam around the bustling streets in grace.
@@ -117,17 +117,17 @@ export default function Check({cls}:any) {
       </p>
 	  <ul  className="text-xl-medium neutral-500 custom-ul">
 		<li>
-			The first step is to choose a reliable car rental company in Dubai. Search the variety of options available online. But that’s the hassle, you know. Why bother searching when Legendary Car Rental is here with its vast fleet of rental cars?
+			The first step is to choose a reliable car rental company in Dubai. Search the variety of options available online. But that’s the hassle, you know. Why bother searching when Best Car Rental is here with its vast fleet of rental cars?
 		</li>
 		<li>
-			However, if you have different preferences, it’s better to investigate the reviews, the collection of the cars a rental company offers, and their customer service. After that, compare the prices of car rentals. We are sure you will find the latest car models at affordable prices here at Legendary.
+			However, if you have different preferences, it’s better to investigate the reviews, the collection of the cars a rental company offers, and their customer service. After that, compare the prices of car rentals. We are sure you will find the latest car models at affordable prices here at Best.
 		</li>
 		<li>
 			The next step is to search for the brand. You can search for your favorite brand and model or choose one. Besides, our extensive car rental fleet extends from Lamborghini, Ferrari, Bentley, and Rolls Royce to Porsche, Mercedes, McLaren, and BMW. Therefore, you can choose any car that suits your budget and personal preferences.
 		</li>
 		</ul>
 		<p className="text-xl-medium neutral-500">
-			Renting a luxury car in Dubai is easy, but you must consider some factors. Be clear about every detail and ask your car rental company about their procedures, requirements, and hidden charges. We at Legendary Car Rental have transparent pricing criteria; we don’t charge anything extra. Thus, it makes sense why we are the preference of thousands. 
+			Renting a luxury car in Dubai is easy, but you must consider some factors. Be clear about every detail and ask your car rental company about their procedures, requirements, and hidden charges. We at Best Car Rental have transparent pricing criteria; we don’t charge anything extra. Thus, it makes sense why we are the preference of thousands. 
 
 		</p>
     </div>
@@ -171,7 +171,7 @@ export default function Check({cls}:any) {
       Get Premium Chauffeur Service in Dubai
       </h3>
       <p className="text-xl-medium neutral-500">
-		At Legendary Car Rental in Dubai, we make sure your first impression goes viral. 
+		At Best Car Rental in Dubai, we make sure your first impression goes viral. 
 		Therefore, we also provide chauffeur Dubai services and luxury cars for rent in Dubai. 
 		Whether it’s a special event, such as a wedding or party, or you are attending a business meeting, our luxury cars serve you well. 
 		Our highly maintained vehicles have the latest models, so make sure you arrive in style. Moreover, our team is an expert on routes and driving.
@@ -184,7 +184,7 @@ export default function Check({cls}:any) {
      	Factors to Consider While Choosing Luxury Car Rental Dubai
       </h3>
       <p className="text-xl-medium neutral-500">
-		Renting a luxury car in Dubai is easy with Legendary Car Rental. 
+		Renting a luxury car in Dubai is easy with Best Car Rental. 
 		With a vast fleet of vehicles, we offer you the right option.
 		 You don’t need to search for other luxury car rental companies with us. However, 
 		if you insist on searching for them, here are some significant points to notice: 
@@ -238,7 +238,7 @@ export default function Check({cls}:any) {
       <p className="text-xl-medium neutral-500">
 		At Luxury Car Rental Dubai, we understand that every customer has unique needs.
 		 That’s why we offer flexible luxury car hire plans to match your schedule. 
-		 Whether it’s for a few hours or an entire month, Legendary makes it possible for you. 
+		 Whether it’s for a few hours or an entire month, Best makes it possible for you. 
 
       </p>
 	  <h4 className="mb-2 neutral-1000 custom-heading5">
@@ -385,9 +385,9 @@ export default function Check({cls}:any) {
 
       </h4>
 	  <p className="text-xl-medium neutral-500">
-		In addition to these iconic brands, Legendary Car Rental offers luxury vehicles from Mercedes, Audi, Nissan, Land Rover, McLaren, and BMW.
+		In addition to these iconic brands, Best Car Rental offers luxury vehicles from Mercedes, Audi, Nissan, Land Rover, McLaren, and BMW.
 		 Each brand brings its unique blend of luxury, comfort, and innovation, providing a diverse selection to meet your preferences. 
-		 Explore Legendary Car Rental's collection and find the perfect car to enhance your Dubai experience today.
+		 Explore Best Car Rental's collection and find the perfect car to enhance your Dubai experience today.
 
 
       </p>

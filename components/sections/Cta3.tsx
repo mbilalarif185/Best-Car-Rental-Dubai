@@ -11,10 +11,10 @@ export default function Cta3() {
 						<div className="row align-items-center">
 							<div className="col-lg-5 pe-lg-5">
 								<h3 className="btn btn-signin bg-white text-dark mb-4 wow fadeInDown">About Our Luxury Car Rental Dubai</h3>
-								<h2 className="custom-heading mb-4 pe-lg-5 neutral-1000 wow fadeInUp ">Legendary Car Rental: The Premier Car Hire Service in Dubai - UAE
+								<h2 className="custom-heading mb-4 pe-lg-5 neutral-1000 wow fadeInUp ">Best Car Rental: The Premier Car Hire Service in Dubai - UAE
 								</h2>
 								<p className="text-lg-medium neutral-500 mb-4 wow fadeInUp">
-								At Legendary Car Rental, we upgrade your travel experience with our exotic selection of luxury cars for rent in Dubai. Whether you're in Dubai for business, leisure, or a special occasion, our exclusive fleet of high-end vehicles promises a memorable experience. Legendary is the best luxury car rental company in Dubai, offering you luxury cars for rent at affordable prices. Dubai is all about glamor and luxury. 
+								At Best Car Rental, we upgrade your travel experience with our exotic selection of luxury cars for rent in Dubai. Whether you're in Dubai for business, leisure, or a special occasion, our exclusive fleet of high-end vehicles promises a memorable experience. Best is the best luxury car rental company in Dubai, offering you luxury cars for rent at affordable prices. Dubai is all about glamor and luxury. 
 
 									
 								</p>

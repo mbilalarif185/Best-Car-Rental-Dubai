@@ -23,7 +23,7 @@ export default function CarsListing1({ cars }: CarsListingProps) {
               Book from Largest Fleet of Luxury Cars for Rent
             </h2>
             <p className="text-lg-medium text-bold neutral-500">
-              Our luxury car rental in Dubai has an excellent car fleet with affordable rental rates that never miss to amuse you. So, for the next ride on the wealthy streets of Dubai, make sure to rent cars from Legendary Car Rental.
+              Our luxury car rental in Dubai has an excellent car fleet with affordable rental rates that never miss to amuse you. So, for the next ride on the wealthy streets of Dubai, make sure to rent cars from Best Car Rental.
             </p>
           </div>
           <div className="col-md-3 position-relative mb-30 wow fadeInUp">

@@ -28,14 +28,14 @@ const FAQsSection: React.FC = () => {
       question:
         "How much is it to rent a luxury car in Dubai?",
       answer:
-        "The average cost of luxury car rental in Dubai depends upon the brand, model, and rent duration. It can increase by adding extra customizations such as additional mileage. So, the prices range from AED300 to AED 10000 at Legendary Car Rental.",
+        "The average cost of luxury car rental in Dubai depends upon the brand, model, and rent duration. It can increase by adding extra customizations such as additional mileage. So, the prices range from AED300 to AED 10000 at Best Car Rental.",
 	 },
     {
       id: 4,
       question:
         "How can I book a luxury car rental company in Dubai?",
       answer:
-        "Legendary car rental in Dubai offers you a vast fleet of cars for rent. With thousands of satisfied customers, highly maintained vehicles, and affordable prices, it’s the best car rental in Dubai. So, to book a luxury car, reach out to us and make your booking online.",
+        "Best car rental in Dubai offers you a vast fleet of cars for rent. With thousands of satisfied customers, highly maintained vehicles, and affordable prices, it’s the best car rental in Dubai. So, to book a luxury car, reach out to us and make your booking online.",
 	},
     {
       id: 5,
@@ -47,9 +47,9 @@ const FAQsSection: React.FC = () => {
     {
       id: 6,
       question:
-        "How to book a luxury car rental in Dubai with Legendary?",
+        "How to book a luxury car rental in Dubai with Best?",
       answer:
-        "Legendary Car Rental offers you an easy online booking process. You need to explore our online platform and look for your favourite vehicle. After scrolling through different brands and finalizing the luxury car for rent in Dubai, you can go for a booking. To rent it, you can fill out the booking form or call us and contact us directly. We will let you know about the availability of the vehicle and book it for you if available. Once done, you must pay for the rent and get ready to enjoy a luxury ride. ",
+        "Best Car Rental offers you an easy online booking process. You need to explore our online platform and look for your favourite vehicle. After scrolling through different brands and finalizing the luxury car for rent in Dubai, you can go for a booking. To rent it, you can fill out the booking form or call us and contact us directly. We will let you know about the availability of the vehicle and book it for you if available. Once done, you must pay for the rent and get ready to enjoy a luxury ride. ",
 	},
   ];
 

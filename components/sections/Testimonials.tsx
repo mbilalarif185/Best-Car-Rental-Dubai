@@ -13,7 +13,7 @@ export default function Testimonials() {
 					<div className="row align-items-end">
 						<div className="col-md-9 col-sm-9 wow fadeInUp">
 							<div className="box-author-testimonials"><img src="/assets/imgs/page/homepage1/testimonial.png" alt="Carento" /><img src="/assets/imgs/page/homepage1/testimonial2.png" alt="Carento" /><img src="/assets/imgs/page/homepage1/testimonial3.png" alt="Carento" />Testimonials</div>
-							<h3 className="mt-8 mb-15 neutral-1000">Legendary Car Rental’s Reviews</h3>
+							<h3 className="mt-8 mb-15 neutral-1000">Best Car Rental’s Reviews</h3>
 						</div>
 					</div>
 				</div>
@@ -28,7 +28,7 @@ export default function Testimonials() {
 												<div className="card-info">
 													<p className="text-xl-bold card-title neutral-1000">Impeccable Rental Service</p>
 													<p className="text-md-regular neutral-500">
-													I had an incredible experience with Legendary car rental in Dubai.
+													I had an incredible experience with Best car rental in Dubai.
 													 Their service was impeccable from the moment
 													  I booked until the end of my rental
 													  period of month.
@@ -52,9 +52,9 @@ export default function Testimonials() {
 										<SwiperSlide>
 											<div className="card-testimonial background-card">
 												<div className="card-info">
-													<p className="text-xl-bold card-title neutral-1000">Genuinely Legendary!</p>
+													<p className="text-xl-bold card-title neutral-1000">Genuinely Best!</p>
 													<p className="text-md-regular neutral-500">
-													Legendary made my Dubai trip genuinely legendary! I rented a Lamborghini for my recent tour, 
+													Best made my Dubai trip genuinely Best! I rented a Lamborghini for my recent tour, 
 													which exceeded my expectations.
 													The service was professional, adding to the overall experience. 
 
@@ -81,7 +81,7 @@ export default function Testimonials() {
 
 													</p>
 													<p className="text-md-regular neutral-500">
-													My family and I rented an SUV from Legendary in Dubai. 
+													My family and I rented an SUV from Best in Dubai. 
 													The rental rates were reasonable, especially considering
 													 the high quality of the cars.
 													 Whole experience was smooth and enjoyable. 
@@ -108,7 +108,7 @@ export default function Testimonials() {
 													<p className="text-xl-bold card-title neutral-1000">Easy Rental Process
 													</p>
 													<p className="text-md-regular neutral-500">
-													The online rental process for hiring Ferrari in Dubai from Legendary was hassle-free. 
+													The online rental process for hiring Ferrari in Dubai from Best was hassle-free. 
 													The staff was accommodating when I needed extra mileage, 
 													ensuring everything was perfect for my trip. 
 

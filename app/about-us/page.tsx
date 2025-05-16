@@ -10,13 +10,13 @@ const Faq = dynamic(() => import('@/components/sections/faq'));
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "About Legendary - Best Car Rental in Dubai ",
-  description: "Legendary is the best car rental in Dubai with its huge fleet of cars for rent at best prices. Rent now for a week, month, or day. Free Delivery & 24/7 service. ",
+  title: "About - Best Car Rental in Dubai ",
+  description: "The best car rental in Dubai with its huge fleet of cars for rent at best prices. Rent now for a week, month, or day. Free Delivery & 24/7 service. ",
   openGraph: {
-    title: "About Legendary - Best Car Rental in Dubai ",
-    description: "Legendary is the best car rental in Dubai with its huge fleet of cars for rent at best prices. Rent now for a week, month, or day. Free Delivery & 24/7 service. ",
+    title: "About - Best Car Rental in Dubai ",
+    description: "The best car rental in Dubai with its huge fleet of cars for rent at best prices. Rent now for a week, month, or day. Free Delivery & 24/7 service. ",
     url: "https://bestcarrentaldubai.ae/",
-    siteName: "Legendary Car Rental Dubai",
+    siteName: "Best Car Rental Dubai",
     images: [
       {
         url: "https://bestcarrentaldubai.ae/assets/img/Legendary Cars/Lamborghini-STO-luxury-car-rental-dubai.webp", 

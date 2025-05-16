@@ -57,7 +57,7 @@ export default function Cta2() {
 									<div className="col-lg-6">
 									<div className="form-group">
 										<label className="text-sm-medium neutral-1000">Email Address</label>
-										<input className="form-control" type="email" placeholder="info@legendarycarrental.ae" />
+										<input className="form-control" type="email" placeholder="info@Bestcarrental.ae" />
 									</div>
 									</div>
 									<div className="col-lg-6">
@@ -181,7 +181,7 @@ export default function Cta2() {
 									</span>
 								</div>
 								<div className="authors-partner-right">
-									<p className="text-sm neutral-1000">1684 people used <strong>Legendary Car Rental Dubai
+									<p className="text-sm neutral-1000">1684 people used <strong>Best Car Rental Dubai
 										 </strong>  in the last
 										<strong>24 hours</strong></p>
 								</div>

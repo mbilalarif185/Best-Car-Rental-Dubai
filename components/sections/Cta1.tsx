@@ -16,8 +16,8 @@ export default function Cta1() {
 			"@context": "https://schema.org",
 			"@type": "VideoObject",
 			"name": "Luxury Car Rental Services",
-			"description": "Watch how Legendary Car Rental offers Dubai's top-rated car rental services, 24/7 support, and luxury vehicles.",
-			"thumbnailUrl": "/assets/imgs/Legendary Cars/Mercedes-G63-for-rent.webp",
+			"description": "Watch how Best Car Rental offers Dubai's top-rated car rental services, 24/7 support, and luxury vehicles.",
+			"thumbnailUrl": "/assets/imgs/Best Cars/Mercedes-G63-for-rent.webp",
 			"uploadDate": "2024-12-01",
 			"contentUrl": "https://youtu.be/sl6Jtrx3FFQ?si=6CmFQwgj_sXMLpa-",
 			"embedUrl":   "https://youtu.be/sl6Jtrx3FFQ?si=6CmFQwgj_sXMLpa-"
@@ -36,10 +36,10 @@ export default function Cta1() {
 									<button
 										className="btn btn-play popup-youtube"
 										onClick={() => setOpen(true)}
-										aria-label="Play Legendary Car Rental Dubai Video"
+										aria-label="Play Best Car Rental Dubai Video"
 									/>
 
-									<img src="/assets/imgs/Legendary Cars/Mercedes-G63-for-rent.webp" alt="Luxury Car Rental Dubai"
+									<img src="/assets/imgs/Best Cars/Mercedes-G63-for-rent.webp" alt="Luxury Car Rental Dubai"
 									title="rent a car dubai"
 									loading="lazy"
 									decoding="async" />
@@ -48,12 +48,12 @@ export default function Cta1() {
 						</div>
 						<div className="col-lg-6 mt-lg-0 mt-4">
 							<span className="btn btn-signin bg-white text-dark mb-4 wow fadeInUp">Luxury Car Rental Dubai</span>
-							<h3 className="mb-4 neutral-1000 wow fadeInUp">Skip the Search for “ Luxury Car Rental Near Me” & Choose Legendary</h3>
+							<h3 className="mb-4 neutral-1000 wow fadeInUp">Skip the Search for “ Luxury Car Rental Near Me” & Choose Best</h3>
 							<p className="text-lg-medium neutral-500 mb-4 wow fadeInUp">
-								Give your hunt for luxury car rental in Dubai an end, because Legendary offers you versatile options. 
+								Give your hunt for luxury car rental in Dubai an end, because Best offers you versatile options. 
 								As Dubai is a city of luxury and sophistication, you need something that complements your pride. 
 								Transportation matters whether you go to a wedding or want to make a grand appearance. 
-								Looking into these factors, Legendary Car Rental ensures you find the right option. 
+								Looking into these factors, Best Car Rental ensures you find the right option. 
 								Here are some significant reasons that make us distinctive from our competitors:
 
 							</p>

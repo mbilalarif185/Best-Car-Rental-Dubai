@@ -33,7 +33,7 @@ export default function Cta9() {
                                                     <Link className="btn btn-signin bg-2 text-dark mb-4" href="luxury-fleet">Our Values</Link>
                                                     <h3 className="custom-heading mb-4 neutral-1000">Offering Car Rental Services With Integrity & Honesty</h3>
                                                     <p className="text-lg-medium neutral-500 mb-4">
-                                                        At Legendary Car Rental, we are proud to provide a reliable and excellent car rental service in Dubai. 
+                                                        At Best Car Rental, we are proud to provide a reliable and excellent car rental service in Dubai. 
                                                         Our core values focus on delivering excellence to our customers. 
                                                         We ensure the highest standards and give our customers more than what they expect. Honesty, Transparency, and Integrity are the main weapons.
                                                          That’s the reason why thousands of customers trust our car rental company in Dubai. 

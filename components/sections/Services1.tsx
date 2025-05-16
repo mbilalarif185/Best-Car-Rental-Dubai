@@ -14,8 +14,8 @@ export default function Services1() {
 						<div className="col-md-8">
 							<h2 className=" custom-heading neutral-1000 mb-4">Luxury Car Rental Services in UAE
 							</h2>
-							<p className="text-lg-medium neutral-500">At Legendary Car Rental, we offer a diverse range of services to meet your unique travel requirements.
-								 Whether you need chauffeur service in Dubai or want an exclusive fleet of cars for rent at a wedding, Legendary ensures everything is within your reach. </p>
+							<p className="text-lg-medium neutral-500">At Best Car Rental, we offer a diverse range of services to meet your unique travel requirements.
+								 Whether you need chauffeur service in Dubai or want an exclusive fleet of cars for rent at a wedding, Best ensures everything is within your reach. </p>
 						</div>
 						<div className="col-md-4 mt-md-0 mt-4">
 							<div className="d-flex justify-content-md-end justify-content-center">
