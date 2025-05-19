@@ -17,9 +17,9 @@ export default function ThemeSwitch() {
 	return (
 		<a className="btn btn-mode change-mode mr-15" onClick={handleToggleTheme}>
 			{toggleTheme === "light" ? (
-				<img className="light-mode" src="/assets/imgs/template/icons/light.svg" alt="Light Mode" />
+				<img className="light-mode" src="/assets/imgs/template/icons/light.svg" alt="Best Car Rental Dubai -Light Mode" />
 			) : (
-				<img className="dark-mode" src="/assets/imgs/template/icons/light-w.svg" alt="Dark Mode" />
+				<img className="dark-mode" src="/assets/imgs/template/icons/light-w.svg" alt="Best Car Rental Dubai Dark Mode" />
 			)}
 		</a>
 	)

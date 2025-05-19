@@ -2,10 +2,11 @@
 import { getCategoryData } from "@/lib/categoryUtils";
 import { getFeaturedCars } from "@/lib/getFeaturedCars";
 import { getspecial } from "@/lib/getspecial";
-import Head from 'next/head';
 import dynamic from "next/dynamic";
 import Layout from "@/components/layout/Layout";
 import Hero1 from "@/components/sections/Hero1";
+import Script from "next/script";
+
 import Search1 from "@/components/sections/Search1";
 const Brand1 = dynamic(() => import("@/components/sections/Brand1"));
 const CarsListing1 = dynamic(() => import("@/components/sections/CarsListing1"));
@@ -26,7 +27,11 @@ export const metadata = {
   title: "Best Luxury Car Rental in Dubai | Rent Sports, SUVs & Exotic Cars",
   description:
     "Rent luxury cars in Dubai including Lamborghini, Rolls Royce, Ferrari, and more. Affordable rates, 24/7 support, and fast booking.",
- keywords:
+ verification: {
+  
+    google: "eIB_T-TdBSukKqmpqtNjHrscPQx2ukT5Gpn5Vyr7T0c"
+  },
+    keywords:
    "luxury car rental dubai,luxury car hire dubai,rent lamborghini dubai,luxury car rental,rent ferrari dubai,luxury supercars,rent a car dubai,rent a car in dubai,luxury car rental abu dhabi,luxury car rental uae,luxury car rental near me", 
  robots: "index, follow",
   alternates: {
@@ -87,16 +92,15 @@ export default async function Home() {
 
   return (
     <Layout headerStyle={1} footerStyle={1}>
-      <Head>
-        <meta
-          name="google-site-verification"
-          content="eIB_T-TdBSukKqmpqtNjHrscPQx2ukT5Gpn5Vyr7T0c"
-        />
-      </Head>
-      <script
+     
+      
+      <Script
+        id="ld-json-schema"
         type="application/ld+json"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
       />
+
       
       <Hero1 />
       <Search1 />
