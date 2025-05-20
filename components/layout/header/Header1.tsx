@@ -77,8 +77,13 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 						<div className="header-left">
 							<div className="header-logo">
 								<Link className="d-flex" href="/">
-									<img className="light-mode" alt="Best  Car Rental Dubai" src="/assets/imgs/template/logo.png" />
-									<img className="dark-mode" alt="Best Car Rental Dubai" src="/assets/imgs/template/logo.png" />
+									<Image className="light-mode" 
+									alt="Best  Car Rental Dubai"
+									 src="/assets/imgs/template/Best-Car-Rental Dubai-logo.png"
+									 width={193}
+									 height={75} 
+									 loading='lazy'/>
+									<img className="dark-mode" alt="Best Car Rental Dubai" src="/assets/imgs/template/Best-Car-Rental Dubai-logo.png" />
 								</Link>
 							</div>
 							<div className="header-nav">
@@ -168,9 +173,9 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 															<Image
 																src={brand.image}
 																alt={brand.name}
-																width={750}
-																height={100}
-																priority={true}
+																width={600}
+																height={80}
+																loading='lazy'
 															/>
 															<span className="text-md">{brand.name}</span>
 														

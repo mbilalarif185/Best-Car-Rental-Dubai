@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-
+import Image from 'next/image'
 export default function ThemeSwitch() {
 	const [toggleTheme, setToggleTheme] = useState<string>(
 		() => localStorage.getItem("toggleTheme") || "light"
@@ -17,9 +17,16 @@ export default function ThemeSwitch() {
 	return (
 		<a className="btn btn-mode change-mode mr-15" onClick={handleToggleTheme}>
 			{toggleTheme === "light" ? (
-				<img className="light-mode" src="/assets/imgs/template/icons/light.svg" alt="Best Car Rental Dubai -Light Mode" />
+				<Image className="light-mode" src="/assets/imgs/template/icons/best-car-rental-light.png"
+				width={30}
+				height={30}
+				 alt="Best Car Rental Dubai -Rent a Luxury Car"
+				 title="Best Car Rental Dubai" />
 			) : (
-				<img className="dark-mode" src="/assets/imgs/template/icons/light-w.svg" alt="Best Car Rental Dubai Dark Mode" />
+				<Image className="dark-mode" src="/assets/imgs/template/icons/best-car-rental-dark.png" 
+				width={30}
+				height={30}
+				alt="Best Car Rental Dubai -" />
 			)}
 		</a>
 	)

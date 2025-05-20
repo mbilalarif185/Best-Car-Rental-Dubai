@@ -44,8 +44,8 @@ export default function Services() {
     <Layout footerStyle={1}>
       <div>
         <Header
-				   title="Our Services"
-				   subtitle="We Provide Luxury Services to Our Customers "
+				   title="Services – Rent a Car Dubai"
+				   subtitle="Luxury car rental services in Dubai at the most affordable prices. Rent a car in Dubai and enjoy a smooth and thrilling journey."
 				   currentPage="Services"
 				   backgroundImage="/assets/imgs/page-header/banner1.webp"
 				/>

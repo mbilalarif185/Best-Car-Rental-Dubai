@@ -19,20 +19,20 @@ export default function Cta10() {
                     <SwiperSlide className="swiper-slide">
                       <Image
                         className="rounded-12"
-                        src="/assets/imgs/cta/cta-10/img-1.png"
+                        src="/assets/imgs/cta/cta-10/book-luxury-car-in-dubai.webp"
                         alt="Luxury Car Rental Dubai "
                         
-                        width={6000}  
-                        height={400}
+                        width={600}  
+                        height={550}
                       />
                     </SwiperSlide>
                     <SwiperSlide className="swiper-slide">
                       <Image
                         className="rounded-12"
-                        src="/assets/imgs/cta/cta-10/img-1.png"
+                        src="/assets/imgs/cta/cta-10/book-luxury-car-for-event-in-dubai.webp"
                         alt="Luxury Car Rental Dubai "
                         width={600}
-                        height={400}
+                        height={550}
                       />
                     </SwiperSlide>
                   </div>
@@ -56,14 +56,22 @@ export default function Cta10() {
             </div>
 
             <div className="col-lg-6 ps-lg-5 mt-lg-0 mt-4">
-              <h4 className="mb-4 neutral-1000">Plan Your Trip with Us</h4>
-              <p className="text-lg-medium neutral-500 mb-4">Let us help you make your next journey smooth and enjoyable—get started today.</p>
+              <h3 className="mb-4 neutral-1000">Rent a Car in Dubai and Plan Your Trip with the US</h3>
+              <p className="text-lg-medium neutral-500 mb-4">
+                End your search for luxury cars and rent them now from the Best Car Rental in Dubai. 
+                We care about your requirements, desires, and, of course, the pocket.
+                 Thus, our <Link className="custom-color" href="https://bestcarrentaldubai.ae:">luxury car rental </Link>offers you high-end cars from Lamborghini to Ferrari, Audi, Rolls Royce,
+                  Porsche, and many others. Our highly maintained <Link className="custom-color" href="luxury-fleet">fleet of cars</Link> and latest models with a
+                   seamless booking process make us the best car rental company.
+
+                </p>
               <div className="row">
                 <div className="col">
                   <ul className="list-ticks-green list-ticks-green-2">
-                    <li className="neutral-1000 pe-0">Detailed vehicle descriptions and images</li>
-                    <li className="neutral-1000 pe-0">Filter options by vehicle type, size, and features</li>
-                    <li className="neutral-1000 pe-0">Availability information in real-time</li>
+                    <li className="neutral-1000 pe-0">Extra safety and cost-effectiveness with seamless booking</li>
+                    <li className="neutral-1000 pe-0">Variety of cars for rent, from SUVs to Sports</li>
+                    <li className="neutral-1000 pe-0">24/7 customer support with free delivery</li>
+                    <li className="neutral-1000 pe-0">Affordable car rental rates and expert drivers</li>
                   </ul>
                 </div>
               </div>
