@@ -79,11 +79,11 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 								<Link className="d-flex" href="/">
 									<Image className="light-mode" 
 									alt="Best  Car Rental Dubai"
-									 src="/assets/imgs/template/Best-Car-Rental Dubai-logo.png"
+									 src="/assets/imgs/template/Best-Car-Rental Dubai-logo.webp"
 									 width={193}
 									 height={75} 
 									 loading='lazy'/>
-									<img className="dark-mode" alt="Best Car Rental Dubai" src="/assets/imgs/template/Best-Car-Rental Dubai-logo.png" />
+									<img className="dark-mode" alt="Best Car Rental Dubai" src="/assets/imgs/template/Best-Car-Rental Dubai-logo.webp" />
 								</Link>
 							</div>
 							<div className="header-nav">

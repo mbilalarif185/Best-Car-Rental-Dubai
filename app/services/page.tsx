@@ -45,7 +45,7 @@ export default function Services() {
       <div>
         <Header
 				   title="Services – Rent a Car Dubai"
-				   subtitle="Luxury car rental services in Dubai at the most affordable prices. Rent a car in Dubai and enjoy a smooth and thrilling journey."
+				   subtitle="Luxury car rental services in Dubai at the most affordable prices. Rent a car in Dubai <br>and enjoy a smooth and thrilling journey."
 				   currentPage="Services"
 				   backgroundImage="/assets/imgs/page-header/banner1.webp"
 				/>

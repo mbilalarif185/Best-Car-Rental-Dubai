@@ -25,8 +25,8 @@ export default function Footer1() {
 						<div className="col-md-3 col-sm-12 footer-1">
 							<div className=" mb-30 ">
 								<Link className="d-flex mb-25" href="/" >
-									<img className="light-mode" alt="Luxury Car Rental Dubai" src="/assets/imgs/template/logo.png" />
-									<img className="dark-mode" alt="Luxury Cars for Rent in Dubai" src="/assets/imgs/template/logo.png" />
+									<img className="light-mode" alt="Luxury Car Rental Dubai" src="/assets/imgs/template/Best-Car-Rental Dubai-logo.webp" />
+									<img className="dark-mode" alt="Luxury Cars for Rent in Dubai" src="/assets/imgs/template/Best-Car-Rental Dubai-logo.webp" />
 								</Link>
 								<div className="box-info-contact mt-0">
 									<p className="text-md neutral-400 icon-address">Plot 25, street 4, Al Quoz Industrial Area 4, Dubai, UAE</p>

@@ -12222,7 +12222,7 @@ a.icon-socials:hover svg path {
 
 @media (max-width: 991.98px) {
 	.page-header .custom-container {
-		min-height: 280px;
+		min-height: 2280px;
 		max-width: 98%;
 	}
 
@@ -12659,7 +12659,7 @@ a.icon-socials:hover svg path {
 
 @media (max-width: 767.98px) {
 	.page-header .custom-container {
-		min-height: 220px;
+		min-height: 300px;
 	}
 
 	.category-link {

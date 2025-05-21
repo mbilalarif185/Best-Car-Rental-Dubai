@@ -70,8 +70,8 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, handle
 						<div className="header-left">
 							<div className="header-logo">
 								<Link className="d-flex" href="/">
-								<img className="light-mode" alt="Legendary Car Rental Dubai" src="/assets/imgs/template/best-car-rental-dubai.webp" />
-								<img className="dark-mode" alt="Legendary Car Rental Dubai" src="/assets/imgs/template/Best-Car-Rental Dubai-logo.png" />
+								<img className="light-mode" alt="Best Car Rental Dubai" src="/assets/imgs/template/best-car-rental-dubai.webp" />
+								<img className="dark-mode" alt="Best Car Rental Dubai" src="/assets/imgs/template/Best-Car-Rental Dubai-logo.webp" />
 								</Link>
 							</div>
 							<div className="header-nav">
