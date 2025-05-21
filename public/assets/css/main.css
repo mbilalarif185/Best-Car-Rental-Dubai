@@ -354,6 +354,9 @@ li.hr span {
 .custom-color{
 	color:#c8a429;
 }
+.custom-color:hover{
+	color:black;
+}
 .luxuryimage{
 	height: 229px;
 }

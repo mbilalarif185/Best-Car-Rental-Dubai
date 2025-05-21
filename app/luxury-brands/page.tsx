@@ -2,8 +2,8 @@ import Layout from "@/components/layout/Layout"
 import Header from '@/components/about_sections/header';
 import dynamic from "next/dynamic";
 const Brand =dynamic(()=>import("@/components/brands/brands"))
-const Cta8 = dynamic(() => import("@/components/sections/cta8"), { ssr: false });
-const Third = dynamic(() => import("@/components/about_sections/third"), { ssr: false });
+const Brand_Cta = dynamic(() => import("@/components/sections/brand_cta"));
+const Third = dynamic(() => import("@/components/about_sections/third"));
 
 
 export const metadata = {
@@ -32,14 +32,14 @@ export default function Luxury_Brands() {
 
 			<Layout footerStyle={1}>
 			<Header
-				   title="Luxury Brands"
-				   subtitle="Explore Our Luxury Brands "
+				   title="Brands – Luxury Car Hire Dubai"
+				   subtitle="Explore luxury car rental brands in Dubai at the best prices to make your trip memorable. "
 				   currentPage="Brands"
 				   backgroundImage="/assets/imgs/page-header/banner7.webp"
 				/>
 				<div>
 				<Brand/>
-				<Cta8/>
+				<Brand_Cta/>
 				<Third/>
 				
 				</div>

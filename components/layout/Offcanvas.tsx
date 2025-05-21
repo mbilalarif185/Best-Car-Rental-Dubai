@@ -8,8 +8,8 @@ export default function Offcanvas({ isOffcanvas, handleOffcanvas }: any) {
 					<div className="sidebar-canvas-head">
 						<div className="sidebar-canvas-logo">
 							<Link className="d-flex" href="/">
-								<img className="light-mode" alt="Best Car Rental Dubai" src="/assets/imgs/template/logo.png" />
-								<img className="dark-mode" alt="Luxury Cars for Rent in Dubai" src="/assets/imgs/template/logo.png" />
+								<img className="light-mode" alt="Best Car Rental Dubai" src="/assets/imgs/template/best-car-rental-dubai.webp" />
+								<img className="dark-mode" alt="Luxury Cars for Rent in Dubai" src="/assets/imgs/template/Best-Car-Rental Dubai-logo.webp" />
 							</Link>
 						</div>
 						<div className="sidebar-canvas-lang">

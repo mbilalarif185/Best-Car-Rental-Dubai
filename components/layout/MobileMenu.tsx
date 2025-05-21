@@ -15,7 +15,8 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 			<div className={`mobile-header-active mobile-header-wrapper-style perfect-scrollbar button-bg-2 ${isMobileMenu ? 'sidebar-visible' : ''}`}>
 				<PerfectScrollbar className="mobile-header-wrapper-inner">
 					<div className="mobile-header-logo">
-						<Link className="d-flex" href="/"><img className="light-mode" alt="Luxury Car Rental Dubai" src="/assets/imgs/template/logo.png" /><img className="dark-mode" alt="Carento" src="/assets/imgs/template/logo.png" /></Link>
+						<Link className="d-flex" href="/"><img className="light-mode" alt="Luxury Car Rental Dubai" src="/assets/imgs/template/best-car-rental-dubai.webp" />
+						<img className="dark-mode" alt="Best Car Rental Dubai" src="/assets/imgs/template/Best-Car-Rental Dubai-logo.webp" /></Link>
 						<div className="burger-icon burger-icon-white" onClick={handleMobileMenu} />
 					</div>
 					<div className="mobile-header-content-area">

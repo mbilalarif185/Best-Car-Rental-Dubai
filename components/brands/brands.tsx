@@ -8,11 +8,16 @@ const Brand = () => {
     <section className="box-section background-body py-96 border-bottom">
       <div className="container">
         <div className="row align-items-end">
-          <div className="col-md-8">
-            <h4 className="neutral-1000">Our Top Brands</h4>
-            <p className="text-lg-medium neutral-500">Turning dreams into reality with luxury vehicles.</p>
+          <div className="col-md-10">
+            <h2 className="neutral-1000">Top Brands for Rental in UAE</h2>
+            <p className="text-lg-medium neutral-500">Our Best Car Rental Dubai offers you a luxury car rental fleet of world-known 
+              brands, including Rolls-Royce, Bentley, Lamborghini, Porsche, Mercedes, Audi, Ferrari, BMW, and many others.
+               No matter if you are going for business travel or want to enjoy family time, we have flexible car rental options for 
+               you. Our luxury car hire Dubai ensures you get the latest models in good condition to enjoy elegance, power, and 
+               unbeatable performance. Please choose from our brands to make your Dubai stay luxurious.
+                </p>
           </div>
-          <div className="col-md-4">
+          <div className="col-md-2">
             <div className="d-flex justify-content-end mt-md-0 mt-4">
               <Link className="btn btn-primary rounded-3" href="/contact">
                 Book Now
