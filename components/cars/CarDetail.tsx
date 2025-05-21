@@ -355,18 +355,18 @@ export default function CarDetail({ car }: CarDetailProps) {
 									<div className="sidebar-banner">
 										<div className="p-4 background-body border rounded-3">
 											<p className="text-xl-bold neutral-1000 mb-4">Get Started</p>
-											<Link href="https://wa.me/971545514155" className="btn btn-primary w-100 rounded-3 py-3 mb-3">
-												Schedule Test Drive
+											<p className="btn btn-book w-100 rounded-3  mb-3 p-2">
+												Rental Price: {car.price} AED  
+												<span className="text-lg-medium neutral-1000"> /day</span>
+											</p>
+											<Link href="https://wa.me/971545514155" className="btn btn-primary w-100 rounded-3  mb-3">
+												Get Custom Offer
 												<svg width={17} height={16} viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path d="M8.5 15L15.5 8L8.5 1M15.5 8L1.5 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
 												</svg>
+												
 											</Link>
-											<Link href="/contact" className="btn btn-book bg-2">
-                                                Get Custom Offer
-												<svg width={17} height={16} viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M8.5 15L15.5 8L8.5 1M15.5 8L1.5 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-												</svg>
-											</Link>
+											
 										</div>
 									</div>
 									<div className="booking-form">
