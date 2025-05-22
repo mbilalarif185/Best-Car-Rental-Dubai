@@ -1,5 +1,4 @@
 'use client';
-import Marquee from 'react-fast-marquee';
 
 import ByCarType from '@/components/Filter/ByCarType';
 import ByPagination from '@/components/Filter/ByPagination';
@@ -148,49 +147,7 @@ export default function CarsGrid() {
           </div> {/* <-- Correct closing div for box-content-main */}
         </div>
 
-        {/* Brands Marquee
-        <div className="background-100 pt-55 pb-55">
-          <div className="container">
-            <Marquee direction="left" pauseOnHover className="carouselTicker carouselTicker-left box-list-brand-car justify-content-center">
-              <ul className="carouselTicker__list">
-                {[
-                  { src: "lexus", alt: "Lexus" },
-                  { src: "mer", alt: "Mercedes" },
-                  { src: "bugatti", alt: "Bugatti" },
-                  { src: "jaguar", alt: "Jaguar" },
-                  { src: "honda", alt: "Honda" },
-                  { src: "chevrolet", alt: "Chevrolet" },
-                  { src: "acura", alt: "Acura" },
-                  { src: "bmw", alt: "BMW" },
-                  { src: "toyota", alt: "Toyota" },
-                ].map(({ src, alt }, idx) => (
-                  <li className="carouselTicker__item" key={idx}>
-                    <div className="item-brand">
-                      <img 
-                        className="light-mode" 
-                        src={`/assets/imgs/page/homepage2/${src}.png`} 
-                        alt={`${alt} logo`} 
-                        width="120" 
-                        height="60" 
-                        loading="lazy" 
-                      />
-                      <img 
-                        className="dark-mode" 
-                        src={`/assets/imgs/page/homepage2/${src}-w.png`} 
-                        alt={`${alt} logo`} 
-                        width="120" 
-                        height="60" 
-                        loading="lazy" 
-                      />
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </Marquee>
-          </div>
-        </div> */}
-
-      </section>
+              </section>
     </>
   );
 }

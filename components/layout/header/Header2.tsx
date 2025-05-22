@@ -1,6 +1,9 @@
 'use client'
 import Image from "next/image"
 import dynamic from 'next/dynamic'
+
+import { useRouter } from 'next/navigation';
+import React, { useState, useEffect } from 'react'
 const ThemeSwitch = dynamic(() => import('@/components/elements/ThemeSwitch'), {
 	ssr: false,
 })
@@ -8,6 +11,31 @@ import Link from 'next/link'
 import Dropdown from 'react-bootstrap/Dropdown'
 
 export default function Header2({ scroll, isMobileMenu, handleMobileMenu, handleOffcanvas, isOffcanvas }: any) {
+	const initialSearchTerm = ''
+	  const [searchTerm, setSearchTerm] = useState(initialSearchTerm)
+	  const [showSearch, setShowSearch] = useState(false)
+	  const router = useRouter()
+	
+	  useEffect(() => {
+		setSearchTerm(initialSearchTerm)
+	  }, [initialSearchTerm])
+	
+	  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setSearchTerm(e.target.value)
+	  }
+	
+	  const handleSearchSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
+		if (e.key === 'Enter') {
+		  e.preventDefault()
+		  const trimmed = searchTerm.trim()
+		  if (trimmed) {
+			router.push(`/search?query=${encodeURIComponent(trimmed)}`)
+		  } else {
+			router.push('/search')
+		  }
+		  setShowSearch(false) // optional: hide search after submit
+		}
+	  }
 	return (
 		<>
 			<header className={`header sticky-bar header-home-2 ${scroll ? 'stick' : ''}`}>
@@ -255,6 +283,50 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, handle
 								</nav>
 							</div>
 							<div className="header-right">
+								<div
+								className="box-dropdown-cart align-middle"
+								style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+								>
+								<span
+									className="text-14-medium icon-list icon-search"
+									style={{ visibility: 'visible', cursor: 'pointer' }}
+									onClick={() => setShowSearch(!showSearch)}
+								>
+									<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none">
+									<path
+										d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+										stroke="#000000"
+										strokeWidth="2"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+									/>
+									</svg>
+								</span>
+
+								{showSearch && (
+									<input
+									type="search"
+									placeholder="Search luxury cars"
+									value={searchTerm}
+									onChange={handleSearchInputChange}
+									onKeyDown={handleSearchSubmit}
+									className="search-input"
+									autoFocus
+									style={{
+										
+										fontSize: '11px',
+										textAlign:'center',
+										padding:'1px 1px',
+									
+										backgroundColor: '#ffffff',
+										color: '#000',
+										pointerEvents: 'auto',
+										zIndex: 9999,
+										// remove any position or margin styles that force it down
+									}}
+									/>
+								)}
+								</div>
 								<div className="d-none d-xxl-inline-block align-middle mr-15">
 									
 									<Link className="btn btn-signin background-brand-2 text-dark" href="/contact">Contact Us</Link>

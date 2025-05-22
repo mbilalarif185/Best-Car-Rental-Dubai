@@ -1,11 +1,16 @@
 'use client'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation';
+import React, { useState, useEffect } from 'react'
+
 const ThemeSwitch = dynamic(() => import('@/components/elements/ThemeSwitch'), {
 	ssr: false,
 })
 import Link from 'next/link'
 import Dropdown from 'react-bootstrap/Dropdown'
+
+
 type HeaderProps = {
 	scroll: boolean;
 	isMobileMenu: boolean;
@@ -13,7 +18,33 @@ type HeaderProps = {
 	handleOffcanvas: () => void;
 	isOffcanvas: boolean;
   };
+   
 export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handleOffcanvas, isOffcanvas }: HeaderProps) {
+	const initialSearchTerm = ''
+  const [searchTerm, setSearchTerm] = useState(initialSearchTerm)
+  const [showSearch, setShowSearch] = useState(false)
+  const router = useRouter()
+
+  useEffect(() => {
+    setSearchTerm(initialSearchTerm)
+  }, [initialSearchTerm])
+
+  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value)
+  }
+
+  const handleSearchSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      const trimmed = searchTerm.trim()
+      if (trimmed) {
+        router.push(`/search?query=${encodeURIComponent(trimmed)}`)
+      } else {
+        router.push('/search')
+      }
+      setShowSearch(false) // optional: hide search after submit
+    }
+  }
 	return (
 		<>
 			<header className={`header header-fixed sticky-bar ${scroll ? 'stick' : ''}`}>
@@ -43,7 +74,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 								</svg>
 							</Link>
 						</div>
-						<div className="top-right-header">
+						{/* <div className="top-right-header">
 						<Dropdown className="d-none d-xl-inline-block box-dropdown-cart align-middle mr-15 head-lang">
 								<Dropdown.Toggle as="span" className="text-14-medium icon-list icon-account icon-lang">
 									<span className="text-14-medium arrow-down">EN</span>
@@ -69,7 +100,76 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 							<div className="top-button-mode">
 								<ThemeSwitch />
 							</div>
+						</div> */}
+						<div className="top-right-header">
+						
+							{/* <div className="d-none d-xl-inline-block box-dropdown-cart align-middle mr-15 head-lang">
+								<span
+							className="text-14-medium icon-list icon-search"
+							style={{ visibility: 'visible', cursor: 'pointer' }}
+							onClick={() => setShowSearch(!showSearch)}
+							>
+
+								
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+									<path
+									d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+									stroke="#ffffff"
+									strokeWidth="2"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									/>
+								</svg>
+								</span>
+									 {showSearch && (
+                  <input
+                    type="search"
+                    placeholder="Search cars, services, brands..."
+                    value={searchTerm}
+                    onChange={handleSearchInputChange}
+                    onKeyDown={handleSearchSubmit}
+                    className="search-input"
+                    autoFocus
+                
+							style={{
+								marginLeft: '10px',
+								padding: '4px 8px',
+								fontSize: '14px',
+								borderRadius: '4px',
+								border: '1px solid #000',
+								backgroundColor: '#fff',
+								color: '#000',
+								pointerEvents: 'auto',
+								position: 'relative',
+								zIndex: 9999,
+							}}
+							/>
+
+							
+							)}
+
+
+      </div> */}
+
+						<Dropdown className="d-none d-xl-inline-block box-dropdown-cart align-middle head-currency">
+							<Dropdown.Toggle as="span" className="text-14-medium icon-list icon-cart">
+							<span className="text-14-medium arrow-down">AED</span>
+							</Dropdown.Toggle>
+							<Dropdown.Menu style={{ visibility: 'visible' }} className="dropdown-cart">
+							<ul>
+								<li>AED</li>
+								<li>USD</li>
+							</ul>
+							</Dropdown.Menu>
+						</Dropdown>
+
+						{/* Theme Switcher */}
+						<div className="top-button-mode">
+							<ThemeSwitch />
 						</div>
+						</div>
+
+
 					</div>
 				</div>
 				<div className="container-fluid">
@@ -280,8 +380,97 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 							
 							<div className="header-right" >
 								
-								
-								
+								{/* <div className="box-dropdown-cart align-middle">
+								<span
+									className="text-14-medium icon-list icon-search"
+									style={{ visibility: 'visible', cursor: 'pointer' }}
+									onClick={() => setShowSearch(!showSearch)} 
+									>
+
+								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none">
+									<path
+									d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+									stroke="#ffffff"
+									strokeWidth="2"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									/>
+								</svg>
+								</span>
+									 {showSearch && (
+												<input
+													type="search"
+													placeholder="Search cars, services, brands..."
+													value={searchTerm}
+													onChange={handleSearchInputChange}
+													onKeyDown={handleSearchSubmit}
+													className="search-input"
+													autoFocus
+												
+															style={{
+																// marginLeft: '5px',
+																// padding: '1px 3px',
+																fontSize: '14px',
+																borderRadius: '11px',
+																border: '1px solid #000',
+																backgroundColor: '#fff',
+																color: '#000',
+																pointerEvents: 'auto',
+																// position: 'relative',
+																zIndex: 9999,
+															}}
+															/>
+
+															
+															)}
+
+
+									</div> */}
+								<div
+								className="box-dropdown-cart align-middle"
+								style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+								>
+								<span
+									className="text-14-medium icon-list icon-search"
+									style={{ visibility: 'visible', cursor: 'pointer' }}
+									onClick={() => setShowSearch(!showSearch)}
+								>
+									<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none">
+									<path
+										d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+										stroke="#ffffff"
+										strokeWidth="2"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+									/>
+									</svg>
+								</span>
+
+								{showSearch && (
+									<input
+									type="search"
+									placeholder="Search luxury cars"
+									value={searchTerm}
+									onChange={handleSearchInputChange}
+									onKeyDown={handleSearchSubmit}
+									className="search-input"
+									autoFocus
+									style={{
+										
+										fontSize: '11px',
+										textAlign:'center',
+										padding:'1px 1px',
+									
+										backgroundColor: '#fff',
+										color: '#000',
+										pointerEvents: 'auto',
+										zIndex: 9999,
+										// remove any position or margin styles that force it down
+									}}
+									/>
+								)}
+								</div>
+
 								<div className="d-none d-xxl-inline-block align-middle ml-15 mr-15">
 									{/* <Link className="btn btn-signin" href="/login">
 										<svg className="mb-1" xmlns="http://www.w3.org/2000/svg" width={16} height={16} viewBox="0 0 16 16" fill="none">
@@ -295,7 +484,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 								<div className="burger-icon-2 burger-icon-white  " onClick={handleOffcanvas}>
 									<img src="/assets/imgs/template/icons/menu.svg" alt="luxury car rental" />
 								</div>
-								<div className="burger-icon burger-icon-white " onClick={handleMobileMenu}>
+								<div className=" burger-icon burger-icon-white " onClick={handleMobileMenu}>
 									<span className="burger-icon-top" />
 									<span className="burger-icon-mid"> </span>
 									<span className="burger-icon-bottom"> </span>

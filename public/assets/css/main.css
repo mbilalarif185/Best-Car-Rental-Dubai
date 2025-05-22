@@ -6801,6 +6801,11 @@ label {
 	line-height: 40px;
 	text-align: center;
 }
+@media (min-width: 768px) and (max-width: 1024px) {
+  .burger-icon-2 {
+    display: none;
+  }
+}
 
 .burger-icon-2 img {
 	display: inline-block;
@@ -6810,7 +6815,7 @@ label {
 .burger-icon {
 	position: absolute;
 	width: 42px;
-	height: 42px;
+	height: 46px;
 	background-color: var(--bs-neutral-100);
 	border-radius: 4px;
 	cursor: pointer;
