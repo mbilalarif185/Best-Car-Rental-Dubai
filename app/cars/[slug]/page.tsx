@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation"
 import { getCarBySlug } from "@/util/getCarBySlug"
-import { Car } from "@/types/type"
-import cars from "@/util/cars.json"
+import { Car } from "@/types/detail_type"
+import cars from "@/util/cars_details.json"
 import Layout from "@/components/layout/Layout"
 import dynamic from "next/dynamic";
 const CarDetail=dynamic(()=>import("@/components/cars/CarDetail"))

@@ -3,7 +3,7 @@ import MyDatePicker from '@/components/elements/MyDatePicker'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { useState } from 'react'
-import { Car } from '@/types/type'
+import { Car } from '@/types/detail_type'
 
 type CarDetailProps = {
   car: Car
@@ -104,9 +104,9 @@ export default function CarDetail({ car }: CarDetailProps) {
 									</div>
 								</div>
 								<div className="row">
-									<div className="col-lg-8">
+									<div className="col-lg-12">
 										<div className="tour-title-main">
-											<h4 className="neutral-1000">{car.name}</h4>
+											<h1 className="neutral-1000 custom-h1">{car.title || car.name}</h1>
 										</div>
 									</div>
 								</div>
@@ -170,7 +170,7 @@ export default function CarDetail({ car }: CarDetailProps) {
 								</div>
 							</div>
 							<div className="row mt-30">
-								<div className="col-lg-8">
+								<div className="col-lg-8 mb-4">
 									<div className="box-feature-car">
 										<div className="list-feature-car">
 											<div className="item-feature-car w-md-25">
@@ -279,72 +279,183 @@ export default function CarDetail({ car }: CarDetailProps) {
 									<div className="box-collapse-expand">
 										<div className="group-collapse-expand">
 											<button className={isAccordion == 1 ? "btn btn-collapse collapsed" : "btn btn-collapse"} type="button" data-bs-toggle="collapse" data-bs-target="#collapseOverview" aria-expanded="false" aria-controls="collapseOverview" onClick={() => handleAccordion(1)}>
-												<h6>Overview</h6>
+												{car.Sk ? (
+														<h2 className='custom-heading5' dangerouslySetInnerHTML={{ __html: car.Sk }} />
+													):(
+														<h2 className='custom-heading5'>{car.name} Rental Dubai</h2>
+													)}
+												
 												<svg width={12} height={7} viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg">
 													<path d="M1 1L6 6L11 1" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
 												</svg>
 											</button>
 											<div className={isAccordion == 1 ? "collapse" : "collapse show"} id="collapseOverview">
-												<div className="card card-body">
-													<p>Elevate your Las Vegas experience to new heights with a journey aboard The High Roller at The LINQ. As the tallest observation wheel in the world, standing at an impressive 550 feet tall, The High Roller offers a bird's-eye perspective of the iconic Las Vegas Strip and its surrounding desert landscape. From the moment you step into one of the spacious cabins, you'll be transported on a mesmerizing adventure, where every turn offers a new and breathtaking vista of the vibrant city below.</p>
-													<p>Whether you're a first-time visitor or a seasoned Las Vegas aficionado, The High Roller promises an unparalleled experience that will leave you in awe. With its climate-controlled cabins and immersive audio commentary, this attraction provides a unique opportunity to see Las Vegas from a whole new perspective, while learning about its rich history and famous landmarks along the way.</p>
-												</div>
-											</div>
-										</div>
-										<div className="group-collapse-expand">
-											<button className={isAccordion == 2 ? "btn btn-collapse collapsed" : "btn btn-collapse"} type="button" data-bs-toggle="collapse" data-bs-target="#collapseItinerary" aria-expanded="false" aria-controls="collapseItinerary" onClick={() => handleAccordion(2)}>
-												<h6>Included in the price</h6>
-												<svg width={12} height={7} viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg">
-													<path d="M1 1L6 6L11 1" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-												</svg>
-											</button>
-											<div className={isAccordion == 2 ? "collapse" : "collapse show"} id="collapseItinerary">
-												<div className="card card-body">
-													<ul className="list-checked-green">
-														<li>Free cancellation up to 48 hours before pick-up</li>
-														<li>Collision Damage Waiver with $700 deductible</li>
-														<li>Theft Protection with ₫66,926,626 excess</li>
-														<li>Unlimited mileage</li>
+												<div className="card card-body" >
+													{car.description ? (
+													<p dangerouslySetInnerHTML={{ __html: car.description }} />
+													) : (
+													<p>Best Car Rental Dubai Provides luxury cars on reasonable price. You can explore our <Link href="/luxury-fleet" className='custom-color'>luxury fleet</Link> </p>
+													)}
+													<ul className='mb-4' >
+													{car.features2?.map((feature, index) => {
+														const [title, desc] = feature.split(":");
+														return (
+														<li key={index}>
+															<strong>{title}:</strong>{desc}
+														</li>
+														);
+													})}
 													</ul>
+													{car.title2 ? (
+														<h3 className='custom-heading5 mb-2' dangerouslySetInnerHTML={{ __html: car.title2 }} />
+													):(
+														<h3 className='custom-heading5 mb-2'>Well Defined Technology of {car.name}</h3>
+													)}
+													{car.description2 ? (
+													<p dangerouslySetInnerHTML={{ __html: car.description2 }} />
+													) : (
+													<p>Best Car Rental Dubai Provides luxury cars on reasonable price. You can explore our <Link href="/luxury-fleet" className='custom-color'>luxury fleet</Link> </p>
+													)}
+													<ul className='mb-4 custom-ol' >
+													{car.features3?.map((feature, index) => {
+														const [title, desc] = feature.split(":");
+														return (
+														<li key={index}>
+															<strong>{title}:{desc}</strong>
+														</li>
+														);
+													})}
+													</ul>
+													<div className="card card-body">
+												<ul className="list-checked-green">
+													{car.features1?.map((feature, index) => (
+													<li key={index}>{feature}</li>
+													))}
+												</ul>
+												</div>
+												{car.title3 ? (
+														<h4 className='custom-heading5 mb-2' dangerouslySetInnerHTML={{ __html: car.title3 }} />
+													):(
+														<h4 className='custom-heading5 mb-2'>Rent a {car.name} in Dubai</h4>
+													)}
+													{car.description3 ? (
+													<p dangerouslySetInnerHTML={{ __html: car.description3 }} />
+													) : (
+													<p>You can rent a luxury car from us we provide different services. Explore  <Link href="/services" className='custom-color'>Our Luxury Services</Link> </p>
+													)}
+													{car.title4 && (
+														<h4 className='custom-heading5 mb-2' dangerouslySetInnerHTML={{ __html: car.title4 }} />
+													)}
+													{car.description4 && (
+													<p dangerouslySetInnerHTML={{ __html: car.description4 }} />
+													)}
+													{/* {car.title5 ? (
+														<h4 className='custom-heading5 mb-2' dangerouslySetInnerHTML={{ __html: car.title5 }} />
+													):(
+														<h4></h4>	
+													)} */}
+													{car.title5 && (
+														<h4 className="custom-heading5 mb-2" dangerouslySetInnerHTML={{ __html: car.title5 }} />
+													)}
+
+													{car.description5 && (
+													<p dangerouslySetInnerHTML={{ __html: car.description5 }} />
+													)}
+													{car.title6 && (
+														<h4 className="custom-heading5 mb-2" dangerouslySetInnerHTML={{ __html: car.title6 }} />
+													)}
+
+													{car.description6 && (
+													<p dangerouslySetInnerHTML={{ __html: car.description6 }} />
+													)}
+													{car.title7 && (
+														<h4 className="custom-heading5 mb-2" dangerouslySetInnerHTML={{ __html: car.title7 }} />
+													)}
+
+													{car.description7 && (
+													<p dangerouslySetInnerHTML={{ __html: car.description7 }} />
+													)}
+													{car.title8 && (
+														<h4 className="custom-heading5 mb-2" dangerouslySetInnerHTML={{ __html: car.title8 }} />
+													)}
+
+													{car.description8 && (
+													<p dangerouslySetInnerHTML={{ __html: car.description8 }} />
+													)}
 												</div>
 											</div>
+
 										</div>
+										
 										<div className="group-collapse-expand">
-											<button className={isAccordion == 3 ? "btn btn-collapse collapsed" : "btn btn-collapse"} type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuestion" aria-expanded="false" aria-controls="collapseQuestion" onClick={() => handleAccordion(3)}>
-												<h6>Question  Answers</h6>
+										<button
+											className={`btn btn-collapse ${isAccordion === 2 ? "" : "collapsed"}`}
+											type="button"
+											data-bs-toggle="collapse"
+											data-bs-target="#collapseItinerary"
+											aria-expanded={isAccordion === 2 ? "true" : "false"}
+											aria-controls="collapseItinerary"
+											onClick={() => handleAccordion(2)}
+										>
+											{car.titlef ? (
+											<h3 className="custom-heading5 mb-2" dangerouslySetInnerHTML={{ __html: car.titlef }} />
+											) : (
+											<h3 className="custom-heading5 mb-2">Included in the price</h3>
+											)}
+											<svg width={12} height={7} viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg">
+											<path d="M1 1L6 6L11 1" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+											</svg>
+										</button>
+
+										<div className={isAccordion === 2 ? "collapse show" : "collapse"} id="collapseItinerary">
+											<div className="card card-body">
+											<ul className="list-checked-green">
+												{car.features?.map((feature, index) => (
+												<li key={index}>{feature}</li>
+												))}
+											</ul>
+											</div>
+										</div>
+										</div>
+
+										<div className="group-collapse-expand">
+											<button
+												className={`btn btn-collapse ${isAccordion === 3 ? "" : "collapsed"}`}
+												type="button"
+												data-bs-toggle="collapse"
+												data-bs-target="#collapseQuestion"
+												aria-expanded={isAccordion === 3 ? "true" : "false"}
+												aria-controls="collapseQuestion"
+												onClick={() => handleAccordion(3)}
+											>
+												<h6>Question Answers</h6>
 												<svg width={12} height={7} viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg">
-													<path d="M1 1L6 6L11 1" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+												<path d="M1 1L6 6L11 1" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
 												</svg>
 											</button>
-											<div className={isAccordion == 3 ? "collapse" : "collapse show"} id="collapseQuestion">
+
+											<div className={isAccordion === 3 ? "collapse show" : "collapse"} id="collapseQuestion">
+												
+												{Array.isArray(car.faqs) && car.faqs.length > 0 && (
 												<div className="card card-body">
 													<div className="list-questions">
-														<div className="item-question">
-															<div className="head-question">
-																<p className="text-md-bold neutral-1000">Is The High Roller suitable for all ages?</p>
-															</div>
-															<div className="content-question">
-																<p className="text-sm-medium neutral-800">Absolutely! The High Roller offers a family-friendly experience suitable for visitors of all ages. Children must be accompanied by an adult.</p>
-															</div>
+													{car.faqs.map((faq, index) => (
+														<div className="item-question" key={index}>
+														<div className="head-question">
+															<p className="text-md-bold neutral-1000">{faq.question}</p>
 														</div>
-														<div className="item-question active">
-															<div className="head-question">
-																<p className="text-md-bold neutral-1000">Can I bring food or drinks aboard The High Roller?</p>
-															</div>
-															<div className="content-question">
-																<p className="text-sm-medium neutral-800">Outside food and beverages are not permitted on The High Roller. However, there are nearby dining options at The LINQ Promenade where you can enjoy a meal before or after your ride.</p>
-															</div>
+														<div className="content-question">
+															<div className="text-sm-medium neutral-800" dangerouslySetInnerHTML={{ __html: faq.answer }} />
+
 														</div>
-														<div className="item-question">
-															<div className="head-question">
-																<p className="text-md-bold neutral-1000">Is The High Roller wheelchair accessible?</p>
-															</div>
-															<div className="content-question">
-																<p className="text-sm-medium neutral-800">es, The High Roller cabins are wheelchair accessible, making it possible for everyone to enjoy the breathtaking views of Las Vegas.</p>
-															</div>
 														</div>
+													))}
 													</div>
 												</div>
+												)}
+
+
+
 											</div>
 										</div>
 										
@@ -360,7 +471,7 @@ export default function CarDetail({ car }: CarDetailProps) {
 												<span className="text-lg-medium neutral-1000"> /day</span>
 											</p>
 											<Link href="https://wa.me/971545514155" className="btn btn-primary w-100 rounded-3  mb-3">
-												Get Custom Offer
+												Get Your Luxury Car Now
 												<svg width={17} height={16} viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path d="M8.5 15L15.5 8L8.5 1M15.5 8L1.5 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
 												</svg>

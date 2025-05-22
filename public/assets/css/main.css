@@ -32,7 +32,7 @@ TABLE CONTENT
 @import url(../css/vendors/uicons-regular-rounded.css);
 @import url(../css/plugins/swiper-bundle.min.css);
 @import url(../css/plugins/magnific-popup.css);
-@import url(../css/plugins/animate.css);
+/* @import url(../css/plugins/animate.css); */
 @import url(../css/plugins/select2.min.css);
 @import url(../css/plugins/perfect-scrollbar.css);
 @import url(../css/plugins/carouselTicker.css);
@@ -353,6 +353,7 @@ li.hr span {
   }
 .custom-color{
 	color:#c8a429;
+	
 }
 .custom-color:hover{
 	color:black;
@@ -10866,7 +10867,7 @@ a.icon-socials:hover svg path {
 }
 
 .box-grid-hotels .card-flight .tour-rate {
-	margin-bottom: 4px;
+	margin-bottom: 2px;
 }
 
 .box-grid-hotels .card-flight .card-tags {
@@ -11005,7 +11006,11 @@ a.icon-socials:hover svg path {
 }
 
 .breadcrumbs {
-	padding: 34px 0px;
+	padding-top: 34px;
+	padding-right: 0px;
+	padding-bottom: 1px;
+	padding-left: 0px;
+
 }
 
 .breadcrumbs li {
@@ -11311,7 +11316,8 @@ a.icon-socials:hover svg path {
 }
 
 .tour-title-main {
-	margin-bottom: 20px;
+	margin-top: 1px;
+	margin-bottom: 30px;
 }
 
 .tour-meta-right .btn-share {
@@ -11673,7 +11679,7 @@ a.icon-socials:hover svg path {
 }
 
 .tour-header {
-	margin-bottom: 36px;
+	margin-bottom: 6px;
 }
 
 .slider-nav-thumbnails-activities-detail .banner-slide {

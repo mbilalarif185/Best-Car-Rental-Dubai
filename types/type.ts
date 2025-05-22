@@ -1,17 +1,7 @@
-// export interface Car {
-//     name: string;
-//     image: string;
-//     price: number;
-//     rating: number;
-//     reviews: number;
-//     doors: number;
-//     gear: string;
-//     fuel: string;
-//     seats: number;
-//     location: string;
-//   }
+
 export interface Car {
   id: number;
+  
   name: string;
   brand: string;
   type: string;
@@ -32,4 +22,6 @@ export interface Car {
   seats: number;
   location: string;
   slug:string;
+  
+  
 }

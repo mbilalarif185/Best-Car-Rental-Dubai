@@ -18,7 +18,7 @@ const Brand = () => {
                 </p>
           </div>
           <div className="col-md-2">
-            <div className="d-flex justify-content-end mt-md-0 mt-4">
+            <div className="d-flex justify-content-end  ">
               <Link className="btn btn-primary rounded-3" href="/contact">
                 Book Now
                 <svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

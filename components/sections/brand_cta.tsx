@@ -53,15 +53,15 @@ export default function Brand_Cta() {
 										<div className="d-flex flex-column gap-4">
 											<div className="d-flex gap-4">
 												<div className="position-relative">
-													<Image className="bdrd8 w-100" src="/assets/imgs/cta/cta-8/cta1.webp" 
+													<Image className="bdrd8" src="/assets/imgs/cta/cta-8/rent audi rsq8 in dubai.webp" 
 													 alt="Luxury Cars for Rent in Dubai"
 													 width={267}
 													 height={269} 
 													 loading="lazy"/>
 												</div>
 												<div className="mt-auto">
-													<Image className="bdrd8 w-100"
-													 src="/assets/imgs/cta/cta-8/rent-a-car-for-event-in-dubai.webp" 
+													<Image className="bdrd8 "
+													 src="/assets/imgs/cta/cta-8/Rolls-Royce-Cullinan-in-dubai.webp" 
 													 alt="Luxury Car Rental Dubai"
 													 width={251}
 													 height={243}
@@ -70,16 +70,16 @@ export default function Brand_Cta() {
 											</div>
 											<div className="d-flex gap-4">
 												<div className="position-relative">
-													<Image className="bdrd8 w-100"
-													 src="/assets/imgs/cta/cta-8/rent-car-in-dubai.webp" 
+													<Image className="bdrd8 "
+													 src="/assets/imgs/cta/cta-8/BMW-430i-for-rent-in-dubai.webp" 
 													 alt="rent luxury cars in dubai"
 													 width={212}
 													 height={234}
 													 loading="lazy" />
 												</div>
 												<div className="position-relative">
-													<Image className="bdrd8 w-100" 
-													src="/assets/imgs/cta/cta-8/rent-a-car-in-dubai.webp" 
+													<Image className="bdrd8 " 
+													src="/assets/imgs/cta/cta-8/Lamborghini-Huracan-Evo-Spider-luxury-car-rental-dubai.webp" 
 													alt="cars for rent in dubai" 
 													width={300}
 													height={234}

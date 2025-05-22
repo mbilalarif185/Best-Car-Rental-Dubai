@@ -1,0 +1,62 @@
+// export interface Car {
+//     name: string;
+//     image: string;
+//     price: number;
+//     rating: number;
+//     reviews: number;
+//     doors: number;
+//     gear: string;
+//     fuel: string;
+//     seats: number;
+//     location: string;
+//   }
+type FAQ = {
+  question: string;
+  answer: string;
+};
+export interface Car {
+  id: number;
+  title?:string;
+  name: string;
+  brand: string;
+  type: string;
+  image: string;
+  image2?: string;
+  image3?: string;
+  image4?: string;
+  image5?: string;
+  image6?: string;
+  image7?: string;
+  image8?: string;
+  price: number;
+  rating: number;
+  reviews: number;
+  doors: number;
+  gear: string;
+  fuel: string;
+  seats: number;
+  location: string;
+  slug:string;
+  description?:string;
+  title2?:string;
+  description2?:string;
+  features1?:string[];
+  title3?:string;
+  description3?:string;
+  title4?:string;
+  description4?:string;
+  titlef?:string;
+  features?:string[];
+  faqs?:FAQ[];
+  Sk?:string;
+  title5?:string;
+  description5?:string;
+  title6?:string;
+  description6?:string;
+  title7?:string;
+  description7?:string;
+  title8?:string;
+  description8?:string;
+  features2?:string[];
+  features3?:string[];
+}
