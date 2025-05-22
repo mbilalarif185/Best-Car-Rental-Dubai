@@ -1,81 +1,9 @@
 
-// import cars from '@/util/cars.json';
-// import { Car } from '@/types/type';
-// import Layout from '@/components/layout/Layout';
-// import Header from '@/components/category/header';
-// import dynamic from 'next/dynamic';
-
-// const CarsListing4 = dynamic(() => import('@/components/sections/CarsListing4'), {
-//   ssr: false,
-// });
-
-// interface SearchPageProps {
-//   searchParams: {
-//     query?: string;
-//     carType?: string;
-//     brand?: string;
-//     pickup?: string;
-//     dropoff?: string;
-//   };
-// }
-
-// export default function SearchPage({ searchParams }: SearchPageProps) {
-//   const query = searchParams.query?.toLowerCase().trim() || '';
-//   const carType = searchParams.carType?.toLowerCase().trim() || '';
-//   const brand = searchParams.brand?.toLowerCase().trim() || '';
-
-//   // Filter cars by either `query` (broad search) or by individual filters
-//   const filteredCars: Car[] = cars.filter((car) => {
-//     const carBrand = car.brand.toLowerCase();
-//     const carName = car.name.toLowerCase();
-//     const carTypeValue = car.type.toLowerCase();
-
-//     if (query) {
-//       const combined = `${carBrand} ${carName} ${carTypeValue}`;
-//       return combined.includes(query);
-//     } else {
-//       const matchesBrand = brand ? carBrand.includes(brand) : true;
-//       const matchesType = carType ? carTypeValue.includes(carType) : true;
-//       return matchesBrand && matchesType;
-//     }
-//   });
-
-//   const hasSearch = query || brand || carType;
-
-//   return (
-//     <Layout footerStyle={1}>
-//       <Header
-//         breadcrumbLabel={hasSearch ? `Results for "${query || brand || carType}"` : 'Search'}
-//         secondbreadcrumb="Fleet"
-//         secondbreadcrumburl="/luxury-fleet"
-//         breadcrumbUrl="/search"
-//         categorySlug={undefined}
-//       />
-//       <section className="search-results container my-5">
-//         {hasSearch ? (
-//           filteredCars.length > 0 ? (
-//             <CarsListing4 cars={filteredCars} brandSlug={brand || query || ''} />
-//           ) : (
-//             <p className="text-center fs-5 text-muted">
-//               No results found for <strong>{query || `${brand} ${carType}`}</strong>.
-//             </p>
-//           )
-//         ) : (
-//           <p className="text-center fs-5 text-muted">
-//             Please enter a search term or use filters to find cars.
-//           </p>
-//         )}
-//       </section>
-//     </Layout>
-//   );
-// }
-
-// app/search/page.tsx
 
 import cars from '@/util/cars.json'
 import { Car } from '@/types/type'
 import Layout from '@/components/layout/Layout'
-import Header from '@/components/category/header'
+import Header from '@/components/about_sections/header'
 import dynamic from 'next/dynamic'
 
 const CarsListing4 = dynamic(() => import('@/components/sections/CarsListing4'), {
@@ -149,12 +77,10 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
   return (
     <Layout footerStyle={1}>
       <Header
-        breadcrumbLabel={breadcrumbLabel}
-        secondbreadcrumb="Fleet"
-        secondbreadcrumburl="/luxury-fleet"
-        
-        categorySlug={undefined}
-      />
+        title="Best Car Rental Dubai"
+        subtitle="Your Luxury  Car Rental Provider in Dubai"
+        currentPage="Search Results"
+        backgroundImage="/assets/imgs/page-header/banner.webp" />
       <section className="search-results container my-5">
         {hasSearch ? (
           filteredCars.length > 0 ? (
