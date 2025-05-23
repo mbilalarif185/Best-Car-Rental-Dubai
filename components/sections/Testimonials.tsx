@@ -11,13 +11,13 @@ export default function Testimonials() {
 			<section className="section-box py-96 background-body">
 				<div className="container">
 					<div className="row align-items-end">
-						<div className="col-md-9 col-sm-9 wow fadeInUp">
+						<div className="col-md-9 col-sm-9">
 							<div className="box-author-testimonials"><img src="/assets/imgs/page/homepage1/testimonial.png" alt="Carento" /><img src="/assets/imgs/page/homepage1/testimonial2.png" alt="Carento" /><img src="/assets/imgs/page/homepage1/testimonial3.png" alt="Carento" />Testimonials</div>
 							<h3 className="mt-8 mb-15 neutral-1000">Best Car Rental’s Reviews</h3>
 						</div>
 					</div>
 				</div>
-				<div className="block-testimonials wow fadeIn">
+				<div className="box-list-news">
 					<div className="container-testimonials">
 						<div className="container-slider ps-0">
 							<div className="box-swiper mt-30">

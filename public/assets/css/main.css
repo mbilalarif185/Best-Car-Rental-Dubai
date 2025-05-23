@@ -12746,7 +12746,7 @@ a.icon-socials:hover svg path {
 	}
 
 	.block-testimonials .testimonials-left::before {
-		/* display: none; */
+		display: none;
 	}
 
 	.popup-firstload .popup-container .popup-content {
