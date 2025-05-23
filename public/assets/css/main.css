@@ -284,6 +284,14 @@ input:focus::-moz-placeholder {
   padding-left: 1.5rem; /* ensures space for bullet */
 
 }
+.custom-btn{
+	background-color: #25D366;
+	color:white;
+}
+.custom-btn:hover{
+	background-color: #c8a429;
+	color:black !important;
+}
 
 .custom-ol{
 	 list-style-type: decimal;

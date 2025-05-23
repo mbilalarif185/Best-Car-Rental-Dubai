@@ -470,7 +470,7 @@ export default function CarDetail({ car }: CarDetailProps) {
 												Rental Price: {car.price} AED  
 												<span className="text-lg-medium neutral-1000"> /day</span>
 											</p>
-											<Link href="https://wa.me/971545514155" className="btn btn-primary w-100 rounded-3  mb-3">
+											<Link href="https://wa.me/971545514155" className="btn  custom-btn w-100 rounded-3  mb-3">
 												Get Your Luxury Car Now
 												<svg width={17} height={16} viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path d="M8.5 15L15.5 8L8.5 1M15.5 8L1.5 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
