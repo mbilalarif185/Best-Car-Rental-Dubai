@@ -10,7 +10,7 @@ type CarDetailProps = {
 }
 
 export default function CarDetail({ car }: CarDetailProps) {
-	const [isAccordion, setIsAccordion] = useState(null)
+	const [isAccordion, setIsAccordion] = useState(1)
 
 	const handleAccordion = (key: any) => {
 		setIsAccordion(prevState => prevState === key ? null : key)
@@ -289,7 +289,7 @@ export default function CarDetail({ car }: CarDetailProps) {
 													<path d="M1 1L6 6L11 1" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
 												</svg>
 											</button>
-											<div className={isAccordion == 1 ? "collapse" : "collapse show"} id="collapseOverview">
+											<div className={isAccordion == 1 ? "collapse show" : "collapse"} id="collapseOverview">
 												<div className="card card-body" >
 													{car.description ? (
 													<p dangerouslySetInnerHTML={{ __html: car.description }} />
