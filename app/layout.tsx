@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 	title: "Legendary Car Rental Dubai",
 	description: "Looking for Luxury Cars? Explore Our Legendary Car Rental dubai's top rental company. ",
 	icons: {
-		icon: "/favicon.png"
+		icon: "/favicon.webp"
 	},
 }
 
