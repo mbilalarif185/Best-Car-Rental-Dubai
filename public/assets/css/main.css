@@ -13687,6 +13687,12 @@ a.icon-socials:hover svg path {
 		display: none;
 	} */
 
+	.header .main-menu li a {
+		width: 100%;
+		padding: 20px 3px 20px 3px;
+	}
+
+
 	.header .main-header {
 		padding: 10px 0;
 	}
