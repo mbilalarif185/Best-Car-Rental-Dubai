@@ -103,53 +103,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 						</div> */}
 						<div className="top-right-header">
 						
-							{/* <div className="d-none d-xl-inline-block box-dropdown-cart align-middle mr-15 head-lang">
-								<span
-							className="text-14-medium icon-list icon-search"
-							style={{ visibility: 'visible', cursor: 'pointer' }}
-							onClick={() => setShowSearch(!showSearch)}
-							>
-
-								
-								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
-									<path
-									d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-									stroke="#ffffff"
-									strokeWidth="2"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									/>
-								</svg>
-								</span>
-									 {showSearch && (
-                  <input
-                    type="search"
-                    placeholder="Search cars, services, brands..."
-                    value={searchTerm}
-                    onChange={handleSearchInputChange}
-                    onKeyDown={handleSearchSubmit}
-                    className="search-input"
-                    autoFocus
-                
-							style={{
-								marginLeft: '10px',
-								padding: '4px 8px',
-								fontSize: '14px',
-								borderRadius: '4px',
-								border: '1px solid #000',
-								backgroundColor: '#fff',
-								color: '#000',
-								pointerEvents: 'auto',
-								position: 'relative',
-								zIndex: 9999,
-							}}
-							/>
-
-							
-							)}
-
-
-      </div> */}
+						
 
 						<Dropdown className="d-none d-xl-inline-block box-dropdown-cart align-middle head-currency">
 							<Dropdown.Toggle as="span" className="text-14-medium icon-list icon-cart">
@@ -472,12 +426,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 								</div>
 
 								<div className="d-none d-xxl-inline-block align-middle ml-15 mr-15">
-									{/* <Link className="btn btn-signin" href="/login">
-										<svg className="mb-1" xmlns="http://www.w3.org/2000/svg" width={16} height={16} viewBox="0 0 16 16" fill="none">
-											<path d="M3 14C3 14 2 14 2 13C2 12 3 9 8 9C13 9 14 12 14 13C14 14 13 14 13 14H3ZM8 8C8.79565 8 9.55871 7.68393 10.1213 7.12132C10.6839 6.55871 11 5.79565 11 5C11 4.20435 10.6839 3.44129 10.1213 2.87868C9.55871 2.31607 8.79565 2 8 2C7.20435 2 6.44129 2.31607 5.87868 2.87868C5.31607 3.44129 5 4.20435 5 5C5 5.79565 5.31607 6.55871 5.87868 7.12132C6.44129 7.68393 7.20435 8 8 8Z" fill="white" />
-										</svg>
-										Sign in
-									</Link> */}
+									
 									<Link className="btn btn-signin bg-white text-dark" href="/contact">Contact Us</Link>
 								</div>
 								
