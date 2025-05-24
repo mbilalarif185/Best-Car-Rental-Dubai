@@ -316,7 +316,7 @@ export default function CarDetail({ car }: CarDetailProps) {
 													) : (
 													<p>Best Car Rental Dubai Provides luxury cars on reasonable price. You can explore our <Link href="/luxury-fleet" className='custom-color'>luxury fleet</Link> </p>
 													)}
-													<ul className='mb-4 custom-ol' >
+													{/* <ul className='mb-4 custom-ol' >
 													{car.features3?.map((feature, index) => {
 														const [title, desc] = feature.split(":");
 														return (
@@ -325,7 +325,19 @@ export default function CarDetail({ car }: CarDetailProps) {
 														</li>
 														);
 													})}
-													</ul>
+													</ul> */}
+													<ul className="mb-4 custom-ol">
+  {car.features3?.map((feature, index) => {
+    const [title, ...descParts] = feature.split(":");
+    const desc = descParts.join(":"); // Handles multiple colons
+    const htmlContent = `<strong>${title}:</strong> ${desc}`;
+    return (
+      <li key={index} dangerouslySetInnerHTML={{ __html: htmlContent }} />
+    );
+  })}
+</ul>
+
+
 													<div className="card card-body">
 												<ul className="list-checked-green">
 													{car.features1?.map((feature, index) => (
@@ -349,11 +361,7 @@ export default function CarDetail({ car }: CarDetailProps) {
 													{car.description4 && (
 													<p dangerouslySetInnerHTML={{ __html: car.description4 }} />
 													)}
-													{/* {car.title5 ? (
-														<h4 className='custom-heading5 mb-2' dangerouslySetInnerHTML={{ __html: car.title5 }} />
-													):(
-														<h4></h4>	
-													)} */}
+													
 													{car.title5 && (
 														<h4 className="custom-heading5 mb-2" dangerouslySetInnerHTML={{ __html: car.title5 }} />
 													)}

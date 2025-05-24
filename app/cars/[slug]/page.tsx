@@ -34,10 +34,11 @@ export default function CarDetailPage({ params }: Props) {
       "@type": "Car",
       "name": car.name,
       "image": car.image,
+    
       "description": `Rent the ${car.name} with ${car.seats} seats, ${car.doors} doors. Drive luxury in Dubai today!`,
       "brand": {
         "@type": "Brand",
-        "name": "Legendary Car Rental Dubai"
+        "name": "Best Car Rental Dubai"
       },
       "offers": {
         "@type": "Offer",
@@ -63,13 +64,7 @@ export default function CarDetailPage({ params }: Props) {
           }}
         />
          <Link rel="preload" href={car.image} as="image" />
-        <link
-          rel="preload"
-          href="/fonts/font-awesome.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"  
-        />
+       
       </Head>
        
       <CarDetail car={car} />
@@ -92,8 +87,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!car) return {}
 
   return {
-    title: `${car.name} Rental in Dubai | Legendary Car Rental`,
-    description: `Rent the ${car.name} with ${car.seats} seats, ${car.doors} doors. Drive luxury in Dubai today!`,
+    title: `${car.name} Rental in Dubai | Best Car Rental Dubai`,
+    description: `Rent the ${car.name} with ${car.seats} seats, ${car.doors} doors.`,
     openGraph: {
       images: [car.image],
     },

@@ -12,7 +12,7 @@ export default function CtaBanner() {
                            Get affordable car rental rates in UAE.
 
                         </p>
-                        <Link  href="https://wa.me/971545514155?text=Thank%20you!%20We%20appreciate%20your%20support%20—%20looking%20forward%20to%20hearing%20your%20feedback%20as%20you%20explore%20the%20portal."
+                        <Link  href="https://wa.me/971545514155?text=Thank%20you!%20We%20appreciate%20your%20support."
                         target="_blank"
                         rel="noopener noreferrer" 
                         aria-label="Get Best Car Rental Deals Now" 
