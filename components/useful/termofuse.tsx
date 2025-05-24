@@ -24,9 +24,7 @@ export default function TermofUse(){
 										
 											<p className="text-md-medium neutral-500">
 											Welcome to Best Car Rental (collectively "Best Car Rental," "we," "us," "our"). We are based in the UAE and own 
-											and operate the Internet website at <Link className="custom-color" href="https://bestcarrentaldubai.ae"> www.bestcarrentaldubai.ae</Link>  (the "Website"). T
-											he Website collectively will be called the "Platform." 
-
+											and operate the Internet website at <Link className="custom-color" href="https://bestcarrentaldubai.ae"> www.bestcarrentaldubai.ae</Link>  (the "Website"). The Website collectively will be called the "Platform." 
 											</p>
 											<p className="text-md-medium neutral-500">
 											You directly accept the terms and conditions on this page by accessing and using the Platform, 
@@ -60,14 +58,7 @@ export default function TermofUse(){
 												 the eligibility requirements.
 
 											</p>
-											<h4 className="text-xl-bold mb-2 neutral-1000 cuatom-heading5">2.1 Eligibility</h4>
-											<p className="text-md-medium neutral-500">
-												You must be at least 21 years of age and have the legal capacity to enter into a
-												 binding agreement to use this Platform without limitation. 
-												 When you use this Platform, you are confirming that you meet 
-												 the eligibility requirements.
-
-											</p>
+											
 											<h4 className="text-xl-bold mb-2 neutral-1000 cuatom-heading5">2.2 Account Creation OR Form Filling</h4>
 											<p className="text-md-medium neutral-500">
 												It may be necessary for you to create an account or fill in a form to access

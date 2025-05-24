@@ -14,8 +14,8 @@ const urbanist = Urbanist({
 })
 
 export const metadata: Metadata = {
-	title: "Legendary Car Rental Dubai",
-	description: "Looking for Luxury Cars? Explore Our Legendary Car Rental dubai's top rental company. ",
+	title: "Best Car Rental Dubai",
+	description: "Looking for Luxury Cars? Explore Our Best Car Rental dubai's top luxury fleet. ",
 	icons: {
 		icon: "/favicon.webp"
 	},
