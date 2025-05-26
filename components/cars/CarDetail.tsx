@@ -279,8 +279,8 @@ export default function CarDetail({ car }: CarDetailProps) {
 									<div className="box-collapse-expand">
 										<div className="group-collapse-expand">
 											<button className={isAccordion == 1 ? "btn btn-collapse collapsed" : "btn btn-collapse"} type="button" data-bs-toggle="collapse" data-bs-target="#collapseOverview" aria-expanded="false" aria-controls="collapseOverview" onClick={() => handleAccordion(1)}>
-												{car.Sk ? (
-														<h2 className='custom-heading5' dangerouslySetInnerHTML={{ __html: car.Sk }} />
+												{car.sk ? (
+														<h2 className='custom-heading5' dangerouslySetInnerHTML={{ __html: car.sk }} />
 													):(
 														<h2 className='custom-heading5'>{car.name} Rental Dubai</h2>
 													)}
@@ -316,26 +316,17 @@ export default function CarDetail({ car }: CarDetailProps) {
 													) : (
 													<p>Best Car Rental Dubai Provides luxury cars on reasonable price. You can explore our <Link href="/luxury-fleet" className='custom-color'>luxury fleet</Link> </p>
 													)}
-													{/* <ul className='mb-4 custom-ol' >
+												
+													<ul className="mb-4 custom-ol">
 													{car.features3?.map((feature, index) => {
-														const [title, desc] = feature.split(":");
+														const [title, ...descParts] = feature.split(":");
+														const desc = descParts.join(":"); // Handles multiple colons
+														const htmlContent = `<strong>${title}:</strong> ${desc}`;
 														return (
-														<li key={index}>
-															<strong>{title}:{desc}</strong>
-														</li>
+														<li key={index} dangerouslySetInnerHTML={{ __html: htmlContent }} />
 														);
 													})}
-													</ul> */}
-													<ul className="mb-4 custom-ol">
-  {car.features3?.map((feature, index) => {
-    const [title, ...descParts] = feature.split(":");
-    const desc = descParts.join(":"); // Handles multiple colons
-    const htmlContent = `<strong>${title}:</strong> ${desc}`;
-    return (
-      <li key={index} dangerouslySetInnerHTML={{ __html: htmlContent }} />
-    );
-  })}
-</ul>
+													</ul>
 
 
 													<div className="card card-body">

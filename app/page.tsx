@@ -62,9 +62,9 @@ export const metadata = {
 const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "CarRental",
-  "name": "Legendary Car Rental Dubai",
+  "name": "Best Car Rental Dubai",
   "url": "https://bestcarrentaldubai.ae/",
-  "logo": "https://bestcarrentaldubai.ae/logo.png",
+  "logo": "https://bestcarrentaldubai.ae/Best-Car-Rental Dubai-logo.webp",
   "image": "https://bestcarrentaldubai.ae/assets/imgs/hero/hero-1/check.webp",
   "description":
     "Explore our luxury car rental Dubai and rent exotic cars from high-end brands including Rolls Royce, Audi, Porsche, and others at lowest prices. Hire Now!",

@@ -48,7 +48,7 @@ export interface Car {
   titlef?:string;
   features?:string[];
   faqs?:FAQ[];
-  Sk?:string;
+  sk?:string;
   title5?:string;
   description5?:string;
   title6?:string;

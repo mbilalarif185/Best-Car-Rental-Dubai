@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: { params: { brands: string } 
       images: matchedBrand.image ? [matchedBrand.image] : [],
     },
     alternates: {
-      canonical: canonicalUrl, // ✅ This fixes the "Duplicate without user-selected canonical" issue
+      canonical: canonicalUrl,
     },
   };
 }

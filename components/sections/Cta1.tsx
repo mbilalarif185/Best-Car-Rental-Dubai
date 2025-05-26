@@ -17,7 +17,7 @@ export default function Cta1() {
 			"@type": "VideoObject",
 			"name": "Luxury Car Rental Services",
 			"description": "Watch how Best Car Rental offers Dubai's top-rated car rental services, 24/7 support, and luxury vehicles.",
-			"thumbnailUrl": "/assets/imgs/Best Cars/Mercedes-G63-for-rent.webp",
+			"thumbnailUrl": "https://bestcarrentaldubai.ae/assets/imgs/Best Cars/Mercedes-G63-for-rent.webp",
 			"uploadDate": "2024-12-01",
 			"contentUrl": "https://youtu.be/sl6Jtrx3FFQ?si=6CmFQwgj_sXMLpa-",
 			"embedUrl":   "https://youtu.be/sl6Jtrx3FFQ?si=6CmFQwgj_sXMLpa-"

@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   alternates: {
-    canonical: "https://bestcarrentaldubai.ae/about-us", // ✅ Fixed domain
+    canonical: "https://bestcarrentaldubai.ae/about-us",
   }
 };
 

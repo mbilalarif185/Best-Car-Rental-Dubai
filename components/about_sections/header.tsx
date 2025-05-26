@@ -15,7 +15,7 @@ const Header = ({ title, subtitle, currentPage, backgroundImage }: HeaderProps) 
 					<div className="bg-overlay rounded-12 overflow-hidden">
 						<Image
 							className="w-100 h-100 img-banner"
-							src={backgroundImage || "/assets/imgs/page-header/banner.png"}
+							src={backgroundImage || "/assets/imgs/page-header/banner.webp"}
 							alt={title}
 							width={833}
 							height={280}

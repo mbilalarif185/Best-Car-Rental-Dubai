@@ -3,7 +3,6 @@
 import { Car } from "@/types/type";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { swiperGroup3 } from '@/util/swiperOptions';
 import 'swiper/css';
@@ -46,19 +45,19 @@ export default function CarsListing1({ cars }: CarsListingProps) {
           <div className="box-swiper mt-50">
             <Swiper {...swiperGroup3} className="swiper-container swiper-group-3 swiper-group-journey">
               {cars.map((car, index) => (
-                <SwiperSlide key={index}>
+                <SwiperSlide key={car.slug}>
                   <article
                     className="card-journey-small background-card hover-up"
                     itemScope
                     itemType="https://schema.org/Product"
                   >
-                    <meta itemProp="name" content={car.name} />
+                     <meta itemProp="name" content={car.name} />
+                      <meta itemProp="image" content={car.image} />
+                      <meta itemProp="url" content={`https://bestcarrentaldubai.ae/cars/${car.slug}`} />
+                      <meta itemProp="description" content={`Rent the ${car.name} in Dubai with ${car.seats} seats and ${car.doors} doors from Best Car Rental Dubai.`} />
+
                     <div className="card-image">
-                      <div
-                        className="card-image-bg"
-                        style={{ backgroundImage: `url(${car.image})` }}
-                        aria-hidden="true"
-                      />
+                      
                       <Link href={`/cars/${car.slug}`}>
                         <img
                           src={car.image}
@@ -69,7 +68,7 @@ export default function CarsListing1({ cars }: CarsListingProps) {
                           className="img-fluid"
                           loading="lazy"
                           decoding="async"
-                          itemProp="image"
+                          
                         />
                       </Link>
                     </div>
@@ -78,16 +77,20 @@ export default function CarsListing1({ cars }: CarsListingProps) {
                       <div className="card-rating">
                         <div className="card-left" />
                         <div className="card-right">
+                         
                           <span className="rating" itemProp="aggregateRating" itemScope itemType="https://schema.org/AggregateRating">
-                            <span itemProp="ratingValue">{car.rating}</span>
-                            <span className="text-sm-medium neutral-500"> ({car.reviews} reviews)</span>
+                            <meta itemProp="ratingValue" content={car.rating.toString()} />
                             <meta itemProp="reviewCount" content={car.reviews.toString()} />
+                            <span className="text-sm-medium neutral-500">
+                              {car.rating} ({car.reviews} reviews)
+                            </span>
                           </span>
+
                         </div>
                       </div>
 
                       <h3 className="card-title">
-                        <Link className="heading-6 neutral-1000" href={`/cars/${car.slug}`} itemProp="url">
+                        <Link className="heading-6 neutral-1000" href={`/cars/${car.slug}`} >
                           <span itemProp="name">{car.name}</span>
                         </Link>
                       </h3>
@@ -105,10 +108,23 @@ export default function CarsListing1({ cars }: CarsListingProps) {
 
                         <div className="endtime">
                           <div className="card-price" itemProp="offers" itemScope itemType="https://schema.org/Offer">
+                          <meta itemProp="priceCurrency" content="AED" />
+                          <meta itemProp="price" content={car.price.toString()} />
+                          <meta itemProp="availability" content="https://schema.org/InStock" />
+                          <meta itemProp="priceValidUntil" content="2025-12-31" />
                           
+                           <div itemProp="shippingDetails" itemScope itemType="https://schema.org/OfferShippingDetails">
+   
+                            </div>
+                          <div itemProp="hasMerchantReturnPolicy" itemScope itemType="https://schema.org/MerchantReturnPolicy">
+                            <meta itemProp="applicableCountry" content="AE" />
+                            <meta itemProp="returnPolicyCategory" content="https://schema.org/NoReturns" />
+                          </div>
+
+
                             <h6 className="heading-6 neutral-1000">
-                              <span itemProp="priceCurrency" content="AED">AED</span>{" "}
-                              <span itemProp="price">{car.price}</span>
+                             
+                               AED {car.price}
                               <span className="text-lg-medium neutral-1000">/ day</span>
                             </h6>
                           </div>

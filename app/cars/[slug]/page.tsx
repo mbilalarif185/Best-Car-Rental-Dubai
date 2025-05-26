@@ -29,17 +29,31 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default function CarDetailPage({ params }: { params: { slug: string } }) {
-  const car = cars.find(car => car.slug === params.slug);
+  const car: Car | undefined = cars.find(car => car.slug === params.slug);
 
   if (!car) return notFound();
+
+  const color = "Black"; 
+  const interiorColor = "Beige"; 
 
   const schemaMarkup = {
     "@context": "https://schema.org",
     "@type": "Car",
     "name": car.name,
+    "model": "Latest Model",
+    "vehicleModelDate": "2024",
+    "itemCondition": "https://schema.org/NewCondition",
     "image": car.image,
     "description": `Rent the ${car.name} with ${car.seats} seats, ${car.doors} doors.`,
-    "brand": { "@type": "Brand", "name": "Best Car Rental Dubai" },
+    "brand": {
+      "@type": "Brand",
+      "name": car.brand.trim() || "Best Car Rental Dubai",
+    },
+    "bodyType": car.type.trim(),
+    "vehicleTransmission": car.gear.trim(),
+    "color": color,
+    "vehicleSeatingCapacity": car.seats,
+    "vehicleInteriorColor": interiorColor,
     "offers": {
       "@type": "Offer",
       "priceCurrency": "AED",
@@ -49,14 +63,15 @@ export default function CarDetailPage({ params }: { params: { slug: string } }) 
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": car.rating,
+      "ratingValue": car.rating || 0,
+      "reviewCount": car.reviews || 0,
+      "ratingCount": car.reviews || 0,
     },
   };
 
   return (
     <main>
       <Layout footerStyle={1}>
-        {/* Instead of Head from next/head, use metadata functions or next/script */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
