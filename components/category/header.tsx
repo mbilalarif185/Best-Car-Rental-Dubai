@@ -18,7 +18,7 @@ const categoryData = Object.fromEntries(
     item.name.trim().toLowerCase(),
     {
       title: item.name,
-      bannerImage: item["banner-image"],
+      bannerImage: item["image"],
       Image1: item.image,
     },
   ])
@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({
   const bcrumburl=secondbreadcrumburl || "/luxury-fleet"
   const finalTitle = title || breadcrumbLabel || "Explore Our Cars";
   const finalImageUrl =
-    imageUrl || config?.bannerImage || config?.Image1 || "/assets/imgs/page-header/banner.png";
+    imageUrl || config?.bannerImage || config?.Image1 || "/assets/imgs/page-header/banner.webp";
 
   return (
     <header>
