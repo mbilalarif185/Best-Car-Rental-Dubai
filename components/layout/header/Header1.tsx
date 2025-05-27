@@ -219,6 +219,12 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 																	"image": "/assets/imgs/brands/Rolls-Royce-car-rental-in-dubai.webp",
 																	"slug":"rolls-royce-car-rental-in-dubai"
 																	},
+																	{
+																		"name":"Tesla",
+																		"image":"/assets/imgs/brands/rent-tesla-in-dubai.webp",
+																		"slug":"tesla-rental-in-dubai"
+
+																	},
 
 														].map((brand) => (
 														<div className="col text-center" key={brand.slug}>

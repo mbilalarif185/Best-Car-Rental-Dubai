@@ -64,7 +64,7 @@ const schemaMarkup = {
   "@type": "CarRental",
   "name": "Best Car Rental Dubai",
   "url": "https://bestcarrentaldubai.ae/",
-  "logo": "https://bestcarrentaldubai.ae/Best-Car-Rental Dubai-logo.webp",
+  "logo": "https://bestcarrentaldubai.ae/Best-Car-Rental Dubai-logo",
   "image": "https://bestcarrentaldubai.ae/assets/imgs/hero/hero-1/check.webp",
   "description":
     "Explore our luxury car rental Dubai and rent exotic cars from high-end brands including Rolls Royce, Audi, Porsche, and others at lowest prices. Hire Now!",
