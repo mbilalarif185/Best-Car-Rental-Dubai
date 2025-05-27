@@ -5,6 +5,7 @@ import Link from "next/link"
 import { useState } from 'react'
 import { Car } from '@/types/detail_type'
 
+const BASE_URL = "https://bestcarrentaldubai.ae";
 type CarDetailProps = {
   car: Car
 }
@@ -118,7 +119,7 @@ export default function CarDetail({ car }: CarDetailProps) {
 										<div className="row g-3">
 											<div className="col-lg-7">
 												<div className="position-relative rounded-12 overflow-hidden">
-													<img src={car.image} 
+													<img src={`${BASE_URL}${car.image}`}
                                                      alt={`${car.name} For Rent in Dubai`}
                                                      title={`Rent ${car.name} in Dubai`}
                                                      loading="lazy"
@@ -130,7 +131,7 @@ export default function CarDetail({ car }: CarDetailProps) {
 												<div className="d-flex gap-3">
 													<div className="d-flex gap-3 flex-column w-100">
 														<div className="rounded-12 overflow-hidden w-100 luxuryimage">
-                                                            <img className="w-100 h-100 object-fit-cover" src={car.image2}
+                                                            <img className="w-100 h-100 object-fit-cover" src={`${BASE_URL}${car.image2}`}
                                                              alt={`${car.name} For Rent in Dubai`}
                                                              title={`Rent ${car.name} in Dubai`}
                                                              loading="lazy"
@@ -138,7 +139,7 @@ export default function CarDetail({ car }: CarDetailProps) {
                                                               />
                                                             </div>
 														<div className="rounded-12 overflow-hidden w-100  luxuryimage"
-                                                        ><img className="w-100 h-100 object-fit-cover" src={car.image3 || car.image2}
+                                                        ><img className="w-100 h-100 object-fit-cover" src={`${BASE_URL}${car.image3 || car.image2}`}
                                                          alt={`${car.name} For Rent in Dubai`}
                                                          title={`Rent ${car.name} in Dubai`}
                                                          loading="lazy"
@@ -148,15 +149,13 @@ export default function CarDetail({ car }: CarDetailProps) {
 													</div>
 													<div className="d-flex gap-3 flex-column w-100 ">
 														<div className="rounded-12 overflow-hidden w-100 luxuryimage ">
-                                                            <img className="w-100 h-100 object-fit-cover" src={car.image4|| car.image}
+                                                            <img className="w-100 h-100 object-fit-cover" src={`${BASE_URL}${car.image4 || car.image}`}
                                                          alt={`${car.name} For Rent in Dubai`}
                                                          title={`Rent ${car.name} in Dubai`}
                                                          loading="lazy"
                                                          decoding="async" /></div>
 														<div className="rounded-12 overflow-hidden w-100 luxuryimage"
-                                                        ><img className="w-100 h-100 object-fit-cover" src={car.image5|| car.image
-                                                            
-                                                        }
+                                                        ><img className="w-100 h-100 object-fit-cover" src={`${BASE_URL}${car.image5 || car.image}`}
                                                          alt={`${car.name} For Rent in Dubai`}
                                                          title={`Rent ${car.name} in Dubai`}
                                                          loading="lazy"

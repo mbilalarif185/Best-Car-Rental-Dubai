@@ -5,6 +5,10 @@ const CarDetail = dynamic(() => import("@/components/cars/CarDetail"));
 import Layout from "@/components/layout/Layout";
 import { Car } from "@/types/detail_type";
 
+const BASE_URL = "https://bestcarrentaldubai.ae";
+const makeAbsoluteUrl = (path: string) =>
+  path.startsWith("http") ? path : `${BASE_URL}${path}`;
+
 export async function generateStaticParams() {
   return cars.map(car => ({
     slug: car.slug,
@@ -14,16 +18,18 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const car = cars.find(car => car.slug === params.slug);
   if (!car) return {};
-  const canonicalUrl = `https://bestcarrentaldubai.ae/cars/${car.slug}`;
+  
+  const canonicalUrl = `${BASE_URL}/cars/${car.slug}`;
+  const imageUrl = makeAbsoluteUrl(car.image);
   return {
     title: `${car.name} Rental in Dubai | Best Car Rental Dubai`,
     description: `Rent the ${car.name} with ${car.seats} seats, ${car.doors} doors.`,
     openGraph: {
-      url: canonicalUrl,
-      images: [car.image],
+       url: canonicalUrl,
+      images: [imageUrl],
     },
     alternates: {
-      canonical: canonicalUrl,
+      canonical:canonicalUrl,
     },
   };
 }
@@ -43,7 +49,7 @@ export default function CarDetailPage({ params }: { params: { slug: string } }) 
     "model": "Latest Model",
     "vehicleModelDate": "2024",
     "itemCondition": "https://schema.org/NewCondition",
-    "image": car.image,
+   "image": makeAbsoluteUrl(car.image),
     "description": `Rent the ${car.name} with ${car.seats} seats, ${car.doors} doors.`,
     "brand": {
       "@type": "Brand",
@@ -59,7 +65,7 @@ export default function CarDetailPage({ params }: { params: { slug: string } }) 
       "priceCurrency": "AED",
       "price": car.price,
       "availability": "https://schema.org/InStock",
-      "url": `https://bestcarrentaldubai.ae/cars/${car.slug}`,
+       "url": `${BASE_URL}/cars/${car.slug}`,
     },
     "aggregateRating": {
       "@type": "AggregateRating",
