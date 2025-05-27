@@ -48,6 +48,8 @@ export default function CarDetailPage({ params }: { params: { slug: string } }) 
     "name": car.name,
     "model": "Latest Model",
     "vehicleModelDate": "2024",
+    "vehicleIdentificationNumber": `N/A-${car.slug}`,
+
     "itemCondition": "https://schema.org/NewCondition",
    "image": makeAbsoluteUrl(car.image),
     "description": `Rent the ${car.name} with ${car.seats} seats, ${car.doors} doors.`,
@@ -59,6 +61,8 @@ export default function CarDetailPage({ params }: { params: { slug: string } }) 
     "vehicleTransmission": car.gear.trim(),
     "color": color,
     "vehicleSeatingCapacity": car.seats,
+    "numberOfDoors": car.doors,
+    "fuelType": car.fuel || "Petrol",
     "vehicleInteriorColor": interiorColor,
     "offers": {
       "@type": "Offer",
