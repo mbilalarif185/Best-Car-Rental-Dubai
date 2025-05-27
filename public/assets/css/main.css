@@ -9220,7 +9220,12 @@ a.icon-socials:hover svg path {
 	font-weight: 700;
 }
 
-
+/* .section-box-banner-3.banner-2 {
+	background: url(../imgs/banners/banners-1/banner2.webp);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
 
 .section-box-banner-3::after {
 	content: "";
@@ -9230,8 +9235,28 @@ a.icon-socials:hover svg path {
 	width: 100%;
 	height: 100%;
 	opacity: 0.52;
-	background: #000;
+	
+} */
+.section-box-banner-3.banner-2 {
+	background: url(../imgs/banners/banners-1/banner2.webp);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+	overflow: hidden;
 }
+
+.section-box-banner-3.banner-2::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.52); /* Semi-transparent black */
+	z-index: 0; /* Send overlay behind content */
+}
+
 
 
 

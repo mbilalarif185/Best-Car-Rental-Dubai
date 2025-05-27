@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 	card: "summary_large_image",
 	title: "Contact Us - Luxury Car Rental Services Dubai ",
 	description: "Contact Legendary Car Rental to book the best luxury cars in Dubai at best prices. our luxury car rental services are available 24/7 for your assistance.  ",
-	images: ["/assets/imgs/cta/cta-10/img-1.png"]
+	images: ["/assets/imgs/cta/cta-10/img-1.webp"]
   }
 };
 
@@ -38,7 +38,7 @@ export default function Contact() {
 					<div className="page-header pt-30 background-body">
 						<div className="custom-container position-relative mx-auto">
 							<div className="bg-overlay rounded-12 overflow-hidden">
-								<img className="w-100 h-100 rounded-12 img-banner" src="/assets/imgs/page-header/banner4.png" alt="Carento" />
+								<img className="w-100 h-100 rounded-12 img-banner" src="/assets/imgs/page-header/banner2.webp" alt="Contact Us-Best Car Rental Dubai " />
 							</div>
 							<div className="container position-absolute z-1 top-50 start-50 translate-middle">
 								<h2 className="text-white">Get in touch</h2>
