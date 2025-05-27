@@ -21,27 +21,7 @@
             "image7": "/assets/imgs/Cars/Audi RS Q8/rent-audi rsq8 in dubai luxury car rental.webp",
             "image8": "/assets/imgs/Cars/Audi RS Q8/rent audi rsq8.webp",
             "slug": "rent-audi-rs-q8-in-dubai"
-        },{
-                  "name": "Tesla CyberTruck Beast 2024",
-                  "brand": "Tesla ",
-                  "type": "SUV",
-                  "price": 3200,
-                  "doors": 4,
-                  "gear": "Auto",
-                  "fuel": "Electric",
-                  "seats": 6,
-                  "id": 27,
-                  "rating": 4.3,
-                  "reviews": 510,
-                  "location": "Dubai - United Arab Emirates",
-                  "image": "/assets/imgs/Cars/Cyber-Truck/rent-tesla-Cybertruck-beast-in-dubai.webp",
-                  "image2": "/assets/imgs/Cars/Cyber-Truck/cybertruck-for-rent-in-dubai.webp",
-                  "image3": "/assets/imgs/Cars/Cyber-Truck/cybertruck-beast-for-rent-in-dubai.webp",
-                  "image4": "/assets/imgs/Cars/Cyber-Truck/rent-cybertruck-in-dubai.webp",
-                  "image5":"/assets/imgs/Cars/Cyber-Truck/tesla-cybertruck-rental-dubai.webp",
-
-                  "slug": "rent-cyber-truck-beast-2024-in-dubai"
-              },
+        },
         {
             "name": "BMW 430i",
             "brand": "BMW ",
@@ -542,6 +522,26 @@
                   "image4": "/assets/imgs/Cars/Lamborghini Huracan EVo 2024/Lamborghini-Huracan-Evo-Spider-car-for-rent.webp",
 
                   "slug": "rent-lamborghini-huracan-evo-spyder-2024-in-dubai"
+              },{
+                  "name": "Tesla CyberTruck Beast 2024",
+                  "brand": "Tesla ",
+                  "type": "SUV",
+                  "price": 3200,
+                  "doors": 4,
+                  "gear": "Auto",
+                  "fuel": "Electric",
+                  "seats": 6,
+                  "id": 27,
+                  "rating": 4.3,
+                  "reviews": 510,
+                  "location": "Dubai - United Arab Emirates",
+                  "image": "/assets/imgs/Cars/Cyber-Truck/rent-tesla-Cybertruck-beast-in-dubai.webp",
+                  "image2": "/assets/imgs/Cars/Cyber-Truck/cybertruck-for-rent-in-dubai.webp",
+                  "image3": "/assets/imgs/Cars/Cyber-Truck/cybertruck-beast-for-rent-in-dubai.webp",
+                  "image4": "/assets/imgs/Cars/Cyber-Truck/rent-cybertruck-in-dubai.webp",
+                  "image5":"/assets/imgs/Cars/Cyber-Truck/tesla-cybertruck-rental-dubai.webp",
+
+                  "slug": "rent-cyber-truck-beast-2024-in-dubai"
               }
 
      ]
