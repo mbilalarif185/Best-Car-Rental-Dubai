@@ -132,7 +132,7 @@ export default function CarDetail({ car }: CarDetailProps) {
 													<div className="d-flex gap-3 flex-column w-100">
 														<div className="rounded-12 overflow-hidden w-100 luxuryimage">
                                                             <img className="w-100 h-100 object-fit-cover" src={`${BASE_URL}${car.image2}`}
-                                                             alt={`${car.name} For Rent in Dubai`}
+                                                             alt={`${car.name} Rental Dubai`}
                                                              title={`Rent ${car.name} in Dubai`}
                                                              loading="lazy"
                                                              decoding="async"
@@ -140,7 +140,7 @@ export default function CarDetail({ car }: CarDetailProps) {
                                                             </div>
 														<div className="rounded-12 overflow-hidden w-100  luxuryimage"
                                                         ><img className="w-100 h-100 object-fit-cover" src={`${BASE_URL}${car.image3 || car.image2}`}
-                                                         alt={`${car.name} For Rent in Dubai`}
+                                                         alt={`Rent ${car.name} in Dubai`}
                                                          title={`Rent ${car.name} in Dubai`}
                                                          loading="lazy"
                                                          decoding="async"
@@ -150,13 +150,13 @@ export default function CarDetail({ car }: CarDetailProps) {
 													<div className="d-flex gap-3 flex-column w-100 ">
 														<div className="rounded-12 overflow-hidden w-100 luxuryimage ">
                                                             <img className="w-100 h-100 object-fit-cover" src={`${BASE_URL}${car.image4 || car.image}`}
-                                                         alt={`${car.name} For Rent in Dubai`}
+                                                         alt={`Rent Luxury ${car.name} in Dubai`}
                                                          title={`Rent ${car.name} in Dubai`}
                                                          loading="lazy"
                                                          decoding="async" /></div>
 														<div className="rounded-12 overflow-hidden w-100 luxuryimage"
                                                         ><img className="w-100 h-100 object-fit-cover" src={`${BASE_URL}${car.image5 || car.image}`}
-                                                         alt={`${car.name} For Rent in Dubai`}
+                                                         alt={`Luxury ${car.name} For Rent in Dubai`}
                                                          title={`Rent ${car.name} in Dubai`}
                                                          loading="lazy"
                                                          decoding="async"
