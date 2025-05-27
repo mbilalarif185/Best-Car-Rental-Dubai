@@ -259,6 +259,13 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
               image: "/assets/imgs/brands/Rolls-Royce-car-rental-in-dubai.webp",
               slug: "rolls-royce-car-rental-in-dubai",
             },
+			{
+				"name":"Tesla",
+				"image":"/assets/imgs/brands/rent-tesla-in-dubai.webp",
+				"slug":"tesla-rental-in-dubai"
+
+			},
+
           ].map((brand) => (
             <div
               className="col text-center mt-4 mb-4 sub-menu"
