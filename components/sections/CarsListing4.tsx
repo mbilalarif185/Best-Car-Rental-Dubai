@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Car } from "@/types/type";
 import categories from '@/util/categories.json';
-import brands from '@/util/brands.json'; // Make sure this JSON has `name`, `slug`, optional `heading`, `description`
+import brands from '@/util/brands.json'; 
+const BASE_URL = "https://bestcarrentaldubai.ae";
 
 interface CarsListing4Props {
   cars: Car[];
@@ -41,7 +42,7 @@ const CarsListing4: React.FC<CarsListing4Props> = ({ cars, categorySlug, brandSl
               <div className="card-journey-small background-card hover-up">
                 <div className="card-image">
                   <Link aria-label={`Rent ${car.name}`} href={`/cars/${car.slug}`}>
-                    <img src={car.image} alt={`Rent ${car.name} in ${car.location}`} title={`${car.name} For Rent in Dubai - Luxury Car Rental Dubai`} loading="lazy" decoding="async" />
+                    <img src={`${BASE_URL}${car.image}`} alt={`Rent ${car.name} in ${car.location}`} title={`${car.name} For Rent in Dubai - Luxury Car Rental Dubai`} loading="lazy" decoding="async" />
                   </Link>
                 </div>
                 <div className="card-info p-4 pt-30">

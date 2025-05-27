@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { swiperGroup3 } from '@/util/swiperOptions';
 import 'swiper/css';
+const BASE_URL = "https://bestcarrentaldubai.ae";
 
 interface CarsListingProps {
   cars: Car[];
@@ -52,7 +53,7 @@ export default function CarsListing1({ cars }: CarsListingProps) {
                     itemType="https://schema.org/Product"
                   >
                      <meta itemProp="name" content={car.name} />
-                      <meta itemProp="image" content={car.image} />
+                      <meta itemProp="image" content={`${BASE_URL}${car.image}`} />
                       <meta itemProp="url" content={`https://bestcarrentaldubai.ae/cars/${car.slug}`} />
                       <meta itemProp="description" content={`Rent the ${car.name} in Dubai with ${car.seats} seats and ${car.doors} doors from Best Car Rental Dubai.`} />
 
@@ -60,7 +61,7 @@ export default function CarsListing1({ cars }: CarsListingProps) {
                       
                       <Link href={`/cars/${car.slug}`}>
                         <img
-                          src={car.image}
+                          src={`${BASE_URL}${car.image}`}
                           alt={`${car.name} - Rent Luxury Car in Dubai`}
                           title={`Rent ${car.name} in Dubai`}
                           width={400}

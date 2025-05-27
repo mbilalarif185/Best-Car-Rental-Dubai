@@ -6,7 +6,7 @@ import categoryData from '@/util/categories.json';
 import Layout from "@/components/layout/Layout";
 import Header from '@/components/category/header';
 import Notfound from '@/components/category/notfound';
-import { notFound } from 'next/navigation';
+const BASE_URL = "https://bestcarrentaldubai.ae";
 
 const CarsListing4 = dynamic(() => import("@/components/sections/CarsListing4"));
 
@@ -26,9 +26,11 @@ export async function generateMetadata({ params }: Props) {
   const categorySlug = params.category.toLowerCase();
   const category = categoryData.find(item => item.slug.toLowerCase() === categorySlug);
 
-  if (!category) return notFound();
+  if (!category) return {};
 
-  const canonicalUrl = `https://bestcarrentaldubai.ae/luxury-fleet/${categorySlug}`;
+
+  const canonicalUrl = `${BASE_URL}/luxury-fleet/${categorySlug}`;
+   const imageUrl = `${BASE_URL}${category.image}`;
 
   return {
     title: category.title,
@@ -40,7 +42,7 @@ export async function generateMetadata({ params }: Props) {
       type: "website",
       images: [
         {
-          url: category.image,
+          url: imageUrl,
           width: 800,
           height: 600,
           alt: `${category.name} Car Rental Dubai`,
@@ -51,7 +53,8 @@ export async function generateMetadata({ params }: Props) {
       card: "summary_large_image",
       title: category.title,
       description: category.meta_desc,
-      images: [category.image],
+      images: [imageUrl],
+
     },
     alternates: {
       canonical: canonicalUrl, // ✅ Canonical tag added
