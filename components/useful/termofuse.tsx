@@ -6,7 +6,7 @@ export default function TermofUse(){
 						<div className="custom-container position-relative mx-auto">
 
 							<div className="bg-overlay rounded-12 overflow-hidden">
-								<img className="w-100 h-100 rounded-12 img-banner" src="/assets/imgs/page-header/banner5.png" alt="Luxury Car Rental Dubai" />
+								<img className="w-100 h-100 rounded-12 img-banner" src="/assets/imgs/page-header/banner2.webp" alt="Luxury Car Rental Dubai" />
 							</div>
 							<div className="container position-absolute z-1 top-50 start-50 translate-middle">
 								<h1 className="text-white">Terms of Use –  Best Car Rental in Dubai</h1>

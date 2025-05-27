@@ -120,7 +120,7 @@ export default function Offcanvas({ isOffcanvas, handleOffcanvas }: any) {
 							</div>
 							<div className="box-need-help">
 									<p className="need-help text-md-medium mb-5 text-black">Need help? Call us</p>
-									<br /><Link className="heading-6 phone-support ml-30" href="/tel:+971 54 551 4155">+971 54 551 4155</Link>
+									<br /><Link className="heading-6 phone-support ml-30" href="tel:+971 54 551 4155">+971 54 551 4155</Link>
 								</div>
 						</div>
 					</div>
