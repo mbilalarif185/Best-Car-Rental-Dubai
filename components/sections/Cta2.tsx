@@ -1,7 +1,62 @@
+
+'use client';
+import { useState } from 'react';
 import CounterUp from '../elements/CounterUp'
 
-
 export default function Cta2() {
+	 const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    pickupDate: '',
+    dropoffDate: '',
+    pickupLocation: '',
+    carModel: '',
+  });
+
+  const [submitting, setSubmitting] = useState(false);
+  const [message, setMessage] = useState('');
+
+ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setFormData((prev) => ({
+    ...prev,
+    [e.target.name]: e.target.value,
+  }));
+};
+
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+    setSubmitting(true);
+    setMessage('');
+
+    try {
+      const res = await fetch('/api/homepage_booking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setMessage('✅ Booking request sent successfully!');
+        setFormData({
+          fullName: '',
+          email: '',
+          pickupDate: '',
+          dropoffDate: '',
+          pickupLocation: '',
+          carModel: '',
+        });
+      } else {
+        setMessage('❌ Failed to send booking. Please try again.');
+      }
+    } catch (err) {
+      setMessage('❌ Error sending booking. Please check your network.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
 	return (
 		<>
 
@@ -40,63 +95,110 @@ export default function Cta2() {
 								</div>
 						</div>
 						
-						<div className="col-lg-6 offset-lg-1">
+					
+						  <div className="col-lg-6 offset-lg-1">
 							<div className="mb-30 background-card p-md-5 p-4 rounded-3 mt-lg-0 mt-30 wow fadeIn">
 								<h5 className="neutral-1000 mb-2">Book Your Car</h5>
 								<p className="text-sm-medium neutral-500 mb-25">
 								Fill out the form below to reserve your luxury car rental.
 								</p>
-								<div className="form-contact">
+								<form className="form-contact" onSubmit={handleSubmit}>
 								<div className="row">
 									<div className="col-lg-6">
 									<div className="form-group">
 										<label className="text-sm-medium neutral-1000">Full Name</label>
-										<input className="form-control" type="text" placeholder="Luxury Car Rental Dubai" />
+										<input
+										className="form-control"
+										type="text"
+										placeholder="Luxury Car Rental Dubai"
+										name="fullName"
+										value={formData.fullName}
+										onChange={handleChange}
+										required
+										/>
 									</div>
 									</div>
 									<div className="col-lg-6">
 									<div className="form-group">
 										<label className="text-sm-medium neutral-1000">Email Address</label>
-										<input className="form-control" type="email" placeholder="info@Bestcarrental.ae" />
+										<input
+										className="form-control"
+										type="email"
+										placeholder="info@Bestcarrental.ae"
+										name="email"
+										value={formData.email}
+										onChange={handleChange}
+										required
+										/>
 									</div>
 									</div>
 									<div className="col-lg-6">
 									<div className="form-group">
 										<label className="text-sm-medium neutral-1000">Pickup Date</label>
-										<input className="form-control" type="date" />
+										<input
+										className="form-control"
+										type="date"
+										name="pickupDate"
+										value={formData.pickupDate}
+										onChange={handleChange}
+										required
+										/>
 									</div>
 									</div>
 									<div className="col-lg-6">
 									<div className="form-group">
 										<label className="text-sm-medium neutral-1000">Drop-off Date</label>
-										<input className="form-control" type="date" />
+										<input
+										className="form-control"
+										type="date"
+										name="dropoffDate"
+										value={formData.dropoffDate}
+										onChange={handleChange}
+										required
+										/>
 									</div>
 									</div>
 									<div className="col-lg-6">
 									<div className="form-group">
 										<label className="text-sm-medium neutral-1000">Pickup Location</label>
-										<input className="form-control" type="text" placeholder="Dubai " />
+										<input
+										className="form-control"
+										type="text"
+										placeholder="Dubai"
+										name="pickupLocation"
+										value={formData.pickupLocation}
+										onChange={handleChange}
+										required
+										/>
 									</div>
 									</div>
 									<div className="col-lg-6">
 									<div className="form-group">
 										<label className="text-sm-medium neutral-1000">Car Model</label>
-										<input className="form-control" type="text" placeholder="Lamborghini Huracan" />
+										<input
+										className="form-control"
+										type="text"
+										placeholder="Lamborghini Huracan"
+										name="carModel"
+										value={formData.carModel}
+										onChange={handleChange}
+										required
+										/>
 									</div>
 									</div>
-
 									<div className="col-lg-12">
-									<button className="btn btn-book" type="submit">
-										Confirm Booking
+									<button className="btn btn-book" type="submit" disabled={submitting}>
+										{submitting ? 'Sending...' : 'Confirm Booking'}
 										<svg
 										width={17}
 										height={16}
 										viewBox="0 0 17 16"
 										fill="none"
 										xmlns="http://www.w3.org/2000/svg"
-										aria-hidden="true">
-											<title>superior car rental dubai</title>
-											<desc>Rent a Car from Best Car Rental Dubai</desc>
+										aria-hidden="true"
+										>
+										<title>superior car rental dubai</title>
+										<desc>Rent a Car from Best Car Rental Dubai</desc>
 										<path
 											d="M8.5 15L15.5 8L8.5 1M15.5 8L1.5 8"
 											stroke="currentColor"
@@ -108,9 +210,11 @@ export default function Cta2() {
 									</button>
 									</div>
 								</div>
-								</div>
+								</form>
+								{message && <p className="mt-3 text-sm-medium">{message}</p>}
 							</div>
 						</div>
+
 
 					</div>
 					<div className="row align-items-center">

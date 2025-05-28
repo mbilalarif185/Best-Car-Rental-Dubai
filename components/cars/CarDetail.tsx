@@ -30,13 +30,19 @@ export default function CarDetail({ car }: CarDetailProps) {
         setFormData(prev => ({ ...prev, [name]: value }));
       };
     
-      const handleDateChange = (name: string, date: Date | null): void => {
-        setFormData(prev => ({
-          ...prev,
-          [name]: date ? date.toISOString().split('T')[0] : '', // Format date to 'YYYY-MM-DD'
-        }));
-      };
-      
+    //   const handleDateChange = (name: string, date: Date | null): void => {
+    //     setFormData(prev => ({
+    //       ...prev,
+    //       [name]: date ? date.toISOString().split('T')[0] : '', // Format date to 'YYYY-MM-DD'
+    //     }));
+    //   };
+      const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setFormData((prev) => ({
+			...prev,
+			[e.target.name]: e.target.value,
+		}));
+		};
+
       
       const [message, setMessage] = useState('');
 		const [status, setStatus] = useState<'success' | 'error' | ''>('');
@@ -540,20 +546,29 @@ export default function CarDetail({ car }: CarDetailProps) {
                                                     <div className="item-line-booking border-bottom-0 pb-0">
                                                     <label htmlFor="pickup-date" className="text-md-bold neutral-1000">Pick-Up</label>
                                                     <div className="input-calendar">
-                                                        <MyDatePicker id="pickup-date" value={formData.pickupDate} onChange={(date) => handleDateChange('pickupDate', date)} required />
-                                                    </div>
+                                                       <input
+														className="form-control"
+														type="date"
+														name="pickupDate"
+														value={formData.pickupDate}
+														onChange={handleDateChange}
+														required
+														/>
+													</div>
                                                     </div>
 
                                                     {/* Drop-Off Date */}
                                                     <div className="item-line-booking">
                                                         <label htmlFor="dropoff-date" className="text-md-bold neutral-1000">Drop-Off</label>
                                                         <div className="input-calendar">
-                                                            <MyDatePicker 
-                                                            id="dropoff-date" 
-                                                            value={formData.dropoffDate} 
-                                                            onChange={(date: Date | null) => handleDateChange('dropoffDate', date)} 
-                                                            required 
-                                                            />
+                                                           <input
+															className="form-control"
+															type="date"
+															name="dropoffDate"
+															value={formData.dropoffDate}
+															onChange={handleDateChange}
+															required
+															/>
                                                         </div>
                                                     </div>
 

@@ -15,15 +15,7 @@ export async function POST(req) {
       dropoffLocation,
     } = body;
 
-    // const transporter = nodemailer.createTransport({
-    //   host: 'bestcarrentaldubai.ae',
-    //   port: 465,
-    //   secure: true, 
-    //   auth: {
-    //     user: 'info@bestcarrentaldubai.ae', // replace with your actual email
-    //     pass: 'legendary@786',       // or app password if required
-    //   },
-    // });
+   
         const transporter = nodemailer.createTransport({
         host: 'bestcarrentaldubai.ae',
         port: 465,
@@ -33,13 +25,13 @@ export async function POST(req) {
             pass: 'legendary@786',
         },
         tls: {
-            rejectUnauthorized: false, // ⛔ Allow self-signed certificate
+            rejectUnauthorized: false, 
         },
         });
 
     const mailOptions = {
       from: '"Booking Request" <info@bestcarrentaldubai.ae>',
-      to: 'lcruae6@gmail.com', // where the form should send the booking info
+      to: 'lcruae6@gmail.com', 
       subject: 'New Booking Received',
       html: `
         <h2>Booking Information</h2>
