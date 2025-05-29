@@ -2,7 +2,7 @@
 import cars from "@/util/cars.json";
 import categoriesRaw from "@/util/categories.json";
 
-// const categories = categoriesRaw as readonly { name: string; image: string }[];
+
 type RawCategory = Omit<Category, "count">;
 const categories = categoriesRaw as RawCategory[];
 

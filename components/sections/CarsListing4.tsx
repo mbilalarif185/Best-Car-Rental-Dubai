@@ -16,12 +16,10 @@ const CarsListing4: React.FC<CarsListing4Props> = ({ cars, categorySlug, brandSl
     ? categories.find(cat => cat.slug.trim().toLowerCase() === categorySlug.trim().toLowerCase())
     : null;
 
-  // Resolve brand info if present
   const brandInfo = brandSlug
     ? brands.find(brand => brand.slug.trim().toLowerCase() === brandSlug.trim().toLowerCase())
     : null;
 
-  // Decide heading/description based on priority: brand > category
   const heading = brandInfo?.name || categoryInfo?.heading || "Featured Listings";
   const description = brandInfo
     ? `Explore our selection of ${brandInfo.name.trim()} vehicles for rent in Dubai`
