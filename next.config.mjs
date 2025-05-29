@@ -16,14 +16,14 @@ const nextConfig = {
     ],
   },
 
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: '/cars-list-1',
-  //       destination: '/luxury-fleet', // 👉 Replace with your new page's path
-  //       permanent: true, // 301 redirect
-  //     },
-  //   ];
-  // },
+  async redirects() {
+    return [
+      {
+        source: '/cars',
+        destination: '/luxury-fleet', 
+        permanent: true, 
+      },
+    ];
+  },
 };
 export default nextConfig;

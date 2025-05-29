@@ -113,6 +113,7 @@ export default function CarsListing1({ cars }: CarsListingProps) {
                           <meta itemProp="price" content={car.price.toString()} />
                           <meta itemProp="availability" content="https://schema.org/InStock" />
                           <meta itemProp="priceValidUntil" content="2025-12-31" />
+                          <meta itemProp="url" content={`https://bestcarrentaldubai.ae/cars/${car.slug}`} />
                           
                            <div itemProp="shippingDetails" itemScope itemType="https://schema.org/OfferShippingDetails">
    

@@ -9,7 +9,7 @@ export default function HeroSection() {
       <div className="custom-container position-relative mx-auto">
         <div className="bg-overlay rounded-12 overflow-hidden">
           <Image
-            src="/assets/imgs/page-header/banner6.png"
+            src="/assets/imgs/page-header/banner6.webp"
             alt="Luxury Cars for Rent - Banner"
             title="Luxury Cars for Rent - Banner"
             width={1920}
