@@ -116,7 +116,7 @@ export default function Offcanvas({ isOffcanvas, handleOffcanvas }: any) {
 								<p className="address-2 text-md-medium neutral-1000">Plot 25, street 4, Al Quoz Industrial Area, <br /> Dubai, UAE
 								</p>
 								<p className="hour-work-2 text-md-medium neutral-1000">Hours: 9:30 - 21:00, Mon - Sun</p>
-								<p className="email-2 text-md-medium neutral-1000 "><a href="mailto:info@bestcarrental.ae" >info@bestcarrentaldubai.ae</a></p>
+								<p className="email-2 text-md-medium neutral-1000 "><a href="mailto:info@bestcarrentaldubai.ae" >info@bestcarrentaldubai.ae</a></p>
 							</div>
 							<div className="box-need-help">
 									<p className="need-help text-md-medium mb-5 text-black">Need help? Call us</p>
