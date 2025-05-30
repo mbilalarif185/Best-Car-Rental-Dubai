@@ -75,11 +75,11 @@
 //   );
 // }
 
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 import WhatsAppButton from "@/components/whatsapp/WhatsAppButton";
-import DeferredStyleLoader from '@/app/_components/GlobalStyleLoader';
-
+import PreloadCSS from "@/app/_components/GlobalStyleLoader";
 const urbanist = Urbanist({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
@@ -125,13 +125,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={urbanist.variable}>
+      <head>
+        {/* Inline critical CSS */}
+      
+       
+        <noscript>
+          <link rel="stylesheet" href="/assets/css/main.css" />
+        </noscript>
+      </head>
       <body>
-        <DeferredStyleLoader />
+        <PreloadCSS />
         {children}
         <WhatsAppButton
           phoneNumber="+971545514155"
