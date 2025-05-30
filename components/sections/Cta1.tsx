@@ -2,28 +2,58 @@
 import Link from "next/link"
 import { useState, useEffect } from 'react'
 import ModalVideo from 'react-modal-video'
-
+import('react-modal-video/css/modal-video.css');
 export default function Cta1() {
 	const [isOpen, setOpen] = useState(false)
 
-	useEffect(() => {
-		const scriptId = "video-object-schema"
-		if (document.getElementById(scriptId)) return
-		const script = document.createElement('script')
-		script.type = 'application/ld+json'
-		script.id = scriptId
-		script.innerHTML = JSON.stringify({
-			"@context": "https://schema.org",
-			"@type": "VideoObject",
-			"name": "Luxury Car Rental Services",
-			"description": "Watch how Best Car Rental offers Dubai's top-rated car rental services, 24/7 support, and luxury vehicles.",
-			"thumbnailUrl": "https://bestcarrentaldubai.ae/assets/imgs/Best Cars/Mercedes-G63-for-rent.webp",
-			"uploadDate": "2024-12-01",
-			"contentUrl": "https://youtu.be/sl6Jtrx3FFQ?si=6CmFQwgj_sXMLpa-",
-			"embedUrl":   "https://youtu.be/sl6Jtrx3FFQ?si=6CmFQwgj_sXMLpa-"
-		})
-		document.head.appendChild(script)
-	}, [])
+	// useEffect(() => {
+	// 	const scriptId = "video-object-schema"
+	// 	if (document.getElementById(scriptId)) return
+	// 	const script = document.createElement('script')
+	// 	script.type = 'application/ld+json'
+	// 	script.id = scriptId
+	// 	script.innerHTML = JSON.stringify({
+	// 		"@context": "https://schema.org",
+	// 		"@type": "VideoObject",
+	// 		"name": "Luxury Car Rental Services",
+	// 		"description": "Watch how Best Car Rental offers Dubai's top-rated car rental services, 24/7 support, and luxury vehicles.",
+	// 		"thumbnailUrl": "https://bestcarrentaldubai.ae/assets/imgs/Best Cars/Mercedes-G63-for-rent.webp",
+	// 		"uploadDate": "2024-12-01",
+	// 		"contentUrl": "https://youtu.be/sl6Jtrx3FFQ?si=6CmFQwgj_sXMLpa-",
+	// 		"embedUrl":   "https://youtu.be/sl6Jtrx3FFQ?si=6CmFQwgj_sXMLpa-"
+	// 	})
+	// 	document.head.appendChild(script)
+		
+	// }, [])
+useEffect(() => {
+  // Structured data for SEO
+  const scriptId = "video-object-schema";
+  if (!document.getElementById(scriptId)) {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = scriptId;
+    script.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      name: "Luxury Car Rental Services",
+      description:
+        "Watch how Best Car Rental offers Dubai's top-rated car rental services, 24/7 support, and luxury vehicles.",
+      thumbnailUrl:
+        "https://bestcarrentaldubai.ae/assets/imgs/Best Cars/Mercedes-G63-for-rent.webp",
+      uploadDate: "2024-12-01",
+      contentUrl: "https://youtu.be/sl6Jtrx3FFQ?si=6CmFQwgj_sXMLpa-",
+      embedUrl: "https://youtu.be/sl6Jtrx3FFQ?si=6CmFQwgj_sXMLpa-",
+    });
+    document.head.appendChild(script);
+  }
+
+  // 🔽 Add lazy-loaded non-critical CSS here
+  import('react-modal-video/css/modal-video.css');
+
+  // Optional: dynamically load animation libraries or custom styles
+  // import("/public/assets/css/animations.css");
+
+}, []);
 
 	return (
 		<>

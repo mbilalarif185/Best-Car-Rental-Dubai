@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import CounterUp from '../elements/CounterUp'
 
+
 export default function Cta2() {
 	 const [formData, setFormData] = useState({
     fullName: '',
