@@ -78,7 +78,7 @@
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 import WhatsAppButton from "@/components/whatsapp/WhatsAppButton";
-import GlobalStyleLoader from "@/app/_components/GlobalStyleLoader";
+import DeferredStyleLoader from '@/app/_components/GlobalStyleLoader';
 
 const urbanist = Urbanist({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
@@ -131,7 +131,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={urbanist.variable}>
       <body>
-        <GlobalStyleLoader />
+        <DeferredStyleLoader />
         {children}
         <WhatsAppButton
           phoneNumber="+971545514155"

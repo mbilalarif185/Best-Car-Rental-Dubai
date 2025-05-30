@@ -1,7 +1,17 @@
-"use client";
+// app/components/DeferredStyleLoader.tsx
+'use client';
 
-import "@/public/assets/css/main.css"; // adjust the path if needed
+import { useEffect } from 'react';
 
-export default function GlobalStyleLoader() {
-  return null; // this ensures the CSS loads, nothing renders
+export default function DeferredStyleLoader() {
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = '/assets/css/main.css';
+    link.type = 'text/css';
+    link.onload = () => console.log('main.css loaded');
+    document.head.appendChild(link);
+  }, []);
+
+  return null;
 }
