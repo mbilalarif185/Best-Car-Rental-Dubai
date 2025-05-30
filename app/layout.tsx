@@ -1,7 +1,7 @@
 
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
-// import "/public/assets/css/main.css";
+import "/public/assets/css/main.css";
 import WhatsAppButton from '@/components/whatsapp/WhatsAppButton';
 
 const urbanist = Urbanist({
