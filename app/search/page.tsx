@@ -6,9 +6,7 @@ import Layout from '@/components/layout/Layout'
 import Header from '@/components/about_sections/header'
 import dynamic from 'next/dynamic'
 
-const CarsListing4 = dynamic(() => import('@/components/sections/CarsListing4'), {
-  ssr: false,
-})
+const CarsListing4 = dynamic(() => import('@/components/sections/CarsListing4'))
 
 interface SearchPageProps {
   searchParams: {

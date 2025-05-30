@@ -151,6 +151,14 @@ export default function RootLayout({
           }}
         />
         {children}
+         <WhatsAppButton
+          phoneNumber="+971545514155"
+          iconUrl="/whatsapp-icon.webp"
+          bottom={40}
+          right={20}
+          openInNewTab={true}
+          animation="zoom"
+        />
         <noscript>
           <link rel="stylesheet" href="/assets/css/main.css" />
         </noscript>
