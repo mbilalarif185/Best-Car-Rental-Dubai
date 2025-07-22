@@ -330,6 +330,9 @@ li.hr span {
 	font-size: 58px;
 	line-height: 76px;
   }
+  .custom-heading4l{
+	font-size:20px;
+  }
   /* Success message style */
 .form-message-success {
   margin-top: 10px;
