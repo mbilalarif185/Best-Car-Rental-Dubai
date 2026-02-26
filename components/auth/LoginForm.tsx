@@ -1,63 +1,36 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
 export default function LoginForm() {
   const searchParams = useSearchParams();
   const from = searchParams.get("from") || "/user";
+  const errorFromUrl = searchParams.get("error");
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
-    try {
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim(), password, rememberMe }),
-        credentials: "include",
-        cache: "no-store",
-      });
-      let data: { error?: string; role?: string } = {};
-      const contentType = res.headers.get("content-type");
-      if (contentType?.includes("application/json")) {
-        try {
-          data = await res.json();
-        } catch {
-          data = { error: "Invalid response from server." };
-        }
-      }
-      if (!res.ok) {
-        setError(data.error || "Login failed.");
-        setLoading(false);
-        return;
-      }
-      const role = data.role ?? "vendor";
-      const isAdmin = role === "admin";
-      const targetPath =
-        isAdmin
-          ? (from.startsWith("/agent") ? from : "/agent")
-          : (from.startsWith("/user") ? from : "/user");
-      // Give the browser time to commit Set-Cookie before the next request (fixes first-login logout).
-      await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
-      await new Promise((r) => setTimeout(r, 250));
-      window.location.href = targetPath;
-    } catch (e) {
-      console.error("Login request error:", e);
-      setError("Login failed. Please try again.");
-      setLoading(false);
+  useEffect(() => {
+    if (errorFromUrl) {
+      setError(decodeURIComponent(errorFromUrl));
     }
-  }
+  }, [errorFromUrl]);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      action="/api/auth/login"
+      method="post"
+      onSubmit={() => {
+        setError("");
+        setLoading(true);
+      }}
+    >
+      <input type="hidden" name="redirectTo" value={from} />
       {error && (
         <div className="form-group">
           <p className="text-danger text-sm-medium">{error}</p>
@@ -67,6 +40,7 @@ export default function LoginForm() {
         <input
           className="form-control username"
           type="email"
+          name="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -77,6 +51,7 @@ export default function LoginForm() {
         <input
           className="form-control password"
           type="password"
+          name="password"
           placeholder="****************"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -90,6 +65,8 @@ export default function LoginForm() {
               <input
                 className="cb-remember"
                 type="checkbox"
+                name="rememberMe"
+                value="on"
                 checked={rememberMe}
                 onChange={(e) => setRememberMe(e.target.checked)}
               />{" "}
@@ -113,21 +90,8 @@ export default function LoginForm() {
           </svg>
         </button>
       </div>
-      {/* <p className="text-md-medium neutral-500 text-center">Or connect with your social account</p>
-      <div className="box-button-logins">
-        <Link className="btn btn-login btn-google mr-10" href="#">
-          <img src="/assets/imgs/template/popup/google.svg" alt="Carento" />
-          <span className="text-sm-bold">Sign up with Google</span>
-        </Link>
-        <Link className="btn btn-login mr-10" href="#">
-          <img src="/assets/imgs/template/popup/facebook.svg" alt="Carento" />
-        </Link>
-        <Link className="btn btn-login" href="#">
-          <img src="/assets/imgs/template/popup/apple.svg" alt="Carento" />
-        </Link>
-      </div> */}
-      <p className="text-sm-medium neutral-500 text-center mt-70">
-        Don't have an account? <Link className="neutral-1000" href="/register">Register Here !</Link>
+      <p className="text-md-medium neutral-500 text-center mt-70">
+        Don&apos;t have an account? <Link className="neutral-1000" href="/register">Register Here !</Link>
       </p>
     </form>
   );
