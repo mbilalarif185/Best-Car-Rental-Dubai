@@ -84,9 +84,14 @@ export async function POST(request: NextRequest) {
           role,
           full_name: user.full_name,
         },
-        { status: 200 }
+        {
+          status: 200,
+          headers: {
+            "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
+            Pragma: "no-cache",
+          },
+        }
       );
-
       response.cookies.set(getCookieName(), token, cookieOptions);
 
       return response;

@@ -39,14 +39,15 @@ export default function LoginForm() {
         setLoading(false);
         return;
       }
-      // Full-page redirect so the browser commits the Set-Cookie before the next request.
-      // router.push() can send the next request before the cookie is attached (first-login race).
       const role = data.role ?? "vendor";
       const isAdmin = role === "admin";
       const targetPath =
         isAdmin
           ? (from.startsWith("/agent") ? from : "/agent")
           : (from.startsWith("/user") ? from : "/user");
+      // Give the browser time to commit Set-Cookie before the next request (fixes first-login logout).
+      await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+      await new Promise((r) => setTimeout(r, 250));
       window.location.href = targetPath;
     } catch (e) {
       console.error("Login request error:", e);
