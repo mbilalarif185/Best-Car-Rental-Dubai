@@ -10,6 +10,7 @@ export default function LoginForm() {
   const from = searchParams.get("from") || "/user";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -21,7 +22,7 @@ export default function LoginForm() {
       const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim(), password }),
+        body: JSON.stringify({ email: email.trim(), password, rememberMe }),
         credentials: "include",
       });
       let data: { error?: string; role?: string } = {};
@@ -85,7 +86,13 @@ export default function LoginForm() {
         <div className="box-remember-forgot">
           <div className="remeber-me">
             <label className="text-xs-medium neutral-500">
-              <input className="cb-remember" type="checkbox" /> Remember me
+              <input
+                className="cb-remember"
+                type="checkbox"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+              />{" "}
+              Remember me
             </label>
           </div>
           <div className="forgotpass">
@@ -105,7 +112,7 @@ export default function LoginForm() {
           </svg>
         </button>
       </div>
-      <p className="text-md-medium neutral-500 text-center">Or connect with your social account</p>
+      {/* <p className="text-md-medium neutral-500 text-center">Or connect with your social account</p>
       <div className="box-button-logins">
         <Link className="btn btn-login btn-google mr-10" href="#">
           <img src="/assets/imgs/template/popup/google.svg" alt="Carento" />
@@ -117,7 +124,7 @@ export default function LoginForm() {
         <Link className="btn btn-login" href="#">
           <img src="/assets/imgs/template/popup/apple.svg" alt="Carento" />
         </Link>
-      </div>
+      </div> */}
       <p className="text-sm-medium neutral-500 text-center mt-70">
         Don't have an account? <Link className="neutral-1000" href="/register">Register Here !</Link>
       </p>

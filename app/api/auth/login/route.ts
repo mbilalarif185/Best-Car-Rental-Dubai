@@ -5,12 +5,29 @@ import { signTokenWithJWT, getCookieName } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
 
-const COOKIE_MAX_AGE = 60 * 60 * 24 * 7; // 7 days
+/** Same cookie options for both login types; only maxAge differs. */
+function getCookieOptions(request: NextRequest, maxAgeSeconds: number) {
+  const secure =
+    process.env.NODE_ENV === "production" ||
+    (typeof request.url === "string" && new URL(request.url).protocol === "https:");
+  return {
+    httpOnly: true,
+    secure,
+    sameSite: "lax" as const,
+    path: "/",
+    maxAge: maxAgeSeconds,
+  };
+}
+
+/** 24 hours — normal login (no "Remember Me"). Still persistent across navigations/refresh. */
+const MAX_AGE_NORMAL = 60 * 60 * 24;
+/** 7 days — "Remember Me" login. */
+const MAX_AGE_REMEMBER = 60 * 60 * 24 * 7;
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { email, password } = body;
+    const { email, password, rememberMe } = body;
 
     if (!email?.trim() || !password) {
       return NextResponse.json(
@@ -57,6 +74,9 @@ export async function POST(request: NextRequest) {
       const role = String(user.role);
       const token = signTokenWithJWT(userId, role);
 
+      const maxAge = rememberMe ? MAX_AGE_REMEMBER : MAX_AGE_NORMAL;
+      const cookieOptions = getCookieOptions(request, maxAge);
+
       const response = NextResponse.json(
         {
           token,
@@ -67,13 +87,7 @@ export async function POST(request: NextRequest) {
         { status: 200 }
       );
 
-      response.cookies.set(getCookieName(), token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "lax",
-        maxAge: COOKIE_MAX_AGE,
-        path: "/",
-      });
+      response.cookies.set(getCookieName(), token, cookieOptions);
 
       return response;
     } finally {

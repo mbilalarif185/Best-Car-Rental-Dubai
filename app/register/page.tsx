@@ -96,7 +96,7 @@ export default function Register() {
 												</svg>
 											</button>
 										</div>
-										<p className="text-md-medium neutral-500 text-center">Or connect with your social account</p>
+										{/* <p className="text-md-medium neutral-500 text-center">Or connect with your social account</p>
 										<div className="box-button-logins">
 											<Link className="btn btn-login btn-google mr-10" href="#">
 												<img src="/assets/imgs/template/popup/google.svg" alt="Carento" />
@@ -108,7 +108,7 @@ export default function Register() {
 											<Link className="btn btn-login" href="#">
 												<img src="/assets/imgs/template/popup/apple.svg" alt="Carento" />
 											</Link>
-										</div>
+										</div> */}
 										<p className="text-sm-medium neutral-500 text-center mt-70">Already have an account? <Link className="neutral-1000" href="/login">Login Here !</Link></p>
 									</form>
 								</div>

@@ -186,11 +186,11 @@ export default async function UserDashboardHomePage() {
         </div>
       </div>
 
-      {/* Stats Cards - clean stacked design with soft colors */}
-      <div className="row g-3 mt-2">
-        <div className="col-xl-3 col-md-6">
+      {/* Stats Cards - clean stacked design with soft colors; mobile: 2 per row like agent */}
+      <div className="row g-2 g-md-3 mt-2">
+        <div className="col-6 col-xl-3">
           <div className="card border-0 rounded-3 shadow-sm h-100 overflow-hidden" style={{ borderLeft: "4px solid var(--bs-primary, #0d6efd)" }}>
-            <div className="card-body py-4">
+            <div className="card-body py-3 py-md-4">
               <div className="d-flex flex-column">
                 <div
                   className="rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
@@ -204,9 +204,9 @@ export default async function UserDashboardHomePage() {
             </div>
           </div>
         </div>
-        <div className="col-xl-3 col-md-6">
+        <div className="col-6 col-xl-3">
           <div className="card border-0 rounded-3 shadow-sm h-100 overflow-hidden" style={{ borderLeft: "4px solid var(--bs-success, #198754)" }}>
-            <div className="card-body py-4">
+            <div className="card-body py-3 py-md-4">
               <div className="d-flex flex-column">
                 <div
                   className="rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
@@ -220,9 +220,9 @@ export default async function UserDashboardHomePage() {
             </div>
           </div>
         </div>
-        <div className="col-xl-3 col-md-6">
+        <div className="col-6 col-xl-3">
           <div className="card border-0 rounded-3 shadow-sm h-100 overflow-hidden" style={{ borderLeft: "4px solid var(--bs-secondary, #6c757d)" }}>
-            <div className="card-body py-4">
+            <div className="card-body py-3 py-md-4">
               <div className="d-flex flex-column">
                 <div
                   className="rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
@@ -236,9 +236,9 @@ export default async function UserDashboardHomePage() {
             </div>
           </div>
         </div>
-        <div className="col-xl-3 col-md-6">
+        <div className="col-6 col-xl-3">
           <div className="card border-0 rounded-3 shadow-sm h-100 overflow-hidden" style={{ borderLeft: "4px solid var(--bs-info, #0dcaf0)" }}>
-            <div className="card-body py-4">
+            <div className="card-body py-3 py-md-4">
               <div className="d-flex flex-column">
                 <div
                   className="rounded-circle d-inline-flex align-items-center justify-content-center mb-3"

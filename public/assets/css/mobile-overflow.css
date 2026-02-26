@@ -1,0 +1,45 @@
+/**
+ * Mobile-only overflow fixes. No rules apply to laptop (992px+).
+ * Prevents horizontal scroll on small screens without touching desktop.
+ */
+
+/* Overflow safety only — no width/layout, safe for all viewports */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+}
+.main {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* --- Everything below only applies to tablet and mobile --- */
+
+@media (max-width: 991.98px) {
+  .container,
+  .container-fluid {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .header .container-fluid {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 379.98px) {
+  .header .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

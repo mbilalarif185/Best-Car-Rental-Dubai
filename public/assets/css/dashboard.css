@@ -344,6 +344,33 @@
   }
 }
 
+/* User sidebar: same 2-column nav on mobile (match agent sidebar) */
+@media (max-width: 767.98px) {
+  .dashboard .user-sidebar.user-dashboard-sidebar .dashboard-sidebar-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem 0.5rem;
+  }
+  .dashboard .user-sidebar.user-dashboard-sidebar .dashboard-sidebar-menu li {
+    padding: 0.25rem 0;
+  }
+  .dashboard .user-sidebar.user-dashboard-sidebar .dashboard-sidebar-menu li a {
+    padding: 0.5rem 0.5rem;
+    text-align: center;
+    border-radius: 0.5rem;
+  }
+}
+
+/* User sidebar header: compact on mobile (smaller avatar, single row) */
+@media (max-width: 767.98px) {
+  .dashboard .user-sidebar.user-dashboard-sidebar .user-sidebar-avatar {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    object-fit: cover;
+  }
+}
+
 /* ========== User Listings page: card header (search + dropdowns) ========== */
 .dashboard .card-header-listings {
   padding: 1rem 1.25rem;

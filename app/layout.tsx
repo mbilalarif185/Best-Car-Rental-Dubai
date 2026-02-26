@@ -4,6 +4,7 @@ import { Urbanist } from "next/font/google";
 import "../public/assets/css/main.css";
 import "../public/assets/css/dashboard.css";
 import "../public/assets/css/header-nav-fixes.css";
+import "../public/assets/css/mobile-overflow.css";
 import WhatsAppButton from '@/components/whatsapp/WhatsAppButton';
 
 const urbanist = Urbanist({

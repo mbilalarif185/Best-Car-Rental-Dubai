@@ -1,159 +1,117 @@
 /**
- * Header navigation fixes: alignment, spacing, dropdowns, responsive.
- * Keeps main project theme and styling consistent.
+ * Header overrides — MOBILE ONLY so laptop layout is unchanged.
+ * Laptop (992px+): theme controls — two rows, top bar, main nav with Search → Log In → Grid (no hamburger).
+ * Mobile (<992px): one-line icons, golden grid + white hamburger.
  */
 
-/* Prevent menu overlap with logo: reserve enough space for full logo + clear gap */
-.header .main-header .header-left {
-  overflow: visible;
+/* Prevent horizontal scroll — safe for all viewports */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
 }
-
-.header .main-header .header-left .header-logo {
-  flex-shrink: 0;
-  min-width: 320px;
-  width: 320px;
-  margin-right: 0;
-  padding-right: 64px;
-  box-sizing: content-box;
-}
-.header .main-header .header-left .header-logo a {
-  display: block;
+.main {
+  overflow-x: hidden;
   max-width: 100%;
 }
-.header .main-header .header-left .header-logo img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
 
-.header .main-header .header-left .header-nav {
-  overflow: visible;
-  min-width: 0;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  padding-left: 100px;
-}
-
-.header .nav-main-menu {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.header .main-menu {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 0;
-}
-
-.header .main-menu li {
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-
-/* Tighter spacing between menu items (avoid excess gap) */
-.header .main-menu > li > a {
-  padding: 20px 10px;
-  display: block;
-}
-
-/* Sub-menu: ensure visibility and positioning */
-.header .main-menu li ul.sub-menu {
-  margin-top: 0;
-  white-space: nowrap;
-}
-
-.header .main-menu li.has-children:hover > ul.sub-menu {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Dropdown arrow alignment */
-.header .main-menu li.has-children > a {
-  padding-right: 24px;
-}
-
-/* Right-aligned last dropdown so it doesn’t go off-screen */
-.header .main-menu li:last-child.has-children ul.sub-menu {
-  left: auto;
-  right: 0;
-  transform: none;
-}
-
-/* Responsive: more room for nav on medium screens */
-@media (max-width: 1399.98px) {
-  .header .main-header .header-right {
-    min-width: 200px;
-  }
-
-  .header .main-menu > li > a {
-    padding: 20px 8px;
-  }
-
-  .header .main-header .header-left .header-nav {
-    padding-left: 72px;
-  }
-
-  .header .main-header .header-left .header-logo {
-    min-width: 280px;
-    width: 280px;
-    padding-right: 48px;
-  }
-}
-
-@media (max-width: 1199.98px) {
+/* Laptop/desktop: keep full two-row layout (nav visible, no burger) from 992px up.
+   Theme hides nav at 1199.98px; we override so the layout matches the reference image. */
+@media (min-width: 992px) {
   .header .nav-main-menu {
+    display: flex !important;
+  }
+  /* No hamburger on desktop — theme shows it below 1200px; hide it so layout matches reference */
+  .header .burger-icon {
+    display: none !important;
+  }
+}
+
+/* Mobile only: golden grid, white hamburger, one-line icons, black bar — do NOT touch laptop */
+@media (max-width: 991.98px) {
+  .header .burger-icon-2.header-grid-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    padding: 0;
+    background-color: #c8a429;
+    border-radius: 8px;
+    border: none;
+  }
+  .header .burger-icon-2.header-grid-icon img {
+    filter: brightness(0) invert(1);
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+  }
+
+  .header .burger-icon.header-hamburger-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    padding: 0;
+    background-color: #fff;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  }
+  .header .burger-icon.header-hamburger-btn .burger-icon-top,
+  .header .burger-icon.header-hamburger-btn .burger-icon-mid,
+  .header .burger-icon.header-hamburger-btn .burger-icon-bottom {
+    background-color: #000;
+  }
+
+  /* One line for icons on mobile */
+  .header .main-header .header-right {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+  .header .header-icons-inline {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  /* Hide top bar for single black bar on mobile */
+  .header .top-bar {
     display: none;
   }
-
-  .header .main-header .header-right {
-    min-width: 150px;
-  }
 }
 
-/* Tablet/small desktop: comfortable nav spacing */
-@media screen and (min-width: 1200px) and (max-width: 1399.98px) {
-  .header .main-menu li a {
-    padding: 20px 8px;
-    font-size: 15px;
-  }
-
-  .header .main-header .header-left .header-nav {
-    flex: 1;
-    padding-left: 56px;
-  }
-
-  .header .main-header .header-left .header-logo {
-    min-width: 260px;
-    width: 260px;
-    padding-right: 40px;
-  }
+/* Burger icons always clickable (all viewports) */
+.header .header-burger {
+  position: relative;
+  z-index: 1002;
+  flex-shrink: 0;
+  cursor: pointer;
 }
 
-/* Ensure dropdowns sit above content */
-.header .main-menu li ul,
-.header .main-menu li .mega-menu {
-  z-index: 9999;
+/* Mobile menu drawer */
+.mobile-menu-auth {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+.mobile-menu-auth .btn-signin {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 8px;
 }
 
-/* No text overlap on hover */
-.header .main-menu li a {
+/* Mobile menu: ensure Log in button is visible (theme overrides .mobile-menu li a) */
+.mobile-menu .mobile-menu-login-btn .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
   text-decoration: none;
-}
-
-.header .main-menu li ul li a {
-  min-width: unset;
-  width: 100%;
-  box-sizing: border-box;
+  font-weight: 600;
 }

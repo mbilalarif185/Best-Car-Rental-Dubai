@@ -3,13 +3,17 @@ import Link from 'next/link'
 import { useState } from 'react'
 import Image from "next/image"
 import PerfectScrollbar from 'react-perfect-scrollbar'
-import DashboardNavItem from '@/components/layout/DashboardNavItem'
+import { useAuth, getDashboardHref, getDashboardLabel } from '@/hooks/useAuth'
 
 export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 	const [isAccordion, setIsAccordion] = useState(0)
+	const { user, loading } = useAuth()
 
 	const handleAccordion = (key: any) => {
 		setIsAccordion(prevState => prevState === key ? null : key)
+	}
+	const closeMenu = () => {
+		if (isMobileMenu) handleMobileMenu()
 	}
 	return (
 		<>
@@ -103,26 +107,26 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 										</li>
 										<li><Link href="/contact">Contact</Link></li> */}
 										<li className="color-white">
-											<Link  href="/">Home</Link>
+											<Link  href="/" onClick={closeMenu}>Home</Link>
 											
 										</li>
 										<li>
-											<Link  href="/about-us">About Us
+											<Link  href="/about-us" onClick={closeMenu}>About Us
 											</Link>
 										</li>
 										<li className={`has-children ${isAccordion === 6 ? "active" : ""}`}>
 											<span className="menu-expand" onClick={() => handleAccordion(6)}>
 												<i className="arrow-small-down"></i>
 											</span>
-											<Link href="/luxury-fleet">Our Fleet
+											<Link href="/luxury-fleet" onClick={closeMenu}>Our Fleet
 											</Link>
 											<ul className="sub-menu" style={{ display: `${isAccordion == 6 ? "block" : "none"}` }}>
-											<li><Link href="/luxury-fleet/suv">SUV</Link></li>
-												<li><Link href="/luxury-fleet/sedan">Sedan</Link></li>
-												<li><Link href="/luxury-fleet/sport">Sport</Link></li>
-												<li><Link href="/luxury-fleet/coupe">Coupe</Link></li>
-												<li><Link href="/luxury-fleet/convertible">Convertible</Link></li>
-												<li><Link href="/luxury-fleet/Hatchback">Hatchback</Link></li>
+											<li><Link href="/luxury-fleet/suv" onClick={closeMenu}>SUV</Link></li>
+												<li><Link href="/luxury-fleet/sedan" onClick={closeMenu}>Sedan</Link></li>
+												<li><Link href="/luxury-fleet/sport" onClick={closeMenu}>Sport</Link></li>
+												<li><Link href="/luxury-fleet/coupe" onClick={closeMenu}>Coupe</Link></li>
+												<li><Link href="/luxury-fleet/convertible" onClick={closeMenu}>Convertible</Link></li>
+												<li><Link href="/luxury-fleet/Hatchback" onClick={closeMenu}>Hatchback</Link></li>
 											</ul>
 										</li>
 										{/* <li className={`has-children ${isAccordion === 7 ? "active" : ""}`} >
@@ -208,7 +212,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
   <span className="menu-expand" onClick={() => handleAccordion(7)}>
     <i className="arrow-small-down"></i>
   </span>
-  <Link href="/luxury-brands">Brands</Link>
+  <Link href="/luxury-brands" onClick={closeMenu}>Brands</Link>
 
   {isAccordion === 7 && (
     <div className="mega-menu">
@@ -272,7 +276,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
               className="col text-center mt-4 mb-4 sub-menu"
               key={brand.slug}
             >
-              <Link href={`/luxury-brands/${brand.slug}`} className="d-block">
+              <Link href={`/luxury-brands/${brand.slug}`} className="d-block" onClick={closeMenu}>
                 <Image
                   src={brand.image}
                   alt={brand.name}
@@ -291,16 +295,50 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 </li>
 
 										<li>
-											<Link  href="/services"> Services
+											<Link  href="/services" onClick={closeMenu}> Services
 											</Link>
 										</li>
 										<li>
-											<Link  href="/blog-grid">Blog</Link>
+											<Link  href="/blog-grid" onClick={closeMenu}>Blog</Link>
 											</li>
+										<li>
+											<Link href="/dealer-listing" onClick={closeMenu}>Dealers</Link>
+										</li>
+										<li>
+											<Link  href="/contact" onClick={closeMenu}>Contact Us</Link>
+											</li>
+										{!loading && user && (
 											<li>
-											<Link  href="/contact">Contact Us</Link>
+												<Link
+													href={getDashboardHref(user.role)}
+													onClick={closeMenu}
+												>
+													{getDashboardLabel(user.role)}
+												</Link>
 											</li>
-											<DashboardNavItem />
+										)}
+										{!loading && user && (
+											<li className="mt-2 mobile-menu-login-btn">
+												<Link
+													href="/api/auth/logout"
+													onClick={closeMenu}
+													className="btn btn-sm btn-brand-2 text-dark text-center d-inline-block"
+												>
+													Logout
+												</Link>
+											</li>
+										)}
+										{!loading && !user && (
+											<li className="mt-2 mobile-menu-login-btn">
+												<Link
+													href="/login"
+													onClick={closeMenu}
+													className="btn btn-sm btn-brand-2 text-dark text-center d-inline-block"
+												>
+													Log in
+												</Link>
+											</li>
+										)}
 									</ul>
 								</nav>
 							</div>
