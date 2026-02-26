@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 export default function LoginForm() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const from = searchParams.get("from") || "/user";
   const [email, setEmail] = useState("");
@@ -24,6 +23,7 @@ export default function LoginForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email.trim(), password, rememberMe }),
         credentials: "include",
+        cache: "no-store",
       });
       let data: { error?: string; role?: string } = {};
       const contentType = res.headers.get("content-type");
@@ -39,15 +39,15 @@ export default function LoginForm() {
         setLoading(false);
         return;
       }
-      // Redirect by role: admin → /agent, others → /user (respect "from" when it matches role)
+      // Full-page redirect so the browser commits the Set-Cookie before the next request.
+      // router.push() can send the next request before the cookie is attached (first-login race).
       const role = data.role ?? "vendor";
       const isAdmin = role === "admin";
       const targetPath =
         isAdmin
           ? (from.startsWith("/agent") ? from : "/agent")
           : (from.startsWith("/user") ? from : "/user");
-      router.push(targetPath);
-      router.refresh();
+      window.location.href = targetPath;
     } catch (e) {
       console.error("Login request error:", e);
       setError("Login failed. Please try again.");
