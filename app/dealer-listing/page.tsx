@@ -2,6 +2,8 @@
 import CounterUp from '@/components/elements/CounterUp'
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
+import Image  from "next/image";
+
 import { getApprovedVendorsForListing } from "@/lib/cars"
 import { getStaticDealers } from "@/lib/staticDealers"
 import { toDisplayLabel } from "@/util/format"
@@ -163,18 +165,37 @@ export default async function DealerListing() {
 										<div className="d-flex flex-column gap-4">
 											<div className="d-flex gap-4">
 												<div className="position-relative">
-													<img className="bdrd8 w-100" src="/assets/imgs/cta/cta-8/img-1.png" alt="Carento" />
+													<Image className="bdrd8 w-100" src="/assets/imgs/cta/cta-8/cta1.webp" 
+													 alt="Luxury Cars for Rent in Dubai"
+													 width={267}
+													 height={239} 
+													 loading="lazy"/>
 												</div>
 												<div className="mt-auto">
-													<img className="bdrd8 w-100" src="/assets/imgs/cta/cta-8/img-2.png" alt="Carento" />
+													<Image className="bdrd8 w-100"
+													 src="/assets/imgs/cta/cta-8/rent-a-car-for-event-in-dubai.webp" 
+													 alt="Luxury Car Rental Dubai"
+													 width={251}
+													 height={243}
+													 loading="lazy" />
 												</div>
 											</div>
 											<div className="d-flex gap-4">
 												<div className="position-relative">
-													<img className="bdrd8 w-100" src="/assets/imgs/cta/cta-8/img-3.png" alt="Carento" />
+													<Image className="bdrd8 w-100"
+													 src="/assets/imgs/cta/cta-8/rent-car-in-dubai.webp" 
+													 alt="rent luxury cars in dubai"
+													 width={212}
+													 height={234}
+													 loading="lazy" />
 												</div>
 												<div className="position-relative">
-													<img className="bdrd8 w-100" src="/assets/imgs/cta/cta-8/img-4.png" alt="Carento" />
+													<Image className="bdrd8 w-100" 
+													src="/assets/imgs/cta/cta-8/rent-a-car-in-dubai.webp" 
+													alt="cars for rent in dubai" 
+													width={300}
+													height={234}
+													loading="lazy"/>
 												</div>
 											</div>
 										</div>
