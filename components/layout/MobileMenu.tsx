@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import Image from "next/image"
 import PerfectScrollbar from 'react-perfect-scrollbar'
+import DashboardNavItem from '@/components/layout/DashboardNavItem'
 
 export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 	const [isAccordion, setIsAccordion] = useState(0)
@@ -299,6 +300,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 											<li>
 											<Link  href="/contact">Contact Us</Link>
 											</li>
+											<DashboardNavItem />
 									</ul>
 								</nav>
 							</div>

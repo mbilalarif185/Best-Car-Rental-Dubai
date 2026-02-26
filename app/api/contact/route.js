@@ -20,14 +20,14 @@ export async function POST(req) {
       });
     }
 
-    // Configure SMTP transporter
+    // Configure SMTP transporter (use .env on VPS)
     const transporter = nodemailer.createTransport({
-      host: 'bestcarrentaldubai.ae',
-      port: 465,
-      secure: true,
+      host: process.env.SMTP_HOST || "bestcarrentaldubai.ae",
+      port: parseInt(process.env.SMTP_PORT || "465", 10),
+      secure: process.env.SMTP_SECURE !== "false",
       auth: {
-        user: 'info@bestcarrentaldubai.ae',
-        pass: 'legendary@786',
+        user: process.env.SMTP_USER || "info@bestcarrentaldubai.ae",
+        pass: process.env.SMTP_PASS || "",
       },
       tls: {
         rejectUnauthorized: false,

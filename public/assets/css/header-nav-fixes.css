@@ -1,0 +1,159 @@
+/**
+ * Header navigation fixes: alignment, spacing, dropdowns, responsive.
+ * Keeps main project theme and styling consistent.
+ */
+
+/* Prevent menu overlap with logo: reserve enough space for full logo + clear gap */
+.header .main-header .header-left {
+  overflow: visible;
+}
+
+.header .main-header .header-left .header-logo {
+  flex-shrink: 0;
+  min-width: 320px;
+  width: 320px;
+  margin-right: 0;
+  padding-right: 64px;
+  box-sizing: content-box;
+}
+.header .main-header .header-left .header-logo a {
+  display: block;
+  max-width: 100%;
+}
+.header .main-header .header-left .header-logo img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.header .main-header .header-left .header-nav {
+  overflow: visible;
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding-left: 100px;
+}
+
+.header .nav-main-menu {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header .main-menu {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.header .main-menu li {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Tighter spacing between menu items (avoid excess gap) */
+.header .main-menu > li > a {
+  padding: 20px 10px;
+  display: block;
+}
+
+/* Sub-menu: ensure visibility and positioning */
+.header .main-menu li ul.sub-menu {
+  margin-top: 0;
+  white-space: nowrap;
+}
+
+.header .main-menu li.has-children:hover > ul.sub-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Dropdown arrow alignment */
+.header .main-menu li.has-children > a {
+  padding-right: 24px;
+}
+
+/* Right-aligned last dropdown so it doesn’t go off-screen */
+.header .main-menu li:last-child.has-children ul.sub-menu {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+/* Responsive: more room for nav on medium screens */
+@media (max-width: 1399.98px) {
+  .header .main-header .header-right {
+    min-width: 200px;
+  }
+
+  .header .main-menu > li > a {
+    padding: 20px 8px;
+  }
+
+  .header .main-header .header-left .header-nav {
+    padding-left: 72px;
+  }
+
+  .header .main-header .header-left .header-logo {
+    min-width: 280px;
+    width: 280px;
+    padding-right: 48px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .header .nav-main-menu {
+    display: none;
+  }
+
+  .header .main-header .header-right {
+    min-width: 150px;
+  }
+}
+
+/* Tablet/small desktop: comfortable nav spacing */
+@media screen and (min-width: 1200px) and (max-width: 1399.98px) {
+  .header .main-menu li a {
+    padding: 20px 8px;
+    font-size: 15px;
+  }
+
+  .header .main-header .header-left .header-nav {
+    flex: 1;
+    padding-left: 56px;
+  }
+
+  .header .main-header .header-left .header-logo {
+    min-width: 260px;
+    width: 260px;
+    padding-right: 40px;
+  }
+}
+
+/* Ensure dropdowns sit above content */
+.header .main-menu li ul,
+.header .main-menu li .mega-menu {
+  z-index: 9999;
+}
+
+/* No text overlap on hover */
+.header .main-menu li a {
+  text-decoration: none;
+}
+
+.header .main-menu li ul li a {
+  min-width: unset;
+  width: 100%;
+  box-sizing: border-box;
+}

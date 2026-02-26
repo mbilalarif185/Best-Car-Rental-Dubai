@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "legendary-car-rental",
+    "company_name": "Legendary Car Rental",
+    "address": "Dubai, United Arab Emirates",
+    "avatar_url": "/assets/imgs/template/logo.webp",
+    "company_logo_url": "/assets/imgs/hero/hero-1/check.webp",
+    "bio": "Legendary Car Rental offers a premium fleet of luxury and sports cars for rent in Dubai. From Audi and BMW to Lamborghini and Rolls Royce, we provide flexible daily, weekly and monthly rentals with delivery and chauffeur options.",
+    "contact_number": "+971545514155",
+    "business_email": "info@legendarycarrental.ae",
+    "website_url": "https://legendarycarrental.ae",
+    "car_slugs": [
+      "rent-audi-rs-q8-in-dubai",
+      "rent-bmw-430i-in-dubai",
+      "rent-bmw-m3-in-dubai",
+      "rent-bmw-m4-in-dubai",
+      "rent-bmw-x6-in-dubai",
+      "rent-genesis-g70-in-dubai",
+      "rent-lamborghini-huracan-evo-spyder-in-dubai",
+      "rent-lamborghini-urus-in-dubai",
+      "rent-lamborghini-sto-in-dubai",
+      "rent-mclaren-720s-in-dubai",
+      "rent-mercedes-amg-gtr-in-dubai",
+      "rent-mercedes-benz-c300-in-dubai",
+      "rent-mercedes-e350-in-dubai",
+      "rent-mercedes-g63-in-dubai",
+      "rent-mercedes-glc-300-in-dubai",
+      "rent-mercedes-amg-gt53-in-dubai",
+      "rent-nissan-patrol-platinum-in-dubai",
+      "rent-porsche-macan-gts-in-dubai",
+      "rent-range-rover-defender-in-dubai",
+      "rent-range-rover-evoque-in-dubai",
+      "rent-range-rover-sport-in-dubai",
+      "rent-range-rover-svr-in-dubai",
+      "rent-range-rover-velar-in-dubai",
+      "rent-range-rover-vogue-in-dubai",
+      "rent-rolls-royce-cullinan-in-dubai",
+      "rent-lamborghini-huracan-evo-spyder-2024-in-dubai",
+      "rent-cyber-truck-beast-2024-in-dubai"
+    ]
+  }
+]

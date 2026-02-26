@@ -1,21 +1,34 @@
 import Link from 'next/link'
 import { Car } from '@/types/type';
+import { toDisplayLabel } from '@/util/format'
+
+const PLACEHOLDER_IMAGE = "/assets/imgs/cars-listing/cars-listing-6/car-1.png";
+
+function getCarImageSrc(car: Car): string {
+  if (!car.image) return PLACEHOLDER_IMAGE;
+  if (typeof car.image !== "string") return PLACEHOLDER_IMAGE;
+  if (car.image.startsWith("http")) return car.image;
+  return car.image.startsWith("/") ? car.image : `/${car.image}`;
+}
+
 interface CarCard1Props {
 	car: Car;
-  }
+}
 
-export default function CarCard1({ car }: any) {
+export default function CarCard1({ car }: CarCard1Props) {
+	const rating = car.rating ?? 0;
+	const reviews = car.reviews ?? 0;
+
 	return (
 		<>
 			<div className="card-journey-small background-card hover-up">
 					<div className="card-image">
 						<Link href={`/cars/${car.slug}`}>
-							<img src={`${car.image}`}
-							  alt={`${car.name} - Rent Luxury Car in Dubai`}
-							  title={`Rent ${car.name} in Dubai`}
+							<img src={getCarImageSrc(car)}
+							  alt={`${toDisplayLabel(car.name)} - Rent Luxury Car in Dubai`}
+							  title={`Rent ${toDisplayLabel(car.name)} in Dubai`}
 							   loading="lazy"
                           		decoding="async"
-							
 							/>
 						</Link>
 					</div>
@@ -23,18 +36,18 @@ export default function CarCard1({ car }: any) {
 						<div className="card-rating">
 							<div className="card-left" />
 							<div className="card-right">
-								<span className="rating text-xs-medium rounded-pill">{car.rating} <span className="text-xs-medium neutral-500">({car.reviews} Reviews)</span></span>
+								<span className="rating text-xs-medium rounded-pill">{rating} <span className="text-xs-medium neutral-500">({reviews} Reviews)</span></span>
 							</div>
 						</div>
-						<div className="card-title"><Link className="text-lg-bold neutral-1000 text-nowrap" href={`/cars/${car.slug}`}>{car.name}</Link></div>
+						<div className="card-title"><Link className="text-lg-bold neutral-1000 text-nowrap" href={`/cars/${car.slug}`}>{toDisplayLabel(car.name)}</Link></div>
 						<div className="card-program">
 							<div className="card-location">
 								<p className="text-location text-sm-medium neutral-500">{car.location}</p>
 							</div>
 							<div className="card-facitlities">
 								<p className="card-miles text-md-medium">{car.doors} Doors</p>
-								<p className="card-gear text-md-medium">{car.gear}</p>
-								<p className="card-fuel text-md-medium">{car.fuel}</p>
+								<p className="card-gear text-md-medium">{toDisplayLabel(car.gear)}</p>
+								<p className="card-fuel text-md-medium">{toDisplayLabel(car.fuel)}</p>
 								<p className="card-seat text-md-medium">{car.seats} seats</p>
 							</div>
 							<div className="endtime">

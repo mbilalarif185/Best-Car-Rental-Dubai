@@ -48,6 +48,9 @@ web_modules/
 # TypeScript cache
 *.tsbuildinfo
 
+# Uploaded files (vendors, cars)
+public/uploads/
+
 # Optional npm cache directory
 .npm
 

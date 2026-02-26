@@ -57,6 +57,7 @@ export interface Car {
   description7?:string;
   title8?:string;
   description8?:string;
+  luggage_capacity?:number;
   features2?:string[];
   features3?:string[];
 }

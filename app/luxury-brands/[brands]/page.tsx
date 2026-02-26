@@ -5,6 +5,7 @@ import Layout from "@/components/layout/Layout";
 import Header from '@/components/category/header';
 import { notFound } from 'next/navigation';
 import dynamic from "next/dynamic";
+import { getPublicCarsForListings } from "@/lib/cars";
 
 const CarsListing4 = dynamic(() => import("@/components/sections/CarsListing4"));
 
@@ -46,7 +47,7 @@ export async function generateMetadata({ params }: { params: { brands: string } 
   };
 }
 
-export default function CategoryPage({ params }: Props) {
+export default async function CategoryPage({ params }: Props) {
   const brandSlug = params.brands.toLowerCase();
 
   const matchedBrand = brands.find(
@@ -57,7 +58,11 @@ export default function CategoryPage({ params }: Props) {
     return notFound();
   }
 
-  const filteredCars = cars.filter(
+  const dbCars = await getPublicCarsForListings();
+  const staticCars = cars as Car[];
+  const allCars: Car[] = [...staticCars, ...dbCars];
+
+  const filteredCars = allCars.filter(
     (car: Car) =>
       car.brand.trim().toLowerCase() === matchedBrand.name.trim().toLowerCase()
   );

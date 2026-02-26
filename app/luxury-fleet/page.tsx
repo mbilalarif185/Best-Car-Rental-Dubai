@@ -3,8 +3,12 @@ import dynamic from "next/dynamic";
 import HeroSection from '@/components/fleet/HeroSection'
 import Search1 from "@/components/sections/Search1"
 import Layout from "@/components/layout/Layout";
+import { getPublicCarsForListings } from "@/lib/cars";
+import carsJson from "@/util/cars.json";
+import type { Car } from "@/types/type";
+
 const FleetHeading = dynamic(()=>import("@/components/fleet/FleetHeading")) 
-const CarsGrid=dynamic(()=>import("@/components/fleet/CarsGrid"))
+const CarsGrid = dynamic(()=>import("@/components/fleet/CarsGrid"))
 const Brand_dynamic = dynamic(() => import("@/components/sections/Brand_dynamic"));
 
 export const metadata = {
@@ -26,15 +30,18 @@ export const metadata = {
   },
 };
 
-export default function CarsList1() {
-  
+export default async function CarsList1() {
+  const dbCars = await getPublicCarsForListings();
+  const staticCars = carsJson as Car[];
+  const allCars: Car[] = [...staticCars, ...dbCars];
+
   return (
     <Layout footerStyle={1}>
       <main>
         <HeroSection/>
         <Search1 />
         <FleetHeading/>
-        <CarsGrid/>
+        <CarsGrid initialCars={allCars} />
         <Brand_dynamic/>
       </main>
     </Layout>

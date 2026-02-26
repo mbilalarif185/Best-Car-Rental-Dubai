@@ -9,14 +9,18 @@ import Footer1 from './footer/Footer1'
 import Footer2 from './footer/Footer2'
 import Header1 from "./header/Header1"
 import Header2 from './header/Header2'
-import Header3 from './header/Header3'
+import { DefaultDeserializer } from "v8"
+import { CardGroup } from "react-bootstrap"
+import { Dela_Gothic_One } from "next/font/google"
+//import Header3 from './header/Header3'
 
 interface LayoutProps {
 	headerStyle?: 1
 	footerStyle?: Number
 	children?: React.ReactNode
 	breadcrumbTitle?: string
-}
+} 
+
 
 
 export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, children }: LayoutProps) {
@@ -81,3 +85,5 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, chil
 		</>
 	)
 }
+   
+ 

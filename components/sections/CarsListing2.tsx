@@ -1,6 +1,7 @@
 
 import Link from "next/link";
 import { Car } from "@/types/type";
+import { toDisplayLabel } from '@/util/format';
 
 const BASE_URL = "https://bestcarrentaldubai.ae";
 interface CarsListing2Props {
@@ -45,17 +46,17 @@ export default function CarsListing2({ cars }: CarsListing2Props) {
                 itemType="https://schema.org/Product"
               >
                
-                <meta itemProp="name" content={car.name} />
+                <meta itemProp="name" content={toDisplayLabel(car.name)} />
                 <meta itemProp="image" content={`${BASE_URL}${car.image}`} />
                 <meta itemProp="url" content={`https://bestcarrentaldubai.ae/cars/${car.slug}`} />
-                <meta itemProp="description" content={`Rent the ${car.name} in Dubai with ${car.seats} seats and ${car.doors} doors from Best Car Rental Dubai.`} />
+                <meta itemProp="description" content={`Rent the ${toDisplayLabel(car.name)} in Dubai with ${car.seats} seats and ${car.doors} doors from Best Car Rental Dubai.`} />
 
                 <div className="card-image">
-                  <Link aria-label={`Rent ${car.name}`} href={`/cars/${car.slug}`}>
+                  <Link aria-label={`Rent ${toDisplayLabel(car.name)}`} href={`/cars/${car.slug}`}>
                     <img
                       src={`${BASE_URL}${car.image}`}
-                      alt={`Rent ${car.name} in ${car.location}`}
-                      title={`${car.name} For Rent in Dubai - Luxury Car Rental Dubai`}
+                      alt={`Rent ${toDisplayLabel(car.name)} in ${car.location}`}
+                      title={`${toDisplayLabel(car.name)} For Rent in Dubai - Luxury Car Rental Dubai`}
                       loading="lazy"
                       decoding="async"
                     />
@@ -82,10 +83,10 @@ export default function CarsListing2({ cars }: CarsListing2Props) {
                   <div className="card-title">
                     <Link
                       className="text-lg-bold neutral-1000 text-nowrap"
-                      aria-label={`Rent ${car.name}`}
+                      aria-label={`Rent ${toDisplayLabel(car.name)}`}
                       href={`/cars/${car.slug}`}
                     >
-                      <span itemProp="name">{car.name}</span>
+                      <span itemProp="name">{toDisplayLabel(car.name)}</span>
                     </Link>
                   </div>
 
@@ -96,8 +97,8 @@ export default function CarsListing2({ cars }: CarsListing2Props) {
 
                     <div className="card-facitlities">
                       <p className="card-miles text-md-medium">{car.doors} Doors</p>
-                      <p className="card-gear text-md-medium">{car.gear}</p>
-                      <p className="card-fuel text-md-medium">{car.fuel}</p>
+                      <p className="card-gear text-md-medium">{toDisplayLabel(car.gear)}</p>
+                      <p className="card-fuel text-md-medium">{toDisplayLabel(car.fuel)}</p>
                       <p className="card-seat text-md-medium">{car.seats} Seats</p>
                     </div>
 
@@ -140,7 +141,7 @@ export default function CarsListing2({ cars }: CarsListing2Props) {
                       <div className="card-button">
                         <Link
                           className="btn btn-gray"
-                          aria-label={`Rent ${car.name}`}
+                          aria-label={`Rent ${toDisplayLabel(car.name)}`}
                           href={`/cars/${car.slug}`}
                         >
                           Book Now

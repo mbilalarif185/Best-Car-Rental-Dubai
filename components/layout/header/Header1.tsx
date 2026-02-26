@@ -9,6 +9,8 @@ const ThemeSwitch = dynamic(() => import('@/components/elements/ThemeSwitch'), {
 })
 import Link from 'next/link'
 import Dropdown from 'react-bootstrap/Dropdown'
+import AuthMenuButton from '@/components/layout/AuthMenuButton'
+import DashboardNavItem from '@/components/layout/DashboardNavItem'
 
 
 type HeaderProps = {
@@ -228,17 +230,16 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 
 														].map((brand) => (
 														<div className="col text-center" key={brand.slug}>
-															<Link href={`/luxury-brands/${brand.slug}`} className="d-block">
-															
-															<Image
-																src={brand.image}
-																alt={brand.name}
-																width={600}
-																height={80}
-																loading='lazy'
-															/>
-															<span className="text-md">{brand.name}</span>
-														
+															<Link href={`/luxury-brands/${brand.slug}`} className="d-flex flex-column align-items-center text-center">
+																<Image
+																	src={brand.image}
+																	alt={brand.name}
+																	width={600}
+																	height={80}
+																	loading="lazy"
+																	className="mb-2"
+																/>
+																<span className="text-md">{brand.name}</span>
 															</Link>
 														</div>
 														))}
@@ -253,10 +254,13 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 										<li>
 											<Link className="color-white" href="/blog-grid">Blog</Link>
 											</li>
+										<li>
+											<Link className="color-white" href="/dealer-listing">Dealers</Link>
+										</li>
 											<li>
 											<Link className="color-white" href="/contact">Contact Us</Link>
 											</li>
-											
+										<DashboardNavItem liClassName="" linkClassName="color-white" />
 
 										{/* <li className="mega-li-small has-children arrow-white">
 											<Link className="color-white" href="#">Vehicles</Link>
@@ -286,7 +290,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 											</div>
 										</li>
 										<li className="has-children arrow-white">
-											<Link className="color-white" href="#">Dealers</Link>
+											<Link className="color-white" href="/dealer-listing">Dealers</Link>
 											<ul className="sub-menu">
 												<li><Link href="/dealer-listing">Dealers Listing</Link></li>
 												<li><Link href="/dealer-details">Dealer Details</Link></li>
@@ -432,8 +436,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, handle
 								</div>
 
 								<div className="d-none d-xxl-inline-block align-middle ml-15 mr-15">
-									
-									<Link className="btn btn-signin bg-white text-dark" href="/contact">Contact Us</Link>
+									<AuthMenuButton className="btn btn-signin bg-white text-dark" />
 								</div>
 								
 								<div className="burger-icon-2 burger-icon-white  " onClick={handleOffcanvas}>

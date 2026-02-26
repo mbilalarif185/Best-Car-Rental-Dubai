@@ -1,16 +1,30 @@
 import Link from "next/link";
 import { Car } from "@/types/type";
 import categories from '@/util/categories.json';
-import brands from '@/util/brands.json'; 
+import brands from '@/util/brands.json';
+import { toDisplayLabel } from '@/util/format';
+
 const BASE_URL = "https://bestcarrentaldubai.ae";
+const PLACEHOLDER_IMAGE = "/assets/imgs/cars-listing/cars-listing-6/car-1.png";
+
+/** Resolve img src: use full URL if already absolute, else path relative to current origin; fallback to placeholder. */
+function getCarImageSrc(car: Car): string {
+  if (!car.image) return PLACEHOLDER_IMAGE;
+  if (car.image.startsWith("http")) return car.image;
+  return car.image.startsWith("/") ? car.image : `/${car.image}`;
+}
 
 interface CarsListing4Props {
   cars: Car[];
   categorySlug?: string;
   brandSlug?: string;
+  /** Override heading (e.g. "Cars by Vendor Name"). */
+  customHeading?: string;
+  /** Override description. */
+  customDescription?: string;
 }
 
-const CarsListing4: React.FC<CarsListing4Props> = ({ cars, categorySlug, brandSlug }) => {
+const CarsListing4: React.FC<CarsListing4Props> = ({ cars, categorySlug, brandSlug, customHeading, customDescription }) => {
  
   const categoryInfo = categorySlug
     ? categories.find(cat => cat.slug.trim().toLowerCase() === categorySlug.trim().toLowerCase())
@@ -20,10 +34,10 @@ const CarsListing4: React.FC<CarsListing4Props> = ({ cars, categorySlug, brandSl
     ? brands.find(brand => brand.slug.trim().toLowerCase() === brandSlug.trim().toLowerCase())
     : null;
 
-  const heading = brandInfo?.name || categoryInfo?.heading || "Featured Listings";
-  const description = brandInfo
+  const heading = customHeading ?? brandInfo?.name ?? categoryInfo?.heading ?? "Featured Listings";
+  const description = customDescription ?? (brandInfo
     ? `Explore our selection of ${brandInfo.name.trim()} vehicles for rent in Dubai`
-    : categoryInfo?.description || "Find the perfect ride for any occasion";
+    : categoryInfo?.description) ?? "Find the perfect ride for any occasion";
 
   return (
     <section className="section-box box-flights background-body">
@@ -39,8 +53,8 @@ const CarsListing4: React.FC<CarsListing4Props> = ({ cars, categorySlug, brandSl
             <div className="col-lg-4 col-md-6 wow fadeIn" key={car.slug} data-wow-delay={`0.${index + 1}s`}>
               <div className="card-journey-small background-card hover-up">
                 <div className="card-image">
-                  <Link aria-label={`Rent ${car.name}`} href={`/cars/${car.slug}`}>
-                    <img src={`${BASE_URL}${car.image}`} alt={`Rent ${car.name} in ${car.location}`} title={`${car.name} For Rent in Dubai - Luxury Car Rental Dubai`} loading="lazy" decoding="async" />
+                  <Link aria-label={`Rent ${toDisplayLabel(car.name)}`} href={`/cars/${car.slug}`}>
+                    <img src={getCarImageSrc(car)} alt={`Rent ${toDisplayLabel(car.name)} in ${car.location}`} title={`${toDisplayLabel(car.name)} For Rent in Dubai - Luxury Car Rental Dubai`} loading="lazy" decoding="async" />
                   </Link>
                 </div>
                 <div className="card-info p-4 pt-30">
@@ -48,13 +62,13 @@ const CarsListing4: React.FC<CarsListing4Props> = ({ cars, categorySlug, brandSl
                     <div className="card-left" />
                     <div className="card-right">
                       <span className="rating text-xs-medium py-1 rounded-pill">
-                        {car.rating} <span className="text-xs-medium neutral-500">({car.reviews} reviews)</span>
+                        {car.rating ?? 0} <span className="text-xs-medium neutral-500">({car.reviews ?? 0} reviews)</span>
                       </span>
                     </div>
                   </div>
                   <div className="card-title">
-                    <Link className="text-lg-bold neutral-1000 text-nowrap" aria-label={`Rent ${car.name}`} href={`/cars/${car.slug}`}>
-                      {car.name}
+                    <Link className="text-lg-bold neutral-1000 text-nowrap" aria-label={`Rent ${toDisplayLabel(car.name)}`} href={`/cars/${car.slug}`}>
+                      {toDisplayLabel(car.name)}
                     </Link>
                   </div>
                   <div className="card-program">
@@ -63,16 +77,16 @@ const CarsListing4: React.FC<CarsListing4Props> = ({ cars, categorySlug, brandSl
                     </div>
                     <div className="card-facitlities">
                       <p className="card-miles text-md-medium">{car.doors} Doors</p>
-                      <p className="card-gear text-md-medium">{car.gear}</p>
-                      <p className="card-fuel text-md-medium">{car.fuel}</p>
+                      <p className="card-gear text-md-medium">{toDisplayLabel(car.gear)}</p>
+                      <p className="card-fuel text-md-medium">{toDisplayLabel(car.fuel)}</p>
                       <p className="card-seat text-md-medium">{car.seats} Seats</p>
                     </div>
                     <div className="endtime">
                       <div className="card-price">
-                        <h6 className="text-lg-bold neutral-1000"> AED {car.price}</h6>
+                        <h6 className="text-lg-bold neutral-1000"> AED {car.price} /day</h6>
                       </div>
                       <div className="card-button">
-                        <Link className="btn btn-gray" aria-label={`Rent ${car.name}`} href={`/cars/${car.slug}`}>Book Now</Link>
+                        <Link className="btn btn-gray" aria-label={`Rent ${toDisplayLabel(car.name)}`} href={`/cars/${car.slug}`}>Book Now</Link>
                       </div>
                     </div>
                   </div>

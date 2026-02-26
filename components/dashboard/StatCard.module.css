@@ -1,0 +1,23 @@
+.card {
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+  background: white;
+  padding: 1rem 1.1rem;
+}
+
+.label {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.value {
+  margin-top: 0.4rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.helper {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: #16a34a;
+}

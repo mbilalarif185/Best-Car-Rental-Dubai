@@ -1,43 +1,55 @@
-
 import cars from "@/util/cars_details.json";
 import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
 const CarDetail = dynamic(() => import("@/components/cars/CarDetail"));
 import Layout from "@/components/layout/Layout";
 import { Car } from "@/types/detail_type";
-import crypto from "crypto"; // required for VIN hashing
+import crypto from "crypto";
+import { getCarBySlug } from "@/lib/cars";
+import { toDisplayLabel } from "@/util/format";
 
 const BASE_URL = "https://bestcarrentaldubai.ae";
 
-const makeAbsoluteUrl = (path: string) =>
-  path.startsWith("http") ? path : `${BASE_URL}${path}`;
-
-// ✅ Deterministic VIN Generator
 const generateDeterministicVIN = (slug: string): string => {
-  const base = slug.replace(/[^A-Z0-9]/gi, '').toUpperCase().padEnd(10, 'X').slice(0, 10);
+  const base = slug.replace(/[^A-Z0-9]/gi, "").toUpperCase().padEnd(10, "X").slice(0, 10);
   const hash = crypto.createHash("sha1").update(slug).digest("hex").toUpperCase();
-  const hashPart = hash.replace(/[^A-Z0-9]/g, '').slice(0, 7);
-  return (base + hashPart).slice(0, 17); // Just in case
+  const hashPart = hash.replace(/[^A-Z0-9]/g, "").slice(0, 7);
+  return (base + hashPart).slice(0, 17);
 };
 
-// Static params for SSG
+/** Resolve slug from params (supports Next 15 Promise<params>). */
+async function resolveSlug(params: { slug: string } | Promise<{ slug: string }>): Promise<string> {
+  const p = await Promise.resolve(params);
+  return p.slug ?? "";
+}
+
+/** Get car by slug: DB first, then static JSON fallback. Returns car, fromDb, and vendor when from DB. */
+async function getCar(slug: string): Promise<{ car: Car; fromDb: boolean; vendor?: { id: string; slug: string; company_name: string | null; contact_number: string | null; business_email: string | null; city: string | null; country: string | null } } | undefined> {
+  const dbResult = await getCarBySlug(slug);
+  if (dbResult) return { car: dbResult.car, fromDb: true, vendor: dbResult.vendor };
+  const staticCar = (cars as Car[]).find((c) => c.slug === slug);
+  if (staticCar) return { car: staticCar, fromDb: false };
+  return undefined;
+}
+
 export async function generateStaticParams() {
-  return cars.map(car => ({
+  return (cars as { slug: string }[]).map((car) => ({
     slug: car.slug,
   }));
 }
 
-// Metadata for SEO
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const car = cars.find(car => car.slug === params.slug);
-  if (!car) return {};
+export async function generateMetadata({ params }: { params: { slug: string } | Promise<{ slug: string }> }) {
+  const slug = await resolveSlug(params);
+  const result = await getCar(slug);
+  if (!result) return {};
+  const { car } = result;
 
   const canonicalUrl = `${BASE_URL}/cars/${car.slug}`;
-  const imageUrl = makeAbsoluteUrl(car.image);
+  const imageUrl = car.image?.startsWith("http") ? car.image : `${BASE_URL}${car.image}`;
 
   return {
-    title: `${car.name} Rental in Dubai | Best Car Rental Dubai`,
-    description: `Rent the ${car.name} with ${car.seats} seats, ${car.doors} doors.`,
+    title: `${toDisplayLabel(car.name)} Rental in Dubai | Best Car Rental Dubai`,
+    description: `Rent the ${toDisplayLabel(car.name)} with ${car.seats} seats, ${car.doors} doors.`,
     openGraph: {
       url: canonicalUrl,
       images: [imageUrl],
@@ -48,35 +60,37 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-// Main component
-export default function CarDetailPage({ params }: { params: { slug: string } }) {
-  const car: Car | undefined = cars.find(car => car.slug === params.slug);
+export default async function CarDetailPage({ params }: { params: { slug: string } | Promise<{ slug: string }> }) {
+  const slug = await resolveSlug(params);
+  const result = await getCar(slug);
 
-  if (!car) return notFound();
+  if (!result) return notFound();
+  const { car, fromDb, vendor } = result;
 
   const color = "Black";
   const interiorColor = "Beige";
+  const imageUrlForSchema = car.image?.startsWith("http") ? car.image : `${BASE_URL}${car.image}`;
 
   const schemaMarkup = {
     "@context": "https://schema.org",
     "@type": "Car",
-    "name": car.name,
+    "name": toDisplayLabel(car.name),
     "model": "Latest Model",
     "vehicleModelDate": "2024",
     "vehicleIdentificationNumber": generateDeterministicVIN(car.slug),
     "itemCondition": "https://schema.org/NewCondition",
-    "image": makeAbsoluteUrl(car.image),
-    "description": `Rent the ${car.name} with ${car.seats} seats, ${car.doors} doors.`,
+    "image": imageUrlForSchema,
+    "description": `Rent the ${toDisplayLabel(car.name)} with ${car.seats} seats, ${car.doors} doors.`,
     "brand": {
       "@type": "Brand",
-      "name": car.brand.trim() || "Best Car Rental Dubai",
+      "name": toDisplayLabel(car.brand?.trim()) || "Best Car Rental Dubai",
     },
-    "bodyType": car.type.trim(),
-    "vehicleTransmission": car.gear.trim(),
+    "bodyType": toDisplayLabel(car.type?.trim()) ?? "",
+    "vehicleTransmission": toDisplayLabel(car.gear?.trim()) ?? "",
     "color": color,
     "vehicleSeatingCapacity": car.seats,
     "numberOfDoors": car.doors,
-    "fuelType": car.fuel || "Petrol",
+    "fuelType": toDisplayLabel(car.fuel) || "Petrol",
     "vehicleInteriorColor": interiorColor,
     "offers": {
       "@type": "Offer",
@@ -87,9 +101,9 @@ export default function CarDetailPage({ params }: { params: { slug: string } }) 
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": car.rating || 0,
-      "reviewCount": car.reviews || 0,
-      "ratingCount": car.reviews || 0,
+      "ratingValue": car.rating ?? 0,
+      "reviewCount": car.reviews ?? 0,
+      "ratingCount": car.reviews ?? 0,
     },
   };
 
@@ -100,9 +114,8 @@ export default function CarDetailPage({ params }: { params: { slug: string } }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
         />
-        <CarDetail car={car} />
+        <CarDetail car={car} fromDb={fromDb} vendor={vendor} />
       </Layout>
     </main>
   );
 }
-

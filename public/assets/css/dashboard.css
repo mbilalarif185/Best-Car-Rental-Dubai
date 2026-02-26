@@ -1,0 +1,602 @@
+/* Dashboard-only styles - uses bcr theme variables from main.css */
+.btn-edit {
+  width: 28px;
+  height: 28px;
+  background-color: var(--bs-neutral-200);
+  text-align: center;
+}
+.dashboard .table {
+  border-color: var(--bs-neutral-200);
+  margin-block-end: 0;
+}
+.dashboard .table thead tr {
+  border-color: var(--bs-neutral-200);
+}
+.dashboard .table .thead-light th {
+  background-color: var(--bs-neutral-100);
+  color: var(--bs-neutral-1000);
+}
+.dashboard .table tbody tr {
+  border-bottom: 1px solid var(--bs-neutral-200) !important;
+}
+.dashboard .table td {
+  padding: 12px 20px;
+  vertical-align: middle;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.dashboard .image-avatar img {
+  max-width: 80px;
+  border-radius: 8px;
+}
+.dashboard .image-logo {
+  min-width: 80px;
+  max-width: 80px;
+}
+.dashboard-sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.dashboard-sidebar-menu li a {
+  display: block;
+  padding: 0.35rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--bs-neutral-700);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.dashboard-sidebar-menu li a:hover {
+  background-color: var(--bs-neutral-100);
+  color: var(--bs-neutral-1000);
+}
+
+/* ========== Add Listing page (agent add-listing) - from converted maine209.css ========== */
+.list-image-upload {
+  display: flex;
+  align-items: center;
+  margin: 0 -6px;
+}
+.list-image-upload .box-upload-image {
+  padding: 0 6px;
+  width: 25%;
+}
+.list-image-upload .preview-images {
+  width: 75%;
+  padding: 0 6px;
+}
+.list-image-upload .preview-images .list-preview {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 -6px;
+}
+.list-image-upload .preview-images .list-preview .image-preview {
+  width: 33.33%;
+  padding: 0 6px;
+}
+.list-image-upload .preview-images .list-preview .image-preview .box-image-preview {
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+  max-height: 183px;
+}
+.list-image-upload .preview-images .list-preview .image-preview .box-image-preview img {
+  display: block;
+  width: 100%;
+}
+.list-image-upload .preview-images .list-preview .image-preview .box-image-preview .btn-delete-image {
+  position: absolute;
+  bottom: 9px;
+  right: 7px;
+  z-index: 123;
+  background-color: var(--bs-neutral-0);
+  border-radius: 4px;
+  padding: 6px 9px;
+  cursor: pointer;
+}
+.list-image-upload .preview-images .list-preview .image-preview .box-image-preview .btn-delete-image svg {
+  stroke: var(--bs-neutral-1000);
+}
+
+.item-upload-image {
+  border: 1px dashed var(--bs-warning);
+  background-color: var(--bs-background-9);
+  width: 100%;
+  height: 160px;
+  border-radius: 8px;
+  line-height: 160px;
+  position: relative;
+}
+.item-upload-image input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 123;
+  cursor: pointer;
+}
+.item-upload-image .upload-info {
+  line-height: 26px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%;
+}
+.item-upload-image .upload-info svg {
+  fill: var(--bs-neutral-1000);
+}
+.item-upload-image .upload-info .icon-upload {
+  margin-bottom: 8px;
+}
+
+.lbl-checkbox {
+  margin-bottom: 7px;
+}
+.lbl-checkbox input {
+  float: left;
+  margin: 5px 7px 0 0;
+  width: 14px;
+  height: 14px;
+}
+
+.box-extra-services .item-extra-service {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.box-extra-services .item-extra-service .item-extra-1 {
+  width: 48%;
+  padding-right: 12px;
+}
+.box-extra-services .item-extra-service .item-extra-2 {
+  width: 48%;
+  padding-right: 12px;
+}
+.box-extra-services .item-extra-service .item-extra-3 {
+  min-width: 32px;
+  max-width: 32px;
+}
+.box-extra-services .item-extra-service .item-extra-3 .btn-remove,
+.box-extra-services .item-extra-service .item-extra-3 a.btn-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 4px;
+}
+.box-extra-services .item-extra-service .item-extra-3 svg {
+  stroke: var(--bs-neutral-1000);
+}
+
+.btn.btn-addmore {
+  border-radius: 50px;
+  background-color: var(--bs-button-bg-2);
+  color: var(--bs-button-text-2);
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border: 0;
+}
+
+.dashboard .mb-12 {
+  margin-bottom: 0.75rem;
+}
+.dashboard .mt-15 {
+  margin-top: 15px;
+}
+.dashboard .box-button-save {
+  margin-top: 15px;
+}
+.dashboard .map-tour {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--bs-neutral-200);
+}
+.dashboard .map-tour iframe {
+  display: block;
+}
+
+/* ========== Add Listing reference layout: cards, inputs, 4 equal image slots (BCR theme) ========== */
+.dashboard .card.shadow-none {
+  background-color: var(--bs-neutral-0);
+  border: 1px solid var(--bs-neutral-200);
+  border-radius: 8px;
+}
+.dashboard .card.shadow-none .card-header {
+  background-color: var(--bs-neutral-0);
+  border-bottom: 1px solid var(--bs-neutral-200);
+  padding: 1rem 1.25rem;
+}
+.dashboard .card.shadow-none .card-header .text-md-bold {
+  font-weight: 700;
+  color: var(--bs-neutral-1000);
+  font-size: 1.1rem;
+}
+.dashboard .card.shadow-none .card-body {
+  padding: 1.25rem 1.25rem;
+  background-color: var(--bs-neutral-0);
+}
+.dashboard .card.shadow-none .form-control {
+  background-color: var(--bs-neutral-100);
+  border: 1px solid var(--bs-neutral-200);
+  border-radius: 8px;
+  color: var(--bs-neutral-1000);
+}
+.dashboard .card.shadow-none .form-control::placeholder {
+  color: var(--bs-neutral-500);
+}
+.dashboard .card.shadow-none .btn-primary {
+  background-color: var(--bs-brand-2);
+  border-color: var(--bs-brand-2);
+  color: var(--bs-button-text);
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-weight: 600;
+}
+.dashboard .card.shadow-none .btn-primary:hover {
+  background-color: var(--bs-brand-2-darken);
+  border-color: var(--bs-brand-2-darken);
+  color: var(--bs-button-text);
+}
+
+/* Image row: 4 equal columns (1 upload + 3 previews) */
+.dashboard .list-image-upload {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+}
+.dashboard .list-image-upload .box-upload-image {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0;
+}
+.dashboard .list-image-upload .preview-images {
+  flex: 3 3 0;
+  min-width: 0;
+  display: flex;
+  padding: 0;
+}
+.dashboard .list-image-upload .preview-images .list-preview {
+  display: flex;
+  flex: 1;
+  gap: 12px;
+  margin: 0;
+  min-width: 0;
+}
+.dashboard .list-image-upload .preview-images .list-preview .image-preview {
+  flex: 1;
+  padding: 0;
+  min-width: 0;
+}
+.dashboard .list-image-upload .preview-images .list-preview .image-preview .box-image-preview {
+  border-radius: 8px;
+  max-height: 160px;
+  min-height: 160px;
+}
+.dashboard .item-upload-image {
+  background-color: var(--bs-background-9);
+  border-color: var(--bs-warning);
+}
+
+/* Sidebar: BCR theme colors */
+.dashboard .user-sidebar {
+  background-color: var(--bs-neutral-100);
+  border: 1px solid var(--bs-neutral-200);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.dashboard .user-sidebar .card-header.user-sidebar-header {
+  background-color: var(--bs-neutral-100);
+  border-bottom: 1px solid var(--bs-neutral-200);
+  padding: 1rem;
+}
+.dashboard .user-sidebar .card-body.user-sidebar-body {
+  background-color: var(--bs-neutral-100);
+  padding: 0.75rem 1rem;
+}
+.dashboard .user-sidebar .profile-content .fw-bold {
+  color: var(--bs-neutral-1000);
+  font-size: 1rem;
+}
+.dashboard .user-sidebar .text-gray-6 {
+  color: var(--bs-neutral-500);
+  font-size: 0.8rem;
+}
+.dashboard .user-sidebar .dashboard-sidebar-menu li a {
+  color: var(--bs-neutral-700);
+  font-size: 0.9rem;
+  padding: 0.5rem 0.25rem;
+}
+.dashboard .user-sidebar .dashboard-sidebar-menu li a:hover {
+  color: var(--bs-neutral-1000);
+  background-color: var(--bs-neutral-200);
+}
+.dashboard .user-sidebar .dashboard-sidebar-menu li a.active {
+  color: var(--bs-neutral-1000);
+  font-weight: 600;
+}
+.dashboard .user-sidebar .dashboard-sidebar-menu li a i {
+  color: inherit;
+  opacity: 0.7;
+}
+.dashboard .user-sidebar .dashboard-sidebar-menu li a.active i {
+  opacity: 1;
+}
+/* Agent sidebar: 2-column nav on mobile */
+@media (max-width: 767.98px) {
+  .dashboard .user-sidebar.agent-sidebar .dashboard-sidebar-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem 0.5rem;
+  }
+  .dashboard .user-sidebar.agent-sidebar .dashboard-sidebar-menu li {
+    padding: 0.25rem 0;
+  }
+  .dashboard .user-sidebar.agent-sidebar .dashboard-sidebar-menu li a {
+    padding: 0.5rem 0.5rem;
+    text-align: center;
+    border-radius: 0.5rem;
+  }
+}
+
+/* ========== User Listings page: card header (search + dropdowns) ========== */
+.dashboard .card-header-listings {
+  padding: 1rem 1.25rem;
+}
+.dashboard .card-header-listings-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+}
+.dashboard .card-header-listings-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+}
+.dashboard .listings-search-wrap {
+  position: relative;
+  min-width: 160px;
+  max-width: 220px;
+}
+.dashboard .listings-search-wrap .listings-search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--bs-neutral-500);
+  font-size: 1rem;
+  pointer-events: none;
+}
+.dashboard .listings-search-wrap .listings-search-icon i {
+  font-size: inherit;
+}
+.dashboard .listings-search-input {
+  padding-left: 2.25rem;
+  padding-right: 0.75rem;
+  height: 44px;
+  line-height: 1.25;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  border: 1px solid var(--bs-neutral-200);
+  background-color: var(--bs-neutral-100);
+  color: var(--bs-neutral-1000);
+  width: 100%;
+  box-sizing: border-box;
+}
+.dashboard .listings-search-input::placeholder {
+  color: var(--bs-neutral-500);
+}
+.dashboard .listings-search-input:focus {
+  border-color: var(--bs-brand-2, #0d6efd);
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+}
+.dashboard .listings-select-wrap {
+  min-width: 130px;
+  width: auto;
+  overflow: visible;
+}
+.dashboard .listings-select-wrap .listings-select {
+  min-height: 44px;
+  height: 44px;
+  line-height: 1.25;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  border: 1px solid var(--bs-neutral-200);
+  background-color: var(--bs-neutral-100);
+  color: var(--bs-neutral-1000);
+  padding: 0.5rem 2.25rem 0.5rem 0.75rem;
+  min-width: 130px;
+  width: 100%;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23666' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.65rem center;
+  background-size: 14px 14px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  overflow: visible;
+}
+.dashboard .listings-select-wrap .listings-select:focus {
+  border-color: var(--bs-brand-2, #0d6efd);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
+}
+@media (max-width: 575.98px) {
+  .dashboard .card-header-listings-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .dashboard .card-header-listings-filters {
+    flex-direction: column;
+  }
+  .dashboard .listings-search-wrap,
+  .dashboard .listings-select-wrap {
+    min-width: 0;
+    max-width: none;
+  }
+}
+
+/* Agent dashboard: pending approval table – company avatar size */
+.agent-pending-avatar {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  font-size: 1rem;
+  border-radius: 8px;
+}
+.agent-pending-avatar-img {
+  border-radius: 8px;
+}
+.agent-pending-avatar-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Status pills – colored like reference image */
+.agent-status-pending {
+  background-color: #e6b800;
+  color: #fff;
+  padding: 0.35em 0.65em;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.agent-status-completed {
+  background-color: #2e7d32;
+  color: #fff;
+  padding: 0.35em 0.65em;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.agent-status-canceled {
+  background-color: #d84315;
+  color: #fff;
+  padding: 0.35em 0.65em;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+@media (min-width: 768px) {
+  .agent-pending-avatar {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+  }
+}
+
+/* Approvals table: keep avatar small so table fits without scrollbar */
+.agent-approvals-table .agent-pending-avatar {
+  width: 36px !important;
+  height: 36px !important;
+  font-size: 0.875rem !important;
+}
+.agent-approvals-table.table th,
+.agent-approvals-table.table td {
+  padding: 0.5rem 0.6rem;
+  vertical-align: middle;
+}
+.agent-approvals-table.table th {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.agent-approvals-table.table td {
+  font-size: 0.875rem;
+}
+
+/* Agent dashboard: status filter dropdown – single arrow (rely on Bootstrap form-select arrow) */
+.agent-status-dropdown-wrap {
+  min-width: 140px;
+}
+.agent-status-dropdown {
+  border-radius: 50px;
+  padding: 0.4rem 2rem 0.4rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--bs-neutral-200, #dee2e6);
+  background-color: var(--bs-neutral-0, #fff);
+  color: var(--bs-neutral-1000, #212529);
+  cursor: pointer;
+  /* Single arrow: use only Bootstrap’s form-select arrow, do not add another background-image */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  background-size: 12px 12px;
+}
+.agent-status-dropdown:hover {
+  border-color: var(--bs-primary, #0d6efd);
+}
+.agent-status-dropdown:focus {
+  border-color: var(--bs-primary, #0d6efd);
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+}
+.dashboard .card-header .agent-status-dropdown-wrap {
+  flex-shrink: 0;
+}
+
+/* Agent dashboard: theme pagination (match main theme .pagination li a) */
+.dashboard .agent-vendors-pagination.pagination {
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  list-style: none;
+  padding-left: 0;
+}
+.dashboard .agent-vendors-pagination .page-item .page-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 35px;
+  height: 35px;
+  padding: 0 0.5rem;
+  border: 0;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--bs-button-text-2, #fff);
+  background-color: var(--bs-button-bg-2, #0d6efd);
+  text-decoration: none;
+  cursor: pointer;
+}
+.dashboard .agent-vendors-pagination .page-item .page-link:hover:not(.disabled) {
+  background-color: var(--bs-button-bg, #000);
+  color: var(--bs-button-text, #fff);
+}
+.dashboard .agent-vendors-pagination .page-item.active .page-link {
+  background-color: var(--bs-button-bg, #000);
+  color: var(--bs-button-text, #fff);
+  cursor: default;
+}
+.dashboard .agent-vendors-pagination .page-item.disabled .page-link {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}

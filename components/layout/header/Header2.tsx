@@ -9,6 +9,8 @@ const ThemeSwitch = dynamic(() => import('@/components/elements/ThemeSwitch'), {
 })
 import Link from 'next/link'
 import Dropdown from 'react-bootstrap/Dropdown'
+import AuthMenuButton from '@/components/layout/AuthMenuButton'
+import DashboardNavItem from '@/components/layout/DashboardNavItem'
 
 export default function Header2({ scroll, isMobileMenu, handleMobileMenu, handleOffcanvas, isOffcanvas }: any) {
 	const initialSearchTerm = ''
@@ -124,8 +126,8 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, handle
 											</ul>
 											
 										</li>
-										<li className="mega-li-small has-children ">
-											<Link  href="/luxury-brands">Brands</Link>
+										<li className="mega-li-small has-children">
+											<Link href="/luxury-brands">Brands</Link>
 											<div className="mega-menu"
 											>
 
@@ -178,7 +180,7 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, handle
 																"name": "Rolls Royce",
 																"image": "/assets/imgs/brands/Rolls-Royce-car-rental-in-dubai.webp",
 																"slug":"rolls-royce-car-rental-in-dubai"
-																},
+															},
 																	{
 																		"name":"Tesla",
 																		"image":"/assets/imgs/brands/rent-tesla-in-dubai.webp",
@@ -188,17 +190,16 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, handle
 
 													].map((brand) => (
 													<div className="col text-center" key={brand.slug}>
-														<Link href={`/luxury-brands/${brand.slug}`} className="d-block">
-														
-														<Image
-															src={brand.image}
-															alt={brand.name}
-															width={600}
-															height={80}
-															loading="lazy"
-														/>
-														<span className="text-md ">{brand.name}</span>
-													
+														<Link href={`/luxury-brands/${brand.slug}`} className="d-flex flex-column align-items-center text-center">
+															<Image
+																src={brand.image}
+																alt={brand.name}
+																width={600}
+																height={80}
+																loading="lazy"
+																className="mb-2"
+															/>
+															<span className="text-md">{brand.name}</span>
 														</Link>
 													</div>
 													))}
@@ -214,8 +215,12 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, handle
 											<Link  href="/blog-grid">Blog</Link>
 											</li>
 										<li>
+											<Link href="/dealer-listing">Dealers</Link>
+										</li>
+										<li>
 											<Link  href="/contact">Contact Us</Link>
 										</li>
+										<DashboardNavItem />
 										{/* <li className="mega-li-small has-children">
 											<Link href="#">Vehicles</Link>
 											<div className="mega-menu">
@@ -244,7 +249,7 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, handle
 											</div>
 										</li>
 										<li className="mega-li-small has-children">
-											<Link href="#">Dealers</Link>
+											<Link href="/dealer-listing">Dealers</Link>
 											<div className="mega-menu">
 												<div className="mega-menu-inner mega-menu-inner-small mega-menu-inner-destinations">
 													<ul className="sub-menu">
@@ -334,8 +339,7 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, handle
 								)}
 								</div>
 								<div className="d-none d-xxl-inline-block align-middle mr-15">
-									
-									<Link className="btn btn-signin background-brand-2 text-dark" href="/contact">Contact Us</Link>
+									<AuthMenuButton className="btn btn-signin background-brand-2 text-dark" />
 								</div>
 								<div className="burger-icon-2 burger-icon-white" onClick={handleOffcanvas}>
 									<img src="/assets/imgs/template/icons/menu.svg" alt="Luxury Car Rental Dubai" />

@@ -373,13 +373,15 @@ const useCarFilter = (carsData: Car[]) => {
   const uniqueCarTypes = [...new Set(carsData.map((car) => car.type))]
 
   const filteredCars = carsData.filter((car) => {
+    const carTypeNorm = (car.type ?? "").trim().toLowerCase()
+    const carRatingRounded = Number((car.rating ?? 0).toFixed(1))
     return (
       (filter.names.length === 0 || filter.names.includes(car.name)) &&
       (filter.fuel.length === 0 || filter.fuel.includes(car.fuel)) &&
       (filter.locations.length === 0 || filter.locations.includes(car.location)) &&
       (car.price >= filter.priceRange[0] && car.price <= filter.priceRange[1]) &&
-      (filter.ratings.length === 0 || filter.ratings.includes(Number(car.rating.toFixed(1)))) &&
-      (filter.type.length === 0 || filter.type.includes(car.type))
+      (filter.ratings.length === 0 || filter.ratings.includes(carRatingRounded)) &&
+      (filter.type.length === 0 || filter.type.some((ft) => (ft ?? "").trim().toLowerCase() === carTypeNorm))
     )
   })
 

@@ -4,13 +4,53 @@ import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { useState } from 'react'
 import { Car } from '@/types/detail_type'
+import { toDisplayLabel } from '@/util/format'
 
 const BASE_URL = "https://bestcarrentaldubai.ae";
-type CarDetailProps = {
-  car: Car
+const PLACEHOLDER_IMAGE = "/assets/imgs/cars-listing/cars-listing-6/car-1.png";
+
+function getCarImageSrc(url?: string, fallback?: string): string {
+  if (!url) return fallback || PLACEHOLDER_IMAGE;
+  if (url.startsWith("http")) return url;
+  return url.startsWith("/") ? url : `/${url}`;
 }
 
-export default function CarDetail({ car }: CarDetailProps) {
+type CarDetailProps = {
+  car: Car
+  fromDb?: boolean
+  vendor?: {
+    id: string
+    slug: string
+    company_name: string | null
+    contact_number: string | null
+    business_email: string | null
+    city: string | null
+    country: string | null
+  }
+}
+
+/** Build WhatsApp link from contact number (digits only; assume 971 for UAE if 9 digits). */
+function toWhatsAppHref(contact_number: string | null | undefined): string {
+  if (!contact_number?.trim()) return "https://wa.me/971545514155"
+  const digits = contact_number.replace(/\D/g, "")
+  if (digits.length === 0) return "https://wa.me/971545514155"
+  if (digits.length === 9 && digits.startsWith("5")) return `https://wa.me/971${digits}`
+  if (digits.length >= 12 && digits.startsWith("971")) return `https://wa.me/${digits}`
+  if (digits.length >= 10) return `https://wa.me/${digits}`
+  return `https://wa.me/971${digits}`
+}
+
+/** Format contact for tel: link (digits only). */
+function toTelHref(contact_number: string | null | undefined): string {
+  if (!contact_number?.trim()) return "tel:971545514155"
+  const digits = contact_number.replace(/\D/g, "")
+  if (digits.length === 0) return "tel:971545514155"
+  if (digits.length === 9 && digits.startsWith("5")) return `tel:971${digits}`
+  if (digits.length >= 12 && digits.startsWith("971")) return `tel:${digits}`
+  return digits.length >= 10 ? `tel:${digits}` : `tel:971${digits}`
+}
+
+export default function CarDetail({ car, fromDb, vendor }: CarDetailProps) {
 	const [isAccordion, setIsAccordion] = useState(1)
 
 	const handleAccordion = (key: any) => {
@@ -50,12 +90,17 @@ export default function CarDetail({ car }: CarDetailProps) {
 		e.preventDefault();
 
 		try {
+			const payload: Record<string, string> = { ...formData };
+			if (fromDb && vendor?.business_email) {
+				payload.vendorEmail = vendor.business_email;
+				payload.carTitle = (car.title || car.name) ?? '';
+			}
 			const res = await fetch('/api/sendBookingEmail', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify(formData),
+			body: JSON.stringify(payload),
 			});
 
 			const result = await res.json();
@@ -98,7 +143,7 @@ export default function CarDetail({ car }: CarDetailProps) {
 										</svg>
 									</span>
 								</li>
-								<li><span className="text-breadcrumb">{car.name}</span></li>
+								<li><span className="text-breadcrumb">{toDisplayLabel(car.name)}</span></li>
 							</ul>
 						</div>
 					</section>
@@ -113,7 +158,12 @@ export default function CarDetail({ car }: CarDetailProps) {
 								<div className="row">
 									<div className="col-lg-12">
 										<div className="tour-title-main">
-											<h1 className="neutral-1000 custom-h1">{car.title || car.name}</h1>
+										<h1 className="neutral-1000 custom-h1">
+										{fromDb
+											? `Rent ${toDisplayLabel(car.title || car.name)} in Dubai`
+											: toDisplayLabel(car.title)}
+										</h1>
+										
 										</div>
 									</div>
 								</div>
@@ -125,9 +175,9 @@ export default function CarDetail({ car }: CarDetailProps) {
 										<div className="row g-3">
 											<div className="col-lg-7">
 												<div className="position-relative rounded-12 overflow-hidden">
-													<img src={`${BASE_URL}${car.image}`}
-                                                     alt={`${car.name} For Rent in Dubai`}
-                                                     title={`Rent ${car.name} in Dubai`}
+													<img src={getCarImageSrc(car.image)}
+                                                     alt={`${toDisplayLabel(car.name)} For Rent in Dubai`}
+                                                     title={`Rent ${toDisplayLabel(car.name)} in Dubai`}
                                                      loading="lazy"
                                                      decoding="async" />
 													
@@ -137,17 +187,17 @@ export default function CarDetail({ car }: CarDetailProps) {
 												<div className="d-flex gap-3">
 													<div className="d-flex gap-3 flex-column w-100">
 														<div className="rounded-12 overflow-hidden w-100 luxuryimage">
-                                                            <img className="w-100 h-100 object-fit-cover" src={`${BASE_URL}${car.image2}`}
-                                                             alt={`${car.name} Rental Dubai`}
-                                                             title={`Rent ${car.name} in Dubai`}
+                                                            <img className="w-100 h-100 object-fit-cover" src={getCarImageSrc(car.image2, getCarImageSrc(car.image))}
+                                                             alt={`${toDisplayLabel(car.name)} Rental Dubai`}
+                                                             title={`Rent ${toDisplayLabel(car.name)} in Dubai`}
                                                              loading="lazy"
                                                              decoding="async"
                                                               />
                                                             </div>
 														<div className="rounded-12 overflow-hidden w-100  luxuryimage"
-                                                        ><img className="w-100 h-100 object-fit-cover" src={`${BASE_URL}${car.image3 || car.image2}`}
-                                                         alt={`Rent ${car.name} in Dubai`}
-                                                         title={`Rent ${car.name} in Dubai`}
+                                                        ><img className="w-100 h-100 object-fit-cover" src={getCarImageSrc(car.image3 || car.image2, getCarImageSrc(car.image))}
+                                                         alt={`Rent ${toDisplayLabel(car.name)} in Dubai`}
+                                                         title={`Rent ${toDisplayLabel(car.name)} in Dubai`}
                                                          loading="lazy"
                                                          decoding="async"
                                                         />
@@ -155,15 +205,15 @@ export default function CarDetail({ car }: CarDetailProps) {
 													</div>
 													<div className="d-flex gap-3 flex-column w-100 ">
 														<div className="rounded-12 overflow-hidden w-100 luxuryimage ">
-                                                            <img className="w-100 h-100 object-fit-cover" src={`${BASE_URL}${car.image4 || car.image}`}
-                                                         alt={`Rent Luxury ${car.name} in Dubai`}
-                                                         title={`Rent ${car.name} in Dubai`}
+                                                            <img className="w-100 h-100 object-fit-cover" src={getCarImageSrc(car.image4, getCarImageSrc(car.image))}
+                                                         alt={`Rent Luxury ${toDisplayLabel(car.name)} in Dubai`}
+                                                         title={`Rent ${toDisplayLabel(car.name)} in Dubai`}
                                                          loading="lazy"
                                                          decoding="async" /></div>
 														<div className="rounded-12 overflow-hidden w-100 luxuryimage"
-                                                        ><img className="w-100 h-100 object-fit-cover" src={`${BASE_URL}${car.image5 || car.image}`}
-                                                         alt={`Luxury ${car.name} For Rent in Dubai`}
-                                                         title={`Rent ${car.name} in Dubai`}
+                                                        ><img className="w-100 h-100 object-fit-cover" src={getCarImageSrc(car.image5, getCarImageSrc(car.image))}
+                                                         alt={`Luxury ${toDisplayLabel(car.name)} For Rent in Dubai`}
+                                                         title={`Rent ${toDisplayLabel(car.name)} in Dubai`}
                                                          loading="lazy"
                                                          decoding="async"
                                                           /></div>
@@ -181,47 +231,47 @@ export default function CarDetail({ car }: CarDetailProps) {
 											<div className="item-feature-car w-md-25">
 												<div className="item-feature-car-inner">
 													<div className="feature-image"><img src="/assets/imgs/page/car/km.svg" 
-                                                     alt={`${car.name} For Rent in Dubai`}
-                                                     title={`Rent ${car.name} in Dubai`}
+                                                     alt={`${toDisplayLabel(car.name)} For Rent in Dubai`}
+                                                     title={`Rent ${toDisplayLabel(car.name)} in Dubai`}
                                                      loading="lazy"
                                                      decoding="async"
                                                       /></div>
 													<div className="feature-info">
-														<p className="text-md-medium neutral-1000">{car.brand.split(" ").slice(0, 2).join(" ")}</p>
+														<p className="text-md-medium neutral-1000">{toDisplayLabel(car.brand.split(" ").slice(0, 2).join(" "))}</p>
 													</div>
 												</div>
 											</div>
 											<div className="item-feature-car w-md-25">
 												<div className="item-feature-car-inner">
 													<div className="feature-image"><img src="/assets/imgs/page/car/diesel.svg"
-                                                     alt={`${car.name} For Rent in Dubai`}
-                                                     title={`Rent ${car.name} in Dubai`}
+                                                     alt={`${toDisplayLabel(car.name)} For Rent in Dubai`}
+                                                     title={`Rent ${toDisplayLabel(car.name)} in Dubai`}
                                                      loading="lazy"
                                                      decoding="async"
                                                      /></div>
 													<div className="feature-info">
-														<p className="text-md-medium neutral-1000">{car.fuel}</p>
+														<p className="text-md-medium neutral-1000">{toDisplayLabel(car.fuel)}</p>
 													</div>
 												</div>
 											</div>
 											<div className="item-feature-car w-md-25">
 												<div className="item-feature-car-inner">
 													<div className="feature-image"><img src="/assets/imgs/page/car/auto.svg" 
-                                                     alt={`${car.name} For Rent in Dubai`}
-                                                     title={`Rent ${car.name} in Dubai`}
+                                                     alt={`${toDisplayLabel(car.name)} For Rent in Dubai`}
+                                                     title={`Rent ${toDisplayLabel(car.name)} in Dubai`}
                                                      loading="lazy"
                                                      decoding="async"
                                                       /></div>
 													<div className="feature-info">
-														<p className="text-md-medium neutral-1000">{car.gear}</p>
+														<p className="text-md-medium neutral-1000">{toDisplayLabel(car.gear)}</p>
 													</div>
 												</div>
 											</div>
 											<div className="item-feature-car w-md-25">
 												<div className="item-feature-car-inner">
 													<div className="feature-image"><img src="/assets/imgs/page/car/seat.svg" 
-                                                     alt={`${car.name} For Rent in Dubai`}
-                                                     title={`Rent ${car.name} in Dubai`}
+                                                     alt={`${toDisplayLabel(car.name)} For Rent in Dubai`}
+                                                     title={`Rent ${toDisplayLabel(car.name)} in Dubai`}
                                                      loading="lazy"
                                                      decoding="async"
                                                       /></div>
@@ -233,32 +283,36 @@ export default function CarDetail({ car }: CarDetailProps) {
 											<div className="item-feature-car w-md-25">
 												<div className="item-feature-car-inner">
 													<div className="feature-image"><img src="/assets/imgs/page/car/bag.svg" 
-                                                     alt={`${car.name} For Rent in Dubai`}
-                                                     title={`Rent ${car.name} in Dubai`}
+                                                     alt={`${toDisplayLabel(car.name)} For Rent in Dubai`}
+                                                     title={`Rent ${toDisplayLabel(car.name)} in Dubai`}
                                                      loading="lazy"
                                                      decoding="async" /></div>
 													<div className="feature-info">
-														<p className="text-md-medium neutral-1000">3 Large bags</p>
+														<p className="text-md-medium neutral-1000">
+														{fromDb
+															? (car.luggage_capacity != null ? `${car.luggage_capacity} bags` : "3 Large bags")
+															: "3 Large bags"}
+														</p>
 													</div>
 												</div>
 											</div>
 											<div className="item-feature-car w-md-25">
 												<div className="item-feature-car-inner">
 													<div className="feature-image"><img src="/assets/imgs/page/car/suv.svg" 
-                                                     alt={`${car.name} For Rent in Dubai`}
-                                                     title={`Rent ${car.name} in Dubai`}
+                                                     alt={`${toDisplayLabel(car.name)} For Rent in Dubai`}
+                                                     title={`Rent ${toDisplayLabel(car.name)} in Dubai`}
                                                      loading="lazy"
                                                      decoding="async" /></div>
 													<div className="feature-info">
-														<p className="text-md-medium neutral-1000">{car.type}</p>
+														<p className="text-md-medium neutral-1000">{toDisplayLabel(car.type)}</p>
 													</div>
 												</div>
 											</div>
 											<div className="item-feature-car w-md-25">
 												<div className="item-feature-car-inner">
 													<div className="feature-image"><img src="/assets/imgs/page/car/door.svg" 
-                                                     alt={`${car.name} For Rent in Dubai`}
-                                                     title={`Rent ${car.name} in Dubai`}
+                                                     alt={`${toDisplayLabel(car.name)} For Rent in Dubai`}
+                                                     title={`Rent ${toDisplayLabel(car.name)} in Dubai`}
                                                      loading="lazy"
                                                      decoding="async" /></div>
 													<div className="feature-info">
@@ -269,8 +323,8 @@ export default function CarDetail({ car }: CarDetailProps) {
 											<div className="item-feature-car w-md-25">
 												<div className="item-feature-car-inner">
 													<div className="feature-image"><img src="/assets/imgs/page/car/lit.svg" 
-                                                     alt={`${car.name} For Rent in Dubai`}
-                                                     title={`Rent ${car.name} in Dubai`}
+                                                     alt={`${toDisplayLabel(car.name)} For Rent in Dubai`}
+                                                     title={`Rent ${toDisplayLabel(car.name)} in Dubai`}
                                                      loading="lazy"
                                                      decoding="async"
                                                       /></div>
@@ -287,7 +341,7 @@ export default function CarDetail({ car }: CarDetailProps) {
 												{car.sk ? (
 														<h2 className='custom-heading5' dangerouslySetInnerHTML={{ __html: car.sk }} />
 													):(
-														<h2 className='custom-heading5'>{car.name} Rental Dubai</h2>
+														<h2 className='custom-heading5'>{toDisplayLabel(car.name)} Rental Dubai</h2>
 													)}
 												
 												<svg width={12} height={7} viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg">
@@ -301,6 +355,8 @@ export default function CarDetail({ car }: CarDetailProps) {
 													) : (
 													<p>Best Car Rental Dubai Provides luxury cars on reasonable price. You can explore our <Link href="/luxury-fleet" className='custom-color'>luxury fleet</Link> </p>
 													)}
+													{!fromDb && (
+													<>
 													<ul className='mb-4' >
 													{car.features2?.map((feature, index) => {
 														const [title, desc] = feature.split(":");
@@ -314,7 +370,7 @@ export default function CarDetail({ car }: CarDetailProps) {
 													{car.title2 ? (
 														<h3 className='custom-heading5 mb-2' dangerouslySetInnerHTML={{ __html: car.title2 }} />
 													):(
-														<h3 className='custom-heading5 mb-2'>Well Defined Technology of {car.name}</h3>
+														<h3 className='custom-heading5 mb-2'>Well Defined Technology of {toDisplayLabel(car.name)}</h3>
 													)}
 													{car.description2 ? (
 													<p dangerouslySetInnerHTML={{ __html: car.description2 }} />
@@ -344,7 +400,7 @@ export default function CarDetail({ car }: CarDetailProps) {
 												{car.title3 ? (
 														<h4 className='custom-heading5 mb-2' dangerouslySetInnerHTML={{ __html: car.title3 }} />
 													):(
-														<h4 className='custom-heading5 mb-2'>Rent a {car.name} in Dubai</h4>
+														<h4 className='custom-heading5 mb-2'>Rent a {toDisplayLabel(car.name)} in Dubai</h4>
 													)}
 													{car.description3 ? (
 													<p dangerouslySetInnerHTML={{ __html: car.description3 }} />
@@ -386,11 +442,14 @@ export default function CarDetail({ car }: CarDetailProps) {
 													{car.description8 && (
 													<p dangerouslySetInnerHTML={{ __html: car.description8 }} />
 													)}
+													</>
+													)}
 												</div>
 											</div>
 
 										</div>
 										
+										{!fromDb && (
 										<div className="group-collapse-expand">
 										<button
 											className={`btn btn-collapse ${isAccordion === 2 ? "" : "collapsed"}`}
@@ -421,7 +480,9 @@ export default function CarDetail({ car }: CarDetailProps) {
 											</div>
 										</div>
 										</div>
+										)}
 
+										{!fromDb && (
 										<div className="group-collapse-expand">
 											<button
 												className={`btn btn-collapse ${isAccordion === 3 ? "" : "collapsed"}`}
@@ -462,7 +523,7 @@ export default function CarDetail({ car }: CarDetailProps) {
 
 											</div>
 										</div>
-										
+										)}
 										
 									</div>
 								</div>
@@ -474,7 +535,7 @@ export default function CarDetail({ car }: CarDetailProps) {
 												Rental Price: {car.price} AED  
 												<span className="text-lg-medium neutral-1000"> /day</span>
 											</p>
-											<Link href="https://wa.me/971545514155" className="btn  custom-btn w-100 rounded-3  mb-3">
+											<Link href={fromDb && vendor?.contact_number ? toWhatsAppHref(vendor.contact_number) : "https://wa.me/971545514155"} className="btn  custom-btn w-100 rounded-3  mb-3">
 												Get Your Luxury Car Now
 												<svg width={17} height={16} viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path d="M8.5 15L15.5 8L8.5 1M15.5 8L1.5 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -640,8 +701,8 @@ export default function CarDetail({ car }: CarDetailProps) {
 												<div className="card-author">
 													<div className="me-2"><img src="/assets/imgs/template/logo.png" alt="Best Car Rental Dubai" /></div>
 													<div className="card-author-info">
-														<p className="text-lg-bold neutral-1000">Legendary Car Rental Dubai</p>
-														<p className="text-sm-medium neutral-500">Dubai - United Arab Emirates</p>
+														<p className="text-lg-bold neutral-1000">{fromDb && vendor?.company_name ? vendor.company_name : "Legendary Car Rental Dubai"}</p>
+														<p className="text-sm-medium neutral-500">{fromDb && vendor ? [vendor.city, vendor.country].filter(Boolean).join(" - ") || "Dubai - United Arab Emirates" : "Dubai - United Arab Emirates"}</p>
 													</div>
 												</div>
 											</div>
@@ -650,30 +711,29 @@ export default function CarDetail({ car }: CarDetailProps) {
 												<p className="text-md-medium mobile-phone neutral-1000"><span className="text-md-bold">Mobile:</span>
                                                 {''}
                                                 <a
-                                                        href="tel:971545514155"
+                                                        href={fromDb && vendor?.contact_number ? toTelHref(vendor.contact_number) : "tel:971545514155"}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                         className="text-md-medium whatsapp-link"
                                                     >
-                                                        +971 54 551 4155
+                                                        {fromDb && vendor?.contact_number ? vendor.contact_number : "+971 54 551 4155"}
                                                     </a></p>
-												<p className="text-md-medium email neutral-1000"><span className="text-md-bold">Email:</span> info@bestcarrentaldubai.ae</p>
-												{/* <p className="text-md-medium whatsapp neutral-1000"><span className="text-md-bold">WhatsApp:</span> +971 54 551 4155</p> */}
+												<p className="text-md-medium email neutral-1000"><span className="text-md-bold">Email:</span> {fromDb && vendor?.business_email ? vendor.business_email : "info@bestcarrentaldubai.ae"}</p>
 												<p className="text-md-medium whatsapp neutral-1000">
                                                     <span className="text-md-bold">WhatsApp:</span>{' '}
                                                     <a
-                                                        href="https://wa.me/971545514155"
+                                                        href={fromDb && vendor?.contact_number ? toWhatsAppHref(vendor.contact_number) : "https://wa.me/971545514155"}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                         className="text-md-medium whatsapp-link"
                                                     >
-                                                        +971 54 551 4155
+                                                        {fromDb && vendor?.contact_number ? vendor.contact_number : "+971 54 551 4155"}
                                                     </a>
                                                     </p>
 
 											</div>
 											<div className="box-link-bottom">
-												<Link className="btn btn-primary py-3 w-100 rounded-3" href="/luxury-fleet">
+												<Link className="btn btn-primary py-3 w-100 rounded-3" href={fromDb && vendor?.slug ? `/dealer-details/${vendor.slug}` : "/luxury-fleet"}>
 													All items by this dealer
 													<svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 														<path d="M8 15L15 8L8 1M15 8L1 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

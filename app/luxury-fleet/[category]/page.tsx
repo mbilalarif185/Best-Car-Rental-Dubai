@@ -6,8 +6,9 @@ import categoryData from '@/util/categories.json';
 import Layout from "@/components/layout/Layout";
 import Header from '@/components/category/header';
 import Notfound from '@/components/category/notfound';
-const BASE_URL = "https://bestcarrentaldubai.ae";
+import { getPublicCarsForListings } from "@/lib/cars";
 
+const BASE_URL = "https://bestcarrentaldubai.ae";
 const CarsListing4 = dynamic(() => import("@/components/sections/CarsListing4"));
 
 interface Props {
@@ -63,9 +64,14 @@ export async function generateMetadata({ params }: Props) {
 }
 
 // ✅ Render the category page
-export default function CategoryPage({ params }: Props) {
+export default async function CategoryPage({ params }: Props) {
   const categorySlug = params.category.toLowerCase();
-  const filteredCars = cars.filter(
+
+  const dbCars = await getPublicCarsForListings();
+  const staticCars = cars as Car[];
+  const allCars: Car[] = [...staticCars, ...dbCars];
+
+  const filteredCars = allCars.filter(
     (car: Car) => car.type.trim().toLowerCase() === categorySlug
   );
 

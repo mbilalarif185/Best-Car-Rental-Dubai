@@ -1,6 +1,7 @@
 
 
-import cars from '@/util/cars.json'
+import { getPublicCarsForListings } from '@/lib/cars'
+import carsJson from '@/util/cars.json'
 import { Car } from '@/types/type'
 import Layout from '@/components/layout/Layout'
 import Header from '@/components/about_sections/header'
@@ -9,22 +10,22 @@ import dynamic from 'next/dynamic'
 const CarsListing4 = dynamic(() => import('@/components/sections/CarsListing4'))
 
 interface SearchPageProps {
-  searchParams: {
-    query?: string
-    name?: string
-    price?: string
-    type?: string
-    brand?: string
-  }
+  searchParams: { query?: string; name?: string; price?: string; type?: string; brand?: string } | Promise<{ query?: string; name?: string; price?: string; type?: string; brand?: string }>
 }
 
-export default function SearchPage({ searchParams }: SearchPageProps) {
+export default async function SearchPage({ searchParams }: SearchPageProps) {
+  const params = await Promise.resolve(searchParams)
   // Normalize all params to lowercase trimmed strings
-  const query = searchParams.query?.toLowerCase().trim() || ''
-  const name = searchParams.name?.toLowerCase().trim() || ''
-  const price = searchParams.price?.toLowerCase().trim() || ''
-  const type = searchParams.type?.toLowerCase().trim() || ''
-  const brand = searchParams.brand?.toLowerCase().trim() || ''
+  const query = params.query?.toLowerCase().trim() || ''
+  const name = params.name?.toLowerCase().trim() || ''
+  const price = params.price?.toLowerCase().trim() || ''
+  const type = params.type?.toLowerCase().trim() || ''
+  const brand = params.brand?.toLowerCase().trim() || ''
+
+  // Combined cars: DB + JSON (same as luxury-fleet)
+  const dbCars = await getPublicCarsForListings()
+  const staticCars = carsJson as Car[]
+  const allCars: Car[] = [...staticCars, ...dbCars]
 
   // Parse price range if provided
   let priceMin = 0,
@@ -37,10 +38,10 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
     }
   }
 
-  const filteredCars: Car[] = cars.filter((car) => {
-    const carBrand = car.brand.toLowerCase()
-    const carName = car.name.toLowerCase()
-    const carType = car.type.toLowerCase()
+  const filteredCars: Car[] = allCars.filter((car) => {
+    const carBrand = (car.brand ?? '').toLowerCase()
+    const carName = (car.name ?? '').toLowerCase()
+    const carType = (car.type ?? '').toLowerCase()
     const carPrice = Number(car.price) // Make sure price is number
 
     if (query) {

@@ -1,8 +1,8 @@
 'use client';
 
 import { Car } from "@/types/type";
-
 import Link from "next/link";
+import { toDisplayLabel } from '@/util/format';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { swiperGroup3 } from '@/util/swiperOptions';
 import 'swiper/css';
@@ -52,18 +52,18 @@ export default function CarsListing1({ cars }: CarsListingProps) {
                     itemScope
                     itemType="https://schema.org/Product"
                   >
-                     <meta itemProp="name" content={car.name} />
-                      <meta itemProp="image" content={`${BASE_URL}${car.image}`} />
+                     <meta itemProp="name" content={toDisplayLabel(car.name)} />
+                     <meta itemProp="image" content={`${BASE_URL}${car.image}`} />
                       <meta itemProp="url" content={`https://bestcarrentaldubai.ae/cars/${car.slug}`} />
-                      <meta itemProp="description" content={`Rent the ${car.name} in Dubai with ${car.seats} seats and ${car.doors} doors from Best Car Rental Dubai.`} />
+                      <meta itemProp="description" content={`Rent the ${toDisplayLabel(car.name)} in Dubai with ${car.seats} seats and ${car.doors} doors from Best Car Rental Dubai.`} />
 
                     <div className="card-image">
                       
                       <Link href={`/cars/${car.slug}`}>
                         <img
                           src={`${BASE_URL}${car.image}`}
-                          alt={`${car.name} - Rent Luxury Car in Dubai`}
-                          title={`Rent ${car.name} in Dubai`}
+                          alt={`${toDisplayLabel(car.name)} - Rent Luxury Car in Dubai`}
+                          title={`Rent ${toDisplayLabel(car.name)} in Dubai`}
                           width={400}
                           height={250}
                           className="img-fluid"
@@ -92,7 +92,7 @@ export default function CarsListing1({ cars }: CarsListingProps) {
 
                       <h3 className="card-title">
                         <Link className="heading-6 neutral-1000" href={`/cars/${car.slug}`} >
-                          <span itemProp="name">{car.name}</span>
+                          <span itemProp="name">{toDisplayLabel(car.name)}</span>
                         </Link>
                       </h3>
 
@@ -102,8 +102,8 @@ export default function CarsListing1({ cars }: CarsListingProps) {
                       </div>
                         <div className="card-facitlities">
                           <p className="card-miles text-md-medium">{car.doors} Doors</p>
-                          <p className="card-gear text-md-medium">{car.gear}</p>
-                          <p className="card-fuel text-md-medium">{car.fuel}</p>
+                          <p className="card-gear text-md-medium">{toDisplayLabel(car.gear)}</p>
+                          <p className="card-fuel text-md-medium">{toDisplayLabel(car.fuel)}</p>
                           <p className="card-seat text-md-medium">{car.seats} Seats</p>
                         </div>
 
@@ -131,7 +131,7 @@ export default function CarsListing1({ cars }: CarsListingProps) {
                             </h6>
                           </div>
                           <div className="card-button">
-                            <Link className="btn btn-gray" href={`/cars/${car.slug}`} aria-label={`Book ${car.name} in Dubai`}>
+                            <Link className="btn btn-gray" href={`/cars/${car.slug}`} aria-label={`Book ${toDisplayLabel(car.name)} in Dubai`}>
                               Book Now
                             </Link>
                           </div>

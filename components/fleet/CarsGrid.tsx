@@ -11,9 +11,13 @@ import useCarFilter from '@/util/useCarFilter';
 import { getCategoryData } from "@/lib/categoryUtils";
 import SortCarsFilter from '@/components/elements/SortCarsFilter';
 
-const carsData: Car[] = rawCarsData;
+interface CarsGridProps {
+  /** When provided, use this list instead of static cars.json (e.g. static + vendor cars merged). */
+  initialCars?: Car[];
+}
 
-export default function CarsGrid() {
+export default function CarsGrid({ initialCars }: CarsGridProps = {}) {
+  const carsData: Car[] = initialCars ?? rawCarsData;
   const {
     filter,
     setFilter,
@@ -91,7 +95,7 @@ export default function CarsGrid() {
                   <div className="block-filter border-1">
                     <h6 className="text-lg-bold item-collapse neutral-1000">Car Type</h6>
                     <ByCarType 
-                      categories={getCategoryData()} 
+                      categories={getCategoryData(carsData)} 
                       filter={filter} 
                       handleCheckboxChange={handleCheckboxChange} 
                     />
