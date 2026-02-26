@@ -28,3 +28,8 @@ export async function middleware(request: NextRequest) {
 
   return NextResponse.next();
 }
+
+/** Only run on dashboard and auth paths so cookies are checked on every navigation. */
+export const config = {
+  matcher: ["/user", "/user/:path*", "/agent", "/agent/:path*", "/login", "/register"],
+};

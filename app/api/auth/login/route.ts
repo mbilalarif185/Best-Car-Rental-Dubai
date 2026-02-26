@@ -129,7 +129,18 @@ export async function POST(request: NextRequest) {
 
     if (isForm) {
       const redirectUrl = new URL(targetPath, request.url);
-      const response = NextResponse.redirect(redirectUrl, 302);
+      const urlString = redirectUrl.toString();
+      const urlEscaped = urlString.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+      const response = new NextResponse(
+        `<!DOCTYPE html><html><head><meta http-equiv="Refresh" content="0;url=${urlEscaped}"/><script>window.location.replace(${JSON.stringify(urlString)});</script></head><body>Redirecting…</body></html>`,
+        {
+          status: 200,
+          headers: {
+            "Content-Type": "text/html; charset=utf-8",
+            "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
+          },
+        }
+      );
       response.cookies.set(getCookieName(), token, cookieOptions);
       return response;
     }
