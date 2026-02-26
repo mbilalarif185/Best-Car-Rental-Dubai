@@ -25,6 +25,11 @@ const nextConfig = {
         destination: '/luxury-fleet', 
         permanent: true, 
       },
+      {
+        source: '/logout',
+        destination: '/api/auth/logout',
+        permanent: false,
+      },
     ];
   },
 };
