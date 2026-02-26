@@ -11,6 +11,8 @@ import {
   writeFile,
 } from "@/lib/uploads";
 
+export const dynamic = "force-dynamic";
+
 const CAR_UPLOADS_BASE = "uploads/cars";
 
 function parseNum(value: unknown): number | null {

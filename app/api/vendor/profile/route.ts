@@ -3,6 +3,8 @@ import { getSession } from "@/lib/auth";
 import { toStoredPath } from "@/lib/uploads";
 import pool from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 const VENDOR_COLUMNS =
   "id, user_id, avatar_url, company_logo_url, company_name, business_email, contact_number, website_url, bio, country, city, address, facebook_url, instagram_url, youtube_url, is_approved, is_blocked, created_at, updated_at";
 

@@ -6,6 +6,8 @@ import {
 } from "@/lib/agent-dashboard";
 import AgentVendorsSection from "@/components/dashboard/AgentVendorsSection";
 
+export const dynamic = "force-dynamic";
+
 export default async function AgentDashboardHomePage({
   searchParams,
 }: {

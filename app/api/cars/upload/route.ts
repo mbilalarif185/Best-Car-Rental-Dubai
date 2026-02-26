@@ -9,6 +9,8 @@ import {
   toPublicUrl,
 } from "@/lib/uploads";
 
+export const dynamic = "force-dynamic";
+
 const CAR_UPLOADS_BASE = "uploads/cars";
 
 /**

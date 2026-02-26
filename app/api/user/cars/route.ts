@@ -4,6 +4,8 @@ import pool from "@/lib/db";
 import { toPublicUrl } from "@/lib/uploads";
 import { slugifyCarSlug, ensureUniqueSlug } from "@/lib/slug";
 
+export const dynamic = "force-dynamic";
+
 type CarRow = {
   id: string;
   title: string;

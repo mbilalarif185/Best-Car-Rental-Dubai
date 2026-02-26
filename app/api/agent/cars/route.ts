@@ -3,6 +3,8 @@ import { getSession } from "@/lib/auth";
 import { getAgentCarsList } from "@/lib/agent-approvals";
 import type { CarStatusFilter } from "@/lib/agent-approvals";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(request: Request) {
   try {
     const session = await getSession();

@@ -4,6 +4,8 @@ import fs from "fs/promises";
 import { getSession } from "@/lib/auth";
 import pool from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 /**
  * DELETE /api/car-image/:id
  * Deletes a car image: verifies car belongs to current vendor, removes file and DB row.

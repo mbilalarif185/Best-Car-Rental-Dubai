@@ -9,6 +9,8 @@ import {
   toPublicUrl,
 } from "@/lib/uploads";
 
+export const dynamic = "force-dynamic";
+
 const RELATIVE_DIR_AVATARS = "uploads/vendors/avatars";
 const RELATIVE_DIR_LOGOS = "uploads/vendors/logos";
 

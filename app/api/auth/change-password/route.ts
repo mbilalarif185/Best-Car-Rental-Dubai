@@ -3,6 +3,8 @@ import bcrypt from "bcryptjs";
 import pool from "@/lib/db";
 import { getSession } from "@/lib/auth";
 
+export const dynamic = "force-dynamic";
+
 const SALT_ROUNDS = 10;
 
 /**

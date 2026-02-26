@@ -3,6 +3,8 @@ import bcrypt from "bcryptjs";
 import pool from "@/lib/db";
 import { signTokenWithJWT, getCookieName } from "@/lib/auth";
 
+export const dynamic = "force-dynamic";
+
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 7; // 7 days
 
 export async function POST(request: NextRequest) {

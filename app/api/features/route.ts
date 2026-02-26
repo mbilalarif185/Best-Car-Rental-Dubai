@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import pool from "@/lib/db";
 import { getSession } from "@/lib/auth";
 
+export const dynamic = "force-dynamic";
+
 /**
  * GET /api/features
  * Returns list of features (id, name) for add-listing checkboxes.

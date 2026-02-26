@@ -1,6 +1,8 @@
 import Layout from "@/components/layout/Layout"
 import LoginForm from "@/components/auth/LoginForm"
 
+export const dynamic = "force-dynamic";
+
 export default function Login() {
 	return (
 		<>

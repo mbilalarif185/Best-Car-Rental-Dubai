@@ -17,6 +17,7 @@ export const viewport = {
   initialScale: 1,
 };
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bestcarrentaldubai.ae"),
   title: "Best Car Rental Dubai",
   description: "Looking for Luxury Cars? Explore Our Best Car Rental Dubai's top luxury fleet.",
   

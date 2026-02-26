@@ -3,6 +3,8 @@ import { getSession } from "@/lib/auth";
 import { getAgentVendorsList } from "@/lib/agent-dashboard";
 import type { VendorStatusFilter } from "@/lib/agent-dashboard";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(request: Request) {
   try {
     const session = await getSession();

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getSession } from "@/lib/auth";
 import path from "path";
 import { randomUUID } from "crypto";
-import { getSession } from "@/lib/auth";
 import pool from "@/lib/db";
 import { toPublicUrl, toStoredPath } from "@/lib/uploads";
 import {
@@ -10,6 +10,8 @@ import {
   resolvePublicPath,
   writeFile,
 } from "@/lib/uploads";
+
+export const dynamic = "force-dynamic";
 
 const CAR_UPLOADS_BASE = "uploads/cars";
 
