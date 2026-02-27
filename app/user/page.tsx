@@ -1,4 +1,3 @@
-import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getSession } from "@/lib/auth";
 import {
@@ -34,9 +33,9 @@ function VendorAvatar({
 
 export default async function UserDashboardHomePage() {
   const session = await getSession();
-  if (!session?.user_id) {
-    redirect("/login");
-  }
+  // Middleware already enforces authentication for /user routes.
+  // If session is somehow missing here, render nothing instead of redirecting.
+  if (!session?.user_id) return null;
 
   const data: VendorDashboardData | null = await getVendorDashboardData(
     session.user_id

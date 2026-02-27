@@ -1,4 +1,3 @@
-import { redirect } from "next/navigation";
 import { getSession } from "@/lib/auth";
 import { getAgentVendorsList } from "@/lib/agent-dashboard";
 import { getAgentCarsList } from "@/lib/agent-approvals";
@@ -9,9 +8,6 @@ export const dynamic = "force-dynamic";
 
 export default async function AgentApprovalsPage() {
   const session = await getSession();
-  if (!session?.user_id) {
-    redirect("/login");
-  }
   if (session.role !== "admin") {
     redirect("/user");
   }

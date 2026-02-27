@@ -154,7 +154,7 @@ export default async function DealerListing() {
 												</ul>
 											</div>
 										</div>
-										<Link className="btn btn-primary mt-2" href="#">
+										<Link className="btn btn-primary mt-2" href="https://wa.me/971545510155">
 											Get Started Now
 											<svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M8 15L15 8L8 1M15 8L1 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

@@ -1,4 +1,3 @@
-import { redirect } from "next/navigation";
 import { getSession } from "@/lib/auth";
 import {
   getAgentDashboardData,
@@ -14,9 +13,6 @@ export default async function AgentDashboardHomePage({
   searchParams: Promise<{ page?: string; status?: string }>;
 }) {
   const session = await getSession();
-  if (!session?.user_id) {
-    redirect("/login");
-  }
   if (session.role !== "admin") {
     redirect("/user");
   }
