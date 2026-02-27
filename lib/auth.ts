@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import { jwtVerify } from "jose";
 import { cookies } from "next/headers";
 
-const COOKIE_NAME = "bcr_session";
+const COOKIE_NAME = "token";
 const JWT_SECRET = process.env.JWT_SECRET || "bcr-default-secret-change-in-production";
 const JWT_ISSUER = "bcr-car-hire";
 const JWT_AUDIENCE = "bcr-web";

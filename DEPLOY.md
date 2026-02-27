@@ -56,7 +56,7 @@ Or use PM2/systemd with `NODE_ENV=production` set.
 
 ## JWT session and auth
 
-- **Login / Register:** JWT is signed with `JWT_SECRET` and stored in cookie `bcr_session`.
+- **Login / Register:** JWT is signed with `JWT_SECRET` and stored in cookie `token`.
 - **Protected routes:** `/user/*` and `/agent/*` are protected by `middleware.ts`; unauthenticated users are redirected to `/login`.
 - **APIs:** `getSession()` reads the cookie and verifies the JWT; used by dashboard, vendor profile, car upload, etc.
 

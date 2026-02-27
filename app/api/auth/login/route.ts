@@ -5,21 +5,14 @@ import { signTokenWithJWT, getCookieName } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
 
-/** Same cookie options for both login types; only maxAge differs. */
-function getCookieOptions(request: NextRequest, maxAgeSeconds: number) {
-  const isProd = process.env.NODE_ENV === "production";
-  // In production, always use secure cookies; in dev, also respect https during local testing.
-  const secure =
-    isProd ||
-    (typeof request.url === "string" && new URL(request.url).protocol === "https:");
-  const domain = isProd ? ".bestcarrentaldubai.ae" : undefined;
+/** Cookie options for auth token — production-safe behind reverse proxy; no domain. */
+function getCookieOptions(maxAgeSeconds: number) {
   return {
     httpOnly: true,
-    secure,
+    secure: process.env.NODE_ENV === "production",
     sameSite: "lax" as const,
     path: "/",
     maxAge: maxAgeSeconds,
-    domain,
   };
 }
 
@@ -117,7 +110,7 @@ export async function POST(request: NextRequest) {
     const role = String(user.role);
     const token = signTokenWithJWT(userId, role);
     const maxAge = rememberMe ? MAX_AGE_REMEMBER : MAX_AGE_NORMAL;
-    const cookieOptions = getCookieOptions(request, maxAge);
+    const cookieOptions = getCookieOptions(maxAge);
 
     const isAdmin = role === "admin";
     const targetPath =

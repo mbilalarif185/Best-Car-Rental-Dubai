@@ -3,17 +3,14 @@ import { getCookieName } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
 
-/** Same options as login cookie (path, secure, sameSite, domain) so browser clears the correct cookie. */
+/** Same options as login cookie so browser clears the correct cookie; no domain. */
 function getCookieOptions() {
-  const isProd = process.env.NODE_ENV === "production";
-  const domain = isProd ? ".bestcarrentaldubai.ae" : undefined;
   return {
     httpOnly: true,
-    secure: isProd,
+    secure: process.env.NODE_ENV === "production",
     sameSite: "lax" as const,
-    maxAge: 0,
     path: "/",
-    domain,
+    maxAge: 0,
   };
 }
 
