@@ -14,16 +14,13 @@ export async function middleware(request: NextRequest) {
   const isAuthPage = pathname === LOGIN_PATH || pathname === REGISTER_PATH;
 
   if (isProtected && !payload) {
-    const url = request.nextUrl.clone();
-    url.pathname = LOGIN_PATH;
-    url.searchParams.set("from", pathname);
-    return NextResponse.redirect(url);
+    // Use relative path only — do not use request.nextUrl (origin may be localhost behind Nginx).
+    const path = `/login?from=${encodeURIComponent(pathname)}`;
+    return NextResponse.redirect(path, 302);
   }
 
   if (isAuthPage && payload) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/";
-    return NextResponse.redirect(url);
+    return NextResponse.redirect("/", 302);
   }
 
   return NextResponse.next();

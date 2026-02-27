@@ -5,6 +5,7 @@ export const dynamic = "force-dynamic";
 
 /** Same options as login cookie (path, secure, sameSite) so browser clears the correct cookie. */
 function getCookieOptions(request: NextRequest) {
+  // In production behind Nginx, do not use request.url — it may be internal (localhost).
   const secure =
     process.env.NODE_ENV === "production" ||
     (typeof request.url === "string" && new URL(request.url).protocol === "https:");
@@ -18,7 +19,7 @@ function getCookieOptions(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
-  const response = NextResponse.redirect(new URL("/", request.url));
+  const response = NextResponse.redirect("/", 302);
   response.cookies.set(getCookieName(), "", getCookieOptions(request));
   return response;
 }

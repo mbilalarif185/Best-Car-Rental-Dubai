@@ -7,6 +7,7 @@ export const dynamic = "force-dynamic";
 
 /** Same cookie options for both login types; only maxAge differs. */
 function getCookieOptions(request: NextRequest, maxAgeSeconds: number) {
+  // In production (e.g. behind Nginx), do not use request.url for protocol — it may be internal (localhost).
   const secure =
     process.env.NODE_ENV === "production" ||
     (typeof request.url === "string" && new URL(request.url).protocol === "https:");
@@ -30,6 +31,15 @@ function safeRedirectPath(raw: string | null): string {
   if (!path.startsWith("/") || path.startsWith("//")) return "/user";
   if (path === "/user" || path.startsWith("/user/") || path === "/agent" || path.startsWith("/agent/")) return path;
   return "/user";
+}
+
+/** Build relative path for login redirect (no request origin — safe behind Nginx). */
+function loginRedirectPath(params: { error?: string; from?: string }): string {
+  const search = new URLSearchParams();
+  if (params.error) search.set("error", params.error);
+  if (params.from) search.set("from", params.from);
+  const q = search.toString();
+  return q ? `/login?${q}` : "/login";
 }
 
 export async function POST(request: NextRequest) {
@@ -61,9 +71,7 @@ export async function POST(request: NextRequest) {
 
   if (!email || !password) {
     if (isForm) {
-      const url = new URL("/login", request.url);
-      url.searchParams.set("error", "Email and password are required.");
-      return NextResponse.redirect(url, 302);
+      return NextResponse.redirect(loginRedirectPath({ error: "Email and password are required." }), 302);
     }
     return NextResponse.json({ error: "Email and password are required." }, { status: 400 });
   }
@@ -80,10 +88,7 @@ export async function POST(request: NextRequest) {
 
     if (result.rows.length === 0) {
       if (isForm) {
-        const url = new URL("/login", request.url);
-        url.searchParams.set("error", "Invalid email or password.");
-        url.searchParams.set("from", redirectTo);
-        return NextResponse.redirect(url, 302);
+        return NextResponse.redirect(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), 302);
       }
       return NextResponse.json({ error: "Invalid email or password." }, { status: 400 });
     }
@@ -93,10 +98,7 @@ export async function POST(request: NextRequest) {
 
     if (hash == null || typeof hash !== "string") {
       if (isForm) {
-        const url = new URL("/login", request.url);
-        url.searchParams.set("error", "Invalid email or password.");
-        url.searchParams.set("from", redirectTo);
-        return NextResponse.redirect(url, 302);
+        return NextResponse.redirect(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), 302);
       }
       return NextResponse.json({ error: "Invalid email or password." }, { status: 400 });
     }
@@ -104,10 +106,7 @@ export async function POST(request: NextRequest) {
     const match = await bcrypt.compare(password, hash);
     if (!match) {
       if (isForm) {
-        const url = new URL("/login", request.url);
-        url.searchParams.set("error", "Invalid email or password.");
-        url.searchParams.set("from", redirectTo);
-        return NextResponse.redirect(url, 302);
+        return NextResponse.redirect(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), 302);
       }
       return NextResponse.json({ error: "Invalid email or password." }, { status: 400 });
     }
@@ -128,11 +127,13 @@ export async function POST(request: NextRequest) {
           : "/user";
 
     if (isForm) {
-      const redirectUrl = new URL(targetPath, request.url);
-      const urlString = redirectUrl.toString();
-      const urlEscaped = urlString.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+      // Use a relative path so production never redirects to a backend host like http://localhost:3000.
+      const urlPath = targetPath;
+      const urlEscaped = urlPath.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
       const response = new NextResponse(
-        `<!DOCTYPE html><html><head><meta http-equiv="Refresh" content="0;url=${urlEscaped}"/><script>window.location.replace(${JSON.stringify(urlString)});</script></head><body>Redirecting…</body></html>`,
+        `<!DOCTYPE html><html><head><meta http-equiv="Refresh" content="0;url=${urlEscaped}"/><script>window.location.replace(${JSON.stringify(
+          urlPath
+        )});</script></head><body>Redirecting…</body></html>`,
         {
           status: 200,
           headers: {
@@ -154,9 +155,7 @@ export async function POST(request: NextRequest) {
   } catch (err: unknown) {
     console.error("Login API error:", err);
     if (isForm) {
-      const url = new URL("/login", request.url);
-      url.searchParams.set("error", "Login failed. Please try again.");
-      return NextResponse.redirect(url, 302);
+      return NextResponse.redirect(loginRedirectPath({ error: "Login failed. Please try again." }), 302);
     }
     return NextResponse.json({ error: "Login failed. Please try again." }, { status: 500 });
   } finally {
