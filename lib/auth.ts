@@ -2,8 +2,15 @@ import jwt from "jsonwebtoken";
 import { jwtVerify } from "jose";
 import { cookies } from "next/headers";
 
+if (process.env.NODE_ENV === "production" && !process.env.JWT_SECRET) {
+  throw new Error("Production requires JWT_SECRET environment variable.");
+}
+
 const COOKIE_NAME = "token";
-const JWT_SECRET = process.env.JWT_SECRET || "bcr-default-secret-change-in-production";
+if (!process.env.JWT_SECRET) {
+  throw new Error("JWT_SECRET is not defined. Set it in production environment.");
+}
+const JWT_SECRET = process.env.JWT_SECRET;
 const JWT_ISSUER = "bcr-car-hire";
 const JWT_AUDIENCE = "bcr-web";
 const JWT_EXPIRES_IN = "7d";
