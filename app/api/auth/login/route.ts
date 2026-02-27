@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
   if (!email || !password) {
     if (isForm) {
       return NextResponse.redirect(
-        new URL(loginRedirectPath({ error: "Email and password are required." }), request.url),
+        new URL(loginRedirectPath({ error: "Email and password are required." }), request.nextUrl.origin),
         302
       );
     }
@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
     if (result.rows.length === 0) {
       if (isForm) {
         return NextResponse.redirect(
-          new URL(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), request.url),
+          new URL(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), request.nextUrl.origin),
           302
         );
       }
@@ -102,7 +102,7 @@ export async function POST(request: NextRequest) {
     if (hash == null || typeof hash !== "string") {
       if (isForm) {
         return NextResponse.redirect(
-          new URL(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), request.url),
+          new URL(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), request.nextUrl.origin),
           302
         );
       }
@@ -113,7 +113,7 @@ export async function POST(request: NextRequest) {
     if (!match) {
       if (isForm) {
         return NextResponse.redirect(
-          new URL(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), request.url),
+          new URL(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), request.nextUrl.origin),
           302
         );
       }
@@ -137,7 +137,7 @@ export async function POST(request: NextRequest) {
 
     if (isForm) {
       const response = NextResponse.redirect(
-        new URL(targetPath, request.url),
+        new URL(targetPath, request.nextUrl.origin),
         302
       );
 
@@ -155,7 +155,7 @@ export async function POST(request: NextRequest) {
     console.error("Login API error:", err);
     if (isForm) {
       return NextResponse.redirect(
-        new URL(loginRedirectPath({ error: "Login failed. Please try again." }), request.url),
+        new URL(loginRedirectPath({ error: "Login failed. Please try again." }), request.nextUrl.origin),
         302
       );
     }
