@@ -6,8 +6,7 @@ const LOGIN_PATH = "/login";
 const REGISTER_PATH = "/register";
 
 export async function middleware(request: NextRequest) {
-  const url = request.nextUrl.clone();
-  const { pathname } = url;
+  const { pathname } = request.nextUrl;
 
   // Use existing JWT cookie + verification so auth behaviour stays the same.
   const token = getTokenFromRequest(request);
@@ -19,16 +18,19 @@ export async function middleware(request: NextRequest) {
 
   // Protect user and agent routes
   if (!isAuthenticated && isProtected) {
-    url.pathname = LOGIN_PATH;
-    url.search = `from=${encodeURIComponent(pathname)}`;
-    return NextResponse.redirect(url);
+    const loginUrl = new URL(request.url);
+    loginUrl.pathname = LOGIN_PATH;
+    loginUrl.search = "";
+    loginUrl.searchParams.set("from", pathname);
+    return NextResponse.redirect(loginUrl);
   }
 
   // Prevent logged-in users from accessing login/register
   if (isAuthenticated && isAuthPage) {
-    url.pathname = "/";
-    url.search = "";
-    return NextResponse.redirect(url);
+    const homeUrl = new URL(request.url);
+    homeUrl.pathname = "/";
+    homeUrl.search = "";
+    return NextResponse.redirect(homeUrl);
   }
 
   return NextResponse.next();
