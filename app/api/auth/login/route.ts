@@ -33,13 +33,12 @@ function safeRedirectPath(raw: string | null): string {
   return "/user";
 }
 
-/** Build relative path for login redirect (no request origin — safe behind Nginx). */
-function loginRedirectPath(params: { error?: string; from?: string }): string {
-  const search = new URLSearchParams();
-  if (params.error) search.set("error", params.error);
-  if (params.from) search.set("from", params.from);
-  const q = search.toString();
-  return q ? `/login?${q}` : "/login";
+/** Build absolute login redirect URL (required by Next.js in production). */
+function loginRedirectUrl(request: NextRequest, params: { error?: string; from?: string }): URL {
+  const url = new URL("/login", request.url);
+  if (params.error) url.searchParams.set("error", params.error);
+  if (params.from) url.searchParams.set("from", params.from);
+  return url;
 }
 
 export async function POST(request: NextRequest) {
@@ -71,7 +70,7 @@ export async function POST(request: NextRequest) {
 
   if (!email || !password) {
     if (isForm) {
-      return NextResponse.redirect(loginRedirectPath({ error: "Email and password are required." }), 302);
+      return NextResponse.redirect(loginRedirectUrl(request, { error: "Email and password are required." }), 302);
     }
     return NextResponse.json({ error: "Email and password are required." }, { status: 400 });
   }
@@ -88,7 +87,7 @@ export async function POST(request: NextRequest) {
 
     if (result.rows.length === 0) {
       if (isForm) {
-        return NextResponse.redirect(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), 302);
+        return NextResponse.redirect(loginRedirectUrl(request, { error: "Invalid email or password.", from: redirectTo }), 302);
       }
       return NextResponse.json({ error: "Invalid email or password." }, { status: 400 });
     }
@@ -98,7 +97,7 @@ export async function POST(request: NextRequest) {
 
     if (hash == null || typeof hash !== "string") {
       if (isForm) {
-        return NextResponse.redirect(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), 302);
+        return NextResponse.redirect(loginRedirectUrl(request, { error: "Invalid email or password.", from: redirectTo }), 302);
       }
       return NextResponse.json({ error: "Invalid email or password." }, { status: 400 });
     }
@@ -106,7 +105,7 @@ export async function POST(request: NextRequest) {
     const match = await bcrypt.compare(password, hash);
     if (!match) {
       if (isForm) {
-        return NextResponse.redirect(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), 302);
+        return NextResponse.redirect(loginRedirectUrl(request, { error: "Invalid email or password.", from: redirectTo }), 302);
       }
       return NextResponse.json({ error: "Invalid email or password." }, { status: 400 });
     }
@@ -155,7 +154,7 @@ export async function POST(request: NextRequest) {
   } catch (err: unknown) {
     console.error("Login API error:", err);
     if (isForm) {
-      return NextResponse.redirect(loginRedirectPath({ error: "Login failed. Please try again." }), 302);
+      return NextResponse.redirect(loginRedirectUrl(request, { error: "Login failed. Please try again." }), 302);
     }
     return NextResponse.json({ error: "Login failed. Please try again." }, { status: 500 });
   } finally {
