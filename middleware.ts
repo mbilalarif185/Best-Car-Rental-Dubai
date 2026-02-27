@@ -1,36 +1,19 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { getTokenFromRequest, verifyToken } from "@/lib/auth";
 
-const LOGIN_PATH = "/login";
-const REGISTER_PATH = "/register";
-
-export async function middleware(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Use existing JWT cookie + verification so auth behaviour stays the same.
-  const token = getTokenFromRequest(request);
-  const payload = token ? await verifyToken(token) : null;
-  const isAuthenticated = !!payload;
+  const token = request.cookies.get("bcr_session");
 
-  const isProtected = pathname.startsWith("/user") || pathname.startsWith("/agent");
-  const isAuthPage = pathname === LOGIN_PATH || pathname === REGISTER_PATH;
+  const isProtected =
+    pathname.startsWith("/user") ||
+    pathname.startsWith("/agent");
 
-  // Protect user and agent routes
-  if (!isAuthenticated && isProtected) {
-    const loginUrl = new URL(request.url);
-    loginUrl.pathname = LOGIN_PATH;
-    loginUrl.search = "";
+  if (isProtected && !token) {
+    const loginUrl = new URL("/login", request.url);
     loginUrl.searchParams.set("from", pathname);
     return NextResponse.redirect(loginUrl);
-  }
-
-  // Prevent logged-in users from accessing login/register
-  if (isAuthenticated && isAuthPage) {
-    const homeUrl = new URL(request.url);
-    homeUrl.pathname = "/";
-    homeUrl.search = "";
-    return NextResponse.redirect(homeUrl);
   }
 
   return NextResponse.next();
