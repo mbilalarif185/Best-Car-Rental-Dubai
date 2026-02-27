@@ -6,7 +6,7 @@ const LOGIN_PATH = "/login";
 const REGISTER_PATH = "/register";
 
 export async function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+  const { pathname, origin } = request.nextUrl;
   const token = getTokenFromRequest(request);
   const payload = token ? await verifyToken(token) : null;
 
@@ -14,13 +14,13 @@ export async function middleware(request: NextRequest) {
   const isAuthPage = pathname === LOGIN_PATH || pathname === REGISTER_PATH;
 
   if (isProtected && !payload) {
-    // Use relative path only — do not use request.nextUrl (origin may be localhost behind Nginx).
-    const path = `/login?from=${encodeURIComponent(pathname)}`;
-    return NextResponse.redirect(path, 302);
+    const loginUrl = new URL(`${LOGIN_PATH}?from=${encodeURIComponent(pathname)}`, origin);
+    return NextResponse.redirect(loginUrl);
   }
 
   if (isAuthPage && payload) {
-    return NextResponse.redirect("/", 302);
+    const homeUrl = new URL("/", origin);
+    return NextResponse.redirect(homeUrl);
   }
 
   return NextResponse.next();
