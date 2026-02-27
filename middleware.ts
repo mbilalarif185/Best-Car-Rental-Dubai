@@ -6,11 +6,7 @@ export function middleware(request: NextRequest) {
 
   const token = request.cookies.get("token")?.value;
 
-  const isProtected =
-    pathname.startsWith("/user") ||
-    pathname.startsWith("/agent");
-
-  if (isProtected && !token) {
+  if (!token) {
     const loginUrl = new URL("/login", request.url);
     loginUrl.searchParams.set("from", pathname);
     return NextResponse.redirect(loginUrl);
@@ -19,7 +15,6 @@ export function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
-/** Only run on dashboard and auth paths so cookies are checked on every navigation. */
 export const config = {
-  matcher: ["/user", "/user/:path*", "/agent", "/agent/:path*", "/login", "/register"],
+  matcher: ["/user/:path*", "/agent/:path*"],
 };
