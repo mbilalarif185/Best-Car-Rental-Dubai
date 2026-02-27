@@ -6,6 +6,14 @@ export function middleware(request: NextRequest) {
 
   const token = request.cookies.get("bcr_session");
 
+  // Temporary debug logging for production cookie issues.
+  console.log("---- MIDDLEWARE DEBUG ----");
+  console.log("URL:", request.nextUrl.href);
+  console.log("Host:", request.headers.get("host"));
+  console.log("Cookie header:", request.headers.get("cookie"));
+  console.log("Forwarded proto:", request.headers.get("x-forwarded-proto"));
+  console.log("Token via request.cookies:", token);
+
   const isProtected =
     pathname.startsWith("/user") ||
     pathname.startsWith("/agent");
