@@ -122,10 +122,7 @@ export async function POST(request: NextRequest) {
           : "/user";
 
     if (isForm) {
-      const response = NextResponse.redirect(
-        new URL(targetPath, request.url),
-        302
-      );
+      const response = NextResponse.redirect(targetPath, 302);
 
       response.cookies.set(getCookieName(), token, cookieOptions);
       return response;
