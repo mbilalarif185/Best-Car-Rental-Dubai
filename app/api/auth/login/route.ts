@@ -7,16 +7,19 @@ export const dynamic = "force-dynamic";
 
 /** Same cookie options for both login types; only maxAge differs. */
 function getCookieOptions(request: NextRequest, maxAgeSeconds: number) {
-  // In production (e.g. behind Nginx), do not use request.url for protocol — it may be internal (localhost).
+  const isProd = process.env.NODE_ENV === "production";
+  // In production, always use secure cookies; in dev, also respect https during local testing.
   const secure =
-    process.env.NODE_ENV === "production" ||
+    isProd ||
     (typeof request.url === "string" && new URL(request.url).protocol === "https:");
+  const domain = isProd ? ".bestcarrentaldubai.ae" : undefined;
   return {
     httpOnly: true,
     secure,
     sameSite: "lax" as const,
     path: "/",
     maxAge: maxAgeSeconds,
+    domain,
   };
 }
 
