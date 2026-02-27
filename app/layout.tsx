@@ -7,7 +7,7 @@ import "../public/assets/css/header-nav-fixes.css";
 import "../public/assets/css/mobile-overflow.css";
 import WhatsAppButton from '@/components/whatsapp/WhatsAppButton';
 
-const urbanist = Urbanist({
+const urbanist =  Urbanist({
   weight: ['300', '400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
   variable: "--urbanist",
