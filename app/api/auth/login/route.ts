@@ -68,7 +68,10 @@ export async function POST(request: NextRequest) {
 
   if (!email || !password) {
     if (isForm) {
-      return NextResponse.redirect(loginRedirectPath({ error: "Email and password are required." }), 302);
+      return NextResponse.redirect(
+        new URL(loginRedirectPath({ error: "Email and password are required." }), request.url),
+        302
+      );
     }
     return NextResponse.json({ error: "Email and password are required." }, { status: 400 });
   }
@@ -85,7 +88,10 @@ export async function POST(request: NextRequest) {
 
     if (result.rows.length === 0) {
       if (isForm) {
-        return NextResponse.redirect(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), 302);
+        return NextResponse.redirect(
+          new URL(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), request.url),
+          302
+        );
       }
       return NextResponse.json({ error: "Invalid email or password." }, { status: 400 });
     }
@@ -95,7 +101,10 @@ export async function POST(request: NextRequest) {
 
     if (hash == null || typeof hash !== "string") {
       if (isForm) {
-        return NextResponse.redirect(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), 302);
+        return NextResponse.redirect(
+          new URL(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), request.url),
+          302
+        );
       }
       return NextResponse.json({ error: "Invalid email or password." }, { status: 400 });
     }
@@ -103,7 +112,10 @@ export async function POST(request: NextRequest) {
     const match = await bcrypt.compare(password, hash);
     if (!match) {
       if (isForm) {
-        return NextResponse.redirect(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), 302);
+        return NextResponse.redirect(
+          new URL(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), request.url),
+          302
+        );
       }
       return NextResponse.json({ error: "Invalid email or password." }, { status: 400 });
     }
@@ -124,7 +136,10 @@ export async function POST(request: NextRequest) {
           : "/user";
 
     if (isForm) {
-      const response = NextResponse.redirect(targetPath, 302);
+      const response = NextResponse.redirect(
+        new URL(targetPath, request.url),
+        302
+      );
 
       response.cookies.set(getCookieName(), token, cookieOptions);
       return response;
@@ -139,7 +154,10 @@ export async function POST(request: NextRequest) {
   } catch (err: unknown) {
     console.error("Login API error:", err);
     if (isForm) {
-      return NextResponse.redirect(loginRedirectPath({ error: "Login failed. Please try again." }), 302);
+      return NextResponse.redirect(
+        new URL(loginRedirectPath({ error: "Login failed. Please try again." }), request.url),
+        302
+      );
     }
     return NextResponse.json({ error: "Login failed. Please try again." }, { status: 500 });
   } finally {
