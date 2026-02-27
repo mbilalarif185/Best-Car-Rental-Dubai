@@ -122,21 +122,11 @@ export async function POST(request: NextRequest) {
           : "/user";
 
     if (isForm) {
-      // Use a relative path so production never redirects to a backend host like http://localhost:3000.
-      const urlPath = targetPath;
-      const urlEscaped = urlPath.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
-      const response = new NextResponse(
-        `<!DOCTYPE html><html><head><meta http-equiv="Refresh" content="0;url=${urlEscaped}"/><script>window.location.replace(${JSON.stringify(
-          urlPath
-        )});</script></head><body>Redirecting…</body></html>`,
-        {
-          status: 200,
-          headers: {
-            "Content-Type": "text/html; charset=utf-8",
-            "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
-          },
-        }
+      const response = NextResponse.redirect(
+        new URL(targetPath, request.url),
+        302
       );
+
       response.cookies.set(getCookieName(), token, cookieOptions);
       return response;
     }
