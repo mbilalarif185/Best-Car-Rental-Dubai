@@ -47,15 +47,24 @@ export default function UserSidebar() {
         <div className="profile-content rounded-pill">
           <div className="d-flex align-items-center justify-content-between">
             <div className="d-flex align-items-center gap-2 gap-sm-3">
-              <img
-                src={avatarSrc}
-                alt=""
-                className="image-avatar-2 user-sidebar-avatar flex-shrink-0 me-2 me-sm-3 rounded-2 overflow-hidden"
-              />
-              <div className="min-w-0">
+              <Link href="/user/settings" className="item-brand me-2">
+                <img
+                  className="light-mode user-sidebar-avatar"
+                  src={avatarSrc}
+                  alt={companyName || "Best Car Rental Dubai"}
+                />
+                <img
+                  className="dark-mode user-sidebar-avatar"
+                  src={avatarSrc}
+                  alt={companyName || "Best Car Rental Dubai"}
+                />
+              </Link>
+              <div>
                 <p className="fw-bold fs-5 mb-0">{companyName || "Best Car Rental Dubai"}</p>
-                {completionPercent !== null && (
+                {completionPercent !== null ? (
                   <span className="fs-14 text-gray-6">Profile {completionPercent}% complete</span>
+                ) : (
+                  <span className="fs-14 text-gray-6">Since 2016</span>
                 )}
               </div>
             </div>
