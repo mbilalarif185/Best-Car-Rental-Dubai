@@ -49,6 +49,7 @@ function getBaseUrl(): string {
   return "http://localhost:3000";
 }
 
+/** Middleware matcher is /user and /agent only — this route /api/auth/login is not run through middleware. */
 export async function POST(request: NextRequest) {
   const contentType = request.headers.get("content-type") || "";
   const isForm = contentType.includes("application/x-www-form-urlencoded") || contentType.includes("multipart/form-data");
@@ -146,12 +147,16 @@ export async function POST(request: NextRequest) {
           : "/user";
 
     if (isForm) {
-      const response = NextResponse.redirect(
-        new URL(targetPath, getBaseUrl()),
-        302
-      );
+      // Single response object: create once, set cookie on it, return it (no new instance after cookie).
+      const redirectUrl = new URL(targetPath, getBaseUrl());
+      const response = NextResponse.redirect(redirectUrl, 303);
 
       response.cookies.set(getCookieName(), token, cookieOptions);
+
+      // Debug: confirm the same response we return has Set-Cookie (check in PM2 logs).
+      const setCookieHeader = response.headers.get("set-cookie");
+      console.log("[LOGIN] Success redirect: same response object returned. Set-Cookie present:", !!setCookieHeader, "| Headers:", Object.fromEntries(response.headers.entries()));
+
       return response;
     }
 
