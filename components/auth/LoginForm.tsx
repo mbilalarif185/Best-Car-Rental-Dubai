@@ -4,6 +4,18 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 
+/** Poll session API until server sees the cookie (max 3s). Fixes first-navigation logged-out. */
+async function waitForSession(): Promise<void> {
+  const maxAttempts = 15;
+  const intervalMs = 200;
+  for (let i = 0; i < maxAttempts; i++) {
+    const res = await fetch("/api/auth/session", { credentials: "include", cache: "no-store" });
+    const data = await res.json().catch(() => ({ user: null }));
+    if (data?.user) return;
+    await new Promise((r) => setTimeout(r, intervalMs));
+  }
+}
+
 export default function LoginForm() {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -41,8 +53,8 @@ export default function LoginForm() {
       const data = await res.json().catch(() => ({}));
       if (res.ok) {
         const redirectTo = (data.redirectTo as string) || "/user";
-        // Short delay so the browser commits the Set-Cookie before we navigate (helps first login).
-        await new Promise((r) => setTimeout(r, 200));
+        // Wait until the session cookie is visible to the server (fixes "logged out on first navigation").
+        await waitForSession();
         router.push(redirectTo);
         return;
       }
