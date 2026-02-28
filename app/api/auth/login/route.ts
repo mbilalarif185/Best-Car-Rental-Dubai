@@ -78,12 +78,6 @@ export async function POST(request: NextRequest) {
   }
 
   if (!email || !password) {
-    if (isForm) {
-      return NextResponse.redirect(
-        new URL(loginRedirectPath({ error: "Email and password are required." }), getBaseUrl()),
-        302
-      );
-    }
     return NextResponse.json({ error: "Email and password are required." }, { status: 400 });
   }
 
@@ -98,12 +92,6 @@ export async function POST(request: NextRequest) {
     );
 
     if (result.rows.length === 0) {
-      if (isForm) {
-        return NextResponse.redirect(
-          new URL(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), getBaseUrl()),
-          302
-        );
-      }
       return NextResponse.json({ error: "Invalid email or password." }, { status: 400 });
     }
 
@@ -111,32 +99,16 @@ export async function POST(request: NextRequest) {
     const hash = user.password_hash;
 
     if (hash == null || typeof hash !== "string") {
-      if (isForm) {
-        return NextResponse.redirect(
-          new URL(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), getBaseUrl()),
-          302
-        );
-      }
       return NextResponse.json({ error: "Invalid email or password." }, { status: 400 });
     }
 
     const match = await bcrypt.compare(password, hash);
     if (!match) {
-      if (isForm) {
-        return NextResponse.redirect(
-          new URL(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), getBaseUrl()),
-          302
-        );
-      }
       return NextResponse.json({ error: "Invalid email or password." }, { status: 400 });
     }
 
     const userId = String(user.id);
     const role = String(user.role);
-
-    // Debug: confirm JWT is signed with process.env.JWT_SECRET (Node runtime).
-    const secret = process.env.JWT_SECRET;
-    console.log("[LOGIN] JWT_SECRET defined:", !!secret, "| length:", secret ? secret.length : 0);
 
     const token = signTokenWithJWT(userId, role);
     const maxAge = rememberMe ? MAX_AGE_REMEMBER : MAX_AGE_NORMAL;
@@ -152,33 +124,23 @@ export async function POST(request: NextRequest) {
           : "/user";
 
     if (isForm) {
-      // Single response object: create once, set cookie on it, return it (no new instance after cookie).
-      const redirectUrl = new URL(targetPath, getBaseUrl());
-      const response = NextResponse.redirect(redirectUrl, 303);
-
+      // Return 200 JSON with Set-Cookie so the browser persists the cookie; client handles redirect.
+      const response = NextResponse.json(
+        { success: true, redirectTo: targetPath },
+        { status: 200, headers: { "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0", Pragma: "no-cache" } }
+      );
       response.cookies.set(getCookieName(), token, cookieOptions);
-
-      // Debug: confirm the same response we return has Set-Cookie (check in PM2 logs).
-      const setCookieHeader = response.headers.get("set-cookie");
-      console.log("[LOGIN] Success redirect: same response object returned. Set-Cookie present:", !!setCookieHeader, "| Headers:", Object.fromEntries(response.headers.entries()));
-
       return response;
     }
 
     const response = NextResponse.json(
-      { token, userId, role, full_name: user.full_name },
+      { token, userId, role, full_name: user.full_name, redirectTo: targetPath },
       { status: 200, headers: { "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0", Pragma: "no-cache" } }
     );
     response.cookies.set(getCookieName(), token, cookieOptions);
     return response;
   } catch (err: unknown) {
     console.error("Login API error:", err);
-    if (isForm) {
-      return NextResponse.redirect(
-        new URL(loginRedirectPath({ error: "Login failed. Please try again." }), getBaseUrl()),
-        302
-      );
-    }
     return NextResponse.json({ error: "Login failed. Please try again." }, { status: 500 });
   } finally {
     client?.release();

@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 
 export default function LoginForm() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const from = searchParams.get("from") || "/user";
   const errorFromUrl = searchParams.get("error");
 
@@ -21,16 +22,36 @@ export default function LoginForm() {
     }
   }, [errorFromUrl]);
 
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email.trim(),
+          password,
+          rememberMe,
+          redirectTo: from,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok) {
+        router.push((data.redirectTo as string) || "/user");
+        return;
+      }
+      setError((data.error as string) ?? "Login failed. Please try again.");
+    } catch {
+      setError("Login failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
-    <form
-      action="/api/auth/login"
-      method="post"
-      onSubmit={() => {
-        setError("");
-        setLoading(true);
-      }}
-    >
-      <input type="hidden" name="redirectTo" value={from} />
+    <form onSubmit={handleSubmit}>
       {error && (
         <div className="form-group">
           <p className="text-danger text-sm-medium">{error}</p>
