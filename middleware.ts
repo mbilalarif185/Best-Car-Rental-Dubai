@@ -1,14 +1,19 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-export function middleware(request: NextRequest) {
-  console.log("---- MIDDLEWARE START ----");
-  console.log("Path:", request.nextUrl.pathname);
-  console.log("All Cookies:", request.cookies.getAll());
-  console.log("Token Cookie:", request.cookies.get("token"));
+const AUTH_COOKIE = "token";
 
-  // No redirects, no JWT verify — allow everything so cookie persists and navigation doesn't log user out.
-  return NextResponse.next();
+export function middleware(request: NextRequest) {
+  const token = request.cookies.get(AUTH_COOKIE)?.value;
+  // No redirects — allow everything. When cookie is present, forward so RSC getSession() can read it.
+  if (!token) {
+    return NextResponse.next();
+  }
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-auth-token", token);
+  return NextResponse.next({
+    request: { headers: requestHeaders },
+  });
 }
 
 export const config = {

@@ -2,10 +2,23 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
+
+/** Wait until server sees the session cookie (poll /api/auth/session). Max ~4s. */
+async function waitForSession(): Promise<void> {
+  const maxAttempts = 20;
+  const intervalMs = 200;
+  for (let i = 0; i < maxAttempts; i++) {
+    const res = await fetch("/api/auth/session", { credentials: "include", cache: "no-store" });
+    const data = await res.json().catch(() => ({ user: null }));
+    if (data?.user) return;
+    await new Promise((r) => setTimeout(r, intervalMs));
+  }
+}
 
 export default function LoginForm() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const from = searchParams.get("from") || "/user";
   const errorFromUrl = searchParams.get("error");
 
@@ -40,10 +53,9 @@ export default function LoginForm() {
       const data = await res.json().catch(() => ({}));
       if (res.ok) {
         const redirectTo = (data.redirectTo as string) || "/user";
-        // Full page redirect so the first load sends the cookie (client-side nav often doesn't on first request).
-        const url = redirectTo.startsWith("http") ? redirectTo : `${window.location.origin}${redirectTo}`;
-        await new Promise((r) => setTimeout(r, 100));
-        window.location.href = url;
+        await waitForSession();
+        await new Promise((r) => setTimeout(r, 300));
+        router.push(redirectTo);
         return;
       }
       setError((data.error as string) ?? "Login failed. Please try again.");
