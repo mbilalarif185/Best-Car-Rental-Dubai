@@ -40,7 +40,11 @@ export default function LoginForm() {
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok) {
-        router.push((data.redirectTo as string) || "/user");
+        const redirectTo = (data.redirectTo as string) || "/user";
+        // Wait until the cookie is visible to the app (fixes "first login" appearing logged out on navigate).
+        await waitForSession();
+        window.dispatchEvent(new CustomEvent("auth-login-success"));
+        router.push(redirectTo);
         return;
       }
       setError((data.error as string) ?? "Login failed. Please try again.");
@@ -48,6 +52,20 @@ export default function LoginForm() {
       setError("Login failed. Please try again.");
     } finally {
       setLoading(false);
+    }
+  }
+
+  /** Give the browser time to persist the cookie and confirm session is available before redirecting. */
+  async function waitForSession(): Promise<void> {
+    for (let i = 0; i < 10; i++) {
+      try {
+        const r = await fetch("/api/auth/session", { credentials: "include", cache: "no-store" });
+        const d = await r.json().catch(() => ({}));
+        if (d?.user) return;
+      } catch {
+        // ignore
+      }
+      await new Promise((resolve) => setTimeout(resolve, 80));
     }
   }
 
