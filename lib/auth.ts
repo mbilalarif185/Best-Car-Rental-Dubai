@@ -16,8 +16,9 @@ const JWT_AUDIENCE = "bcr-web";
 const JWT_EXPIRES_IN = "7d";
 const MAX_AGE_SEC = 60 * 60 * 24 * 7; // 7 days
 
-// For Edge middleware (jose); secret as Uint8Array for jose
-const JWT_SECRET_BYTES = new TextEncoder().encode(JWT_SECRET);
+// JWT_SECRET is base64-encoded; decode to raw bytes for HMAC (sign and verify must use same key).
+const JWT_SECRET_BUFFER = Buffer.from(JWT_SECRET!, "base64");
+const JWT_SECRET_BYTES = new Uint8Array(JWT_SECRET_BUFFER);
 
 export type JWTPayload = {
   userId?: string;
@@ -32,13 +33,13 @@ export function getCookieName(): string {
 }
 
 /**
- * Sign JWT using jsonwebtoken (Node). Payload: { userId, role }, expires in 7 days.
- * Use for login API response.
+ * Sign JWT using jsonwebtoken (Node only). Payload: { userId, role }, expires in 7 days.
+ * Used by login API route (Node runtime). Middleware does NOT run in Node and does NOT call this.
  */
 export function signTokenWithJWT(userId: string, role: string): string {
   return jwt.sign(
     { userId, role },
-    JWT_SECRET,
+    JWT_SECRET_BUFFER,
     {
       expiresIn: JWT_EXPIRES_IN,
       issuer: JWT_ISSUER,
@@ -48,7 +49,8 @@ export function signTokenWithJWT(userId: string, role: string): string {
 }
 
 /**
- * Verify JWT in Edge middleware using jose. Accepts tokens signed by signTokenWithJWT.
+ * Verify JWT using jose (Edge-compatible). Accepts tokens signed by signTokenWithJWT.
+ * Used by getSession() (RSC/API in Node) and can run in Edge. Does NOT use jsonwebtoken.
  */
 export async function verifyToken(token: string): Promise<{ user_id: string; role: string } | null> {
   try {
@@ -60,7 +62,8 @@ export async function verifyToken(token: string): Promise<{ user_id: string; rol
     if (!userId || typeof userId !== "string") return null;
     const role = (payload.role as string) ?? "vendor";
     return { user_id: userId, role };
-  } catch {
+  } catch (err) {
+    console.error("[AUTH] JWT verification failed:", err instanceof Error ? err.message : String(err), "| token length:", token?.length ?? 0);
     return null;
   }
 }

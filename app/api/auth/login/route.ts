@@ -133,6 +133,11 @@ export async function POST(request: NextRequest) {
 
     const userId = String(user.id);
     const role = String(user.role);
+
+    // Debug: confirm JWT is signed with process.env.JWT_SECRET (Node runtime).
+    const secret = process.env.JWT_SECRET;
+    console.log("[LOGIN] JWT_SECRET defined:", !!secret, "| length:", secret ? secret.length : 0);
+
     const token = signTokenWithJWT(userId, role);
     const maxAge = rememberMe ? MAX_AGE_REMEMBER : MAX_AGE_NORMAL;
     const cookieOptions = getCookieOptions(maxAge);
