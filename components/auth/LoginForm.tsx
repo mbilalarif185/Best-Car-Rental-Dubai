@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 
 export default function LoginForm() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const from = searchParams.get("from") || "/user";
   const errorFromUrl = searchParams.get("error");
 
@@ -40,8 +41,9 @@ export default function LoginForm() {
       const data = await res.json().catch(() => ({}));
       if (res.ok) {
         const redirectTo = (data.redirectTo as string) || "/user";
-        // Full page redirect so the browser sends the cookie on the next request (fixes first-login appearing logged out).
-        window.location.href = redirectTo;
+        // Short delay so the browser commits the Set-Cookie before we navigate (helps first login).
+        await new Promise((r) => setTimeout(r, 200));
+        router.push(redirectTo);
         return;
       }
       setError((data.error as string) ?? "Login failed. Please try again.");
