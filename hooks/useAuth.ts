@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import { usePathname } from "next/navigation";
 
 export type AuthUser = {
   id: string;
@@ -10,21 +11,23 @@ export type AuthUser = {
 };
 
 export function useAuth() {
+  const pathname = usePathname();
   const [user, setUser] = useState<AuthUser | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const refresh = () => {
+  const refresh = useCallback(() => {
     setLoading(true);
     fetch("/api/auth/session", { credentials: "include", cache: "no-store" })
       .then((res) => res.json())
       .then((data) => setUser(data.user ?? null))
       .catch(() => setUser(null))
       .finally(() => setLoading(false));
-  };
+  }, []);
 
+  // Refetch session on every route change so header shows correct state after login or when leaving dashboard.
   useEffect(() => {
     refresh();
-  }, []);
+  }, [pathname, refresh]);
 
   return { user, loading, refresh };
 }

@@ -14,7 +14,7 @@ export default async function AgentDashboardHomePage({
   searchParams: Promise<{ page?: string; status?: string }>;
 }) {
   const session = await getSession();
-  if (session.role !== "admin") {
+  if (!session || session.role !== "admin") {
     redirect("/user");
   }
 
