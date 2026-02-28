@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { jwtVerify } from "jose";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 
 if (process.env.NODE_ENV === "production" && !process.env.JWT_SECRET) {
   throw new Error("Production requires JWT_SECRET environment variable.");
@@ -68,10 +68,13 @@ export async function verifyToken(token: string): Promise<{ user_id: string; rol
   }
 }
 
-/** Get session from request cookie (API routes / server components). */
+/** Get session from request cookie or x-auth-token header (set by middleware). */
 export async function getSession(): Promise<{ user_id: string; email: string; role: string } | null> {
+  const headersList = await headers();
+  const tokenFromHeader = headersList.get("x-auth-token");
   const cookieStore = await cookies();
-  const token = cookieStore.get(COOKIE_NAME)?.value;
+  const tokenFromCookie = cookieStore.get(COOKIE_NAME)?.value;
+  const token = tokenFromHeader ?? tokenFromCookie;
   if (!token) return null;
   const payload = await verifyToken(token);
   if (!payload) return null;
