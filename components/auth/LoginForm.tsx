@@ -2,23 +2,10 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
-
-/** Poll session API until server sees the cookie (max 3s). Fixes first-navigation logged-out. */
-async function waitForSession(): Promise<void> {
-  const maxAttempts = 15;
-  const intervalMs = 200;
-  for (let i = 0; i < maxAttempts; i++) {
-    const res = await fetch("/api/auth/session", { credentials: "include", cache: "no-store" });
-    const data = await res.json().catch(() => ({ user: null }));
-    if (data?.user) return;
-    await new Promise((r) => setTimeout(r, intervalMs));
-  }
-}
+import { useSearchParams } from "next/navigation";
 
 export default function LoginForm() {
   const searchParams = useSearchParams();
-  const router = useRouter();
   const from = searchParams.get("from") || "/user";
   const errorFromUrl = searchParams.get("error");
 
@@ -53,9 +40,10 @@ export default function LoginForm() {
       const data = await res.json().catch(() => ({}));
       if (res.ok) {
         const redirectTo = (data.redirectTo as string) || "/user";
-        // Wait until the session cookie is visible to the server (fixes "logged out on first navigation").
-        await waitForSession();
-        router.push(redirectTo);
+        // Full page redirect so the first load sends the cookie (client-side nav often doesn't on first request).
+        const url = redirectTo.startsWith("http") ? redirectTo : `${window.location.origin}${redirectTo}`;
+        await new Promise((r) => setTimeout(r, 100));
+        window.location.href = url;
         return;
       }
       setError((data.error as string) ?? "Login failed. Please try again.");
