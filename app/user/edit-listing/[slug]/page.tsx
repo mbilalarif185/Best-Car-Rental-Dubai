@@ -93,7 +93,7 @@ export default function EditListingPage() {
   const [carError, setCarError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/api/features")
+    fetch("/api/features", { cache: "no-store" })
       .then((res) => res.json())
       .then((data) => {
         const apiFeatures = data.features ?? [];
@@ -113,7 +113,7 @@ export default function EditListingPage() {
       setLoadingCar(false);
       return;
     }
-    fetch(`/api/user/cars/${encodeURIComponent(slug)}`)
+    fetch(`/api/user/cars/${encodeURIComponent(slug)}`, { credentials: "include", cache: "no-store" })
       .then(async (res) => {
         const data = await res.json().catch(() => ({}));
         if (!res.ok) {

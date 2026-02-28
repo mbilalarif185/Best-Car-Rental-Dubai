@@ -44,7 +44,7 @@ export default function UserProfilePage() {
     let cancelled = false;
     async function load() {
       try {
-        const res = await fetch("/api/vendor/profile", { credentials: "include" });
+        const res = await fetch("/api/vendor/profile", { credentials: "include", cache: "no-store" });
         const data = await res.json().catch(() => ({}));
         if (cancelled) return;
         setVendor(res.ok ? (data.vendor ?? null) : null);

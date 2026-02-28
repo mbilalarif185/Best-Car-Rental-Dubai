@@ -20,7 +20,7 @@ export default function UserSidebar() {
     let cancelled = false;
     async function load() {
       try {
-        const res = await fetch("/api/vendor/profile", { credentials: "include" });
+        const res = await fetch("/api/vendor/profile", { credentials: "include", cache: "no-store" });
         const data = await res.json().catch(() => ({}));
         if (cancelled) return;
         const full_name = typeof data.full_name === "string" ? data.full_name : "";
