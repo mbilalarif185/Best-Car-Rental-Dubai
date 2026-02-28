@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 /** Wait until server sees the session cookie (poll /api/auth/session). Max ~4s. */
 async function waitForSession(): Promise<void> {
@@ -18,7 +18,6 @@ async function waitForSession(): Promise<void> {
 
 export default function LoginForm() {
   const searchParams = useSearchParams();
-  const router = useRouter();
   const from = searchParams.get("from") || "/user";
   const errorFromUrl = searchParams.get("error");
 
@@ -55,7 +54,9 @@ export default function LoginForm() {
         const redirectTo = (data.redirectTo as string) || "/user";
         await waitForSession();
         await new Promise((r) => setTimeout(r, 300));
-        router.push(redirectTo);
+        // Full page redirect so the first load sends the cookie (client-side router.push often doesn't on first nav).
+        const url = redirectTo.startsWith("http") ? redirectTo : `${window.location.origin}${redirectTo}`;
+        window.location.assign(url);
         return;
       }
       setError((data.error as string) ?? "Login failed. Please try again.");
