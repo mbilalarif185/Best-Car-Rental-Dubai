@@ -29,13 +29,6 @@ export function useAuth() {
     refresh();
   }, [pathname, refresh]);
 
-  // Also refresh when login form reports success (cookie just set, before navigation).
-  useEffect(() => {
-    const onLoginSuccess = () => refresh();
-    window.addEventListener("auth-login-success", onLoginSuccess);
-    return () => window.removeEventListener("auth-login-success", onLoginSuccess);
-  }, [refresh]);
-
   return { user, loading, refresh };
 }
 
