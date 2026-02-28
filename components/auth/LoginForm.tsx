@@ -54,9 +54,12 @@ export default function LoginForm() {
         const redirectTo = (data.redirectTo as string) || "/user";
         await waitForSession();
         await new Promise((r) => setTimeout(r, 300));
-        // Full page redirect so the first load sends the cookie (client-side router.push often doesn't on first nav).
-        const url = redirectTo.startsWith("http") ? redirectTo : `${window.location.origin}${redirectTo}`;
-        window.location.assign(url);
+        // Navigate via form GET so the browser sends the cookie on the first load (avoids router/full-URL issues).
+        const form = document.createElement("form");
+        form.method = "GET";
+        form.action = redirectTo.startsWith("http") ? redirectTo : `${window.location.origin}${redirectTo}`;
+        document.body.appendChild(form);
+        form.submit();
         return;
       }
       setError((data.error as string) ?? "Login failed. Please try again.");
