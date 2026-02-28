@@ -39,6 +39,16 @@ function loginRedirectPath(params: { error?: string; from?: string }): string {
   return query ? `/login?${query}` : "/login";
 }
 
+/** Base URL for redirects — use public site URL so redirects don't go to localhost behind proxy. */
+function getBaseUrl(): string {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  if (baseUrl) return baseUrl;
+  if (process.env.NODE_ENV === "production") {
+    throw new Error("NEXT_PUBLIC_SITE_URL is required for login redirects in production.");
+  }
+  return "http://localhost:3000";
+}
+
 export async function POST(request: NextRequest) {
   const contentType = request.headers.get("content-type") || "";
   const isForm = contentType.includes("application/x-www-form-urlencoded") || contentType.includes("multipart/form-data");
@@ -69,7 +79,7 @@ export async function POST(request: NextRequest) {
   if (!email || !password) {
     if (isForm) {
       return NextResponse.redirect(
-        new URL(loginRedirectPath({ error: "Email and password are required." }), request.nextUrl.origin),
+        new URL(loginRedirectPath({ error: "Email and password are required." }), getBaseUrl()),
         302
       );
     }
@@ -89,7 +99,7 @@ export async function POST(request: NextRequest) {
     if (result.rows.length === 0) {
       if (isForm) {
         return NextResponse.redirect(
-          new URL(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), request.nextUrl.origin),
+          new URL(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), getBaseUrl()),
           302
         );
       }
@@ -102,7 +112,7 @@ export async function POST(request: NextRequest) {
     if (hash == null || typeof hash !== "string") {
       if (isForm) {
         return NextResponse.redirect(
-          new URL(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), request.nextUrl.origin),
+          new URL(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), getBaseUrl()),
           302
         );
       }
@@ -113,7 +123,7 @@ export async function POST(request: NextRequest) {
     if (!match) {
       if (isForm) {
         return NextResponse.redirect(
-          new URL(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), request.nextUrl.origin),
+          new URL(loginRedirectPath({ error: "Invalid email or password.", from: redirectTo }), getBaseUrl()),
           302
         );
       }
@@ -137,7 +147,7 @@ export async function POST(request: NextRequest) {
 
     if (isForm) {
       const response = NextResponse.redirect(
-        new URL(targetPath, request.nextUrl.origin),
+        new URL(targetPath, getBaseUrl()),
         302
       );
 
@@ -155,7 +165,7 @@ export async function POST(request: NextRequest) {
     console.error("Login API error:", err);
     if (isForm) {
       return NextResponse.redirect(
-        new URL(loginRedirectPath({ error: "Login failed. Please try again." }), request.nextUrl.origin),
+        new URL(loginRedirectPath({ error: "Login failed. Please try again." }), getBaseUrl()),
         302
       );
     }
