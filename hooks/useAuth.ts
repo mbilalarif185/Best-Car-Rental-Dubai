@@ -15,7 +15,7 @@ export function useAuth() {
 
   const refresh = () => {
     setLoading(true);
-    fetch("/api/auth/session", { credentials: "include" })
+    fetch("/api/auth/session", { credentials: "include", cache: "no-store" })
       .then((res) => res.json())
       .then((data) => setUser(data.user ?? null))
       .catch(() => setUser(null))
