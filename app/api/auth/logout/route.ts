@@ -26,19 +26,16 @@ function getBaseUrl(): string {
   return baseUrl;
 }
 
-/** Return 200 with Set-Cookie clear so the browser actually clears the cookie (302 + Set-Cookie often doesn't persist). */
 export async function GET(_request: NextRequest) {
   const baseUrl = getBaseUrl();
-  const response = new NextResponse(
-    `<!DOCTYPE html><html><head><meta http-equiv="Refresh" content="0;url=${baseUrl}/"/><script>window.location.href="${baseUrl.replace(/"/g, '\\"')}/";</script></head><body>Signing out…</body></html>`,
-    { status: 200, headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" } }
-  );
+  const response = NextResponse.redirect(new URL("/", baseUrl), 302);
   response.cookies.set(getCookieName(), "", getCookieOptions());
   return response;
 }
 
 export async function POST(_request: NextRequest) {
-  const response = NextResponse.json({ success: true }, { status: 200, headers: { "Cache-Control": "no-store" } });
+  const baseUrl = getBaseUrl();
+  const response = NextResponse.redirect(new URL("/", baseUrl), 302);
   response.cookies.set(getCookieName(), "", getCookieOptions());
   return response;
 }

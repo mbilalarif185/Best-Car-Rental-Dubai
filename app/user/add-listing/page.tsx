@@ -68,7 +68,7 @@ export default function AddListingPage() {
   const [carLimitInfo, setCarLimitInfo] = useState<{ limit: number; current: number } | null>(null);
 
   useEffect(() => {
-    fetch("/api/vendor/profile", { credentials: "include", cache: "no-store" })
+    fetch("/api/vendor/profile", { credentials: "include" })
       .then((res) => res.json())
       .then((data) => {
         const v = data.vendor;
@@ -97,7 +97,7 @@ export default function AddListingPage() {
   }, [profileBlocked, router]);
 
   useEffect(() => {
-    fetch("/api/features", { cache: "no-store" })
+    fetch("/api/features")
       .then((res) => res.json())
       .then((data) => {
         const apiFeatures = data.features ?? [];

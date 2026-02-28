@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+import { getSession } from "@/lib/auth";
 import { getAgentVendorsList } from "@/lib/agent-dashboard";
 import { getAgentCarsList } from "@/lib/agent-approvals";
 import AgentApprovalsVendorsSection from "@/components/dashboard/AgentApprovalsVendorsSection";
@@ -6,6 +8,11 @@ import AgentApprovalsCarsSection from "@/components/dashboard/AgentApprovalsCars
 export const dynamic = "force-dynamic";
 
 export default async function AgentApprovalsPage() {
+  const session = await getSession();
+  if (session.role !== "admin") {
+    redirect("/user");
+  }
+
   const [vendorsResult, carsResult] = await Promise.all([
     getAgentVendorsList({ page: 1, limit: 10, status: "all" }),
     getAgentCarsList({ page: 1, limit: 10, status: "pending" }),

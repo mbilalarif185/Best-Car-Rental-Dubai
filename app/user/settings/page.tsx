@@ -70,7 +70,7 @@ export default function UserSettingsPage() {
     let cancelled = false;
     async function load() {
       try {
-        const res = await fetch("/api/vendor/profile", { credentials: "include", cache: "no-store" });
+        const res = await fetch("/api/vendor/profile", { credentials: "include" });
         const data = await res.json().catch(() => ({}));
         if (cancelled) return;
         if (!res.ok) {

@@ -101,7 +101,7 @@ export default function AgentVendorsSection({
       try {
         const res = await fetch(
           `/api/agent/vendors?status=${newStatus}&page=${newPage}&limit=10`,
-          { credentials: "include", cache: "no-store" }
+          { credentials: "include" }
         );
         if (!res.ok) return;
         const data = await res.json();

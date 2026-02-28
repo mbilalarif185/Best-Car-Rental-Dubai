@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+import { getSession } from "@/lib/auth";
 import {
   getAgentDashboardData,
   type VendorStatusFilter,
@@ -11,6 +13,11 @@ export default async function AgentDashboardHomePage({
 }: {
   searchParams: Promise<{ page?: string; status?: string }>;
 }) {
+  const session = await getSession();
+  if (session.role !== "admin") {
+    redirect("/user");
+  }
+
   const params = await searchParams;
   const page = Math.max(1, parseInt(params?.page ?? "1", 10) || 1);
   const statusParam = params?.status;

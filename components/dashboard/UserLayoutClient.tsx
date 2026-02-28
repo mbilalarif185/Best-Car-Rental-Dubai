@@ -37,7 +37,7 @@ export default function UserLayoutClient({
     let cancelled = false;
     (async () => {
       try {
-        const res = await fetch("/api/vendor/profile", { credentials: "include", cache: "no-store" });
+        const res = await fetch("/api/vendor/profile", { credentials: "include" });
         const data = await res.json().catch(() => ({}));
         if (cancelled) return;
         const full_name = typeof data.full_name === "string" ? data.full_name : "";

@@ -111,7 +111,7 @@ export default function AgentApprovalsCarsSection({
     try {
       const res = await fetch(
         `/api/agent/cars?status=${newStatus}&page=${newPage}&limit=10`,
-        { credentials: "include", cache: "no-store" }
+        { credentials: "include" }
       );
       if (!res.ok) return;
       const data = await res.json();
