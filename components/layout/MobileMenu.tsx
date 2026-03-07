@@ -319,13 +319,13 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 										)}
 										{!loading && user && (
 											<li className="mt-2 mobile-menu-login-btn">
-												<Link
+												<a
 													href="/api/auth/logout"
 													onClick={closeMenu}
 													className="btn btn-sm btn-brand-2 text-dark text-center d-inline-block"
 												>
 													Logout
-												</Link>
+												</a>
 											</li>
 										)}
 										{!loading && !user && (

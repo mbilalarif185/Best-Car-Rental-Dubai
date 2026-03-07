@@ -1,7 +1,71 @@
-import { redirect } from "next/navigation";
 import pool from "@/lib/db";
-import { getSession } from "@/lib/auth";
 import { toPublicUrl } from "@/lib/uploads";
+import type { ProfileData } from "@/lib/profileCompletion";
+
+export type VendorSidebarData = {
+  companyName: string;
+  avatarUrl: string;
+  fullName: string;
+  vendor: ProfileData["vendor"];
+};
+
+/**
+ * Lightweight vendor data for sidebar so first navigation shows user data instead of defaults.
+ */
+export async function getVendorSidebarData(
+  userId: string
+): Promise<VendorSidebarData | null> {
+  const client = await pool.connect();
+  try {
+    const row = await client.query<{
+      company_name: string | null;
+      avatar_url: string | null;
+      company_logo_url: string | null;
+      business_email: string | null;
+      contact_number: string | null;
+      bio: string | null;
+      country: string | null;
+      city: string | null;
+      address: string | null;
+      facebook_url: string | null;
+      instagram_url: string | null;
+      youtube_url: string | null;
+      full_name: string | null;
+    }>(
+      `SELECT v.company_name, v.avatar_url, v.company_logo_url, v.business_email,
+              v.contact_number, v.bio, v.country, v.city, v.address,
+              v.facebook_url, v.instagram_url, v.youtube_url, u.full_name
+       FROM vendors v
+       INNER JOIN users u ON u.id = v.user_id
+       WHERE v.user_id = $1`,
+      [userId]
+    );
+    if (row.rows.length === 0) return null;
+    const r = row.rows[0];
+    const vendor: ProfileData["vendor"] = {
+      company_name: r.company_name,
+      business_email: r.business_email,
+      contact_number: r.contact_number,
+      bio: r.bio,
+      country: r.country,
+      city: r.city,
+      address: r.address,
+      avatar_url: r.avatar_url ? toPublicUrl(r.avatar_url) : null,
+      company_logo_url: r.company_logo_url ? toPublicUrl(r.company_logo_url) : null,
+      facebook_url: r.facebook_url,
+      instagram_url: r.instagram_url,
+      youtube_url: r.youtube_url,
+    };
+    return {
+      companyName: r.company_name?.trim() ?? "",
+      avatarUrl: r.avatar_url ? toPublicUrl(r.avatar_url) : "",
+      fullName: r.full_name?.trim() ?? "",
+      vendor,
+    };
+  } finally {
+    client.release();
+  }
+}
 
 export type VendorDashboardVendor = {
   id: string;

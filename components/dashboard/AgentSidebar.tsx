@@ -61,9 +61,9 @@ export default function AgentSidebar() {
             );
           })}
           <li className="py-2">
-            <Link href="/api/auth/logout">
+            <a href="/api/auth/logout">
               <i className="fi fi-rr-sign-out me-1" /> Logout
-            </Link>
+            </a>
           </li>
         </ul>
       </div>

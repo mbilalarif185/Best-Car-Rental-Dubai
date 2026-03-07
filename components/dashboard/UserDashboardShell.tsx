@@ -1,16 +1,19 @@
 import UserSidebar from "./UserSidebar";
 import Header from "@/components/about_sections/header";
+import type { VendorSidebarData } from "@/lib/dashboard";
 
 interface UserDashboardShellProps {
   title: string;
   breadcrumbLabel: string;
   children: React.ReactNode;
+  initialSidebarData?: VendorSidebarData | null;
 }
 
 export default function UserDashboardShell({
   title,
   breadcrumbLabel,
   children,
+  initialSidebarData,
 }: UserDashboardShellProps) {
   return (
     <div className="main">
@@ -24,7 +27,7 @@ export default function UserDashboardShell({
         <div className="container">
           <div className="row">
             <div className="col-xl-3 col-lg-4">
-              <UserSidebar />
+              <UserSidebar initialSidebarData={initialSidebarData} />
             </div>
             <div className="col-xl-9 col-lg-8">{children}</div>
           </div>

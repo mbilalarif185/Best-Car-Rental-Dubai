@@ -11,7 +11,7 @@ export default function AuthMenuButton({ className = "" }: { className?: string 
   }
 
   if (user) {
-    return <Link className={className} href="/api/auth/logout">Logout</Link>;
+    return <a className={className} href="/api/auth/logout">Logout</a>;
   }
 
   return <Link className={className} href="/login">Log in</Link>;

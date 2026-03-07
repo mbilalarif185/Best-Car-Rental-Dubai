@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { getProfileCompletionPercent, COMPLETION_THRESHOLD } from "@/lib/profileCompletion";
+import type { VendorSidebarData } from "@/lib/dashboard";
 
 const DEFAULT_AVATAR = "/assets/imgs/template/best-car-rental-dubai.webp";
 
@@ -11,10 +12,25 @@ function imageSrc(url: string | null | undefined): string {
   return url.startsWith("/") ? url : `/${url}`;
 }
 
-export default function UserSidebar() {
-  const [completionPercent, setCompletionPercent] = useState<number | null>(null);
-  const [companyName, setCompanyName] = useState<string>("");
-  const [avatarUrl, setAvatarUrl] = useState<string>("");
+export default function UserSidebar({
+  initialSidebarData,
+}: {
+  initialSidebarData?: VendorSidebarData | null;
+} = {}) {
+  const [completionPercent, setCompletionPercent] = useState<number | null>(
+    initialSidebarData
+      ? getProfileCompletionPercent({
+          full_name: initialSidebarData.fullName,
+          vendor: initialSidebarData.vendor,
+        })
+      : null
+  );
+  const [companyName, setCompanyName] = useState<string>(
+    initialSidebarData?.companyName ?? ""
+  );
+  const [avatarUrl, setAvatarUrl] = useState<string>(
+    initialSidebarData?.avatarUrl ?? ""
+  );
 
   useEffect(() => {
     let cancelled = false;
@@ -113,9 +129,9 @@ export default function UserSidebar() {
             </Link>
           </li>
           <li className="py-2">
-            <Link href="/api/auth/logout">
+            <a href="/api/auth/logout">
               <i className="fi fi-rr-sign-out me-1" /> Logout
-            </Link>
+            </a>
           </li>
         </ul>
       </div>

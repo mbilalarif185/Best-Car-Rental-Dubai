@@ -9,8 +9,8 @@ export const dynamic = "force-dynamic";
 
 export default async function AgentApprovalsPage() {
   const session = await getSession();
-  if (session.role !== "admin") {
-    redirect("/user");
+  if (!session || session.role !== "admin") {
+    redirect("/login");
   }
 
   const [vendorsResult, carsResult] = await Promise.all([

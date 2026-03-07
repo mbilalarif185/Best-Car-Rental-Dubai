@@ -4,6 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import UserDashboardShell from "./UserDashboardShell";
 import { getProfileCompletionPercent, COMPLETION_THRESHOLD } from "@/lib/profileCompletion";
+import type { VendorSidebarData } from "@/lib/dashboard";
 
 const TITLES: Record<string, { title: string; breadcrumb: string }> = {
   "/user": { title: "User Dashboard", breadcrumb: "User Dashboard" },
@@ -22,8 +23,10 @@ function isListingPath(path: string) {
 
 export default function UserLayoutClient({
   children,
+  initialSidebarData,
 }: {
   children: React.ReactNode;
+  initialSidebarData?: VendorSidebarData | null;
 }) {
   const pathname = usePathname();
   const router = useRouter();
@@ -81,7 +84,7 @@ export default function UserLayoutClient({
   }
 
   return (
-    <UserDashboardShell title={title} breadcrumbLabel={breadcrumb}>
+    <UserDashboardShell title={title} breadcrumbLabel={breadcrumb} initialSidebarData={initialSidebarData ?? undefined}>
       {children}
     </UserDashboardShell>
   );
